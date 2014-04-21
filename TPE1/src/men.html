@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>HCI</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ElegantCart - A Premium Open Cart Template" />
+<link href="images/cart.png" rel="icon" />
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/camera.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/carousel.css" media="screen" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.16.custom.css" />
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/colorbox.css" media="screen" />
+
+<script type="text/javascript" src="js/tabs.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/elegantcart_custom.js"></script>
+<script type="text/javascript" src="js/cloud_zoom.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/camera.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie8.css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+<script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#logo img');
+</script>
+<![endif]-->
+</head>
+<body>
+<div id="container">
+
+<div id="header">
+    <div id="logo"><a href="#"><img src="images/logo.png" title="HCI" alt="HCI" /></a></div>
+  
+    <div id="welcome">
+            Bienvenido, <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/login">inicia sesión</a> o <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/register">crea una nueva cuenta </a>.          </div>
+   
+    <div class="links" id="header_links"><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist" id="wishlist-total">Wish List (0)</a> <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart">Shopping Cart</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/checkout">Checkout</a></div>
+    <div id="cart">
+  <div class="heading">
+    <h4>Shopping Cart</h4>
+    <a><span id="cart-total">0 item(s) - $0.00</span></a></div>
+  <div class="content">
+        <div class="empty">¡Tu carrito de compras está vacío!</div>
+        
+    <div class="cart-arrow"></div>
+  </div>
+</div>
+
+
+  <div id='header_btm'>
+    <div id="search">
+      <div class="search_inside">
+                <input type="text" name="filter_name" value="Buscar" onclick="this.value = '';" onkeydown="this.style.color = '#444444';" />
+                <div class="button-search"></div>
+      </div>
+    </div>
+        
+<script type="text/javascript">
+$(document).ready(function(){ 
+    co_w = $('#c_options').width();
+    $('#c_switcher').css('width',(co_w + 10)+'px');
+    $('#c_switcher').hover(function(){
+      $('#c_options').slideDown(200);
+    },function(){
+      $('#c_options').slideUp(200);
+    });
+});   
+</script>  
+
+<form action="http://blueowlcreative.com/elegantcart/index.php?route=module/currency" method="post" enctype="multipart/form-data">
+  <div id="currency">
+      <div id="c_switcher">
+                   
+           
+                     
+           
+                     
+                    <span class="c_selected">US Dollar</span>
+           
+              
+          <div id="c_options" style="display: none;">
+                           
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'EUR').submit(); $(this).parent().parent().parent().parent().submit();">Euro</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'GBP').submit(); $(this).parent().parent().parent().parent().submit();">Pound Sterling</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'USD').submit(); $(this).parent().parent().parent().parent().submit();">US Dollar</a>
+                
+          </div>
+         </div>
+    <input type="hidden" name="currency_code" value="" />
+    <input type="hidden" name="redirect" value="http://blueowlcreative.com/elegantcart/index.php?route=common/home" />          
+  </div>
+</form>
+  </div>
+ 
+</div>
+
+<div id="menu-holder" class="hidden-phone">
+<div id="menu">
+  <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home"><span class='home_icon'></span></a></li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/clothing">Ropa</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/women-clothing">Mujer</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing">Hombre</a></li>
+                  <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/clothing">Infantil</a></li>
+              </ul>
+          </div>
+        </li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/shoes">Calzado</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Casual</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Noche</a></li>
+                    <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/shoes">Deportivo</a></li>
+                </ul>
+            </div>
+        </li>
+        
+        <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Joyas</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_29">Anillos</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Pulseras</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Collares</a></li>
+                </ul>
+            </div>
+        </li>
+
+    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Otros</a></li>
+
+    </ul>
+</div>
+</div>
+
+
+<!-- PHONE::Start -->
+
+<div id="menu-phone" class="shown-phone" style="display: none;">
+  <div id="menu-phone-button">Menu</div>
+  <select id="menu-phone-select" onchange="location = this.value">
+    <option value=""></option>
+        <option value="http://blueowlcreative.com/elegantcart/clothing">Ropa</option>
+        <option value="http://blueowlcreative.com/elegantcart/shoes">Calzado</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Joyas</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Otros</option>
+      </select>
+</div>
+
+<script type="text/javascript">
+  // Bind the Phone menu dropdown
+  $('#menu-phone-button').bind('click', function() {
+    $("#menu-phone-select").css({'opacity':'1'});
+  });
+</script>
+
+<!-- PHONE::End -->
+
+<div id="notification"></div>
+<div id="column-left">
+    <div class="box">
+  <div class="box-heading">Categories</div>
+  <div class="box-content">
+    <div class="box-category">
+      <ul>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/clothing" class="active">Clothing</a>
+                              <ul>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/clothing/women-clothing">Women Clothing</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing" class="active">Men Clothing</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/clothing">Infant Clothing</a>
+                          </li>
+                      </ul>
+                  </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/shoes">Shoes</a>
+                              <ul>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/shoes">Casual shoes</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/shoes">Fancy shoes</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/shoes">Sports shoes</a>
+                          </li>
+                      </ul>
+                  </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Accessories</a>
+                            </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Jewellery</a>
+                              <ul>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_29">Rings</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Bracelets</a>
+                          </li>
+                        <li>
+                            <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_32">Other</a>
+                          </li>
+                      </ul>
+                  </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=17">Furniture</a>
+                            </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=60">Sweets &amp; Candy</a>
+                            </li>
+                <li>
+                    <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=59">Unique Gifts</a>
+                            </li>
+              </ul>
+    </div>
+  </div>
+</div>
+      <h1 class="general_heading">Featured</h1>
+        
+  <div class="products_container">
+    <div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=47"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/sh-64x64.jpg" alt="Shiny Pump Shoes" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=47">Shiny Pump Shoes</a></div>
+		        		        <div class="price">
+		          		          $129.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('47');"><span>Add to Cart</span></a></div>
+			</div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=49"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/couch3-64x64.jpg" alt="Leather Couch" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=49">Leather Couch</a></div>
+		        		        <div class="price">
+		          		          $1,499.99		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('49');"><span>Add to Cart</span></a></div>
+			</div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=43"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/watch-64x64.jpg" alt="Cute Ladies' Watch" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=43">Cute Ladies' Watch</a></div>
+		        		        <div class="price">
+		          		          $699.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('43');"><span>Add to Cart</span></a></div>
+			</div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	    	    <div class="special_promo"></div>	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/test"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/bike-64x64.jpg" alt="Small Leather Purse" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/test">Small Leather Purse</a></div>
+		        		        <div class="price">
+		          		          <span class="price-old">$299.00</span> <span class="price-new">$269.00</span>
+		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('42');"><span>Add to Cart</span></a></div>
+			</div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=46"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/bracelet-64x64.jpg" alt="Golden Bracelet" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=46">Golden Bracelet</a></div>
+		        		        <div class="price">
+		          		          $89.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('46');"><span>Add to Cart</span></a></div>
+			</div>
+	   </div>
+	</div>    
+  </div>    <div id="banner0" class="banner">
+      <div><img src="http://blueowlcreative.com/elegantcart/image/cache/data/free_shipping-180x180.png" alt="Free Shipping" title="Free Shipping" /></div>
+    </div>
+<script type="text/javascript"><!--
+$(document).ready(function() {
+	$('#banner0 div:first-child').css('display', 'block');
+});
+
+var banner = function() {
+	$('#banner0').cycle({
+		before: function(current, next) {
+			$(next).parent().height($(next).outerHeight());
+		}
+	});
+}
+
+setTimeout(banner, 2000);
+//--></script>      <h1 class="general_heading">Specials</h1>
+        
+  <div class="products_container">
+    <div class='product_holder'>
+		<div class='product_holder_inside'>	
+
+	    	    <div class="special_promo"></div>	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/test"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/bike-64x64.jpg" alt="Small Leather Purse" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/test">Small Leather Purse</a></div>
+		        		        <div class="price">
+		          		          <span class="price-old">$299.00</span> <span class="price-new">$269.00</span>
+		          		        </div>
+		        		        <div class="cart"><a class="button" onclick="addToCart('42');"><span>Add to Cart</span></a></div>
+	        </div>
+	   </div>
+	</div>    
+  </div>  </div>
+ 
+<div id="content" class="inside_page"><!-- Custom Styles -->
+<style>
+ 
+
+  
+ 
+ </style>
+
+<script type="text/javascript">
+	fading_effects = 1;
+</script>  <div class="breadcrumb">
+        <a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a>
+         &raquo; <a href="http://blueowlcreative.com/elegantcart/clothing">Clothing</a>
+         &raquo; <a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing">Men Clothing</a>
+      </div>
+
+  <div class="category-info">
+        
+    <h1>Men Clothing</h1>
+    
+      </div>
+
+      <div class="product-filter">
+    <div class="display"><b>Display:</b> &nbsp;&nbsp;<a onclick="display('list');" class="list_view_link">List</a>   <a onclick="display('grid');" class="grid_view_link_active">Grid</a></div>
+    <div class="product-compare"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/compare" id="compare-total">Product Compare (0)</a></div>
+    <div class="limit"><b>Show:</b>
+      <select onchange="location = this.value;">
+
+ 
+ 
+
+      	
+                        <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?limit=16" selected="selected">16</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?limit=32">32</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?limit=64">64</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?limit=100">100</option>
+                  
+      </select>
+    </div>
+    <div class="sort"><b>Sort By:</b>
+      <select onchange="location = this.value;">
+                        <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=p.sort_order&order=ASC" selected="selected">Default</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=pd.name&order=ASC">Name (A - Z)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=pd.name&order=DESC">Name (Z - A)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=p.price&order=ASC">Price (Low &gt; High)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=p.price&order=DESC">Price (High &gt; Low)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=rating&order=DESC">Rating (Highest)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=rating&order=ASC">Rating (Lowest)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=p.model&order=ASC">Model (A - Z)</option>
+                                <option value="http://blueowlcreative.com/elegantcart/clothing/men-clothing?sort=p.model&order=DESC">Model (Z - A)</option>
+                      </select>
+    </div>
+  </div>
+  <div class="product-grid">
+    <div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=45"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/gold_ring-132x132.jpg" title="Golden Ring" alt="Golden Ring" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=45">Golden Ring</a></div>
+      <div class="description">
+	Beginning with an angled transducer, the 700 angles sound to mimic the positioning of a set of re..</div>
+            <div class="price">
+                $899.00                        <br />
+        <span class="price-tax">Ex Tax: $899.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('45');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('45');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('45');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=33"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/ring-132x132.jpg" title="Heart Shaped Ring" alt="Heart Shaped Ring" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=33">Heart Shaped Ring</a></div>
+      <div class="description">
+	The Sony Ericsson Xperia arc (Xperia X12) is an Android smartphone from Sony Ericsson. It was lau..</div>
+            <div class="price">
+                $499.00                        <br />
+        <span class="price-tax">Ex Tax: $499.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('33');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('33');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('33');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=44"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/chain-132x132.jpg" title="Silver Chain Bracelet" alt="Silver Chain Bracelet" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=44">Silver Chain Bracelet</a></div>
+      <div class="description">
+	The Onitsuka Tiger by asics Mini Cooper shoes is designed with White uppers, Black Onitsuka Tiger..</div>
+            <div class="price">
+                $179.00                        <br />
+        <span class="price-tax">Ex Tax: $179.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('44');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('44');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('44');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=34"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/glasses2-132x132.jpg" title="Sunglasses Carrera" alt="Sunglasses Carrera" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=34">Sunglasses Carrera</a></div>
+      <div class="description">
+	Born to be worn.
+	
+		Clip on the worlds most wearable music player and take up to 240 songs wit..</div>
+            <div class="price">
+                $100.00                        <br />
+        <span class="price-tax">Ex Tax: $100.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('34');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('34');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('34');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=29"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/carrera1-132x132.jpg" title="TAG Carrera" alt="TAG Carrera" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=29">TAG Carrera</a></div>
+      <div class="description">
+	Limited Edition TAG Monoco sporting a calibre 36 automatic movement running at 36,000 vibrations ..</div>
+            <div class="price">
+                $5,799.00                        <br />
+        <span class="price-tax">Ex Tax: $5,799.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('29');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('29');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('29');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=41"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/chair-132x132.jpg" title="XAVIA - Rocking Chair" alt="XAVIA - Rocking Chair" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=41">XAVIA - Rocking Chair</a></div>
+      <div class="description">
+	The sitting of the model Xavia is light, agile. Its attraction is its comfort. The sitting rests ..</div>
+            <div class="price">
+                $299.00                        <br />
+        <span class="price-tax">Ex Tax: $299.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('41');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('41');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('41');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=52"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/jeans-132x132.jpg" title="Destroyed Men's Jeans" alt="Destroyed Men's Jeans" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=52">Destroyed Men's Jeans</a></div>
+      <div class="description">
+	NATURAL SELECTION SMITH MOJAVE STRAIGHT LEG JEANS
+
+	A light wash summer denim. Straight leg. Wo..</div>
+            <div class="price">
+                $169.00                        <br />
+        <span class="price-tax">Ex Tax: $169.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('52');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('52');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('52');">Add to Compare</a></div>
+     </div>
+    </div><div class="product_holder">  
+     <div class="product_holder_inside">
+      
+     
+            <div class="image"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=50"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/belt-132x132.jpg" title="Leather Belt" alt="Leather Belt" /></a></div>
+            <div class="name"><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing?product_id=50">Leather Belt</a></div>
+      <div class="description">
+	ABOUT LEVI’S
+
+	Famed for their 501 jeans,Levi’shave been the garment of choice for cultural mov..</div>
+            <div class="price">
+                $79.00                        <br />
+        <span class="price-tax">Ex Tax: $79.00</span>
+              </div>
+            
+      <div class="cart"><a class='button' onclick="addToCart('50');"><span>Add to Cart</span></a></div>
+      <div class="wishlist"><a onclick="addToWishList('50');">Add to Wish List</a></div>
+      <div class="compare"><a onclick="addToCompare('50');">Add to Compare</a></div>
+     </div>
+    </div>  </div>
+  <div class="pagination"><div class="results">Showing 1 to 8 of 8 (1 Pages)</div></div>
+        <h1 class="general_heading">Latest</h1>
+      
+  <div class="products_container">
+    <div class='product_holder'>
+		<div class='product_holder_inside'>
+	
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=31"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/guess-132x132.jpg" alt="White Leather Handbag" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=31">White Leather Handbag</a></div>
+		        		        <div class="price">
+		          		          $89.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('31');"><span>Add to Cart</span></a></div>
+	        </div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>
+	
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=61"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/j_shorts-132x132.jpg" alt="Short Ladies' Jeans" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=61">Short Ladies' Jeans</a></div>
+		        		        <div class="price">
+		          		          $499.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('61');"><span>Add to Cart</span></a></div>
+	        </div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>
+	
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=59"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/adidas-132x132.jpg" alt="Silver Bracelet" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=59">Silver Bracelet</a></div>
+		        		        <div class="price">
+		          		          $129.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('59');"><span>Add to Cart</span></a></div>
+	        </div>
+	   </div>
+	</div><div class='product_holder'>
+		<div class='product_holder_inside'>
+	
+	     
+	            
+	        	        <div class="image"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=57"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/gift-132x132.jpg" alt="Personalized Silver Gift" /></a></div>
+	        	        <div class="pr_info">
+		        <div class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=57">Personalized Silver Gift</a></div>
+		        		        <div class="price">
+		          		          $799.00		          		        </div>
+		        		        <div class="cart"><a class='button' onclick="addToCart('57');"><span>Add to Cart</span></a></div>
+	        </div>
+	   </div>
+	</div> 
+  </div>  </div>
+<script type="text/javascript"><!--
+function display(view) {
+	if (view == 'list') {
+		$('.product-grid').attr('class', 'product-list');
+		
+		$('.product-list > div.product_holder > div.product_holder_inside').each(function(index, element) {
+
+			html = '';
+			if ($(element).children().hasClass("special_promo")){
+				html += '<div class="special_promo"></div>'
+			};
+						
+			html += '<div class="right">';
+			html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
+			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
+			html += '</div>';			
+			
+			html += '<div class="left">';
+			
+			var image = $(element).find('.image').html();
+			
+			if (image != null) { 
+				html += '<div class="image">' + image + '</div>';
+			}
+			
+			var price = $(element).find('.price').html();
+			
+			if (price != null) {
+				html += '<div class="price">' + price  + '</div>';
+			}
+					
+			html += '  <div class="name">' + $(element).find('.name').html() + '</div>';
+			html += '  <div class="description">' + $(element).find('.description').html() + '</div>';
+			
+			var rating = $(element).find('.rating').html();
+			
+			if (rating != null) {
+				html += '<div class="rating">' + rating + '</div>';
+			}
+				
+			html += '</div>';
+
+						
+			$(element).html(html);
+		});		
+		
+		$('.display').html('<b>Display:</b> &nbsp;&nbsp;<a onclick="display(\'list\');" class="list_view_link">List</a>   <a onclick="display(\'grid\');" class="grid_view_link_active">Grid</a>');
+		
+		$.cookie('display', 'list'); 
+	} else {
+		$('.product-list').attr('class', 'product-grid');
+		
+		$('.product-grid > div.product_holder > div.product_holder_inside').each(function(index, element) {
+			html = '';
+			
+			var image = $(element).find('.image').html();
+			
+			if ($(element).children().hasClass("special_promo")){
+				html += '<div class="special_promo"></div>'
+			};
+			
+			if (image != null) {
+				html += '<div class="image">' + image + '</div>';
+			}
+			
+			html += '<div class="name">' + $(element).find('.name').html() + '</div>';
+			html += '<div class="description">' + $(element).find('.description').html() + '</div>';
+			
+			var price = $(element).find('.price').html();
+			
+			if (price != null) {
+				html += '<div class="price">' + price  + '</div>';
+			}
+			
+			var rating = $(element).find('.rating').html();
+			
+			if (rating != null) {
+				html += '<div class="rating">' + rating + '</div>';
+			}
+						
+			html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
+			html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
+			
+			$(element).html(html);
+		});	
+					
+		$('.display').html('<b>Display:</b> &nbsp;&nbsp;<a onclick="display(\'list\');" class="list_view_link_active">List</a>   <a onclick="display(\'grid\');" class="grid_view_link">Grid</a>');
+		
+		$.cookie('display', 'grid');
+	}
+}
+
+view = $.cookie('display');
+
+if (view) {
+	display(view);
+} else {
+	display('list');
+}
+//--></script> 
+<div id="footer">
+  <div class="column">
+    <h3>Information</h3>
+    <ul>
+            <li><a href="http://blueowlcreative.com/elegantcart/about_us">About Us</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+          </ul>
+  </div>
+  <div class="column">
+    <h3>Customer Service</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/contact">Contact Us</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/return/insert">Returns</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/sitemap">Site Map</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>Extras</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/manufacturer">Brands</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/voucher">Gift Vouchers</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=affiliate/account">Affiliates</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/special">Specials</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>My Account</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/order">Order History</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist">Wish List</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/newsletter">Newsletter</a></li>
+    </ul>
+  </div>
+  <div class="big_column">
+  	<a href='http://www.pinterest.com/' class='icon_pinterest' title='Pinterest'>Pinterest</a>
+  	<a href='http://www.twitter.com/' class='icon_tweet' title='Tweeter'>Tweeter</a>
+  	<a href='http://www.skype.com/' class='icon_skype' title='Skype'>Skype</a>
+  	<a href='http://www.google.com/' class='icon_google' title='Google+'>Google+</a>
+  	<a href='http://www.facebook.com/' class='icon_facebook' title='Facebook'>Facebook</a>
+  	<div class='clear'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h10'></div>
+  	<span class='icon_amex hidden-phone' title='Amex'>Amex</span>
+  	<span class='icon_discover hidden-phone' title='Discover'>Discover</span>
+  	<span class='icon_mastercard hidden-phone' title='Mastercard'>Mastercard</span>
+  	<span class='icon_paypal hidden-phone' title='Paypal'>Paypal</span>
+  	<span class='icon_visa hidden-phone' title='Visa'>Visa</span>
+  </div>  
+  <div class="clear"></div>
+  <div class="footer_btm">
+      <div id="powered"><a href="http://www.blueowlcreative.com" target="_blank">ElegantCart Theme</a> © 2014  &nbsp; |  &nbsp;  Powered by <a href="http://www.opencart.com/" target="_blank">OpenCart</a></div>
+  </div>
+</div>
+
+</div>
+
+
+
+<!-- STYLER :: Start -->
+<link rel="stylesheet" href="admin/view/javascript/colorpicker/css/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="admin/view/javascript/colorpicker/js/colorpicker.js"></script>
+
+
+	
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#main_color').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#main_color').val(hex);
+			$('#main_color').css('backgroundColor', '#' + hex);
+			mainColorUpdate(hex);
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+
+	$('#nav_bgr').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#nav_bgr').val(hex);
+			$('#nav_bgr').css('backgroundColor', '#' + hex);
+			$('#menu').css('backgroundColor', '#' + hex);
+			
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+	
+
+	$('#bgr_picker').change(function() {
+		$('body').css('backgroundImage', 'url(admin/view/image/bgrs/' + $(this).val() + ')');
+	});
+	
+});
+
+function mainColorUpdate(hex){
+
+	hex = '#'+hex;
+
+	$('#menu-holder').css('border-bottom-color', hex);
+	$('#styler_styles').html('<style>'+
+		'	a:hover { color: '+ hex +';}'+
+		'	#menu > ul > li:hover > a { background:'+ hex +';}'+
+		'	#menu > ul > li ul > li > a:hover { background:'+ hex +';}'+
+		'	a.button:hover, input.button:hover { background:'+ hex +';}'+
+		'	.buttons .right .button:hover { background:'+ hex +';}'+
+		'	.box-category > ul > li a:hover { color:'+ hex +';}'+
+		'	.box-category > ul > li ul > li > a:hover { color:'+ hex +';}'+
+		'	.product_holder .name a:hover { color:'+ hex +';}'+
+		'	.product-info .description a:hover { color:'+ hex +';}'+
+		'	.product-info .cart .button { background:'+ hex +';}'+
+		'	.product-info a.icon_plus:hover { color:'+ hex +';}'+
+		'	.product-info .review a.rev_count:hover { color:'+ hex +';}'+
+		'	#language a:hover  { color:'+ hex +';}'+
+		'	#currency a:hover  { color:'+ hex +';}'+
+		'	#header #welcome a:hover  { color:'+ hex +';}'+
+		'	#header .links a:hover  { color:'+ hex +';}'+
+
+		'	.camera_prevThumbs:hover, .camera_nextThumbs:hover, .camera_prev:hover, .camera_next:hover, .camera_commands:hover, .camera_thumbs_cont:hover { background:'+ hex +';}'+
+		'	.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span  { background:'+ hex +';}'+
+
+		'	.jcarousel-skin-opencart .jcarousel-next-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:hover  { background-color: #ccc;}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:hover  { background-color: #ccc;}'+
+		
+		'	.pagination .links a:hover  { background:'+ hex +';}'+
+		'	.category-list ul li a:hover   { color:'+ hex +';}'+		
+		'	.product-filter .display a:hover  { color:'+ hex +';}'+		
+		'	.product-compare a:hover  { color:'+ hex +';}'+		
+		'	.product-list .compare a:hover, .product-list .wishlist a:hover  { color:'+ hex +';}'+		
+		
+		'</style>');	
+}
+
+
+
+
+$(document).ready(function() {
+
+	$('#styler_toggler').bind('click', function() {
+		if($('#styler_slider').css('left') == '0px'){
+			$('#styler_slider').stop(false, true).animate({left:'-200px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}else {
+			$('#styler_slider').stop(false, true).animate({left:'0px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}	
+	});
+
+	// Update colors of colorpicker from those set in Admin
+	$('#main_color').css('background-color', '#F71277');
+	$('#nav_bgr').css('background-color', '#000000');
+	
+});
+</script>
+
+
+<div id="styler_slider"> 
+	<div class="styler_inner">
+		<div class="styler_toggler_holder">
+			<div id="styler_toggler" class="styler_toggler_off"></div>
+		</div>
+		
+		<div class="styler_content">
+			<div class="styler_heading">Theme Settings</div>
+			
+			<table width="100%" cellspacing="3">
+				<tr><td>Main Color: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='main_color' name="main_color" value="F71277"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Navig. BGR: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='nav_bgr' name="nav_bgr" value="000000"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Main BGR:</td>
+					<td>
+						<select name="bgr_picker" id="bgr_picker">                	
+			                		                
+			                <option selected = 'selected'  value="1.png">Default</option>
+			                		                
+			                <option   value="plaid.png">Pattern 1</option>
+			                		                
+			                <option   value="bright_squares.png">Pattern 2</option>
+			                		                
+			                <option   value="furley_bg.png">Pattern 3</option>
+			                		                
+			                <option   value="light_toast.png">Pattern 4</option>
+			                		                
+			                <option   value="vichy.png">Pattern 5</option>
+			                		                
+			                <option   value="hexellence.png">Pattern 6</option>
+			                		                
+			                <option   value="small-crackle-bright.png">Pattern 7</option>
+			                		                
+			                <option   value="diamond_upholstery.png">Pattern 8</option>
+			                		                
+			                <option   value="stacked_circles.png">Pattern 9</option>
+			                		                
+			                <option   value="wood_pattern.png">Pattern 10</option>
+			                		                
+			                <option   value="zigzag.png">Pattern 11</option>
+			                		                
+			                <option   value="noise_pattern_with_crosslines.png">Pattern 12</option>
+			                		                
+			                <option   value="small_tiles.png">Pattern 13</option>
+			                		                
+			                <option   value="white_tiles.png">Pattern 14</option>
+			                		                
+			                <option   value="purty_wood.png">Pattern 15</option>
+			                		                
+			                <option   value="cartographer.png">Pattern 16</option>
+			                		                
+			                <option   value="redox_01.png">Pattern 17</option>
+			                		                
+			                <option   value="lil_fiber.png">Pattern 18</option>
+			                		                
+			                <option   value="grid_noise.png">Pattern 19</option>
+			                		                
+			                <option   value="subtlenet2.png">Pattern 20</option>
+			                		                
+			                <option   value="scribble_light.png">Pattern 21</option>
+			                		                
+			                <option   value="daimond_eyes.png">Pattern 22</option>
+			                		                
+			                <option   value="absurdidad.png">Pattern 23</option>
+			                	                    </select>					
+					</td>
+				</tr>
+				
+			
+			</table>
+		
+		
+		</div>	
+	</div>
+
+
+<div id="styler_styles"></div>
+
+</div>
+
+<!-- STYLER :: End -->
+
+</body></html>

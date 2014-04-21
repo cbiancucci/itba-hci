@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>HCI</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ElegantCart - A Premium Open Cart Template" />
+<link href="images/cart.png" rel="icon" />
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/camera.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/carousel.css" media="screen" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.16.custom.css" />
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/colorbox.css" media="screen" />
+
+<script type="text/javascript" src="js/tabs.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/elegantcart_custom.js"></script>
+<script type="text/javascript" src="js/cloud_zoom.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/camera.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie8.css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+<script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#logo img');
+</script>
+<![endif]-->
+
+
+<script src="js/index.js"></script>
+<script src="js/categories.js"></script>
+
+</head>
+<body>
+<div id="container">
+
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="images/logo.png" title="HCI" alt="HCI" /></a>
+		</div>
+	  
+		<div id="welcome">
+		    Bienvenido, <a href="">inicia sesión</a> o <a href="">crea una nueva cuenta </a>.
+		</div>
+		 
+		<div class="links" id="header_links">
+			<a href="">Home</a>
+			<a href="" id="wishlist-total">Wish List</a>
+			<a href="">My Account</a>
+			<a href="">Shopping Cart</a>
+			<a href="">Checkout</a>
+		</div>
+		  
+		<div id="cart">
+			<div class="heading">
+				<h4>Shopping Cart</h4>
+				<a><span id="cart-total">0 item(s) - $0.00</span></a>
+			</div>
+
+			<div class="content">
+				<div class="empty">¡Tu carrito de compras está vacío!</div>
+				<div class="cart-arrow"></div>
+			</div>
+		</div>
+
+		<div id='header_btm'>
+			<div id="search">
+				<div class="search_inside">
+					<input type="text" name="filter_name" value="Buscar" onclick="this.value = '';" onkeydown="this.style.color = '#444444';" style="width:400px;" />
+
+					<div class="button-search"></div>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+
+				$(document).ready(function(){	
+					co_w = $('#c_options').width();
+					$('#c_switcher').css('width',(co_w + 10)+'px');
+					$('#c_switcher').hover(function(){
+					$('#c_options').slideDown(200);
+				},function(){
+					$('#c_options').slideUp(200);
+				});
+				});		
+			</script>  
+
+			<form action="" method="post" enctype="multipart/form-data"></form>
+
+		</div>
+	 </div>
+
+	<div id="menu-holder" class="hidden-phone">
+
+<!-- <ul>
+				<li><a href=""><span class='home_icon'></span></a></li>
+				<li><a href="#">Ropa</a>
+					<div>
+						<ul>
+							<li><a href="./women.html">Mujer</a></li>
+							<li><a href="./men.html">Hombre</a></li>
+							<li><a class='last_submenu_item' href="">Infantil</a></li>
+						</ul>
+					</div>
+				</li>
+
+				<li><a href="">Calzado</a>
+					<div>
+						<ul>
+							<li><a href="">Casual</a></li>
+							<li><a href="">Noche</a></li>
+							<li><a class='last_submenu_item' href="">Deportivo</a></li>
+						</ul>
+					</div>
+				</li>
+	        
+				<li><a href="">Joyas</a>
+					<div>
+						<ul>
+							<li><a href="">Anillos</a></li>
+							<li><a href="">Pulseras</a></li>
+							<li><a href="">Collares</a></li>
+						</ul>
+					</div>
+				</li>
+
+				<li><a href="">Otros</a></li>
+
+			</ul>-->
+
+		<div id="menu">
+			
+		</div>
+
+	</div>
+
+
+	<!-- PHONE::Start -->
+
+	<div id="menu-phone" class="shown-phone" style="display: none;">
+
+		<div id="menu-phone-button">Menu</div>
+		
+		<select id="menu-phone-select" onchange="location = this.value">
+			<option value=""></option>
+			<option value="">Ropa</option>
+			<option value="">Calzado</option>
+			<option value="">Joyas</option>
+			<option value="">Otros</option>
+		</select>
+
+	</div>
+
+	<script type="text/javascript">
+		// Bind the Phone menu dropdown
+		$('#menu-phone-button').bind('click', function() {
+			$("#menu-phone-select").css({'opacity':'1'});
+		});
+	</script>
+
+	<!-- PHONE::End -->
+
+	<div id="notification"></div>
+	 
+	<div id="content">
+		<div class="camera_white_skin camera_wrap" id="camera_wrap">
+			<div data-src="images/banner1.jpg" data-thumb="images/banner1.jpg"  data-link="shoes"></div>
+			<div data-src="images/banner2.jpg" data-thumb="images/banner2.jpg"  data-link="clothing?product_id=52"></div>
+			<div data-src="images/banner3.jpg" data-thumb="images/banner3.jpg"  data-link="men-clothing"></div>
+			<div data-src="images/banner4.jpg" data-thumb="images/banner4.jpg"  data-link="shoes"></div>
+		</div>
+
+		<div class="h15"></div>
+
+		<script type="text/javascript"><!--
+			$('#camera_wrap').camera({
+				height: '41%',
+				thumbnails: true,
+				loader: false,
+		hover: true,
+		time: 6000,
+		transPeriod: 1200
+		
+	});
+	--></script><!-- Custom Styles -->
+
+
+		<script type="text/javascript">
+			fading_effects = 1;
+		</script>
+
+		<div id="custom_banner0" class="custom_banner">
+			<div><img src="images/sm_banner1-310x170.png" alt="Watches" title="Watches" /></div>
+			<div><img src="images/sm_banner2-310x170.png" alt="Denims" title="Denims" /></div>
+			<div><img src="images/sm_banner3-310x170.png" alt="Sales" title="Sales" /></div>
+	    </div>
+
+
+
+	    <h1 class="general_heading">Ofertas</h1>
+	        
+		<div class="products_container">
+			
+			<!-- Aca cargo los items -->
+			<div id="ofertas"></div>
+
+<!--			<div class='product_holder'>
+				<div class='product_holder_inside'>
+
+					<div class="image">
+						<a href="./product.html"><img src="images/sh-132x132.jpg" alt="Shiny Pump Shoes" /></a>
+					</div>
+					
+					<div class="pr_info">
+						<div class="name">
+							<a href="./product.html">Shiny Pump Shoes</a>
+						</div>
+
+						<div class="price">$129.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('47');"><span>Comprar</span></a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>	
+
+					<div class="image">
+						<a href="./product.html"><img src="images/couch3-132x132.jpg" alt="Leather Couch" /></a>
+					</div>
+
+					<div class="pr_info">
+						<div class="name">
+							<a href="./product.html">Leather Couch</a>
+						</div>
+
+						<div class="price">$1,499.99</div>
+			        	
+			        	<div class="cart">
+			        		<a class='button' onclick="addToCart('49');"><span>Comprar</span></a>
+			        	</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>	
+
+					<div class="image">
+						<a href="./product.html"><img src="images/watch-132x132.jpg" alt="Cute Ladies' Watch" /></a>
+					</div>
+
+					<div class="pr_info">
+			        	<div class="name"><a href="./product.html">Cute Ladies' Watch</a></div>
+			        
+			        	<div class="price">$699.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('43');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>	
+
+					<div class="special_promo"></div>	     
+		            
+					<div class="image">
+						<a href="./product.html"><img src="images/bike-132x132.jpg" alt="Small Leather Purse" /></a>
+					</div>
+
+					<div class="pr_info">
+			        	<div class="name"><a href="./product.html">Small Leather Purse</a></div>
+
+						<div class="price">
+							<span class="price-old">$299.00</span>
+							<span class="price-new">$269.00</span>
+						</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('42');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>	
+				
+					<div class="image">
+						<a href="./product.html"><img src="images/bracelet-132x132.jpg" alt="Golden Bracelet" /></a>
+					</div>
+
+					<div class="pr_info">
+						<div class="name"><a href="./product.html">Golden Bracelet</a></div>
+
+						<div class="price">$89.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('46');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- End products_container -->
+
+		<h1 class="general_heading">Novedades</h1>
+	      
+		<div class="products_container">
+			
+			<div class='product_holder'>
+				<div class='product_holder_inside'>
+					
+					<div class="image">
+						<a href="./product.html"><img src="images/guess-134x134.jpg" alt="White Leather Handbag" /></a>
+					</div>
+
+					<div class="pr_info">
+			        	<div class="name"><a href="./product.html">White Leather Handbag</a></div>
+						
+						<div class="price">$89.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('31');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>
+
+					<div class="image">
+						<a href="./product.html"><img src="images/j_shorts-134x134.jpg" alt="Short Ladies' Jeans" /></a>
+					</div>
+			        
+					<div class="pr_info">
+						<div class="name"><a href="./product.html">Short Ladies' Jeans</a></div>
+
+						<div class="price">$499.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('61');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>
+				
+					<div class="image">
+						<a href="./product.html"><img src="images/adidas-134x134.jpg" alt="Silver Bracelet" /></a>
+					</div>
+			        
+					<div class="pr_info">
+						<div class="name"><a href="./product.html">Silver Bracelet</a></div>
+
+						<div class="price">$129.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('59');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>
+
+					<div class="image">
+						<a href="./product.html"><img src="images/gift-134x134.jpg" alt="Personalized Silver Gift" /></a>
+					</div>
+
+					<div class="pr_info">
+						<div class="name"><a href="./product.html">Personalized Silver Gift</a></div>
+
+						<div class="price">$799.00</div>
+							<div class="cart"><a class='button' onclick="addToCart('57');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class='product_holder'>
+				<div class='product_holder_inside'>
+
+					<div class="image">
+						<a href="./product.html"><img src="images/bottle-134x134.jpg" alt="Scotch Bottle + Free Gifts" /></a>
+					</div>
+
+					<div class="pr_info">
+						<div class="name"><a href="./product.html">Scotch Bottle + Free Gifts</a></div>
+
+						<div class="price">$699.00</div>
+
+						<div class="cart">
+							<a class='button' onclick="addToCart('56');"><span>Comprar</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<h1 class="general_heading">Marcas</h1>
+
+		<div id="carousel0">
+	  		<ul class="jcarousel-skin-opencart">
+	        	<li><a href=""><img src="images/logo_4-140x140.jpg" alt="Silhouette" title="Silhouette" /></a></li>
+				<li><a href=""><img src="images/logo_3-140x140.jpg" alt="Hugo Boss" title="Hugo Boss" /></a></li>
+				<li><a href=""><img src="images/logo_2-140x140.jpg" alt="SWAROVSKI" title="SWAROVSKI" /></a></li>
+				<li><a href=""><img src="images/logo_1-140x140.jpg" alt="BVLGARI" title="BVLGARI" /></a></li>
+				<li><a href=""><img src="images/logo_5-140x140.jpg" alt="VERSACE" title="VERSACE" /></a></li>
+				<li><a href=""><img src="images/logo_6-140x140.jpg" alt="Calvin Klein" title="Calvin Klein" /></a></li>
+				<li><a href=""><img src="images/logo_7-140x140.jpg" alt="Tiffany &amp; Co" title="Tiffany &amp; Co" /></a></li>
+	        	<li><a href=""><img src="images/logo_8-140x140.jpg" alt="DKNY" title="DKNY" /></a></li>
+			</ul>
+		</div>
+
+		<script type="text/javascript"><!--
+			$('#carousel0 ul').jcarousel({
+				vertical: false,
+				visible: 5,
+				scroll: 3});
+	//--></script>
+	</div>
+	<!-- END content -->
+
+	<div id="footer">
+		<div class="column">
+			
+			<h3>Informacion</h3>
+			<ul>
+				<li><a href="">Sobre nosotros</a></li>
+				<li><a href="">Informacion de Envios</a></li>
+				<li><a href="">Privacidad</a></li>
+				<li><a href="">Terminos &amp; Condiciones</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+			
+			<h3>Servicio al consumidor</h3>
+			<ul>
+				<li><a href="contact.html">Contacto</a></li>
+				<li><a href="">Devoluciones</a></li>
+				<li><a href="sitemap.html">Mapa del sitio</a></li>
+			</ul>
+		</div>
+	  
+		<div class="column">
+
+			<h3>Extras</h3>
+			<ul>
+				<li><a href="">Marcas</a></li>
+				<li><a href="">Vouchers</a></li>
+				<li><a href="">Afiliados</a></li>
+				<li><a href="">Especiales</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+
+			<h3>Mi cuenta</h3>
+			<ul>
+				<li><a href="./account.html">Mi cuenta</a></li>
+				<li><a href="">Historial de compras</a></li>
+				<li><a href="">Lista de deseos</a></li>
+				<li><a href="">Newsletter</a></li>
+			</ul>
+		</div>
+
+		<div class="big_column">
+			
+			<a href='http://www.pinterest.com/' class='icon_pinterest' title='Pinterest'>Pinterest</a>
+			<a href='http://www.twitter.com/' class='icon_tweet' title='Tweeter'>Tweeter</a>
+			<a href='http://www.skype.com/' class='icon_skype' title='Skype'>Skype</a>
+			<a href='http://www.google.com/' class='icon_google' title='Google+'>Google+</a>
+			<a href='http://www.facebook.com/' class='icon_facebook' title='Facebook'>Facebook</a>
+	  	
+			<div class='clear'></div>
+			<div class='h20'></div>
+			<div class='h20'></div>
+			<div class='h20'></div>
+			<div class='h10'></div>
+			
+			<span class='icon_amex hidden-phone' title='Amex'>Amex</span>
+			<span class='icon_discover hidden-phone' title='Discover'>Discover</span>
+			<span class='icon_mastercard hidden-phone' title='Mastercard'>Mastercard</span>
+			<span class='icon_paypal hidden-phone' title='Paypal'>Paypal</span>
+			<span class='icon_visa hidden-phone' title='Visa'>Visa</span>
+		</div>  
+
+		<div class="clear"></div>
+
+		<div class="footer_btm">
+			<div id="powered">
+				|  &nbsp;  Powered by <a href="http://www.motionIT.com.ar/" target="_blank">motionIT</a>
+			</div>
+		</div>
+	</div>
+	<!-- End footer -->
+
+</div>
+<!-- End container -->
+</body>
+</html>
