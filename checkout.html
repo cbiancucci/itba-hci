@@ -1,0 +1,1297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>HCI</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ElegantCart - A Premium Open Cart Template" />
+<link href="images/cart.png" rel="icon" />
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/camera.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/carousel.css" media="screen" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.16.custom.css" />
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/colorbox.css" media="screen" />
+
+<script type="text/javascript" src="js/tabs.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/elegantcart_custom.js"></script>
+<script type="text/javascript" src="js/cloud_zoom.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/camera.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie8.css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+<script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#logo img');
+</script>
+<![endif]-->
+</head>
+<body>
+<div id="container">
+
+<div id="header">
+    <div id="logo"><a href="#"><img src="images/logo.png" title="HCI" alt="HCI" /></a></div>
+  
+    <div id="welcome">
+            Bienvenido, <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/login">inicia sesión</a> o <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/register">crea una nueva cuenta </a>.          </div>
+   
+    <div class="links" id="header_links"><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist" id="wishlist-total">Wish List (0)</a> <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart">Shopping Cart</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/checkout">Checkout</a></div>
+    <div id="cart">
+  <div class="heading">
+    <h4>Shopping Cart</h4>
+    <a><span id="cart-total">0 item(s) - $0.00</span></a></div>
+  <div class="content">
+        <div class="empty">¡Tu carrito de compras está vacío!</div>
+        
+    <div class="cart-arrow"></div>
+  </div>
+</div>
+
+
+  <div id='header_btm'>
+    <div id="search">
+      <div class="search_inside">
+                <input type="text" name="filter_name" value="Buscar" onclick="this.value = '';" onkeydown="this.style.color = '#444444';" />
+                <div class="button-search"></div>
+      </div>
+    </div>
+        
+<script type="text/javascript">
+$(document).ready(function(){ 
+    co_w = $('#c_options').width();
+    $('#c_switcher').css('width',(co_w + 10)+'px');
+    $('#c_switcher').hover(function(){
+      $('#c_options').slideDown(200);
+    },function(){
+      $('#c_options').slideUp(200);
+    });
+});   
+</script>  
+
+<form action="http://blueowlcreative.com/elegantcart/index.php?route=module/currency" method="post" enctype="multipart/form-data">
+  <div id="currency">
+      <div id="c_switcher">
+                   
+           
+                     
+           
+                     
+                    <span class="c_selected">US Dollar</span>
+           
+              
+          <div id="c_options" style="display: none;">
+                           
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'EUR').submit(); $(this).parent().parent().parent().parent().submit();">Euro</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'GBP').submit(); $(this).parent().parent().parent().parent().submit();">Pound Sterling</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'USD').submit(); $(this).parent().parent().parent().parent().submit();">US Dollar</a>
+                
+          </div>
+         </div>
+    <input type="hidden" name="currency_code" value="" />
+    <input type="hidden" name="redirect" value="http://blueowlcreative.com/elegantcart/index.php?route=common/home" />          
+  </div>
+</form>
+  </div>
+ 
+</div>
+
+<div id="menu-holder" class="hidden-phone">
+<div id="menu">
+  <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home"><span class='home_icon'></span></a></li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/clothing">Ropa</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/women-clothing">Mujer</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing">Hombre</a></li>
+                  <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/clothing">Infantil</a></li>
+              </ul>
+          </div>
+        </li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/shoes">Calzado</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Casual</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Noche</a></li>
+                    <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/shoes">Deportivo</a></li>
+                </ul>
+            </div>
+        </li>
+        
+        <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Joyas</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_29">Anillos</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Pulseras</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Collares</a></li>
+                </ul>
+            </div>
+        </li>
+
+    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Otros</a></li>
+
+    </ul>
+</div>
+</div>
+
+
+<!-- PHONE::Start -->
+
+<div id="menu-phone" class="shown-phone" style="display: none;">
+  <div id="menu-phone-button">Menu</div>
+  <select id="menu-phone-select" onchange="location = this.value">
+    <option value=""></option>
+        <option value="http://blueowlcreative.com/elegantcart/clothing">Ropa</option>
+        <option value="http://blueowlcreative.com/elegantcart/shoes">Calzado</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Joyas</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Otros</option>
+      </select>
+</div>
+
+<script type="text/javascript">
+  // Bind the Phone menu dropdown
+  $('#menu-phone-button').bind('click', function() {
+    $("#menu-phone-select").css({'opacity':'1'});
+  });
+</script>
+
+<!-- PHONE::End -->
+
+<div id="notification"></div>
+ 
+<div id="content"><!-- Custom Styles -->
+<style>
+ 
+
+  
+ 
+ </style>
+
+<script type="text/javascript">
+	fading_effects = 1;
+</script>  <div class="breadcrumb">
+        <a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a>
+         &raquo; <a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart">Shopping Cart</a>
+         &raquo; <a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/checkout">Checkout</a>
+      </div>
+  <h1>Checkout</h1>
+  <div class="checkout">
+    <div id="checkout">
+      <div class="checkout-heading">Step 1: Checkout Options</div>
+      <div class="checkout-content"></div>
+    </div>
+        <div id="payment-address">
+      <div class="checkout-heading"><span>Step 2: Account &amp; Billing Details</span></div>
+      <div class="checkout-content"></div>
+    </div>
+            <div id="shipping-address">
+      <div class="checkout-heading">Step 3: Delivery Details</div>
+      <div class="checkout-content"></div>
+    </div>
+    <div id="shipping-method">
+      <div class="checkout-heading">Step 4: Delivery Method</div>
+      <div class="checkout-content"></div>
+    </div>
+        <div id="payment-method">
+      <div class="checkout-heading">Step 5: Payment Method</div>
+      <div class="checkout-content"></div>
+    </div>
+    <div id="confirm">
+      <div class="checkout-heading">Step 6: Confirm Order</div>
+      <div class="checkout-content"></div>
+    </div>
+  </div>
+  </div>
+<script type="text/javascript"><!--
+$('#checkout .checkout-content input[name=\'account\']').live('change', function() {
+	if ($(this).attr('value') == 'register') {
+		$('#payment-address .checkout-heading span').html('Step 2: Account &amp; Billing Details');
+	} else {
+		$('#payment-address .checkout-heading span').html('Step 2: Billing Details');
+	}
+});
+
+$('.checkout-heading a').live('click', function() {
+	$('.checkout-content').slideUp('slow');
+	
+	$(this).parent().parent().find('.checkout-content').slideDown('slow');
+});
+ 
+$(document).ready(function() {
+	$.ajax({
+		url: 'index.php?route=checkout/login',
+		dataType: 'html',
+		success: function(html) {
+			$('#checkout .checkout-content').html(html);
+				
+			$('#checkout .checkout-content').slideDown('slow');
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});		
+
+// Checkout
+$('#button-account').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/' + $('input[name=\'account\']:checked').attr('value'),
+		dataType: 'html',
+		beforeSend: function() {
+			$('#button-account').attr('disabled', true);
+			$('#button-account').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},		
+		complete: function() {
+			$('#button-account').attr('disabled', false);
+			$('.wait').remove();
+		},			
+		success: function(html) {
+			$('.warning, .error').remove();
+			
+			$('#payment-address .checkout-content').html(html);
+				
+			$('#checkout .checkout-content').slideUp('slow');
+				
+			$('#payment-address .checkout-content').slideDown('slow');
+				
+			$('.checkout-heading a').remove();
+				
+			$('#checkout .checkout-heading').append('<a>Modify &raquo;</a>');
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+// Login
+$('#button-login').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/login/validate',
+		type: 'post',
+		data: $('#checkout #login :input'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-login').attr('disabled', true);
+			$('#button-login').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-login').attr('disabled', false);
+			$('.wait').remove();
+		},				
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				$('#checkout .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '</div>');
+				
+				$('.warning').fadeIn('slow');
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+// Register
+$('#button-register').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/register/validate',
+		type: 'post',
+		data: $('#payment-address input[type=\'text\'], #payment-address input[type=\'password\'], #payment-address input[type=\'checkbox\']:checked, #payment-address input[type=\'radio\']:checked, #payment-address input[type=\'hidden\'], #payment-address select'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-register').attr('disabled', true);
+			$('#button-register').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-register').attr('disabled', false); 
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+						
+			if (json['redirect']) {
+				location = json['redirect'];				
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#payment-address .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}
+				
+				if (json['error']['firstname']) {
+					$('#payment-address input[name=\'firstname\'] + br').after('<span class="error">' + json['error']['firstname'] + '</span>');
+				}
+				
+				if (json['error']['lastname']) {
+					$('#payment-address input[name=\'lastname\'] + br').after('<span class="error">' + json['error']['lastname'] + '</span>');
+				}	
+				
+				if (json['error']['email']) {
+					$('#payment-address input[name=\'email\'] + br').after('<span class="error">' + json['error']['email'] + '</span>');
+				}
+				
+				if (json['error']['telephone']) {
+					$('#payment-address input[name=\'telephone\'] + br').after('<span class="error">' + json['error']['telephone'] + '</span>');
+				}	
+					
+				if (json['error']['company_id']) {
+					$('#payment-address input[name=\'company_id\'] + br').after('<span class="error">' + json['error']['company_id'] + '</span>');
+				}	
+				
+				if (json['error']['tax_id']) {
+					$('#payment-address input[name=\'tax_id\'] + br').after('<span class="error">' + json['error']['tax_id'] + '</span>');
+				}	
+																		
+				if (json['error']['address_1']) {
+					$('#payment-address input[name=\'address_1\'] + br').after('<span class="error">' + json['error']['address_1'] + '</span>');
+				}	
+				
+				if (json['error']['city']) {
+					$('#payment-address input[name=\'city\'] + br').after('<span class="error">' + json['error']['city'] + '</span>');
+				}	
+				
+				if (json['error']['postcode']) {
+					$('#payment-address input[name=\'postcode\'] + br').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}	
+				
+				if (json['error']['country']) {
+					$('#payment-address select[name=\'country_id\'] + br').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('#payment-address select[name=\'zone_id\'] + br').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+				
+				if (json['error']['password']) {
+					$('#payment-address input[name=\'password\'] + br').after('<span class="error">' + json['error']['password'] + '</span>');
+				}	
+				
+				if (json['error']['confirm']) {
+					$('#payment-address input[name=\'confirm\'] + br').after('<span class="error">' + json['error']['confirm'] + '</span>');
+				}																																	
+			} else {
+								
+				var shipping_address = $('#payment-address input[name=\'shipping_address\']:checked').attr('value');
+				
+				if (shipping_address) {
+					$.ajax({
+						url: 'index.php?route=checkout/shipping_method',
+						dataType: 'html',
+						success: function(html) {
+							$('#shipping-method .checkout-content').html(html);
+							
+							$('#payment-address .checkout-content').slideUp('slow');
+							
+							$('#shipping-method .checkout-content').slideDown('slow');
+							
+							$('#checkout .checkout-heading a').remove();
+							$('#payment-address .checkout-heading a').remove();
+							$('#shipping-address .checkout-heading a').remove();
+							$('#shipping-method .checkout-heading a').remove();
+							$('#payment-method .checkout-heading a').remove();											
+							
+							$('#shipping-address .checkout-heading').append('<a>Modify &raquo;</a>');									
+							$('#payment-address .checkout-heading').append('<a>Modify &raquo;</a>');	
+
+							$.ajax({
+								url: 'index.php?route=checkout/shipping_address',
+								dataType: 'html',
+								success: function(html) {
+									$('#shipping-address .checkout-content').html(html);
+								},
+								error: function(xhr, ajaxOptions, thrownError) {
+									alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+								}
+							});	
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});	
+				} else {
+					$.ajax({
+						url: 'index.php?route=checkout/shipping_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#shipping-address .checkout-content').html(html);
+							
+							$('#payment-address .checkout-content').slideUp('slow');
+							
+							$('#shipping-address .checkout-content').slideDown('slow');
+							
+							$('#checkout .checkout-heading a').remove();
+							$('#payment-address .checkout-heading a').remove();
+							$('#shipping-address .checkout-heading a').remove();
+							$('#shipping-method .checkout-heading a').remove();
+							$('#payment-method .checkout-heading a').remove();							
+
+							$('#payment-address .checkout-heading').append('<a>Modify &raquo;</a>');	
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});			
+				}
+								
+				$.ajax({
+					url: 'index.php?route=checkout/payment_address',
+					dataType: 'html',
+					success: function(html) {
+						$('#payment-address .checkout-content').html(html);
+							
+						$('#payment-address .checkout-heading span').html('Step 2: Billing Details');
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});
+			}	 
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+// Payment Address	
+$('#button-payment-address').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/payment_address/validate',
+		type: 'post',
+		data: $('#payment-address input[type=\'text\'], #payment-address input[type=\'password\'], #payment-address input[type=\'checkbox\']:checked, #payment-address input[type=\'radio\']:checked, #payment-address input[type=\'hidden\'], #payment-address select'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-payment-address').attr('disabled', true);
+			$('#button-payment-address').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-payment-address').attr('disabled', false);
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#payment-address .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}
+								
+				if (json['error']['firstname']) {
+					$('#payment-address input[name=\'firstname\']').after('<span class="error">' + json['error']['firstname'] + '</span>');
+				}
+				
+				if (json['error']['lastname']) {
+					$('#payment-address input[name=\'lastname\']').after('<span class="error">' + json['error']['lastname'] + '</span>');
+				}	
+				
+				if (json['error']['telephone']) {
+					$('#payment-address input[name=\'telephone\']').after('<span class="error">' + json['error']['telephone'] + '</span>');
+				}		
+				
+				if (json['error']['company_id']) {
+					$('#payment-address input[name=\'company_id\'] + br').after('<span class="error">' + json['error']['company_id'] + '</span>');
+				}	
+				
+				if (json['error']['tax_id']) {
+					$('#payment-address input[name=\'tax_id\'] + br').after('<span class="error">' + json['error']['tax_id'] + '</span>');
+				}	
+														
+				if (json['error']['address_1']) {
+					$('#payment-address input[name=\'address_1\']').after('<span class="error">' + json['error']['address_1'] + '</span>');
+				}	
+				
+				if (json['error']['city']) {
+					$('#payment-address input[name=\'city\']').after('<span class="error">' + json['error']['city'] + '</span>');
+				}	
+				
+				if (json['error']['postcode']) {
+					$('#payment-address input[name=\'postcode\']').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}	
+				
+				if (json['error']['country']) {
+					$('#payment-address select[name=\'country_id\']').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('#payment-address select[name=\'zone_id\']').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+			} else {
+								$.ajax({
+					url: 'index.php?route=checkout/shipping_address',
+					dataType: 'html',
+					success: function(html) {
+						$('#shipping-address .checkout-content').html(html);
+					
+						$('#payment-address .checkout-content').slideUp('slow');
+						
+						$('#shipping-address .checkout-content').slideDown('slow');
+						
+						$('#payment-address .checkout-heading a').remove();
+						$('#shipping-address .checkout-heading a').remove();
+						$('#shipping-method .checkout-heading a').remove();
+						$('#payment-method .checkout-heading a').remove();
+						
+						$('#payment-address .checkout-heading').append('<a>Modify &raquo;</a>');	
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});
+								
+				$.ajax({
+					url: 'index.php?route=checkout/payment_address',
+					dataType: 'html',
+					success: function(html) {
+						$('#payment-address .checkout-content').html(html);
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});					
+			}	  
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+// Shipping Address			
+$('#button-shipping-address').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/shipping_address/validate',
+		type: 'post',
+		data: $('#shipping-address input[type=\'text\'], #shipping-address input[type=\'password\'], #shipping-address input[type=\'checkbox\']:checked, #shipping-address input[type=\'radio\']:checked, #shipping-address select'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-shipping-address').attr('disabled', true);
+			$('#button-shipping-address').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-shipping-address').attr('disabled', false);
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#shipping-address .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}
+								
+				if (json['error']['firstname']) {
+					$('#shipping-address input[name=\'firstname\']').after('<span class="error">' + json['error']['firstname'] + '</span>');
+				}
+				
+				if (json['error']['lastname']) {
+					$('#shipping-address input[name=\'lastname\']').after('<span class="error">' + json['error']['lastname'] + '</span>');
+				}	
+				
+				if (json['error']['email']) {
+					$('#shipping-address input[name=\'email\']').after('<span class="error">' + json['error']['email'] + '</span>');
+				}
+				
+				if (json['error']['telephone']) {
+					$('#shipping-address input[name=\'telephone\']').after('<span class="error">' + json['error']['telephone'] + '</span>');
+				}		
+										
+				if (json['error']['address_1']) {
+					$('#shipping-address input[name=\'address_1\']').after('<span class="error">' + json['error']['address_1'] + '</span>');
+				}	
+				
+				if (json['error']['city']) {
+					$('#shipping-address input[name=\'city\']').after('<span class="error">' + json['error']['city'] + '</span>');
+				}	
+				
+				if (json['error']['postcode']) {
+					$('#shipping-address input[name=\'postcode\']').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}	
+				
+				if (json['error']['country']) {
+					$('#shipping-address select[name=\'country_id\']').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('#shipping-address select[name=\'zone_id\']').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+			} else {
+				$.ajax({
+					url: 'index.php?route=checkout/shipping_method',
+					dataType: 'html',
+					success: function(html) {
+						$('#shipping-method .checkout-content').html(html);
+						
+						$('#shipping-address .checkout-content').slideUp('slow');
+						
+						$('#shipping-method .checkout-content').slideDown('slow');
+						
+						$('#shipping-address .checkout-heading a').remove();
+						$('#shipping-method .checkout-heading a').remove();
+						$('#payment-method .checkout-heading a').remove();
+						
+						$('#shipping-address .checkout-heading').append('<a>Modify &raquo;</a>');							
+						
+						$.ajax({
+							url: 'index.php?route=checkout/shipping_address',
+							dataType: 'html',
+							success: function(html) {
+								$('#shipping-address .checkout-content').html(html);
+							},
+							error: function(xhr, ajaxOptions, thrownError) {
+								alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+							}
+						});						
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});	
+			}  
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+// Guest
+$('#button-guest').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/guest/validate',
+		type: 'post',
+		data: $('#payment-address input[type=\'text\'], #payment-address input[type=\'checkbox\']:checked, #payment-address select'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-guest').attr('disabled', true);
+			$('#button-guest').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-guest').attr('disabled', false); 
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#payment-address .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}
+								
+				if (json['error']['firstname']) {
+					$('#payment-address input[name=\'firstname\'] + br').after('<span class="error">' + json['error']['firstname'] + '</span>');
+				}
+				
+				if (json['error']['lastname']) {
+					$('#payment-address input[name=\'lastname\'] + br').after('<span class="error">' + json['error']['lastname'] + '</span>');
+				}	
+				
+				if (json['error']['email']) {
+					$('#payment-address input[name=\'email\'] + br').after('<span class="error">' + json['error']['email'] + '</span>');
+				}
+				
+				if (json['error']['telephone']) {
+					$('#payment-address input[name=\'telephone\'] + br').after('<span class="error">' + json['error']['telephone'] + '</span>');
+				}	
+					
+				if (json['error']['company_id']) {
+					$('#payment-address input[name=\'company_id\'] + br').after('<span class="error">' + json['error']['company_id'] + '</span>');
+				}	
+				
+				if (json['error']['tax_id']) {
+					$('#payment-address input[name=\'tax_id\'] + br').after('<span class="error">' + json['error']['tax_id'] + '</span>');
+				}	
+																		
+				if (json['error']['address_1']) {
+					$('#payment-address input[name=\'address_1\'] + br').after('<span class="error">' + json['error']['address_1'] + '</span>');
+				}	
+				
+				if (json['error']['city']) {
+					$('#payment-address input[name=\'city\'] + br').after('<span class="error">' + json['error']['city'] + '</span>');
+				}	
+				
+				if (json['error']['postcode']) {
+					$('#payment-address input[name=\'postcode\'] + br').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}	
+				
+				if (json['error']['country']) {
+					$('#payment-address select[name=\'country_id\'] + br').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('#payment-address select[name=\'zone_id\'] + br').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+			} else {
+					
+				var shipping_address = $('#payment-address input[name=\'shipping_address\']:checked').attr('value');
+				
+				if (shipping_address) {
+					$.ajax({
+						url: 'index.php?route=checkout/shipping_method',
+						dataType: 'html',
+						success: function(html) {
+							$('#shipping-method .checkout-content').html(html);
+							
+							$('#payment-address .checkout-content').slideUp('slow');
+							
+							$('#shipping-method .checkout-content').slideDown('slow');
+							
+							$('#payment-address .checkout-heading a').remove();
+							$('#shipping-address .checkout-heading a').remove();
+							$('#shipping-method .checkout-heading a').remove();
+							$('#payment-method .checkout-heading a').remove();		
+															
+							$('#payment-address .checkout-heading').append('<a>Modify &raquo;</a>');	
+							$('#shipping-address .checkout-heading').append('<a>Modify &raquo;</a>');									
+							
+							$.ajax({
+								url: 'index.php?route=checkout/guest_shipping',
+								dataType: 'html',
+								success: function(html) {
+									$('#shipping-address .checkout-content').html(html);
+								},
+								error: function(xhr, ajaxOptions, thrownError) {
+									alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+								}
+							});
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});					
+				} else {
+					$.ajax({
+						url: 'index.php?route=checkout/guest_shipping',
+						dataType: 'html',
+						success: function(html) {
+							$('#shipping-address .checkout-content').html(html);
+							
+							$('#payment-address .checkout-content').slideUp('slow');
+							
+							$('#shipping-address .checkout-content').slideDown('slow');
+							
+							$('#payment-address .checkout-heading a').remove();
+							$('#shipping-address .checkout-heading a').remove();
+							$('#shipping-method .checkout-heading a').remove();
+							$('#payment-method .checkout-heading a').remove();
+							
+							$('#payment-address .checkout-heading').append('<a>Modify &raquo;</a>');	
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});
+				}
+							}	 
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+// Guest Shipping
+$('#button-guest-shipping').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/guest_shipping/validate',
+		type: 'post',
+		data: $('#shipping-address input[type=\'text\'], #shipping-address select'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-guest-shipping').attr('disabled', true);
+			$('#button-guest-shipping').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-guest-shipping').attr('disabled', false); 
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#shipping-address .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}
+								
+				if (json['error']['firstname']) {
+					$('#shipping-address input[name=\'firstname\']').after('<span class="error">' + json['error']['firstname'] + '</span>');
+				}
+				
+				if (json['error']['lastname']) {
+					$('#shipping-address input[name=\'lastname\']').after('<span class="error">' + json['error']['lastname'] + '</span>');
+				}	
+										
+				if (json['error']['address_1']) {
+					$('#shipping-address input[name=\'address_1\']').after('<span class="error">' + json['error']['address_1'] + '</span>');
+				}	
+				
+				if (json['error']['city']) {
+					$('#shipping-address input[name=\'city\']').after('<span class="error">' + json['error']['city'] + '</span>');
+				}	
+				
+				if (json['error']['postcode']) {
+					$('#shipping-address input[name=\'postcode\']').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}	
+				
+				if (json['error']['country']) {
+					$('#shipping-address select[name=\'country_id\']').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('#shipping-address select[name=\'zone_id\']').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+			} else {
+				$.ajax({
+					url: 'index.php?route=checkout/shipping_method',
+					dataType: 'html',
+					success: function(html) {
+						$('#shipping-method .checkout-content').html(html);
+						
+						$('#shipping-address .checkout-content').slideUp('slow');
+						
+						$('#shipping-method .checkout-content').slideDown('slow');
+						
+						$('#shipping-address .checkout-heading a').remove();
+						$('#shipping-method .checkout-heading a').remove();
+						$('#payment-method .checkout-heading a').remove();
+							
+						$('#shipping-address .checkout-heading').append('<a>Modify &raquo;</a>');
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});				
+			}	 
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+$('#button-shipping-method').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/shipping_method/validate',
+		type: 'post',
+		data: $('#shipping-method input[type=\'radio\']:checked, #shipping-method textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-shipping-method').attr('disabled', true);
+			$('#button-shipping-method').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-shipping-method').attr('disabled', false);
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#shipping-method .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}			
+			} else {
+				$.ajax({
+					url: 'index.php?route=checkout/payment_method',
+					dataType: 'html',
+					success: function(html) {
+						$('#payment-method .checkout-content').html(html);
+						
+						$('#shipping-method .checkout-content').slideUp('slow');
+						
+						$('#payment-method .checkout-content').slideDown('slow');
+
+						$('#shipping-method .checkout-heading a').remove();
+						$('#payment-method .checkout-heading a').remove();
+						
+						$('#shipping-method .checkout-heading').append('<a>Modify &raquo;</a>');	
+
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});					
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+
+$('#button-payment-method').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/payment_method/validate', 
+		type: 'post',
+		data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-payment-method').attr('disabled', true);
+			$('#button-payment-method').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},	
+		complete: function() {
+			$('#button-payment-method').attr('disabled', false);
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			$('.warning, .error').remove();
+			
+			if (json['redirect']) {
+				location = json['redirect'];
+			} else if (json['error']) {
+				if (json['error']['warning']) {
+					$('#payment-method .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+				}			
+			} else {
+				$.ajax({
+					url: 'index.php?route=checkout/confirm',
+					dataType: 'html',
+					success: function(html) {
+						$('#confirm .checkout-content').html(html);
+						
+						$('#payment-method .checkout-content').slideUp('slow');
+						
+						$('#confirm .checkout-content').slideDown('slow');
+						
+						$('#payment-method .checkout-heading a').remove();
+						
+						$('#payment-method .checkout-heading').append('<a>Modify &raquo;</a>');	
+					},
+					error: function(xhr, ajaxOptions, thrownError) {
+						alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+					}
+				});					
+			}
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});	
+});
+//--></script> 
+<div id="footer">
+  <div class="column">
+    <h3>Information</h3>
+    <ul>
+            <li><a href="http://blueowlcreative.com/elegantcart/about_us">About Us</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+          </ul>
+  </div>
+  <div class="column">
+    <h3>Customer Service</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/contact">Contact Us</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/return/insert">Returns</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/sitemap">Site Map</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>Extras</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/manufacturer">Brands</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/voucher">Gift Vouchers</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=affiliate/account">Affiliates</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/special">Specials</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>My Account</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/order">Order History</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist">Wish List</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/newsletter">Newsletter</a></li>
+    </ul>
+  </div>
+  <div class="big_column">
+  	<a href='http://www.pinterest.com/' class='icon_pinterest' title='Pinterest'>Pinterest</a>
+  	<a href='http://www.twitter.com/' class='icon_tweet' title='Tweeter'>Tweeter</a>
+  	<a href='http://www.skype.com/' class='icon_skype' title='Skype'>Skype</a>
+  	<a href='http://www.google.com/' class='icon_google' title='Google+'>Google+</a>
+  	<a href='http://www.facebook.com/' class='icon_facebook' title='Facebook'>Facebook</a>
+  	<div class='clear'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h10'></div>
+  	<span class='icon_amex hidden-phone' title='Amex'>Amex</span>
+  	<span class='icon_discover hidden-phone' title='Discover'>Discover</span>
+  	<span class='icon_mastercard hidden-phone' title='Mastercard'>Mastercard</span>
+  	<span class='icon_paypal hidden-phone' title='Paypal'>Paypal</span>
+  	<span class='icon_visa hidden-phone' title='Visa'>Visa</span>
+  </div>  
+  <div class="clear"></div>
+  <div class="footer_btm">
+      <div id="powered"><a href="http://www.blueowlcreative.com" target="_blank">ElegantCart Theme</a> © 2014  &nbsp; |  &nbsp;  Powered by <a href="http://www.opencart.com/" target="_blank">OpenCart</a></div>
+  </div>
+</div>
+
+</div>
+
+
+
+<!-- STYLER :: Start -->
+<link rel="stylesheet" href="admin/view/javascript/colorpicker/css/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="admin/view/javascript/colorpicker/js/colorpicker.js"></script>
+
+
+	
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#main_color').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#main_color').val(hex);
+			$('#main_color').css('backgroundColor', '#' + hex);
+			mainColorUpdate(hex);
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+
+	$('#nav_bgr').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#nav_bgr').val(hex);
+			$('#nav_bgr').css('backgroundColor', '#' + hex);
+			$('#menu').css('backgroundColor', '#' + hex);
+			
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+	
+
+	$('#bgr_picker').change(function() {
+		$('body').css('backgroundImage', 'url(admin/view/image/bgrs/' + $(this).val() + ')');
+	});
+	
+});
+
+function mainColorUpdate(hex){
+
+	hex = '#'+hex;
+
+	$('#menu-holder').css('border-bottom-color', hex);
+	$('#styler_styles').html('<style>'+
+		'	a:hover { color: '+ hex +';}'+
+		'	#menu > ul > li:hover > a { background:'+ hex +';}'+
+		'	#menu > ul > li ul > li > a:hover { background:'+ hex +';}'+
+		'	a.button:hover, input.button:hover { background:'+ hex +';}'+
+		'	.buttons .right .button:hover { background:'+ hex +';}'+
+		'	.box-category > ul > li a:hover { color:'+ hex +';}'+
+		'	.box-category > ul > li ul > li > a:hover { color:'+ hex +';}'+
+		'	.product_holder .name a:hover { color:'+ hex +';}'+
+		'	.product-info .description a:hover { color:'+ hex +';}'+
+		'	.product-info .cart .button { background:'+ hex +';}'+
+		'	.product-info a.icon_plus:hover { color:'+ hex +';}'+
+		'	.product-info .review a.rev_count:hover { color:'+ hex +';}'+
+		'	#language a:hover  { color:'+ hex +';}'+
+		'	#currency a:hover  { color:'+ hex +';}'+
+		'	#header #welcome a:hover  { color:'+ hex +';}'+
+		'	#header .links a:hover  { color:'+ hex +';}'+
+
+		'	.camera_prevThumbs:hover, .camera_nextThumbs:hover, .camera_prev:hover, .camera_next:hover, .camera_commands:hover, .camera_thumbs_cont:hover { background:'+ hex +';}'+
+		'	.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span  { background:'+ hex +';}'+
+
+		'	.jcarousel-skin-opencart .jcarousel-next-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:hover  { background-color: #ccc;}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:hover  { background-color: #ccc;}'+
+		
+		'	.pagination .links a:hover  { background:'+ hex +';}'+
+		'	.category-list ul li a:hover   { color:'+ hex +';}'+		
+		'	.product-filter .display a:hover  { color:'+ hex +';}'+		
+		'	.product-compare a:hover  { color:'+ hex +';}'+		
+		'	.product-list .compare a:hover, .product-list .wishlist a:hover  { color:'+ hex +';}'+		
+		
+		'</style>');	
+}
+
+
+
+
+$(document).ready(function() {
+
+	$('#styler_toggler').bind('click', function() {
+		if($('#styler_slider').css('left') == '0px'){
+			$('#styler_slider').stop(false, true).animate({left:'-200px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}else {
+			$('#styler_slider').stop(false, true).animate({left:'0px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}	
+	});
+
+	// Update colors of colorpicker from those set in Admin
+	$('#main_color').css('background-color', '#F71277');
+	$('#nav_bgr').css('background-color', '#000000');
+	
+});
+</script>
+
+
+<div id="styler_slider"> 
+	<div class="styler_inner">
+		<div class="styler_toggler_holder">
+			<div id="styler_toggler" class="styler_toggler_off"></div>
+		</div>
+		
+		<div class="styler_content">
+			<div class="styler_heading">Theme Settings</div>
+			
+			<table width="100%" cellspacing="3">
+				<tr><td>Main Color: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='main_color' name="main_color" value="F71277"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Navig. BGR: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='nav_bgr' name="nav_bgr" value="000000"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Main BGR:</td>
+					<td>
+						<select name="bgr_picker" id="bgr_picker">                	
+			                		                
+			                <option selected = 'selected'  value="1.png">Default</option>
+			                		                
+			                <option   value="plaid.png">Pattern 1</option>
+			                		                
+			                <option   value="bright_squares.png">Pattern 2</option>
+			                		                
+			                <option   value="furley_bg.png">Pattern 3</option>
+			                		                
+			                <option   value="light_toast.png">Pattern 4</option>
+			                		                
+			                <option   value="vichy.png">Pattern 5</option>
+			                		                
+			                <option   value="hexellence.png">Pattern 6</option>
+			                		                
+			                <option   value="small-crackle-bright.png">Pattern 7</option>
+			                		                
+			                <option   value="diamond_upholstery.png">Pattern 8</option>
+			                		                
+			                <option   value="stacked_circles.png">Pattern 9</option>
+			                		                
+			                <option   value="wood_pattern.png">Pattern 10</option>
+			                		                
+			                <option   value="zigzag.png">Pattern 11</option>
+			                		                
+			                <option   value="noise_pattern_with_crosslines.png">Pattern 12</option>
+			                		                
+			                <option   value="small_tiles.png">Pattern 13</option>
+			                		                
+			                <option   value="white_tiles.png">Pattern 14</option>
+			                		                
+			                <option   value="purty_wood.png">Pattern 15</option>
+			                		                
+			                <option   value="cartographer.png">Pattern 16</option>
+			                		                
+			                <option   value="redox_01.png">Pattern 17</option>
+			                		                
+			                <option   value="lil_fiber.png">Pattern 18</option>
+			                		                
+			                <option   value="grid_noise.png">Pattern 19</option>
+			                		                
+			                <option   value="subtlenet2.png">Pattern 20</option>
+			                		                
+			                <option   value="scribble_light.png">Pattern 21</option>
+			                		                
+			                <option   value="daimond_eyes.png">Pattern 22</option>
+			                		                
+			                <option   value="absurdidad.png">Pattern 23</option>
+			                	                    </select>					
+					</td>
+				</tr>
+				
+			
+			</table>
+		
+		
+		</div>	
+	</div>
+
+
+<div id="styler_styles"></div>
+
+</div>
+
+<!-- STYLER :: End -->
+
+</body></html>
