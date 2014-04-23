@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>HCI</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ElegantCart - A Premium Open Cart Template" />
+<link href="images/cart.png" rel="icon" />
+
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="css/camera.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/carousel.css" media="screen" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.16.custom.css" />
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery.colorbox.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/colorbox.css" media="screen" />
+
+<script type="text/javascript" src="js/tabs.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/elegantcart_custom.js"></script>
+<script type="text/javascript" src="js/cloud_zoom.js"></script>
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/camera.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie8.css" />
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/elegantcart/stylesheet/ie7.css" />
+<![endif]-->
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/ie6.css" />
+<script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('#logo img');
+</script>
+<![endif]-->
+</head>
+<body>
+<div id="container">
+
+<div id="header">
+    <div id="logo"><a href="#"><img src="images/logo.png" title="HCI" alt="HCI" /></a></div>
+  
+    <div id="welcome">
+            Bienvenido, <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/login">inicia sesión</a> o <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/register">crea una nueva cuenta </a>.          </div>
+   
+    <div class="links" id="header_links"><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist" id="wishlist-total">Wish List (0)</a> <a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart">Shopping Cart</a><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/checkout">Checkout</a></div>
+    <div id="cart">
+  <div class="heading">
+    <h4>Shopping Cart</h4>
+    <a><span id="cart-total">0 item(s) - $0.00</span></a></div>
+  <div class="content">
+        <div class="empty">¡Tu carrito de compras está vacío!</div>
+        
+    <div class="cart-arrow"></div>
+  </div>
+</div>
+
+
+  <div id='header_btm'>
+    <div id="search">
+      <div class="search_inside">
+                <input type="text" name="filter_name" value="Buscar" onclick="this.value = '';" onkeydown="this.style.color = '#444444';" />
+                <div class="button-search"></div>
+      </div>
+    </div>
+        
+<script type="text/javascript">
+$(document).ready(function(){ 
+    co_w = $('#c_options').width();
+    $('#c_switcher').css('width',(co_w + 10)+'px');
+    $('#c_switcher').hover(function(){
+      $('#c_options').slideDown(200);
+    },function(){
+      $('#c_options').slideUp(200);
+    });
+});   
+</script>  
+
+<form action="http://blueowlcreative.com/elegantcart/index.php?route=module/currency" method="post" enctype="multipart/form-data">
+  <div id="currency">
+      <div id="c_switcher">
+                   
+           
+                     
+           
+                     
+                    <span class="c_selected">US Dollar</span>
+           
+              
+          <div id="c_options" style="display: none;">
+                           
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'EUR').submit(); $(this).parent().parent().parent().parent().submit();">Euro</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'GBP').submit(); $(this).parent().parent().parent().parent().submit();">Pound Sterling</a>
+                             
+                <a onclick="$('input[name=\'currency_code\']').attr('value', 'USD').submit(); $(this).parent().parent().parent().parent().submit();">US Dollar</a>
+                
+          </div>
+         </div>
+    <input type="hidden" name="currency_code" value="" />
+    <input type="hidden" name="redirect" value="http://blueowlcreative.com/elegantcart/index.php?route=common/home" />          
+  </div>
+</form>
+  </div>
+ 
+</div>
+
+<div id="menu-holder" class="hidden-phone">
+<div id="menu">
+  <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home"><span class='home_icon'></span></a></li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/clothing">Ropa</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/women-clothing">Mujer</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/clothing/men-clothing">Hombre</a></li>
+                  <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/clothing">Infantil</a></li>
+              </ul>
+          </div>
+        </li>
+
+        <li><a href="http://blueowlcreative.com/elegantcart/shoes">Calzado</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Casual</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/shoes">Noche</a></li>
+                    <li><a class='last_submenu_item' href="http://blueowlcreative.com/elegantcart/shoes">Deportivo</a></li>
+                </ul>
+            </div>
+        </li>
+        
+        <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Joyas</a>
+            <div>
+                <ul>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_29">Anillos</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Pulseras</a></li>
+                    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25_28">Collares</a></li>
+                </ul>
+            </div>
+        </li>
+
+    <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Otros</a></li>
+
+    </ul>
+</div>
+</div>
+
+
+<!-- PHONE::Start -->
+
+<div id="menu-phone" class="shown-phone" style="display: none;">
+  <div id="menu-phone-button">Menu</div>
+  <select id="menu-phone-select" onchange="location = this.value">
+    <option value=""></option>
+        <option value="http://blueowlcreative.com/elegantcart/clothing">Ropa</option>
+        <option value="http://blueowlcreative.com/elegantcart/shoes">Calzado</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=57">Joyas</option>
+        <option value="http://blueowlcreative.com/elegantcart/index.php?route=product/category&amp;path=25">Otros</option>
+      </select>
+</div>
+
+<script type="text/javascript">
+  // Bind the Phone menu dropdown
+  $('#menu-phone-button').bind('click', function() {
+    $("#menu-phone-select").css({'opacity':'1'});
+  });
+</script>
+
+<!-- PHONE::End -->
+
+<div id="notification"></div>
+ 
+<div id="content"><!-- Custom Styles -->
+<style>
+ 
+
+  
+ 
+ </style>
+
+<script type="text/javascript">
+	fading_effects = 1;
+</script>  <div class="breadcrumb">
+        <a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home">Home</a>
+         &raquo; <a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart">Shopping Cart</a>
+      </div>
+  <h1>Shopping Cart        &nbsp;(0.27kg)
+      </h1>
+  <form action="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart" method="post" enctype="multipart/form-data">
+    <div class="cart-info">
+      <table>
+        <thead>
+          <tr>
+            <td class="image">Image</td>
+            <td class="name">Product Name</td>
+            <td class="model">Model</td>
+            <td class="quantity">Quantity</td>
+            <td class="price">Unit Price</td>
+            <td class="total">Total</td>
+          </tr>
+        </thead>
+        <tbody>
+                    <tr>
+            <td class="image">              <a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=29"><img src="http://blueowlcreative.com/elegantcart/image/cache/data/carrera1-47x47.jpg" alt="TAG Carrera" title="TAG Carrera" /></a>
+              </td>
+            <td class="name"><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/product&amp;product_id=29">TAG Carrera</a>
+                            <div>
+                              </div>
+              </td>
+            <td class="model">CAL5110.FC6265</td>
+            <td class="quantity"><input type="text" name="quantity[29]" value="2" size="1" />
+              &nbsp;
+              <input type="image" src="catalog/view/theme/default/image/update.png" alt="Update" title="Update" />
+              &nbsp;<a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart&amp;remove=29"><img src="catalog/view/theme/default/image/remove.png" alt="Remove" title="Remove" /></a></td>
+            <td class="price">$5,799.00</td>
+            <td class="total">$11,598.00</td>
+          </tr>
+                            </tbody>
+      </table>
+    </div>
+  </form>
+    <h2>What would you like to do next?</h2>
+  <div class="content">
+    <p>Choose if you have a discount code or reward points you want to use or would like to estimate your delivery cost.</p>
+    <table class="radio">
+            <tr class="highlight">
+        <td>          <input type="radio" name="next" value="coupon" id="use_coupon" />
+          </td>
+        <td><label for="use_coupon">Use Coupon Code</label></td>
+      </tr>
+                  <tr class="highlight">
+        <td>          <input type="radio" name="next" value="voucher" id="use_voucher" />
+          </td>
+        <td><label for="use_voucher">Use Gift Voucher</label></td>
+      </tr>
+                        <tr class="highlight">
+        <td>          <input type="radio" name="next" value="shipping" id="shipping_estimate" />
+          </td>
+        <td><label for="shipping_estimate">Estimate Shipping &amp; Taxes</label></td>
+      </tr>
+          </table>
+  </div>
+  <div class="cart-module">
+    <div id="coupon" class="content" style="display: none;">
+      <form action="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart" method="post" enctype="multipart/form-data">
+        Enter your coupon here:&nbsp;
+        <input type="text" name="coupon" value="" />
+        <input type="hidden" name="next" value="coupon" />
+        &nbsp;
+        <input type="submit" value="Apply Coupon" class="button" />
+      </form>
+    </div>
+    <div id="voucher" class="content" style="display: none;">
+      <form action="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart" method="post" enctype="multipart/form-data">
+        Enter your gift voucher code here:&nbsp;
+        <input type="text" name="voucher" value="" />
+        <input type="hidden" name="next" value="voucher" />
+        &nbsp;
+        <input type="submit" value="Apply Voucher" class="button" />
+      </form>
+    </div>
+    <div id="reward" class="content" style="display: none;">
+      <form action="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart" method="post" enctype="multipart/form-data">
+        Points to use (Max 0):&nbsp;
+        <input type="text" name="reward" value="" />
+        <input type="hidden" name="next" value="reward" />
+        &nbsp;
+        <input type="submit" value="Apply Points" class="button" />
+      </form>
+    </div>
+    <div id="shipping" class="content" style="display: none;">
+      <p>Enter your destination to get a shipping estimate.</p>
+      <table>
+        <tr>
+          <td><span class="required">*</span> Country:</td>
+          <td><select name="country_id">
+              <option value=""> --- Please Select --- </option>
+                                          <option value="1">Afghanistan</option>
+                                                        <option value="2">Albania</option>
+                                                        <option value="3">Algeria</option>
+                                                        <option value="4">American Samoa</option>
+                                                        <option value="5">Andorra</option>
+                                                        <option value="6">Angola</option>
+                                                        <option value="7">Anguilla</option>
+                                                        <option value="8">Antarctica</option>
+                                                        <option value="9">Antigua and Barbuda</option>
+                                                        <option value="10">Argentina</option>
+                                                        <option value="11">Armenia</option>
+                                                        <option value="12">Aruba</option>
+                                                        <option value="13">Australia</option>
+                                                        <option value="14">Austria</option>
+                                                        <option value="15">Azerbaijan</option>
+                                                        <option value="16">Bahamas</option>
+                                                        <option value="17">Bahrain</option>
+                                                        <option value="18">Bangladesh</option>
+                                                        <option value="19">Barbados</option>
+                                                        <option value="20">Belarus</option>
+                                                        <option value="21">Belgium</option>
+                                                        <option value="22">Belize</option>
+                                                        <option value="23">Benin</option>
+                                                        <option value="24">Bermuda</option>
+                                                        <option value="25">Bhutan</option>
+                                                        <option value="26">Bolivia</option>
+                                                        <option value="27">Bosnia and Herzegowina</option>
+                                                        <option value="28">Botswana</option>
+                                                        <option value="29">Bouvet Island</option>
+                                                        <option value="30">Brazil</option>
+                                                        <option value="31">British Indian Ocean Territory</option>
+                                                        <option value="32">Brunei Darussalam</option>
+                                                        <option value="33">Bulgaria</option>
+                                                        <option value="34">Burkina Faso</option>
+                                                        <option value="35">Burundi</option>
+                                                        <option value="36">Cambodia</option>
+                                                        <option value="37">Cameroon</option>
+                                                        <option value="38">Canada</option>
+                                                        <option value="39">Cape Verde</option>
+                                                        <option value="40">Cayman Islands</option>
+                                                        <option value="41">Central African Republic</option>
+                                                        <option value="42">Chad</option>
+                                                        <option value="43">Chile</option>
+                                                        <option value="44">China</option>
+                                                        <option value="45">Christmas Island</option>
+                                                        <option value="46">Cocos (Keeling) Islands</option>
+                                                        <option value="47">Colombia</option>
+                                                        <option value="48">Comoros</option>
+                                                        <option value="49">Congo</option>
+                                                        <option value="50">Cook Islands</option>
+                                                        <option value="51">Costa Rica</option>
+                                                        <option value="52">Cote D'Ivoire</option>
+                                                        <option value="53">Croatia</option>
+                                                        <option value="54">Cuba</option>
+                                                        <option value="55">Cyprus</option>
+                                                        <option value="56">Czech Republic</option>
+                                                        <option value="237">Democratic Republic of Congo</option>
+                                                        <option value="57">Denmark</option>
+                                                        <option value="58">Djibouti</option>
+                                                        <option value="59">Dominica</option>
+                                                        <option value="60">Dominican Republic</option>
+                                                        <option value="61">East Timor</option>
+                                                        <option value="62">Ecuador</option>
+                                                        <option value="63">Egypt</option>
+                                                        <option value="64">El Salvador</option>
+                                                        <option value="65">Equatorial Guinea</option>
+                                                        <option value="66">Eritrea</option>
+                                                        <option value="67">Estonia</option>
+                                                        <option value="68">Ethiopia</option>
+                                                        <option value="69">Falkland Islands (Malvinas)</option>
+                                                        <option value="70">Faroe Islands</option>
+                                                        <option value="71">Fiji</option>
+                                                        <option value="72">Finland</option>
+                                                        <option value="73">France</option>
+                                                        <option value="74">France, Metropolitan</option>
+                                                        <option value="75">French Guiana</option>
+                                                        <option value="76">French Polynesia</option>
+                                                        <option value="77">French Southern Territories</option>
+                                                        <option value="78">Gabon</option>
+                                                        <option value="79">Gambia</option>
+                                                        <option value="80">Georgia</option>
+                                                        <option value="81">Germany</option>
+                                                        <option value="82">Ghana</option>
+                                                        <option value="83">Gibraltar</option>
+                                                        <option value="84">Greece</option>
+                                                        <option value="85">Greenland</option>
+                                                        <option value="86">Grenada</option>
+                                                        <option value="87">Guadeloupe</option>
+                                                        <option value="88">Guam</option>
+                                                        <option value="89">Guatemala</option>
+                                                        <option value="90">Guinea</option>
+                                                        <option value="91">Guinea-bissau</option>
+                                                        <option value="92">Guyana</option>
+                                                        <option value="93">Haiti</option>
+                                                        <option value="94">Heard and Mc Donald Islands</option>
+                                                        <option value="95">Honduras</option>
+                                                        <option value="96">Hong Kong</option>
+                                                        <option value="97">Hungary</option>
+                                                        <option value="98">Iceland</option>
+                                                        <option value="99">India</option>
+                                                        <option value="100">Indonesia</option>
+                                                        <option value="101">Iran (Islamic Republic of)</option>
+                                                        <option value="102">Iraq</option>
+                                                        <option value="103">Ireland</option>
+                                                        <option value="104">Israel</option>
+                                                        <option value="105">Italy</option>
+                                                        <option value="106">Jamaica</option>
+                                                        <option value="107">Japan</option>
+                                                        <option value="108">Jordan</option>
+                                                        <option value="109">Kazakhstan</option>
+                                                        <option value="110">Kenya</option>
+                                                        <option value="111">Kiribati</option>
+                                                        <option value="113">Korea, Republic of</option>
+                                                        <option value="114">Kuwait</option>
+                                                        <option value="115">Kyrgyzstan</option>
+                                                        <option value="116">Lao People's Democratic Republic</option>
+                                                        <option value="117">Latvia</option>
+                                                        <option value="118">Lebanon</option>
+                                                        <option value="119">Lesotho</option>
+                                                        <option value="120">Liberia</option>
+                                                        <option value="121">Libyan Arab Jamahiriya</option>
+                                                        <option value="122">Liechtenstein</option>
+                                                        <option value="123">Lithuania</option>
+                                                        <option value="124">Luxembourg</option>
+                                                        <option value="125">Macau</option>
+                                                        <option value="126">Macedonia</option>
+                                                        <option value="127">Madagascar</option>
+                                                        <option value="128">Malawi</option>
+                                                        <option value="129">Malaysia</option>
+                                                        <option value="130">Maldives</option>
+                                                        <option value="131">Mali</option>
+                                                        <option value="132">Malta</option>
+                                                        <option value="133">Marshall Islands</option>
+                                                        <option value="134">Martinique</option>
+                                                        <option value="135">Mauritania</option>
+                                                        <option value="136">Mauritius</option>
+                                                        <option value="137">Mayotte</option>
+                                                        <option value="138">Mexico</option>
+                                                        <option value="139">Micronesia, Federated States of</option>
+                                                        <option value="140">Moldova, Republic of</option>
+                                                        <option value="141">Monaco</option>
+                                                        <option value="142">Mongolia</option>
+                                                        <option value="143">Montserrat</option>
+                                                        <option value="144">Morocco</option>
+                                                        <option value="145">Mozambique</option>
+                                                        <option value="146">Myanmar</option>
+                                                        <option value="147">Namibia</option>
+                                                        <option value="148">Nauru</option>
+                                                        <option value="149">Nepal</option>
+                                                        <option value="150">Netherlands</option>
+                                                        <option value="151">Netherlands Antilles</option>
+                                                        <option value="152">New Caledonia</option>
+                                                        <option value="153">New Zealand</option>
+                                                        <option value="154">Nicaragua</option>
+                                                        <option value="155">Niger</option>
+                                                        <option value="156">Nigeria</option>
+                                                        <option value="157">Niue</option>
+                                                        <option value="158">Norfolk Island</option>
+                                                        <option value="112">North Korea</option>
+                                                        <option value="159">Northern Mariana Islands</option>
+                                                        <option value="160">Norway</option>
+                                                        <option value="161">Oman</option>
+                                                        <option value="162">Pakistan</option>
+                                                        <option value="163">Palau</option>
+                                                        <option value="164">Panama</option>
+                                                        <option value="165">Papua New Guinea</option>
+                                                        <option value="166">Paraguay</option>
+                                                        <option value="167">Peru</option>
+                                                        <option value="168">Philippines</option>
+                                                        <option value="169">Pitcairn</option>
+                                                        <option value="170">Poland</option>
+                                                        <option value="171">Portugal</option>
+                                                        <option value="172">Puerto Rico</option>
+                                                        <option value="173">Qatar</option>
+                                                        <option value="174">Reunion</option>
+                                                        <option value="175">Romania</option>
+                                                        <option value="176">Russian Federation</option>
+                                                        <option value="177">Rwanda</option>
+                                                        <option value="178">Saint Kitts and Nevis</option>
+                                                        <option value="179">Saint Lucia</option>
+                                                        <option value="180">Saint Vincent and the Grenadines</option>
+                                                        <option value="181">Samoa</option>
+                                                        <option value="182">San Marino</option>
+                                                        <option value="183">Sao Tome and Principe</option>
+                                                        <option value="184">Saudi Arabia</option>
+                                                        <option value="185">Senegal</option>
+                                                        <option value="186">Seychelles</option>
+                                                        <option value="187">Sierra Leone</option>
+                                                        <option value="188">Singapore</option>
+                                                        <option value="189">Slovak Republic</option>
+                                                        <option value="190">Slovenia</option>
+                                                        <option value="191">Solomon Islands</option>
+                                                        <option value="192">Somalia</option>
+                                                        <option value="193">South Africa</option>
+                                                        <option value="194">South Georgia &amp; South Sandwich Islands</option>
+                                                        <option value="195">Spain</option>
+                                                        <option value="196">Sri Lanka</option>
+                                                        <option value="197">St. Helena</option>
+                                                        <option value="198">St. Pierre and Miquelon</option>
+                                                        <option value="199">Sudan</option>
+                                                        <option value="200">Suriname</option>
+                                                        <option value="201">Svalbard and Jan Mayen Islands</option>
+                                                        <option value="202">Swaziland</option>
+                                                        <option value="203">Sweden</option>
+                                                        <option value="204">Switzerland</option>
+                                                        <option value="205">Syrian Arab Republic</option>
+                                                        <option value="206">Taiwan</option>
+                                                        <option value="207">Tajikistan</option>
+                                                        <option value="208">Tanzania, United Republic of</option>
+                                                        <option value="209">Thailand</option>
+                                                        <option value="210">Togo</option>
+                                                        <option value="211">Tokelau</option>
+                                                        <option value="212">Tonga</option>
+                                                        <option value="213">Trinidad and Tobago</option>
+                                                        <option value="214">Tunisia</option>
+                                                        <option value="215">Turkey</option>
+                                                        <option value="216">Turkmenistan</option>
+                                                        <option value="217">Turks and Caicos Islands</option>
+                                                        <option value="218">Tuvalu</option>
+                                                        <option value="219">Uganda</option>
+                                                        <option value="220">Ukraine</option>
+                                                        <option value="221">United Arab Emirates</option>
+                                                        <option value="222">United Kingdom</option>
+                                                        <option value="223" selected="selected">United States</option>
+                                                        <option value="224">United States Minor Outlying Islands</option>
+                                                        <option value="225">Uruguay</option>
+                                                        <option value="226">Uzbekistan</option>
+                                                        <option value="227">Vanuatu</option>
+                                                        <option value="228">Vatican City State (Holy See)</option>
+                                                        <option value="229">Venezuela</option>
+                                                        <option value="230">Viet Nam</option>
+                                                        <option value="231">Virgin Islands (British)</option>
+                                                        <option value="232">Virgin Islands (U.S.)</option>
+                                                        <option value="233">Wallis and Futuna Islands</option>
+                                                        <option value="234">Western Sahara</option>
+                                                        <option value="235">Yemen</option>
+                                                        <option value="236">Yugoslavia</option>
+                                                        <option value="238">Zambia</option>
+                                                        <option value="239">Zimbabwe</option>
+                                        </select></td>
+        </tr>
+        <tr>
+          <td><span class="required">*</span> Region / State:</td>
+          <td><select name="zone_id">
+            </select></td>
+        </tr>
+        <tr>
+          <td><span id="postcode-required" class="required">*</span> Post Code:</td>
+          <td><input type="text" name="postcode" value="" /></td>
+        </tr>
+      </table>
+      <input type="button" value="Get Quotes" id="button-quote" class="button" />
+    </div>
+  </div>
+    <div class="cart-total">
+    <table id="total">
+            <tr>
+        <td class="right"><b>Sub-Total:</b></td>
+        <td class="right">$11,598.00</td>
+      </tr>
+            <tr>
+        <td class="right"><b>Total:</b></td>
+        <td class="right">$11,598.00</td>
+      </tr>
+          </table>
+  </div>
+  <div class="buttons">
+    <div class="right"><a href="http://blueowlcreative.com/elegantcart/index.php?route=checkout/checkout" class="button">Checkout</a></div>
+    <div class="center"><a href="http://blueowlcreative.com/elegantcart/index.php?route=common/home" class="button">Continue Shopping</a></div>
+  </div>
+  </div>
+<script type="text/javascript"><!--
+$('input[name=\'next\']').bind('change', function() {
+	$('.cart-module > div').hide();
+	
+	$('#' + this.value).show();
+});
+//--></script>
+<script type="text/javascript"><!--
+$('#button-quote').live('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/quote',
+		type: 'post',
+		data: 'country_id=' + $('select[name=\'country_id\']').val() + '&zone_id=' + $('select[name=\'zone_id\']').val() + '&postcode=' + encodeURIComponent($('input[name=\'postcode\']').val()),
+		dataType: 'json',		
+		beforeSend: function() {
+			$('#button-quote').attr('disabled', true);
+			$('#button-quote').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},
+		complete: function() {
+			$('#button-quote').attr('disabled', false);
+			$('.wait').remove();
+		},		
+		success: function(json) {
+			$('.success, .warning, .attention, .error').remove();			
+						
+			if (json['error']) {
+				if (json['error']['warning']) {
+					$('#notification').html('<div class="warning" style="display: none;">' + json['error']['warning'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+					
+					$('.warning').fadeIn('slow');
+					
+					$('html, body').animate({ scrollTop: 0 }, 'slow'); 
+				}	
+							
+				if (json['error']['country']) {
+					$('select[name=\'country_id\']').after('<span class="error">' + json['error']['country'] + '</span>');
+				}	
+				
+				if (json['error']['zone']) {
+					$('select[name=\'zone_id\']').after('<span class="error">' + json['error']['zone'] + '</span>');
+				}
+				
+				if (json['error']['postcode']) {
+					$('input[name=\'postcode\']').after('<span class="error">' + json['error']['postcode'] + '</span>');
+				}					
+			}
+			
+			if (json['shipping_method']) {
+				html  = '<h2>Please select the preferred shipping method to use on this order.</h2>';
+				html += '<form action="http://blueowlcreative.com/elegantcart/index.php?route=checkout/cart" method="post" enctype="multipart/form-data">';
+				html += '  <table class="radio">';
+				
+				for (i in json['shipping_method']) {
+					html += '<tr>';
+					html += '  <td colspan="3"><b>' + json['shipping_method'][i]['title'] + '</b></td>';
+					html += '</tr>';
+				
+					if (!json['shipping_method'][i]['error']) {
+						for (j in json['shipping_method'][i]['quote']) {
+							html += '<tr class="highlight">';
+							
+							if (json['shipping_method'][i]['quote'][j]['code'] == '') {
+								html += '<td><input type="radio" name="shipping_method" value="' + json['shipping_method'][i]['quote'][j]['code'] + '" id="' + json['shipping_method'][i]['quote'][j]['code'] + '" checked="checked" /></td>';
+							} else {
+								html += '<td><input type="radio" name="shipping_method" value="' + json['shipping_method'][i]['quote'][j]['code'] + '" id="' + json['shipping_method'][i]['quote'][j]['code'] + '" /></td>';
+							}
+								
+							html += '  <td><label for="' + json['shipping_method'][i]['quote'][j]['code'] + '">' + json['shipping_method'][i]['quote'][j]['title'] + '</label></td>';
+							html += '  <td style="text-align: right;"><label for="' + json['shipping_method'][i]['quote'][j]['code'] + '">' + json['shipping_method'][i]['quote'][j]['text'] + '</label></td>';
+							html += '</tr>';
+						}		
+					} else {
+						html += '<tr>';
+						html += '  <td colspan="3"><div class="error">' + json['shipping_method'][i]['error'] + '</div></td>';
+						html += '</tr>';						
+					}
+				}
+				
+				html += '  </table>';
+				html += '  <br />';
+				html += '  <input type="hidden" name="next" value="shipping" />';
+				
+								html += '  <input type="submit" value="Apply Shipping" id="button-shipping" class="button" disabled="disabled" />';	
+											
+				html += '</form>';
+				
+				$.colorbox({
+					overlayClose: true,
+					opacity: 0.5,
+					width: '600px',
+					height: '400px',
+					href: false,
+					html: html
+				});
+				
+				$('input[name=\'shipping_method\']').bind('change', function() {
+					$('#button-shipping').attr('disabled', false);
+				});
+			}
+		}
+	});
+});
+//--></script> 
+<script type="text/javascript"><!--
+$('select[name=\'country_id\']').bind('change', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/country&country_id=' + this.value,
+		dataType: 'json',
+		beforeSend: function() {
+			$('select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+		},
+		complete: function() {
+			$('.wait').remove();
+		},			
+		success: function(json) {
+			if (json['postcode_required'] == '1') {
+				$('#postcode-required').show();
+			} else {
+				$('#postcode-required').hide();
+			}
+			
+			html = '<option value=""> --- Please Select --- </option>';
+			
+			if (json['zone'] != '') {
+				for (i = 0; i < json['zone'].length; i++) {
+        			html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+	    			
+					if (json['zone'][i]['zone_id'] == '') {
+	      				html += ' selected="selected"';
+	    			}
+	
+	    			html += '>' + json['zone'][i]['name'] + '</option>';
+				}
+			} else {
+				html += '<option value="0" selected="selected"> --- None --- </option>';
+			}
+			
+			$('select[name=\'zone_id\']').html(html);
+		},
+		error: function(xhr, ajaxOptions, thrownError) {
+			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+		}
+	});
+});
+
+$('select[name=\'country_id\']').trigger('change');
+//--></script>
+<div id="footer">
+  <div class="column">
+    <h3>Information</h3>
+    <ul>
+            <li><a href="http://blueowlcreative.com/elegantcart/about_us">About Us</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=6">Delivery Information</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=3">Privacy Policy</a></li>
+            <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/information&amp;information_id=5">Terms &amp; Conditions</a></li>
+          </ul>
+  </div>
+  <div class="column">
+    <h3>Customer Service</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/contact">Contact Us</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/return/insert">Returns</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=information/sitemap">Site Map</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>Extras</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/manufacturer">Brands</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/voucher">Gift Vouchers</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=affiliate/account">Affiliates</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=product/special">Specials</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <h3>My Account</h3>
+    <ul>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/account">My Account</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/order">Order History</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/wishlist">Wish List</a></li>
+      <li><a href="http://blueowlcreative.com/elegantcart/index.php?route=account/newsletter">Newsletter</a></li>
+    </ul>
+  </div>
+  <div class="big_column">
+  	<a href='http://www.pinterest.com/' class='icon_pinterest' title='Pinterest'>Pinterest</a>
+  	<a href='http://www.twitter.com/' class='icon_tweet' title='Tweeter'>Tweeter</a>
+  	<a href='http://www.skype.com/' class='icon_skype' title='Skype'>Skype</a>
+  	<a href='http://www.google.com/' class='icon_google' title='Google+'>Google+</a>
+  	<a href='http://www.facebook.com/' class='icon_facebook' title='Facebook'>Facebook</a>
+  	<div class='clear'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h20'></div>
+  	<div class='h10'></div>
+  	<span class='icon_amex hidden-phone' title='Amex'>Amex</span>
+  	<span class='icon_discover hidden-phone' title='Discover'>Discover</span>
+  	<span class='icon_mastercard hidden-phone' title='Mastercard'>Mastercard</span>
+  	<span class='icon_paypal hidden-phone' title='Paypal'>Paypal</span>
+  	<span class='icon_visa hidden-phone' title='Visa'>Visa</span>
+  </div>  
+  <div class="clear"></div>
+  <div class="footer_btm">
+      <div id="powered"><a href="http://www.blueowlcreative.com" target="_blank">ElegantCart Theme</a> © 2014  &nbsp; |  &nbsp;  Powered by <a href="http://www.opencart.com/" target="_blank">OpenCart</a></div>
+  </div>
+</div>
+
+</div>
+
+
+
+<!-- STYLER :: Start -->
+<link rel="stylesheet" href="admin/view/javascript/colorpicker/css/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="admin/view/javascript/colorpicker/js/colorpicker.js"></script>
+
+
+	
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('#main_color').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#main_color').val(hex);
+			$('#main_color').css('backgroundColor', '#' + hex);
+			mainColorUpdate(hex);
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+
+	$('#nav_bgr').ColorPicker({
+		onSubmit: function(hsb, hex, rgb, el) {
+			$(el).val(hex);
+			$(el).ColorPickerHide();
+		},
+		onBeforeShow: function () {
+			$(this).ColorPickerSetColor(this.value);
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#nav_bgr').val(hex);
+			$('#nav_bgr').css('backgroundColor', '#' + hex);
+			$('#menu').css('backgroundColor', '#' + hex);
+			
+		}
+	})
+	.bind('keyup', function(){
+		$(this).ColorPickerSetColor(this.value);
+	});
+	
+
+	$('#bgr_picker').change(function() {
+		$('body').css('backgroundImage', 'url(admin/view/image/bgrs/' + $(this).val() + ')');
+	});
+	
+});
+
+function mainColorUpdate(hex){
+
+	hex = '#'+hex;
+
+	$('#menu-holder').css('border-bottom-color', hex);
+	$('#styler_styles').html('<style>'+
+		'	a:hover { color: '+ hex +';}'+
+		'	#menu > ul > li:hover > a { background:'+ hex +';}'+
+		'	#menu > ul > li ul > li > a:hover { background:'+ hex +';}'+
+		'	a.button:hover, input.button:hover { background:'+ hex +';}'+
+		'	.buttons .right .button:hover { background:'+ hex +';}'+
+		'	.box-category > ul > li a:hover { color:'+ hex +';}'+
+		'	.box-category > ul > li ul > li > a:hover { color:'+ hex +';}'+
+		'	.product_holder .name a:hover { color:'+ hex +';}'+
+		'	.product-info .description a:hover { color:'+ hex +';}'+
+		'	.product-info .cart .button { background:'+ hex +';}'+
+		'	.product-info a.icon_plus:hover { color:'+ hex +';}'+
+		'	.product-info .review a.rev_count:hover { color:'+ hex +';}'+
+		'	#language a:hover  { color:'+ hex +';}'+
+		'	#currency a:hover  { color:'+ hex +';}'+
+		'	#header #welcome a:hover  { color:'+ hex +';}'+
+		'	#header .links a:hover  { color:'+ hex +';}'+
+
+		'	.camera_prevThumbs:hover, .camera_nextThumbs:hover, .camera_prev:hover, .camera_next:hover, .camera_commands:hover, .camera_thumbs_cont:hover { background:'+ hex +';}'+
+		'	.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span  { background:'+ hex +';}'+
+
+		'	.jcarousel-skin-opencart .jcarousel-next-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-horizontal:hover  { background-color:'+ hex +';}'+
+		'	.jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:hover  { background-color: #ccc;}'+
+		'	.jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:hover  { background-color: #ccc;}'+
+		
+		'	.pagination .links a:hover  { background:'+ hex +';}'+
+		'	.category-list ul li a:hover   { color:'+ hex +';}'+		
+		'	.product-filter .display a:hover  { color:'+ hex +';}'+		
+		'	.product-compare a:hover  { color:'+ hex +';}'+		
+		'	.product-list .compare a:hover, .product-list .wishlist a:hover  { color:'+ hex +';}'+		
+		
+		'</style>');	
+}
+
+
+
+
+$(document).ready(function() {
+
+	$('#styler_toggler').bind('click', function() {
+		if($('#styler_slider').css('left') == '0px'){
+			$('#styler_slider').stop(false, true).animate({left:'-200px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}else {
+			$('#styler_slider').stop(false, true).animate({left:'0px'}, 400, 'easeOutExpo', function(){
+				if($('#styler_toggler').hasClass('styler_toggler_off')){
+					$('#styler_toggler').removeClass('styler_toggler_off').addClass('styler_toggler_on');	
+				}else{
+					$('#styler_toggler').removeClass('styler_toggler_on').addClass('styler_toggler_off');				
+				}
+			});
+		}	
+	});
+
+	// Update colors of colorpicker from those set in Admin
+	$('#main_color').css('background-color', '#F71277');
+	$('#nav_bgr').css('background-color', '#000000');
+	
+});
+</script>
+
+
+<div id="styler_slider"> 
+	<div class="styler_inner">
+		<div class="styler_toggler_holder">
+			<div id="styler_toggler" class="styler_toggler_off"></div>
+		</div>
+		
+		<div class="styler_content">
+			<div class="styler_heading">Theme Settings</div>
+			
+			<table width="100%" cellspacing="3">
+				<tr><td>Main Color: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='main_color' name="main_color" value="F71277"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Navig. BGR: <div class="h10"></div></td>
+					<td> <input type="text" maxlength="6" size="6" id='nav_bgr' name="nav_bgr" value="000000"/><div class="h10"></div></td>
+				</tr>
+				<tr><td>Main BGR:</td>
+					<td>
+						<select name="bgr_picker" id="bgr_picker">                	
+			                		                
+			                <option selected = 'selected'  value="1.png">Default</option>
+			                		                
+			                <option   value="plaid.png">Pattern 1</option>
+			                		                
+			                <option   value="bright_squares.png">Pattern 2</option>
+			                		                
+			                <option   value="furley_bg.png">Pattern 3</option>
+			                		                
+			                <option   value="light_toast.png">Pattern 4</option>
+			                		                
+			                <option   value="vichy.png">Pattern 5</option>
+			                		                
+			                <option   value="hexellence.png">Pattern 6</option>
+			                		                
+			                <option   value="small-crackle-bright.png">Pattern 7</option>
+			                		                
+			                <option   value="diamond_upholstery.png">Pattern 8</option>
+			                		                
+			                <option   value="stacked_circles.png">Pattern 9</option>
+			                		                
+			                <option   value="wood_pattern.png">Pattern 10</option>
+			                		                
+			                <option   value="zigzag.png">Pattern 11</option>
+			                		                
+			                <option   value="noise_pattern_with_crosslines.png">Pattern 12</option>
+			                		                
+			                <option   value="small_tiles.png">Pattern 13</option>
+			                		                
+			                <option   value="white_tiles.png">Pattern 14</option>
+			                		                
+			                <option   value="purty_wood.png">Pattern 15</option>
+			                		                
+			                <option   value="cartographer.png">Pattern 16</option>
+			                		                
+			                <option   value="redox_01.png">Pattern 17</option>
+			                		                
+			                <option   value="lil_fiber.png">Pattern 18</option>
+			                		                
+			                <option   value="grid_noise.png">Pattern 19</option>
+			                		                
+			                <option   value="subtlenet2.png">Pattern 20</option>
+			                		                
+			                <option   value="scribble_light.png">Pattern 21</option>
+			                		                
+			                <option   value="daimond_eyes.png">Pattern 22</option>
+			                		                
+			                <option   value="absurdidad.png">Pattern 23</option>
+			                	                    </select>					
+					</td>
+				</tr>
+				
+			
+			</table>
+		
+		
+		</div>	
+	</div>
+
+
+<div id="styler_styles"></div>
+
+</div>
+
+<!-- STYLER :: End -->
+
+</body></html>
