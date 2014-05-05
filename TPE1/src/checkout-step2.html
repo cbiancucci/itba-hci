@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <!--[if lt IE 9]>
@@ -13,9 +12,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>Shop Master</title>
+<title>B&G</title>
+
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
+<meta name="description" content="B&G. Tienda de ropa online.">
+<meta name="author" content="HCI">
+<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -78,7 +81,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -177,13 +180,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                             <div class="field name-firstname">
                               <label class="required" for="billing:firstname"><em>*</em>Nombre</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="First Name" value="" name="billing[firstname]" id="billing:firstname">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="billing[firstname]" id="billing:firstname">
                               </div>
                             </div>
                             <div class="field name-lastname">
                               <label class="required" for="billing:lastname"><em>*</em>Apellido</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Last Name" value="" name="billing[lastname]" id="billing:lastname">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="billing[lastname]" id="billing:lastname">
                               </div>
                             </div>
                           </div>
@@ -192,38 +195,38 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           <div class="field">
                             <label for="billing:company">Compania</label>
                             <div class="input-box">
-                              <input type="text" class="input-text " title="Company" value="" name="billing[company]" id="billing:company">
+                              <input type="text" class="input-text " title="Compania" value="" name="billing[company]" id="billing:company">
                             </div>
                           </div>
                           <div class="field">
                             <label class="required" for="billing:email"><em>*</em>Correo electronico</label>
                             <div class="input-box">
-                              <input type="text" class="input-text validate-email required-entry" title="Email Address" value="" id="billing:email" name="billing[email]">
+                              <input type="text" class="input-text validate-email required-entry" title="Correo electronico" value="" id="billing:email" name="billing[email]">
                             </div>
                           </div>
                         </li>
                         <li class="wide">
                           <label class="required" for="billing:street1"><em>*</em>Direccion</label>
                           <div class="input-box">
-                            <input type="text" class="input-text  required-entry" value="" id="billing:street1" name="billing[street][]" title="Street Address">
+                            <input type="text" class="input-text  required-entry" value="" id="billing:street1" name="billing[street][]" title="Direccion">
                           </div>
                         </li>
                         <li class="wide">
                           <div class="input-box">
-                            <input type="text" class="input-text " value="" id="billing:street2" name="billing[street][]" title="Street Address 2">
+                            <input type="text" class="input-text " value="" id="billing:street2" name="billing[street][]" title="Direccion">
                           </div>
                         </li>
                         <li class="fields">
                           <div class="field">
                             <label class="required" for="billing:city"><em>*</em>Ciudad</label>
                             <div class="input-box">
-                              <input type="text" id="billing:city" class="input-text  required-entry" value="" name="billing[city]" title="City">
+                              <input type="text" id="billing:city" class="input-text  required-entry" value="" name="billing[city]" title="Ciudad">
                             </div>
                           </div>
                           <div class="field">
                             <label class="required" for="billing:region_id"><em>*</em>Provincia</label>
                             <div class="input-box">
-                              <select  class="validate-select required-entry" title="State/Province" name="billing[region_id]" id="billing:region_id" >
+                              <select  class="validate-select required-entry" title="Provincia" name="billing[region_id]" id="billing:region_id" >
                                 <option value="">-- Selecciona tu provincia --</option>
                                 <option value="Buenos Aires">Buenos Aires</option>
                                 <option value="Capital Federal">Capital Federal</option>
@@ -250,7 +253,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                                 <option value="Tierra del Fuego">Tierra del Fuego</option>
                                 <option value="Tucuman">Tucuman</option>
                               </select>
-                              <input type="text" style="display:none;" class="input-text regions required-entry" title="State/Province" value="" name="billing[region]" id="billing:region">
+                              <input type="text" style="display:none;" class="input-text regions required-entry" title="Provincia" value="" name="billing[region]" id="billing:region">
                             </div>
                           </div>
                         </li>
@@ -258,13 +261,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           <div class="field">
                             <label class="required" for="billing:postcode"><em>*</em>Codigo postal</label>
                             <div class="input-box">
-                              <input type="text" class="input-text validate-zip-international  required-entry" value="" id="billing:postcode" name="billing[postcode]" title="Zip/Postal Code">
+                              <input type="text" class="input-text validate-zip-international  required-entry" value="" id="billing:postcode" name="billing[postcode]" title="Codigo postal">
                             </div>
                           </div>
                           <div class="field">
                             <label class="required" for="billing:country_id"><em>*</em>Pais</label>
                             <div class="input-box">
-                              <select title="Country" class="validate-select" id="billing:country_id" name="billing[country_id]">
+                              <select title="Pais" class="validate-select" id="billing:country_id" name="billing[country_id]">
                                 <option value="">-- Selecciona tu pais --</option>
                               <option value="AR">Argentina</option>
                               <option value="BR">Brasil</option>
@@ -286,7 +289,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           <div class="field">
                             <label class="required" for="billing:telephone"><em>*</em>Telefono</label>
                             <div class="input-box">
-                              <input type="text" id="billing:telephone" class="input-text  required-entry" title="Telephone" value="" name="billing[telephone]">
+                              <input type="text" id="billing:telephone" class="input-text  required-entry" title="Telefono" value="" name="billing[telephone]">
                             </div>
                           </div>
                           <div class="field">
@@ -300,13 +303,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           <div class="field">
                             <label class="required" for="billing:customer_password"><em>*</em>Contraseña</label>
                             <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="Password" id="billing:customer_password" name="billing[customer_password]">
+                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="billing:customer_password" name="billing[customer_password]">
                             </div>
                           </div>
                           <div class="field">
                             <label class="required" for="billing:confirm_password"><em>*</em>Confirmar contraseña</label>
                             <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-cpassword" id="billing:confirm_password" title="Confirm Password" name="billing[confirm_password]">
+                              <input type="password" class="input-text required-entry validate-cpassword" id="billing:confirm_password" title="Confirmar contraseña" name="billing[confirm_password]">
                             </div>
                           </div>
                         </li>
@@ -317,18 +320,18 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                     </fieldset>
                   </li>
                   <li class="control">
-                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = true;" title="Ship to this address" checked="checked" value="1" id="billing:use_for_shipping_yes" name="billing[use_for_shipping]">
+                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = true;" title="Enviar a esta direccion" checked="checked" value="1" id="billing:use_for_shipping_yes" name="billing[use_for_shipping]">
                     <label for="billing:use_for_shipping_yes">Enviar a esta direccion</label>
                   </li>
                   <li class="control">
-                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = false;" title="Ship to different address" value="0" id="billing:use_for_shipping_no" name="billing[use_for_shipping]">
+                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = false;" title="Enviar a otra direccion" value="0" id="billing:use_for_shipping_no" name="billing[use_for_shipping]">
                     <label for="billing:use_for_shipping_no">Enviar a otra direccion</label>
                   </li>
                 </ul>
                 <div id="billing-buttons-container" class="buttons-set">
                   <p class="required">* Campos obligatorios</p>
-                  <button onclick="toCheckout(3);" class="button" title="Continue" type="button"><span><span>Continuar</span></span></button>
-                  <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
+                  <button onclick="toCheckout(3);" class="button" title="Continuar" type="button"><span><span>Continuar</span></span></button>
+                  <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
               </fieldset>
             </form>
           </div>
@@ -340,7 +343,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <br /><br />
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
@@ -370,10 +373,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Envio" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -389,7 +392,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
         </div></div>
 </body>
 </html>

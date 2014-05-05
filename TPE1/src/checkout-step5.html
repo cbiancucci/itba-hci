@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <!--[if lt IE 9]>
@@ -13,9 +12,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>Shop Master</title>
+<title>B&G</title>
+
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
+<meta name="description" content="B&G. Tienda de ropa online.">
+<meta name="author" content="HCI">
+<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -78,7 +81,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -169,11 +172,11 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <fieldset>
                 <dl id="checkout-payment-method-load" class="sp-methods">
                   <dt>
-                    <input type="radio" class="radio" onclick="payment.switchMethod('checkmo')" title="Check / Money order" name="payment[method]" value="checkmo" id="p_method_checkmo" >
+                    <input type="radio" class="radio" onclick="payment.switchMethod('checkmo')" title="MercadoPago" name="payment[method]" value="checkmo" id="p_method_checkmo" >
                     <label for="p_method_checkmo">MercadoPago </label>
                   </dt>
                   <dt>
-                    <input type="radio" class="radio" onclick="payment.switchMethod('ccsave')" title="Credit Card (saved)" name="payment[method]" checked="true" value="ccsave" id="p_method_ccsave" >
+                    <input type="radio" class="radio" onclick="payment.switchMethod('ccsave')" title="Tarjeta de credito" name="payment[method]" checked="true" value="ccsave" id="p_method_ccsave" >
                     <label for="p_method_ccsave">Tarjeta de credito </label>
                   </dt>
                   <dd>
@@ -181,13 +184,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                       <li>
                         <label class="required" for="ccsave_cc_owner"><em>*</em>Nombre en la tarjeta</label>
                         <div class="input-box">
-                          <input type="text" value="" name="payment[cc_owner]" id="ccsave_cc_owner" class="input-text required-entry" title="Name on Card" disabled="" >
+                          <input type="text" value="" name="payment[cc_owner]" id="ccsave_cc_owner" class="input-text required-entry" title="Nombre en la tarjeta" disabled="" >
                         </div>
                       </li>
                       <li>
                         <label class="required" for="ccsave_cc_type"><em>*</em>Tipo de tarjeta</label>
                         <div class="input-box">
-                          <select class="required-entry validate-cc-type-select" title="Credit Card Type" name="payment[cc_type]" id="ccsave_cc_type" disabled="" >
+                          <select class="required-entry validate-cc-type-select" title="Tipo de tarjeta" name="payment[cc_type]" id="ccsave_cc_type" disabled="" >
                             <option value="">--Seleccione su tarjeta--</option>
                             <option value="AE">American Express</option>
                             <option value="VI">Visa</option>
@@ -199,7 +202,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                       <li>
                         <label class="required" for="ccsave_cc_number"><em>*</em>Numero de tarjeta</label>
                         <div class="input-box">
-                          <input type="text" value="" class="input-text validate-cc-number validate-cc-type" title="Credit Card Number" name="payment[cc_number]" id="ccsave_cc_number" disabled="" >
+                          <input type="text" value="" class="input-text validate-cc-number validate-cc-type" title="Numero de tarjeta" name="payment[cc_number]" id="ccsave_cc_number" disabled="" >
                         </div>
                       </li>
                       <li>
@@ -244,7 +247,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                         <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
                         <div class="input-box">
                           <div class="v-fix">
-                            <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Card Verification Number" disabled="" >
+                            <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Codigo de seguridad" disabled="" >
                           </div>
                           <a class="cvv-what-is-this" href="#">¿Que es esto?</a> </div>
                       </li>
@@ -254,14 +257,14 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               </fieldset>
             </form>
             <div style="display:none;" id="payment-tool-tip" class="tool-tip">
-              <div class="btn-close"><a title="Close" id="payment-tool-tip-close" href="#">Cerrar</a></div>
-              <div class="tool-tip-content"><img title="Card Verification Number Visual Reference" alt="Card Verification Number Visual Reference" src="images/cvv.gif"></div>
+              <div class="btn-close"><a title="Cerrar" id="payment-tool-tip-close" href="#">Cerrar</a></div>
+              <div class="tool-tip-content"><img title="Referencia codigo de seguridad" alt="Referencia codigo de seguridad" src="images/cvv.gif"></div>
             </div>
             <div id="payment-buttons-container" class="buttons-set">
               <p class="required">* Campos obligatorios</p>
               <p class="back-link"><a onclick="toCheckout(4);" href="#"><small>« </small>Atras</a></p>
               <button onclick="toCheckout(6);" class="button" type="button"><span><span>Continuar</span></span></button>
-              <span style="display:none;" id="payment-please-wait" class="please-wait"> <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
+              <span style="display:none;" id="payment-please-wait" class="please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
           </div>
         </li>
       </ol>
@@ -271,7 +274,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <br /><br />
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
@@ -301,10 +304,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -320,7 +323,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
         </div></div>
 </body>
 </html>
