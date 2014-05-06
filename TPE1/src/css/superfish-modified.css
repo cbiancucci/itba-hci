@@ -124,6 +124,10 @@ border-left: 1px solid #424242;
 	z-index:		99;
 	width:auto
 }
+.sf-menu li ul li:hover{
+
+	background-color:black;
+}
 ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
 	top:			-999em;
 }
