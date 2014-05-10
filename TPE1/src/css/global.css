@@ -6498,4 +6498,19 @@ em:before {
 	
 }
 
+.Payment-image{
+	float: right;
+	margin-right: 1%;
+	margin-left: 1%;
+	overflow: hidden;
+}
+
+.Payment-image:hover{
+	-moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+	box-shadow: 0 0 10px #ccc;
+
+
+}
+
 
