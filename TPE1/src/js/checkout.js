@@ -42,7 +42,9 @@ $.when(
 });
 function whatIsThis(){
 	alert("CLICKEO");
-	return false;
+	//No esta funcionando apendear una imagen
+	/*$("#security-container").append("<img src = "../images/cc_security_code.jpg"></img");*/
+	return true;
 }
 /*
 var myEl = document.getElementById('what-is-this');
