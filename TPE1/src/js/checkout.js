@@ -40,3 +40,18 @@ $.when(
 	}
 
 });
+function whatIsThis(){
+	alert("CLICKEO");
+	return false;
+}
+/*
+var myEl = document.getElementById('what-is-this');
+myEl.addEventListener('click', function() {
+    alert("Hello world");
+}, false);
+
+$( "#what-is-this" ).click(function() {
+alert( "click" );
+});*/
+
+
