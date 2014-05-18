@@ -40,10 +40,11 @@ $.when(
 	}
 
 });
+
 function whatIsThis(){
-	alert("CLICKEO");
-	//No esta funcionando apendear una imagen
-	/*$("#security-container").append("<img src = "../images/cc_security_code.jpg"></img");*/
+	if($("#help-img").length == 0){
+		$("#container-whatIsThis").append("<img id = 'help-img' src= 'images/cc_security_code.jpg'></img>");
+	}
 	return true;
 }
 /*
@@ -51,9 +52,9 @@ var myEl = document.getElementById('what-is-this');
 myEl.addEventListener('click', function() {
     alert("Hello world");
 }, false);
-
-$( "#what-is-this" ).click(function() {
+*/
+$('#what-is-this').addEventListener('click',function(){
 alert( "click" );
-});*/
+});
 
 

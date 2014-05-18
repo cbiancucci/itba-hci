@@ -244,14 +244,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                         </div>
                       </li>
                       <li id= "security-container">
-                        <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
-                        <div class="input-box">
-                          <div class="v-fix">
-                            <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Codigo de seguridad" disabled="" >
+                         <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
+                         <div id= "container-whatIsThis"
+                          <div class="input-box">
+                            <div class="v-fix">
+                              <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Codigo de seguridad" disabled="" >
+                            </div>
+                            <a onclick="whatIsThis();" class="cvv-what-is-this" id:"what-is-this" type="button">¿Que es esto?</a>
                           </div>
-                          
-                          <a onclick="whatIsThis();" class="cvv-what-is-this" id:"what-is-this" type="button">¿Que es esto?</a>
-                        </div>
+                      </div>
                       </li>
                     </ul>
                   </dd>
