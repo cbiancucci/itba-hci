@@ -24,7 +24,6 @@ function getHTMLProduct(product, type, first, last)
                 "<a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 " Agregar al carrito  <i class='icon-shopping-cart'></i> </a> " +
                 "<a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
-                "<a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
@@ -40,7 +39,6 @@ function getHTMLProduct(product, type, first, last)
                 "   <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "   Agregar al carrito  <i class='icon-shopping-cart'></i> </a> " +
                 "   <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
-                "   <a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a>" +
                 "</div>" +
                 "</li>";
             break;
@@ -61,8 +59,6 @@ function getHTMLProduct(product, type, first, last)
                 "        Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "    <a class='btn-circle first-bg-hover'> " +
                 "        <i class='icon-heart'></i> </a> " +
-                "    <a class='btn-circle first-bg-hover'> " +
-                "        <i class='icon-exchange'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
@@ -79,13 +75,12 @@ function getHTMLProduct(product, type, first, last)
                 "    <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "    Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "    <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
-                "    <a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
         case 5: // RATING
             var randomRating = Math.floor(Math.random() * 101).toFixed(2);
-            var randomReviews = Math.floor(Math.random() * 10).toFixed(2);
+            var randomReviews = Math.floor(Math.random() * 10).toFixed(0);
             return "<li class='item " + (first ? "first" : "") + "'>" +
                 "<div class='grid-box'>" +
                 "<h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
@@ -93,7 +88,7 @@ function getHTMLProduct(product, type, first, last)
                 "  <div class='rating-box'>" +
                 "    <div style='width:" + randomRating +"%' class='rating'></div>" +
                 "  </div>" +
-                "  <span class='amount'><a href='#'>" + randomReviews + (randomReviews != 1 ? "Calificaciones" : "Calificacion") + " </a></span> </div>" +
+                "  <span class='amount'><a href='#'>" + randomReviews + (randomReviews != 1 ? " Calificaciones" : " Calificacion") + " </a></span> </div>" +
                 "<h2 class='product-price'>$" + product.price + "</h2>" +
                 "</div>" +
                 "<a class='fa-search-btn ' href='" + product.imageUrl[0] + "'> <i class='icon-search first-bg'></i></a> " +
@@ -102,7 +97,6 @@ function getHTMLProduct(product, type, first, last)
                 "<a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "<a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
-                "<a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> </div>" +
                 "</li>";
             break;
     }
