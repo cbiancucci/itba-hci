@@ -1,3 +1,4 @@
+var page_size = 4;
 $(function() {
 
 $.when(
@@ -23,6 +24,12 @@ $.when(
 
 	function loadProducts(grid)
 	{
+  		$("#cantPagina").change(function(){
+  			page_size = $(this).val();
+  			loadProducts(grid);
+
+  		});
+
 		var html = "<p class='bold big error textCenter center'>No hay productos en la API para la categoria seleccionada</p>";
 		$("#toolbar-list").hide();
 	    $("#pagination-list").hide();
@@ -32,6 +39,7 @@ $.when(
 		queryParams.each(
 		function(key, value, pos)
 		{
+			
 			var url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetProductsBy";
 			if(key.indexOf('sub') != -1)
 			{
@@ -44,7 +52,7 @@ $.when(
 
 			url += "ategoryId&id=" + $.base64('decode', value);
 
-			$.getJSON(url + "&sort_order=desc&callback=?", 
+			$.getJSON(url +"&page=1" +"&page_size="+page_size+"&sort_order=desc&callback=?",  //Cambiar la cantidad por pagina y la pagina que estoy
 		        function(result) {
 		            var products = result.products;
 		            if(products.length > 0) 
@@ -97,11 +105,13 @@ $.when(
 	            	if(grid)
 	            	{
 		            	$("#products-list").hide();
+		            	$("#products-list").empty();	
 		            	$("#products-grid-list").append(html);	
 		            	$("#products-grid-list").show();
 	            	}
 	            	else
 	            	{
+	            		$("#products-list").empty();	
 	            		$("#products-list").append("<ol class='products-list' >" + html + "</ol>");
 	            		$("#products-list").show();
 	            		$("#products-grid-list").hide();
