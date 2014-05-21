@@ -38,14 +38,36 @@ $.when(
                         $("#qty-box-" + product["id"]).append("</div>");
                       $("#td" + product["id"]).append("</div></td>");
                     $("#tr" + product["id"]).append("<td class='a-center'><span class='cart-price'> <span class='price'>$" + currentTotal + "</span> </span></td>");
-                    $("#tr" + product["id"]).append("<td class='a-center'><a href='#' title='Remove item' class='btn-remove btn-remove2'><i class='icon-trash'></i></a></td>");
+                    $("#tr" + product["id"]).append("<td class='a-center'><a href='#' productId='" + product["id"] + "' id='btnRemove" + product["id"] + "' title='Eliminar' class='btn-remove btn-remove2'><i class='icon-trash'></i></a></td>");
                 $('#shoppingCart-details').append("</tr>");
+                $("#btnRemove" + product["id"]).click(function(){
+                    removeItemCart($(this).attr("productId"));
+                });
 			}
 		}   
 		$('#totalPrice').append(parseInt(total).toFixed(2));
 		$('#subtotalPrice').append(parseInt(total).toFixed(2));	
     }
 	
+function removeItemCart(productId)
+{
+    var shoppingCart = $.session.get('shoppingCart');
+    var productsCart = JSON.parse(shoppingCart);
+    var news = {};
+    var i = 0;
+    for(var key in productsCart)
+    {
+        var product = productsCart[key];
+        if(product["id"] != productId)
+        {
+            news[i] = product;
+            i++;
+        }
+    }
+    $.session.set('shoppingCart', JSON.stringify(news));
+    window.location.href = "./shopping-cart.html";
+}
+
     function loadCountriesAndCities()
     {
 

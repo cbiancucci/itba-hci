@@ -53,7 +53,7 @@ $("#cantPagina").change(function(){
 		}
 		else
 		{
-			loadProductsSubCat(categoryId, subCategoryId);
+			loadProductsSubCat(categoryId, subCategoryId, grid);
 		}
 	}
 
@@ -97,7 +97,7 @@ $("#cantPagina").change(function(){
 		return deferred.promise();
 	}
 
-	function loadProductsSubCat(categoryId, subCategoryId)
+	function loadProductsSubCat(categoryId, subCategoryId, grid)
 	{
 		$("#breadcrumbs-two").append("<li><a href='./index.html'>Inicio</a></li>");
 			var url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetProductsBy";
@@ -203,9 +203,9 @@ $("#cantPagina").change(function(){
     	else
     	{
     		$("#products-grid-list").empty();
+    		$("#products-grid-list").hide();
     		$("#products-list").append("<ol class='products-list' >" + html + "</ol>");
     		$("#products-list").show();
-    		$("#products-grid-list").hide();
     	}
 	}
 
