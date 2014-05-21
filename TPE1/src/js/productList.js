@@ -243,7 +243,8 @@ $("#cantPagina").change(function(){
 				var values = result.attribute.values;
 				var text = "<label>" + name + ": </label><br/>";
 				text += "<select class='required-entry validate-select' id='"+ name +"' name='"+ name +"' title='"+ name +"'>";
-
+				text += "<option value=" + name +">Seleccionar " + name + "</option>";
+				
 				for(var j = 0; j < values.length; j++){
 					text += "<option value=" + values[j] +">" + values[j] + "</option>";
 				}
