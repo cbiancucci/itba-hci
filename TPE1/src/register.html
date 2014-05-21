@@ -71,8 +71,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/respond.src.js"></script>  
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
+<script src="js/jquery.maskedinput.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/checkout.js"></script>
+<script src="js/register.js"></script>
 </head>
 <body class="noIE">
 
@@ -85,7 +87,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       
 
       <ul id="header_nav" class="nav pull-right">
-        <li><i class=""></i> <a href="">Registrarme</a></li>
+        <li><i class=""></i> <a href="register.html">Registrarme</a></li>
         <li>
         <i class="icon-user dropdown-link dropdown-toggle"></i><a class="dropdown-link">Ingresar</a>
           <ul class="dropdown-login">
@@ -125,7 +127,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html" class="center textCenter big">Ir al carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -156,181 +158,96 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <div id="crumbs">
         <ul id="breadcrumbs-two">
           <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Confirmacion de compra</a></li>
-          <li><a href="#4">Paso 2</a></li>
+          <li><a href="#">Registro</a></li>
         </ul>
       </div>
       <br />
     <article class=" grid_5" id="center_column">
       <ol id="checkoutSteps" class="opc">
        <li class="section" id="opc-billing">
-          <div class="step-title allow active"> <span class="number">PASO 2</span>
-            <h2>Informacion de pago</h2>
-            <a href="#">Edit</a> </div>
+          <div class="step-title allow active"> <span class="number">B&G</span>
+            <h2>Formulario de registro</h2> </div>
           <div  class="step a-item" id="checkout-step-billing" >
             <form  id="co-billing-form">
               <fieldset>
                 <ul class="form-list">
-                  <li id="billing-new-address-form">
+                  <li >
                     <fieldset>
-                      <input type="hidden" id="billing:address_id" value="" name="billing[address_id]">
                       <ul>
                         <li class="fields">
                           <div class="customer-name">
-                            <div class="field name-firstname">
-                              <label class="required" for="billing:firstname"><em>*</em>Nombre</label>
+                            <div class="field">
+                              <label class="required" for="firstname"><em>*</em>Nombre</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="billing[firstname]" id="billing:firstname">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="firstname" id="billing:firstname">
                               </div>
                             </div>
-                            <div class="field name-lastname">
-                              <label class="required" for="billing:lastname"><em>*</em>Apellido</label>
+                            <div class="field">
+                              <label class="required" for="lastname"><em>*</em>Apellido</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="billing[lastname]" id="billing:lastname">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="lastname" id="lastname">
                               </div>
                             </div>
+                            <div class="field">
+                            <label class="required" for="email"><em>*</em>Correo electronico</label>
+                            <div class="input-box">
+                              <input type="text" class="input-text validate-email required-entry" title="Correo electronico" value="" id="email" name="email">
+                            </div>
+                          </div>
                           </div>
                         </li>
                         <li class="fields">
+                          <div class="customer-name">
+                            <div class="field">
+                              <label class="required" for="username"><em>*</em>Nombre de usuario</label>
+                              <div class="input-box">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre de usuario" value="" name="username" id="username">
+                              </div>
+                            </div>
                           <div class="field">
-                            <label for="billing:company">Compania</label>
+                            <label class="required" for="customer_password"><em>*</em>Contraseña</label>
                             <div class="input-box">
-                              <input type="text" class="input-text " title="Compania" value="" name="billing[company]" id="billing:company">
+                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="customer_password" name="customer_password">
                             </div>
                           </div>
                           <div class="field">
-                            <label class="required" for="billing:email"><em>*</em>Correo electronico</label>
+                            <label class="required" for="confirm_password"><em>*</em>Confirmar contraseña</label>
                             <div class="input-box">
-                              <input type="text" class="input-text validate-email required-entry" title="Correo electronico" value="" id="billing:email" name="billing[email]">
+                              <input type="password" class="input-text required-entry validate-cpassword" id="confirm_password" title="Confirmar contraseña" name="confirm_password">
                             </div>
                           </div>
-                        </li>
-                        <li class="wide">
-                          <label class="required" for="billing:street1"><em>*</em>Direccion</label>
-                          <div class="input-box">
-                            <input type="text" class="input-text  required-entry" value="" id="billing:street1" name="billing[street][]" title="Direccion">
-                          </div>
-                        </li>
-                        <li class="wide">
-                          <div class="input-box">
-                            <input type="text" class="input-text " value="" id="billing:street2" name="billing[street][]" title="Direccion">
                           </div>
                         </li>
                         <li class="fields">
+                          <div class="customer-name">
+                            <div class="field">
+                              <label class="required" for="genero"><em>*</em>Género</label>
+                              <div class="input-box">
+                                <select id="genero">
+                                  <option value"N">-- Seleccionar --</option>
+                                  <option value"F">Femenino</option>
+                                  <option value"M">Masculino</option>
+                                </select>
+                              </div>
+                            </div>
                           <div class="field">
-                            <label class="required" for="billing:city"><em>*</em>Ciudad</label>
+                            <label class="required" for="dni"><em>*</em>DNI</label>
                             <div class="input-box">
-                              <input type="text" id="billing:city" class="input-text  required-entry" value="" name="billing[city]" title="Ciudad">
+                              <input type="password" class="input-text required-entry validate-password" title="DNI" id="dni" name="dni">
                             </div>
                           </div>
                           <div class="field">
-                            <label class="required" for="billing:region_id"><em>*</em>Provincia</label>
+                            <label class="required" for="date"><em>*</em>Fecha de nacimiento</label>
                             <div class="input-box">
-                              <select  class="validate-select required-entry" title="Provincia" name="billing[region_id]" id="billing:region_id" >
-                                <option value="">-- Selecciona tu provincia --</option>
-                                <option value="Buenos Aires">Buenos Aires</option>
-                                <option value="Capital Federal">Capital Federal</option>
-                                <option value="Catamarca">Catamarca</option>
-                                <option value="Chaco">Chaco</option>
-                                <option value="Chubut">Chubut</option>
-                                <option value="Cordoba">Cordoba</option>
-                                <option value="Corrientes">Corrientes</option>
-                                <option value="Entre Rios">Entre Rios</option>
-                                <option value="Formosa">Formosa</option>
-                                <option value="Jujuy">Jujuy</option>
-                                <option value="La Pampa">La Pampa</option>
-                                <option value="La Rioja">La Rioja</option>
-                                <option value="Mendoza">Mendoza</option>
-                                <option value="Misiones">Misiones</option>
-                                <option value="Neuquen">Neuquen</option>
-                                <option value="Rio Negro">Rio Negro</option>
-                                <option value="Salta">Salta</option>
-                                <option value="San Juan">San Juan</option>
-                                <option value="San Luis">San Luis</option>
-                                <option value="Santa Cruz">Santa Cruz</option>
-                                <option value="Santa Fe">Santa Fe</option>
-                                <option value="Santiago del Estero">Santiago del Estero</option>
-                                <option value="Tierra del Fuego">Tierra del Fuego</option>
-                                <option value="Tucuman">Tucuman</option>
-                              </select>
-                              <input type="text" style="display:none;" class="input-text regions required-entry" title="Provincia" value="" name="billing[region]" id="billing:region">
+                              <input class="input-text required-entry" id="date" title="Fecha de nacimiento" name="date">
                             </div>
+                          </div>
                           </div>
                         </li>
-                        <li class="fields">
-                          <div class="field">
-                            <label class="required" for="billing:postcode"><em>*</em>Codigo postal</label>
-                            <div class="input-box">
-                              <input type="text" class="input-text validate-zip-international  required-entry" value="" id="billing:postcode" name="billing[postcode]" title="Codigo postal">
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label class="required" for="billing:country_id"><em>*</em>Pais</label>
-                            <div class="input-box">
-                              <select title="Pais" class="validate-select" id="billing:country_id" name="billing[country_id]">
-                                <option value="">-- Selecciona tu pais --</option>
-                              <option value="AR">Argentina</option>
-                              <option value="BR">Brasil</option>
-                              <option value="BO">Bolivia</option>
-                              <option value="CH">Chile</option>
-                              <option value="CO">Colombia</option>
-                              <option value="EC">Ecuador</option>
-                              <option value="USA">Estados Unidos</option>
-                              <option value="MX">Mexico</option>
-                              <option value="PY">Paraguay</option>
-                              <option value="PE">Peru</option>
-                              <option value="UY">Uruguay</option>
-                              <option value="VE">Vanezuela</option>
-                              </select>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="fields">
-                          <div class="field">
-                            <label class="required" for="billing:telephone"><em>*</em>Telefono</label>
-                            <div class="input-box">
-                              <input type="text" id="billing:telephone" class="input-text  required-entry" title="Telefono" value="" name="billing[telephone]">
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label for="billing:fax">Fax</label>
-                            <div class="input-box">
-                              <input type="text" id="billing:fax" class="input-text " title="Fax" value="" name="billing[fax]">
-                            </div>
-                          </div>
-                        </li>
-                        <li id="register-customer-password" class="fields">
-                          <div class="field">
-                            <label class="required" for="billing:customer_password"><em>*</em>Contraseña</label>
-                            <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="billing:customer_password" name="billing[customer_password]">
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label class="required" for="billing:confirm_password"><em>*</em>Confirmar contraseña</label>
-                            <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-cpassword" id="billing:confirm_password" title="Confirmar contraseña" name="billing[confirm_password]">
-                            </div>
-                          </div>
-                        </li>
-                        <li class="no-display">
-                          <input type="hidden" value="1" name="billing[save_in_address_book]">
-                        </li>
-                      </ul>
-                    </fieldset>
-                  </li>
-                  <li class="control">
-                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = true;" title="Enviar a esta direccion" checked="checked" value="1" id="billing:use_for_shipping_yes" name="billing[use_for_shipping]">
-                    <label for="billing:use_for_shipping_yes">Enviar a esta direccion</label>
-                  </li>
-                  <li class="control">
-                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = false;" title="Enviar a otra direccion" value="0" id="billing:use_for_shipping_no" name="billing[use_for_shipping]">
-                    <label for="billing:use_for_shipping_no">Enviar a otra direccion</label>
-                  </li>
                 </ul>
                 <div id="billing-buttons-container" class="buttons-set">
                   <p class="required">* Campos obligatorios</p>
-                  <button onclick="toCheckout(3);" class="button" title="Continuar" type="button"><span><span>Continuar</span></span></button>
+                  <button onclick="toCheckout(3);" class="button" title="Continuar" type="button"><span><span>Registrarme</span></span></button>
                   <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
               </fieldset>
             </form>

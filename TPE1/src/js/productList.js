@@ -32,6 +32,8 @@ $.when(
 		queryParams.each(
 		function(key, value, pos)
 		{
+			$("#breadcrumbs-two").empty();
+			$("#breadcrumbs-two").append("<li><a href='./index.html'>Inicio</a></li>");
 			var id = $.base64('decode', value);
 			var url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetProductsBy";
 			if(key.indexOf('sub') != -1)

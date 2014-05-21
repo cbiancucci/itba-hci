@@ -242,7 +242,7 @@ input.input-text:focus, select:focus, textarea:focus {
 }
 .form-list .field {
 	float: left;
-	width: 275px;
+	width: 350px;
 }
 .form-list input.input-text {
 	width: 235px;
