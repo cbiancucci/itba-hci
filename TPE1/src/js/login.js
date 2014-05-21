@@ -1,15 +1,63 @@
 $(function() {
+
+	function logIn(result)
+	{
+		var user = {
+			token: result.authenticationToken,
+			account: result.account
+		}
+		$.session.set("user", JSON.stringify(user));
+		changeHeader();
+	}
+
+	function logOut()
+	{
+		var user = JSON.parse($.session.get("user"));
+		$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Account.groovy?method=SignOut&username=" + 
+			user.account.username + "&authentication_token=" + user.token + "&callback=?", function(result) {
+				if(result.error === undefined)
+				{
+					$.session.clear();
+					changeHeader();
+				}
+		});
+	}
+
+	function userLogued()
+	{
+		return $.session.get("user") != undefined;
+	}
+
+	function changeHeader()
+	{
+		var u = $.session.get("user");
+		if(u === undefined)
+		{
+			$("#li-registro").removeClass("invisible");
+			$("#li-login").removeClass("invisible");	
+			$("#li-user").addClass("invisible");
+			$("#li-logout").addClass("invisible");
+		}
+		else
+		{
+			$("#li-registro").addClass("invisible");
+			$("#li-login").addClass("invisible");
+			$("#li-user").removeClass("invisible");
+			$("#li-logout").removeClass("invisible");
+			$("#usernameDesc").html(JSON.parse(u).account.username.toUpperCase());
+		}
+	}
+
+	$("#li-logout").click(function(){
+		logOut();
+	});
+
 	$("#btnLogin").click(function(){
 		if($("#login-form-header").valid()){
 			$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Account.groovy?method=SignIn&username=" + $("#username").val() + "&password=" + $("#password").val() + "&callback=?", function(result) {
 				if(result.error === undefined)
 				{
-					$("#page").append("<div id='no_script_msg'>" + 
-			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al inicio en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
-					
-					window.setTimeout(function(){
-			        	window.location.href = "./index.html";
-			    	}, 5000);
+					logIn(result);
 				}
 				else
 				{
@@ -44,4 +92,6 @@ $(function() {
 			}
 		}
 	});
+
+	changeHeader();
 });
