@@ -81,7 +81,7 @@ border-left: 1px solid #424242;
 }
 .sf-menu ul {
 	border-top: 1px solid #424242;
-	padding-top: 10px;
+	padding-top: 1px;
 	position: absolute;
 	top: -999em;
 	width: 10em;
@@ -125,6 +125,7 @@ border-left: 1px solid #424242;
 }
 .sf-menu li ul li:hover{
 
+	top: 0px;
 	background-color: #95857E;
 }
 ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
