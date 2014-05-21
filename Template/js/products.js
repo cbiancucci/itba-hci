@@ -8,11 +8,27 @@ function getHTMLProduct(product, type, first, last)
     }
     else 
     {
-        typeHTML = Math.floor(Math.random() * 4) + 1;
+        typeHTML = Math.floor(Math.random() * 5) + 1;
     }
     switch(typeHTML)
     {
-        case 1: // PRECIO FIJO
+        case 1: // NORMAL
+            return "<li class='item " + ((first ? "first" : "") || (last ? "last" : "")) + "'>" +
+                "<div class='grid-box'>" +
+                "<h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
+                "<h2 class='product-price'>$" + product.price + "</h2>" +
+                "</div>" +
+                "<a class='fa-search-btn ' href='" + product.imageUrl[0] + "'> <i class='icon-search first-bg'></i></a>" +
+                " <a class='product-image' title='" + product.name + "' href='" + productURL + "'> <img src='" + product.imageUrl[0] + "'  alt='product'> </a>" +
+                "<div class='actions'>" +
+                "<a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
+                " Agregar al carrito  <i class='icon-shopping-cart'></i> </a> " +
+                "<a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "<a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> " +
+                "</div>" +
+                "</li>";
+            break;
+        case 2: // PRECIO FIJO
             return "<li class='item " + (first ? "first" : "") + "'>" +
                 "<div class='top-grid-content-left'>$" + product.price + "</div>" +
                 "<div class='grid-box '>" +
@@ -22,12 +38,13 @@ function getHTMLProduct(product, type, first, last)
                 "<a class='product-image' title='" + product.name + "' href='" + productURL + "'> <img src='" + product.imageUrl[0] + "'  alt='product'> </a>" +
                 "<div class='actions'>" +
                 "   <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
-                "   Comprar <i class='icon-shopping-cart'></i> </a> " +
+                "   Agregar al carrito  <i class='icon-shopping-cart'></i> </a> " +
                 "   <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "   <a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a>" +
                 "</div>" +
                 "</li>";
             break;
-        case 2: // OFERTA
+        case 3: // OFERTA
             return "<li class='item " + (first ? "first" : "") + "'>" +
                 "<div class='grid-box'>" +
                 "<h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
@@ -41,13 +58,15 @@ function getHTMLProduct(product, type, first, last)
                 "<span class='label-product label-top-right sale-label' >OFERTA</span> </a>" +
                 "<div class='actions'>" +
                 "    <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
-                "        Comprar<i class='icon-shopping-cart'></i> </a> " +
+                "        Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "    <a class='btn-circle first-bg-hover'> " +
                 "        <i class='icon-heart'></i> </a> " +
+                "    <a class='btn-circle first-bg-hover'> " +
+                "        <i class='icon-exchange'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
-        case 3: // NUEVO
+        case 4: // NUEVO
             return "<li class='item " + (first ? "first" : "") + "'>" +
                 "<div class='grid-box'>" +
                 "<h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
@@ -58,30 +77,32 @@ function getHTMLProduct(product, type, first, last)
                 "<span class='label-product label-top-left fifth-bg' >Nuevo</span> </a>" +
                 "<div class='actions'>" +
                 "    <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
-                "    Comprar<i class='icon-shopping-cart'></i> </a> " +
+                "    Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "    <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "    <a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
-        case 4: // RATING
+        case 5: // RATING
             var randomRating = Math.floor(Math.random() * 101).toFixed(2);
-            var randomReviews = Math.floor(Math.random() * 10).toFixed(0);
+            var randomReviews = Math.floor(Math.random() * 10).toFixed(2);
             return "<li class='item " + (first ? "first" : "") + "'>" +
-                "<div class='top-grid-content-left'>$" + product.price + "</div>" +
                 "<div class='grid-box'>" +
                 "<h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
                 "<div class='ratings'>" +
                 "  <div class='rating-box'>" +
                 "    <div style='width:" + randomRating +"%' class='rating'></div>" +
                 "  </div>" +
-                "  <span class='amount'><a href='#'>" + randomReviews + (randomReviews != 1 ? " Calificaciones" : " Calificacion") + " </a></span> </div>" +
+                "  <span class='amount'><a href='#'>" + randomReviews + (randomReviews != 1 ? "Calificaciones" : "Calificacion") + " </a></span> </div>" +
+                "<h2 class='product-price'>$" + product.price + "</h2>" +
                 "</div>" +
                 "<a class='fa-search-btn ' href='" + product.imageUrl[0] + "'> <i class='icon-search first-bg'></i></a> " +
                 "<a class='product-image' title='" + product.name + "' href='" + productURL + "'> <img src='" + product.imageUrl[0] + "'  alt='product'> </a>" +
                 "<div class='actions'>" +
                 "<a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
-                "Comprar<i class='icon-shopping-cart'></i> </a> " +
+                "Agregar al carrito <i class='icon-shopping-cart'></i> </a> " +
                 "<a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "<a class='btn-circle first-bg-hover'> <i class='icon-exchange'></i> </a> </div>" +
                 "</li>";
             break;
     }

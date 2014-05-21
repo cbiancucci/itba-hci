@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!--[if lt IE 9]>
@@ -12,13 +13,9 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>B&G</title>
-
+<title>Shop Master</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
-<meta name="description" content="B&G. Tienda de ropa online.">
-<meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,14 +63,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.dlmenu.js"></script>
-<script src="js/jquery.base64.js"></script>
 <script src="js/jquery.session.js"></script>
+<script src="js/jquery.base64.js"></script>
 <script src="js/respond.src.js"></script>  
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/menu.js"></script>
-<script src="js/products.js"></script>
-<script src="js/product.js"></script>
+<script src="js/checkout.js"></script>
 </head>
 <body class="noIE">
 
@@ -82,7 +78,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -126,7 +122,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big bold">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -153,152 +149,50 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   </div>
 </div>
 
-  <section class="container_9 clearfix col2-right" id="columns"> 
-    <div id="crumbs">
-        <ul id="breadcrumbs-two">
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Productos</a></li>
-          <li><a href="#3">Categoria</a></li>
-          <li><a href="#4">Subcategoria</a></li>
-          <li><a href="#4">Producto Actual</a></li>
-        </ul>
-      </div>
-      <br />
-    <!-- Center -->
-    <article class=" grid_5" id="center_column" >
-      <div id="product-error"></div>
-      <div id="primary_block" class="clearfix"> 
-          
-        <!-- right infos-->
-        <div id="pb-right-column"> 
-          
-          <!-- product img-->
-          <div id="image-block"> 
-
-            <div id="wrap">  </div>
+  <section class="container_9 clearfix col1" id="columns">
+    <article class=" grid_5" id="center_column">
+      <ol id="checkoutSteps" class="opc">
+        <li class="section" id="opc-shipping_method">
+          <div class="step-title allow active"> <span class="number">PASO 4</span>
+            <h2>Metodo de envio</h2>
+            <a href="#">Edit</a> </div>
+          <div  class="step a-item" id="checkout-step-shipping_method" >
+            <form  id="co-shipping-method-form">
+              <div id="checkout-shipping-method-load">
+                <dl class="sp-methods">
+                  <dt>Envio por correo</dt>
+                  <dd>
+                    <ul>
+                      <li> <span class="no-display">
+                        <input type="radio" checked="checked" id="s_method_flatrate_flatrate" value="flatrate_flatrate" name="shipping_method">
+                        </span>
+                        <label for="s_method_flatrate_flatrate">Precio <span class="price">$100.00</span> </label>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </div>
+              <div id="onepage-checkout-shipping-method-additional-load"> </div>
+              <div id="shipping-method-buttons-container" class="buttons-set">
+                <p class="back-link"><a onclick="toCheckout(3);" href="#"><small>« </small>Atras</a></p>
+                <button onclick="toCheckout(5);" class="button" type="button"><span><span>Continuar</span></span></button>
+                <span style="display:none;" class="please-wait" id="shipping-method-please-wait"> <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="images/opc-ajax-loader.gif"> Cargando siguiente paso... </span> </div>
+            </form>
           </div>
-          <div class="more-views">
-            <ul id="product-images">
-            </ul>
-          </div>
-        </div>
-        <div id="pb-left-column">
-          <div id="short_description_block">
-            <h1 id="product-name"></h1>
-            <div class="price">
-              <p class="our_price_display"> <span id="our_price_display"></span> </p>
-            </div>
-            <div class="ratings">
-              <div class="rating-box" id="product-rating">
-              </div>
-            </div>
-          </div>
-          <div class="product_attributes">
-            <div class="add-to-box">
-              <div class="input-qty-box">
-                <div class="input">
-                  <ul class="range">
-                    <li class="item minus"><a style=" cursor:pointer">-</a></li>
-                    <li>
-                      <input type="text" name="qty" id="quantity_wanted" class="input-text qty text" value="1" size="2" maxlength="3">
-                    </li>
-                    <li class="item plus"><a style=" cursor:pointer">+</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="option-select">
-                <select class="selectBox">
-                  <option>Marron</option>
-                  <option>Negro</option>
-                  <option>Gris</option>
-                </select>
-              </div>
-              <div class="option-select">
-                <select class="selectBox">
-                  <option>Talle S</option>
-                  <option>Talle M</option>
-                  <option>Talle L</option>
-                </select>
-              </div>
-              <br>
-              <br>
-              <hr>
-              <div class="btn-set">
-                <div class="actions"><a class="btn-circle first-bg btn-active" id="btnShoppingCart">
-                Agregar al carrito <i class="icon-shopping-cart"></i> </a> <a class="btn-circle first-bg-hover"> <i class="icon-heart"></i> </a></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="tabs">
-            <ul id="myTab" class="nav nav-tabs">
-              <li class="active"><a href="#home" data-toggle="tab">Detalle</a></li>
-              <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comentarios <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#dropdown1" data-toggle="tab">@hci</a></li>
-                  <li><a href="#dropdown2" data-toggle="tab">@itba</a></li>
-                </ul>
-              </li>
-            </ul>
-            <div id="myTabContent" class="tab-content">
-              <div class="tab-pane fade active in product-details" id="home">
-              </div>
-              <div class="tab-pane fade" id="dropdown1">
-                <p>Muy buen producto! Lo recomiendo, es fresco y han realizado el envio rapido!</p>
-              </div>
-              <div class="tab-pane fade" id="dropdown2">
-                <p>Compramos 50 unidades para todo el personal, muy buena calidad. Rapido envio, excelente atencion.</p>
-              </div>
-            </div>
-           
-          </div>
-        </div>
-      </div>
+        </li>
+      </ol>
+    </article>
    
-    </article>
-    
-    <!-- Right -->
-      <aside class="column grid_2 omega" id="right_column"> 
-      
-      <!-- /Block categories module --> 
-      
-      <!-- Block Featured Products -->
-      <div class="block" >
-        <h4 class="title_block">Productos relacionados</h4>
-        <div class="block_content">
-          <table>
-            <tbody id="related-products">
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- /Block Featured Products --> 
-
-    </aside>  
   </section>
-  
- <section  id="columns" class="container_9 clearfix col1" > 
-    
-    <!-- Center -->
-    <article id="center_column" class=" grid_5" >
-  <div class="width-carousel ">
-  <div class="title-box">
-    <h3 class="title-carousel first-brd">PRODUCTOS DESTACADOS</h3>
-  </div>
-  <ul class="products-grid first odd bxslider" id="productos-destacados">
-  </ul>
-</div>
-    </article>
-  </section>
-
+  <br /><br />
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
            <div class="block_content">
-		  <div id="footer-absolute" class="clearfix">
+      <div id="footer-absolute" class="clearfix">
         <div class="social">
           <p><a href="#"> <em class="icon-facebook"><span>icon</span></em></a> <a href="#"><em class="icon-twitter"><span>icon</span></em></a> <a href="#"><em class="icon-rss"><span>icon</span></em></a> <a href="#"><em class="icon-pinterest"><span>icon</span></em></a> <a href="#"><em class="icon-google-plus"><span>icon</span></em></a></p>
         </div>
@@ -323,10 +217,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -342,7 +236,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
         </div></div>
 </body>
 </html>

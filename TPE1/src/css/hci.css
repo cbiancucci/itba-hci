@@ -21,6 +21,12 @@
 	
 }
 
+.image-brand
+{
+  width: 128px;
+  height: 65px;
+}
+
 .wrap-login-header {
 	min-height: 180px;
 	width: 205px;
@@ -110,6 +116,10 @@
 margin-top: 5px;
 margin-bottom: 5px;
 width: 550px;
+}
+
+.cbp-af-header-shrink #menu-search .form-wrapper button:before { /* left arrow */
+  top: 7px;
 }
 
 .cbp-af-header-shrink #menu-search .form-wrapper input {
@@ -219,7 +229,7 @@ width: 550px;
     border-width: 8px 8px 8px 0;
     border-style: solid solid solid none;
     border-color: transparent #d83c3c transparent;
-    top: 8px;
+    top: 20px;
     left: -6px;
 }
  
@@ -308,6 +318,37 @@ width: 550px;
 #crumbs #breadcrumbs-two .current::before{
   content: normal;
 }
+
+.title-detail{
+  font-weight: bold;
+  width: 40%;
+}
+
+.product-details {
+  display: table;
+}
+
+.product-details-row
+{
+  display: table-row;
+  width: 100%;
+}
+
+.product-details-row-title {
+  display: table-cell;
+  width: 50%;
+  font-weight: bold;
+}
+
+.product-details-row-values {
+  display: table-cell;
+  width: 50%;
+}
+
+.see-shop-cart {
+  padding-left: 25px;
+}
+
 .bold
 {
     font-weight: bold;
@@ -343,4 +384,13 @@ width: 550px;
 {
     width: 75px;
     height: 110px;
+}
+
+.right {
+  float: right;
+}
+
+.invisible
+{
+  display:none;
 }

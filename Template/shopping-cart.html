@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+    
+    <!DOCTYPE html>
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -12,13 +14,9 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>B&G</title>
-
+<title>Shop Master</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
-<meta name="description" content="B&G. Tienda de ropa online.">
-<meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -66,13 +64,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.dlmenu.js"></script>
-<script src="js/jquery.session.js"></script>
 <script src="js/jquery.base64.js"></script>
+<script src="js/jquery.session.js"></script>
 <script src="js/respond.src.js"></script>  
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/menu.js"></script>
-<script src="js/checkout.js"></script>
+<script src="js/shoppingCart.js"></script>
 </head>
 <body class="noIE">
 
@@ -81,7 +79,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -125,7 +123,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big bold">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -153,73 +151,75 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
 
   <section class="container_9 clearfix col1" id="columns">
-  <div id="crumbs">
-        <ul id="breadcrumbs-two">
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Confirmacion de compra</a></li>
-          <li><a href="#4">Paso 3</a></li>
-        </ul>
-      </div>
-      <br />
-    <article class=" grid_5" id="center_column">
-      <ol id="checkoutSteps" class="opc">
-        <li class="section" id="opc-shipping">
-          <div class="step-title allow active"> <span class="number">PASO 3</span>
-            <h2>Informacion de envio</h2>
-            <a href="#">Edit</a> </div>
-          <div  class="step a-item" id="checkout-step-shipping" >
-            <form id="co-shipping-form" >
-              <ul class="form-list">
-                <li id="shipping-new-address-form">
-                  <fieldset>
-                    <input type="hidden" id="shipping:address_id" value="" name="shipping[address_id]">
-                    <ul>
-                      <li class="fields">
-                        <div class="customer-name">
-                          <div class="field name-firstname">
-                            <label class="required" for="shipping:firstname"><em>*</em>Nombre</label>
-                            <div class="input-box">
-                              <input type="text" onchange="shipping.setSameAsBilling(false)" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="shipping[firstname]" id="shipping:firstname">
-                            </div>
-                          </div>
-                          <div class="field name-lastname">
-                            <label class="required" for="shipping:lastname"><em>*</em>Apellido</label>
-                            <div class="input-box">
-                              <input type="text" onchange="shipping.setSameAsBilling(false)" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="shipping[lastname]" id="shipping:lastname">
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="fields">
-                          <label for="shipping:company">Compania</label>
+
+      
+      <!-- Center -->
+      <article class=" grid_5" id="center_column">
+        <div class="cart">
+          <form action="" method="post">
+            <fieldset>
+              <table id="shopping-cart-table" class="data-table cart-table">
+                <colgroup>
+                <col width="1">
+                <col>
+                <col width="1">
+                <col width="1">
+                <col width="1">
+                <col width="1">
+                <col width="1">
+                </colgroup>
+                <thead>
+                  <tr class="first last">
+                    <th rowspan="1" class="product-image-unit" ><span>Imagen</span></th>
+                    <th class="product-name-unit" rowspan="1"><span class="nobr">Producto</span> </th>
+                    <th class="a-center" colspan="1"><span class="nobr">Precio unitario</span></th>
+                    <th rowspan="1" class="a-center"><span>Cantidad</span></th>
+                    <th class="a-center" colspan="1"><span>Subtotal</span></th>
+                    <th rowspan="1" class="a-center"><span>Accion</span></th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr class="first last">
+                    <td colspan="50" class="a-center last"><button class="button btn-continue" title="Continue Shopping" type="button" onclick="javascript: toIndex();"><span><span><i class="icon-shopping-cart"></i>Continuar comprando</span></span></button>
+                      <button type="submit" name="update_cart_action" value="update_qty" title="Update Shopping Cart" class="button btn-update"><span><span><i class="icon-refresh"></i>Actualizar el carrito</span></span></button></td>
+                  </tr>
+                </tfoot>
+                <tbody id="shoppingCart-details">
+                  
+                </tbody>
+              </table>
+            </fieldset>
+          </form>
+          <div class="cart-collaterals">
+            <div class="col2-set">
+              <div class="col-1">
+                <div class="shipping">
+                  <h2>Envio e impuestos</h2>
+                  <div class="shipping-form">
+                    <form action="checkout/cart/estimatePost/" method="post" id="shipping-zip-form">
+                      <ul class="form-list">
+                        <li>
                           <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text " title="Compania" value="" name="shipping[company]" id="shipping:company">
+                            <select name="country_id" id="country" class="validate-select" title="Country">
+                              <option value="">-- Selecciona tu pais --</option>
+                              <option value="AR">Argentina</option>
+                              <option value="BR">Brasil</option>
+                              <option value="BO">Bolivia</option>
+                              <option value="CH">Chile</option>
+                              <option value="CO">Colombia</option>
+                              <option value="EC">Ecuador</option>
+                              <option value="USA">Estados Unidos</option>
+                              <option value="MX">Mexico</option>
+                              <option value="PY">Paraguay</option>
+                              <option value="PE">Peru</option>
+                              <option value="UY">Uruguay</option>
+                              <option value="VE">Vanezuela</option>
+                            </select>
                           </div>
-                        </div>
-                      </li>
-                      <li class="wide">
-                        <label class="required" for="shipping:street1"><em>*</em>Direccion</label>
-                        <div class="input-box">
-                          <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text  required-entry" value="" id="shipping:street1" name="shipping[street][]" title="Direccion">
-                        </div>
-                      </li>
-                      <li class="wide">
-                        <div class="input-box">
-                          <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text " value="" id="shipping:street2" name="shipping[street][]" title="Direccion">
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:city"><em>*</em>Ciudad</label>
+                        </li>
+                        <li>
                           <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:city" class="input-text  required-entry" value="" name="shipping[city]" title="Ciudad">
-                          </div>
-                        </div>
-                        <div class="field">
-                          <label class="required" for="shipping:region"><em>*</em>Provincia</label>
-                          <div class="input-box">
-                            <select style="" class="validate-select required-entry" title="Provincia" name="shipping[region_id]" id="shipping:region_id" >
+                            <select class="required-entry validate-select" defaultvalue="" id="region_id" name="region_id" title="State/Province" style="">
                               <option value="">-- Selecciona tu provincia --</option>
                                 <option value="Buenos Aires">Buenos Aires</option>
                                 <option value="Capital Federal">Capital Federal</option>
@@ -245,80 +245,70 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                                 <option value="Santiago del Estero">Santiago del Estero</option>
                                 <option value="Tierra del Fuego">Tierra del Fuego</option>
                                 <option value="Tucuman">Tucuman</option>
-                            </select>
-                            <input type="text" style="display:none;" class="input-text regions required-entry" title="Provincia" value="" name="shipping[region]" id="shipping:region">
+                              </select>
+                            <input type="text" id="region" name="region" value="" title="State/Province" class="input-text required-entry" style="display:none;">
                           </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:postcode"><em>*</em>Codigo postal</label>
+                        </li>
+                        <li>
                           <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text validate-zip-international  required-entry" value="" id="shipping:postcode" name="shipping[postcode]" title="Codigo postal">
+                            <input type="text" class="input-text validate-postcode" id="postcode" name="estimate_postcode" value="">
                           </div>
-                        </div>
-                        <div class="field">
-                          <label class="required" for="shipping:country_id"><em>*</em>Pais</label>
-                          <div class="input-box">
-                            <select onchange="if(window.shipping)shipping.setSameAsBilling(false);" title="Pais" class="validate-select" id="shipping:country_id" name="shipping[country_id]">
-                              <option value="">-- Selecciona tu pais --</option>
-                              <option value="AR">Argentina</option>
-                              <option value="BR">Brasil</option>
-                              <option value="BO">Bolivia</option>
-                              <option value="CH">Chile</option>
-                              <option value="CO">Colombia</option>
-                              <option value="EC">Ecuador</option>
-                              <option value="USA">Estados Unidos</option>
-                              <option value="MX">Mexico</option>
-                              <option value="PY">Paraguay</option>
-                              <option value="PE">Peru</option>
-                              <option value="UY">Uruguay</option>
-                              <option value="VE">Vanezuela</option>
-                            </select>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:telephone"><em>*</em>Telefono</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:telephone" class="input-text  required-entry" title="Telefono" value="" name="shipping[telephone]">
-                          </div>
-                        </div>
-                        <div class="field">
-                          <label for="shipping:fax">Fax</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:fax" class="input-text " title="Fax" value="" name="shipping[fax]">
-                          </div>
-                        </div>
-                      </li>
-                      <li class="no-display">
-                        <input type="hidden" value="1" name="shipping[save_in_address_book]">
-                      </li>
-                    </ul>
-                  </fieldset>
-                </li>
-                <li class="control">
-                  <input type="checkbox" class="checkbox" onclick="shipping.setSameAsBilling(this.checked)" title="Utilizar direccion de pago" value="1" id="shipping:same_as_billing" name="shipping[same_as_billing]">
-                  <label for="shipping:same_as_billing">Utilizar direccion de pago</label>
+                        </li>
+                      </ul>
+                      <div class="buttons-set">
+                        <button type="button" title="Get a Quote" onclick="coShippingMethodForm.submit()" class="button"><span><span>Calcular</span></span></button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <form id="discount-coupon-form" action="" method="post">
+                  <div class="discount">
+                    <h2>Cupon de descuento</h2>
+                    <div class="discount-form">
+                      <div class="input-box">
+                        <input placeholder="Ingresa el codigo de tu cupon." class="input-text" id="coupon_code" name="coupon_code" value="">
+                        <button value="Apply Coupon"  class="button" title="Apply Coupon" type="button"><span><span>Utilizar cupon</span></span></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="totals">
+              <table id="shopping-cart-totals-table">
+                <colgroup>
+                <col>
+                <col width="1">
+                </colgroup>
+                <tfoot>
+                  <tr>
+                    <th style="" class="a-center" colspan="1"> Total </th>
+                    <td style="" class="a-center"><strong><span class="price" id="totalPrice"></span></strong></td>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr>
+                    <th style="" class="a-center" colspan="1"> Subtotal </th>
+                    <td style="" class="a-center"><span class="price" id="subtotalPrice"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="checkout-types">
+                <li>
+                  <button class="button btn-proceed-checkout btn-checkout" title="Proceed to Checkout" type="button" onclick="javascript: toCheckout(1);"><span><span>CONFIRMAR LA COMPRA</span></span></button>
                 </li>
               </ul>
-              <div id="shipping-buttons-container" class="buttons-set">
-                <p class="required">* Campos obligatorios</p>
-                <p class="back-link"><a onclick="toCheckout(2);" href="#"><small>« </small>Atras</a></p>
-                <button onclick="toCheckout(4);" title="Continuar" class="button" type="button"><span><span>Continuar</span></span></button>
-                <span style="display:none;" class="please-wait" id="shipping-please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cagando el siguiente paso... </span> </div>
-            </form>
+            </div>
           </div>
-        </li>
-      </ol>
-    </article>
-   
-  </section>
-  <br /><br />
+        </div>
+      </article>
+    </section>
+  
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
@@ -348,10 +338,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -367,7 +357,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodo de pago" title="Metodo de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
         </div></div>
 </body>
 </html>

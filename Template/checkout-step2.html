@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!--[if lt IE 9]>
@@ -12,13 +13,9 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>B&G</title>
-
+<title>Shop Master</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
-<meta name="description" content="B&G. Tienda de ropa online.">
-<meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -81,7 +78,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -125,7 +122,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big bold">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -153,74 +150,73 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
 
   <section class="container_9 clearfix col1" id="columns">
-  <div id="crumbs">
-        <ul id="breadcrumbs-two">
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Confirmacion de compra</a></li>
-          <li><a href="#4">Paso 3</a></li>
-        </ul>
-      </div>
-      <br />
     <article class=" grid_5" id="center_column">
       <ol id="checkoutSteps" class="opc">
-        <li class="section" id="opc-shipping">
-          <div class="step-title allow active"> <span class="number">PASO 3</span>
-            <h2>Informacion de envio</h2>
+       <li class="section" id="opc-billing">
+          <div class="step-title allow active"> <span class="number">PASO 2</span>
+            <h2>Informacion de pago</h2>
             <a href="#">Edit</a> </div>
-          <div  class="step a-item" id="checkout-step-shipping" >
-            <form id="co-shipping-form" >
-              <ul class="form-list">
-                <li id="shipping-new-address-form">
-                  <fieldset>
-                    <input type="hidden" id="shipping:address_id" value="" name="shipping[address_id]">
-                    <ul>
-                      <li class="fields">
-                        <div class="customer-name">
-                          <div class="field name-firstname">
-                            <label class="required" for="shipping:firstname"><em>*</em>Nombre</label>
-                            <div class="input-box">
-                              <input type="text" onchange="shipping.setSameAsBilling(false)" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="shipping[firstname]" id="shipping:firstname">
+          <div  class="step a-item" id="checkout-step-billing" >
+            <form  id="co-billing-form">
+              <fieldset>
+                <ul class="form-list">
+                  <li id="billing-new-address-form">
+                    <fieldset>
+                      <input type="hidden" id="billing:address_id" value="" name="billing[address_id]">
+                      <ul>
+                        <li class="fields">
+                          <div class="customer-name">
+                            <div class="field name-firstname">
+                              <label class="required" for="billing:firstname"><em>*</em>Nombre</label>
+                              <div class="input-box">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="First Name" value="" name="billing[firstname]" id="billing:firstname">
+                              </div>
+                            </div>
+                            <div class="field name-lastname">
+                              <label class="required" for="billing:lastname"><em>*</em>Apellido</label>
+                              <div class="input-box">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Last Name" value="" name="billing[lastname]" id="billing:lastname">
+                              </div>
                             </div>
                           </div>
-                          <div class="field name-lastname">
-                            <label class="required" for="shipping:lastname"><em>*</em>Apellido</label>
+                        </li>
+                        <li class="fields">
+                          <div class="field">
+                            <label for="billing:company">Compania</label>
                             <div class="input-box">
-                              <input type="text" onchange="shipping.setSameAsBilling(false)" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="shipping[lastname]" id="shipping:lastname">
+                              <input type="text" class="input-text " title="Company" value="" name="billing[company]" id="billing:company">
                             </div>
                           </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="fields">
-                          <label for="shipping:company">Compania</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text " title="Compania" value="" name="shipping[company]" id="shipping:company">
+                          <div class="field">
+                            <label class="required" for="billing:email"><em>*</em>Correo electronico</label>
+                            <div class="input-box">
+                              <input type="text" class="input-text validate-email required-entry" title="Email Address" value="" id="billing:email" name="billing[email]">
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li class="wide">
-                        <label class="required" for="shipping:street1"><em>*</em>Direccion</label>
-                        <div class="input-box">
-                          <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text  required-entry" value="" id="shipping:street1" name="shipping[street][]" title="Direccion">
-                        </div>
-                      </li>
-                      <li class="wide">
-                        <div class="input-box">
-                          <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text " value="" id="shipping:street2" name="shipping[street][]" title="Direccion">
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:city"><em>*</em>Ciudad</label>
+                        </li>
+                        <li class="wide">
+                          <label class="required" for="billing:street1"><em>*</em>Direccion</label>
                           <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:city" class="input-text  required-entry" value="" name="shipping[city]" title="Ciudad">
+                            <input type="text" class="input-text  required-entry" value="" id="billing:street1" name="billing[street][]" title="Street Address">
                           </div>
-                        </div>
-                        <div class="field">
-                          <label class="required" for="shipping:region"><em>*</em>Provincia</label>
+                        </li>
+                        <li class="wide">
                           <div class="input-box">
-                            <select style="" class="validate-select required-entry" title="Provincia" name="shipping[region_id]" id="shipping:region_id" >
-                              <option value="">-- Selecciona tu provincia --</option>
+                            <input type="text" class="input-text " value="" id="billing:street2" name="billing[street][]" title="Street Address 2">
+                          </div>
+                        </li>
+                        <li class="fields">
+                          <div class="field">
+                            <label class="required" for="billing:city"><em>*</em>Ciudad</label>
+                            <div class="input-box">
+                              <input type="text" id="billing:city" class="input-text  required-entry" value="" name="billing[city]" title="City">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="required" for="billing:region_id"><em>*</em>Provincia</label>
+                            <div class="input-box">
+                              <select  class="validate-select required-entry" title="State/Province" name="billing[region_id]" id="billing:region_id" >
+                                <option value="">-- Selecciona tu provincia --</option>
                                 <option value="Buenos Aires">Buenos Aires</option>
                                 <option value="Capital Federal">Capital Federal</option>
                                 <option value="Catamarca">Catamarca</option>
@@ -245,23 +241,23 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                                 <option value="Santiago del Estero">Santiago del Estero</option>
                                 <option value="Tierra del Fuego">Tierra del Fuego</option>
                                 <option value="Tucuman">Tucuman</option>
-                            </select>
-                            <input type="text" style="display:none;" class="input-text regions required-entry" title="Provincia" value="" name="shipping[region]" id="shipping:region">
+                              </select>
+                              <input type="text" style="display:none;" class="input-text regions required-entry" title="State/Province" value="" name="billing[region]" id="billing:region">
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:postcode"><em>*</em>Codigo postal</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" class="input-text validate-zip-international  required-entry" value="" id="shipping:postcode" name="shipping[postcode]" title="Codigo postal">
+                        </li>
+                        <li class="fields">
+                          <div class="field">
+                            <label class="required" for="billing:postcode"><em>*</em>Codigo postal</label>
+                            <div class="input-box">
+                              <input type="text" class="input-text validate-zip-international  required-entry" value="" id="billing:postcode" name="billing[postcode]" title="Zip/Postal Code">
+                            </div>
                           </div>
-                        </div>
-                        <div class="field">
-                          <label class="required" for="shipping:country_id"><em>*</em>Pais</label>
-                          <div class="input-box">
-                            <select onchange="if(window.shipping)shipping.setSameAsBilling(false);" title="Pais" class="validate-select" id="shipping:country_id" name="shipping[country_id]">
-                              <option value="">-- Selecciona tu pais --</option>
+                          <div class="field">
+                            <label class="required" for="billing:country_id"><em>*</em>Pais</label>
+                            <div class="input-box">
+                              <select title="Country" class="validate-select" id="billing:country_id" name="billing[country_id]">
+                                <option value="">-- Selecciona tu pais --</option>
                               <option value="AR">Argentina</option>
                               <option value="BR">Brasil</option>
                               <option value="BO">Bolivia</option>
@@ -274,40 +270,58 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                               <option value="PE">Peru</option>
                               <option value="UY">Uruguay</option>
                               <option value="VE">Vanezuela</option>
-                            </select>
+                              </select>
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li class="fields">
-                        <div class="field">
-                          <label class="required" for="shipping:telephone"><em>*</em>Telefono</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:telephone" class="input-text  required-entry" title="Telefono" value="" name="shipping[telephone]">
+                        </li>
+                        <li class="fields">
+                          <div class="field">
+                            <label class="required" for="billing:telephone"><em>*</em>Telefono</label>
+                            <div class="input-box">
+                              <input type="text" id="billing:telephone" class="input-text  required-entry" title="Telephone" value="" name="billing[telephone]">
+                            </div>
                           </div>
-                        </div>
-                        <div class="field">
-                          <label for="shipping:fax">Fax</label>
-                          <div class="input-box">
-                            <input type="text" onchange="shipping.setSameAsBilling(false);" id="shipping:fax" class="input-text " title="Fax" value="" name="shipping[fax]">
+                          <div class="field">
+                            <label for="billing:fax">Fax</label>
+                            <div class="input-box">
+                              <input type="text" id="billing:fax" class="input-text " title="Fax" value="" name="billing[fax]">
+                            </div>
                           </div>
-                        </div>
-                      </li>
-                      <li class="no-display">
-                        <input type="hidden" value="1" name="shipping[save_in_address_book]">
-                      </li>
-                    </ul>
-                  </fieldset>
-                </li>
-                <li class="control">
-                  <input type="checkbox" class="checkbox" onclick="shipping.setSameAsBilling(this.checked)" title="Utilizar direccion de pago" value="1" id="shipping:same_as_billing" name="shipping[same_as_billing]">
-                  <label for="shipping:same_as_billing">Utilizar direccion de pago</label>
-                </li>
-              </ul>
-              <div id="shipping-buttons-container" class="buttons-set">
-                <p class="required">* Campos obligatorios</p>
-                <p class="back-link"><a onclick="toCheckout(2);" href="#"><small>« </small>Atras</a></p>
-                <button onclick="toCheckout(4);" title="Continuar" class="button" type="button"><span><span>Continuar</span></span></button>
-                <span style="display:none;" class="please-wait" id="shipping-please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cagando el siguiente paso... </span> </div>
+                        </li>
+                        <li id="register-customer-password" class="fields">
+                          <div class="field">
+                            <label class="required" for="billing:customer_password"><em>*</em>Contraseña</label>
+                            <div class="input-box">
+                              <input type="password" class="input-text required-entry validate-password" title="Password" id="billing:customer_password" name="billing[customer_password]">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <label class="required" for="billing:confirm_password"><em>*</em>Confirmar contraseña</label>
+                            <div class="input-box">
+                              <input type="password" class="input-text required-entry validate-cpassword" id="billing:confirm_password" title="Confirm Password" name="billing[confirm_password]">
+                            </div>
+                          </div>
+                        </li>
+                        <li class="no-display">
+                          <input type="hidden" value="1" name="billing[save_in_address_book]">
+                        </li>
+                      </ul>
+                    </fieldset>
+                  </li>
+                  <li class="control">
+                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = true;" title="Ship to this address" checked="checked" value="1" id="billing:use_for_shipping_yes" name="billing[use_for_shipping]">
+                    <label for="billing:use_for_shipping_yes">Enviar a esta direccion</label>
+                  </li>
+                  <li class="control">
+                    <input type="radio" class="radio" onclick="$('shipping:same_as_billing').checked = false;" title="Ship to different address" value="0" id="billing:use_for_shipping_no" name="billing[use_for_shipping]">
+                    <label for="billing:use_for_shipping_no">Enviar a otra direccion</label>
+                  </li>
+                </ul>
+                <div id="billing-buttons-container" class="buttons-set">
+                  <p class="required">* Campos obligatorios</p>
+                  <button onclick="toCheckout(3);" class="button" title="Continue" type="button"><span><span>Continuar</span></span></button>
+                  <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
+              </fieldset>
             </form>
           </div>
         </li>
@@ -318,7 +332,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <br /><br />
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
@@ -348,10 +362,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -367,7 +381,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodo de pago" title="Metodo de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
         </div></div>
 </body>
 </html>

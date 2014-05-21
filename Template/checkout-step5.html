@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <!--[if lt IE 9]>
@@ -12,13 +13,9 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 
 <html>
 <head>
-<title>B&G</title>
-
+<title>Shop Master</title>
 <meta name="viewport" content="width=device-width; initial-scale=1.0;" />
 <meta charset="utf-8">
-<meta name="description" content="B&G. Tienda de ropa online.">
-<meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -74,14 +71,14 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/menu.js"></script>
 <script src="js/checkout.js"></script>
 </head>
-<body class="noIE" onload="javascript: loadDetails();">
+<body class="noIE">
 
 
 <div id="page" class="clearfix">
 
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
-    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
+    <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="Shop Master" href="./index.html" class="logo "><img alt="logo" src="images/media/logo.png"></a> </span>
       
 
       <ul id="header_nav" class="nav pull-right">
@@ -125,7 +122,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big bold">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -153,64 +150,110 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
 
   <section class="container_9 clearfix col1" id="columns">
-  <div id="crumbs">
-        <ul id="breadcrumbs-two">
-          <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Confirmacion de compra</a></li>
-          <li><a href="#4">Paso 6</a></li>
-        </ul>
-      </div>
-      <br />
     <article class=" grid_5" id="center_column">
       <ol id="checkoutSteps" class="opc">
-        <li class="section" id="opc-review">
-          <div class="step-title allow active"> <span class="number">PASO 6</span>
-            <h2>Confirmacion de compra</h2>
+        <li class="section" id="opc-payment">
+          <div class="step-title allow active"> <span class="number">PASO 5</span>
+            <h2>Metodo de pago</h2>
             <a href="#">Edit</a> </div>
-          <div  class="step a-item" id="checkout-step-review">
-            <div id="checkout-review-load" class="order-review">
-              <div id="checkout-review-table-wrapper">
-                <table id="checkout-review-table" class="data-table">
-                  <colgroup>
-                  <col>
-                  <col >
-                  <col >
-                  <col >
-                  </colgroup>
-                  <thead>
-                    <tr class="first last">
-                      <th rowspan="1">Producto</th>
-                      <th class="a-center" colspan="1">Precio</th>
-                      <th class="a-center" rowspan="1">Cantidad</th>
-                      <th class="a-center" colspan="1">Subtotal</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr class="first">
-                      <td colspan="3" class="a-right" style=""> Subtotal </td>
-                      <td class="a-right last" style=""><span class="price" id="subtotalPrice"></span></td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" class="a-right" style=""> Envio e impuestos (Correo) </td>
-                      <td class="a-right last" style=""><span class="price">$100.00</span></td>
-                    </tr>
-                    <tr class="last">
-                      <td colspan="3" class="a-right" style=""><strong>Total</strong></td>
-                      <td class="a-right last" style=""><strong><span class="price" id="totalPrice"></span></strong></td>
-                    </tr>
-                  </tfoot>
-                  <tbody id="details">
-                   
-                  </tbody>
-                </table>
-              </div>
-              <div id="checkout-review-submit">
-                <div id="review-buttons-container" class="buttons-set">
-                  <p class="f-left">¿Te olvidaste de comprar algo? <a href="./shopping-cart.html">Modificar tu compra</a></p>
-                  <button onclick="toCheckout(7);" class="button btn-checkout" title="Confirmar compra" type="submit"><span><span>Confirmar compra</span></span></button>
-                  <span style="display:none;" id="review-please-wait" class="please-wait"> <img class="v-middle" title="Confirmando la compra..." alt="Confirmando la compra..." src="skin/frontend/default/onlinesale/images/opc-ajax-loader.gif"> Confirmando la compra... </span> </div>
-              </div>
+          <div style="" class="step a-item" id="checkout-step-payment">
+            <form id="co-payment-form" >
+              <fieldset>
+                <dl id="checkout-payment-method-load" class="sp-methods">
+                  <dt>
+                    <input type="radio" class="radio" onclick="payment.switchMethod('checkmo')" title="Check / Money order" name="payment[method]" value="checkmo" id="p_method_checkmo" >
+                    <label for="p_method_checkmo">MercadoPago </label>
+                  </dt>
+                  <dt>
+                    <input type="radio" class="radio" onclick="payment.switchMethod('ccsave')" title="Credit Card (saved)" name="payment[method]" checked="true" value="ccsave" id="p_method_ccsave" >
+                    <label for="p_method_ccsave">Tarjeta de credito </label>
+                  </dt>
+                  <dd>
+                    <ul  id="payment_form_ccsave" class="form-list">
+                      <li>
+                        <label class="required" for="ccsave_cc_owner"><em>*</em>Nombre en la tarjeta</label>
+                        <div class="input-box">
+                          <input type="text" value="" name="payment[cc_owner]" id="ccsave_cc_owner" class="input-text required-entry" title="Name on Card" disabled="" >
+                        </div>
+                      </li>
+                      <li>
+                        <label class="required" for="ccsave_cc_type"><em>*</em>Tipo de tarjeta</label>
+                        <div class="input-box">
+                          <select class="required-entry validate-cc-type-select" title="Credit Card Type" name="payment[cc_type]" id="ccsave_cc_type" disabled="" >
+                            <option value="">--Seleccione su tarjeta--</option>
+                            <option value="AE">American Express</option>
+                            <option value="VI">Visa</option>
+                            <option value="MC">MasterCard</option>
+                            <option value="DI">Discover</option>
+                          </select>
+                        </div>
+                      </li>
+                      <li>
+                        <label class="required" for="ccsave_cc_number"><em>*</em>Numero de tarjeta</label>
+                        <div class="input-box">
+                          <input type="text" value="" class="input-text validate-cc-number validate-cc-type" title="Credit Card Number" name="payment[cc_number]" id="ccsave_cc_number" disabled="" >
+                        </div>
+                      </li>
+                      <li>
+                        <label class="required" for="ccsave_expiration"><em>*</em>Vencimiento</label>
+                        <div class="input-box">
+                          <div class="v-fix">
+                            <select class="month validate-cc-exp required-entry" name="payment[cc_exp_month]" id="ccsave_expiration" disabled="" >
+                              <option selected="selected" value="">Mes</option>
+                              <option value="1">01 - January</option>
+                              <option value="2">02 - February</option>
+                              <option value="3">03 - March</option>
+                              <option value="4">04 - April</option>
+                              <option value="5">05 - May</option>
+                              <option value="6">06 - June</option>
+                              <option value="7">07 - July</option>
+                              <option value="8">08 - August</option>
+                              <option value="9">09 - September</option>
+                              <option value="10">10 - October</option>
+                              <option value="11">11 - November</option>
+                              <option value="12">12 - December</option>
+                            </select>
+                          </div>
+                          <div class="v-fix">
+                            <select class="year required-entry" name="payment[cc_exp_year]" id="ccsave_expiration_yr" disabled="" >
+                              <option selected="selected" value="">Año</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
+                              <option value="2018">2018</option>
+                              <option value="2019">2019</option>
+                              <option value="2020">2020</option>
+                              <option value="2021">2021</option>
+                              <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                            </select>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
+                        <div class="input-box">
+                          <div class="v-fix">
+                            <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Card Verification Number" disabled="" >
+                          </div>
+                          <a class="cvv-what-is-this" href="#">¿Que es esto?</a> </div>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </fieldset>
+            </form>
+            <div style="display:none;" id="payment-tool-tip" class="tool-tip">
+              <div class="btn-close"><a title="Close" id="payment-tool-tip-close" href="#">Cerrar</a></div>
+              <div class="tool-tip-content"><img title="Card Verification Number Visual Reference" alt="Card Verification Number Visual Reference" src="images/cvv.gif"></div>
             </div>
+            <div id="payment-buttons-container" class="buttons-set">
+              <p class="required">* Campos obligatorios</p>
+              <p class="back-link"><a onclick="toCheckout(4);" href="#"><small>« </small>Atras</a></p>
+              <button onclick="toCheckout(6);" class="button" type="button"><span><span>Continuar</span></span></button>
+              <span style="display:none;" id="payment-please-wait" class="please-wait"> <img class="v-middle" title="Loading next step..." alt="Loading next step..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
           </div>
         </li>
       </ol>
@@ -220,7 +263,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <br /><br />
   <!-- Footer -->
   <footer id="footer" >
-    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
+    <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="top" title="top" ></a>
   <div class="footer-set">
     <div class="block">
           <h4>Somos sociales</h4>
@@ -250,10 +293,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
-              <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              <li class="item"><a title="Delivery" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Legal Notice" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
+              <li class="item"><a title="About us" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
+              <li><a title="Sitemap" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block last">
@@ -269,7 +312,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="payment" title="payment" ></p>
         </div></div>
 </body>
 </html>

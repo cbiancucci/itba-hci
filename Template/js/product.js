@@ -63,26 +63,6 @@ function loadRelatedProducts(id)
 							$("#product-images").append("<li><a href='" + product.imageUrl[i] + "' class='productPretty' > <img alt='" + 
 								product.name + "' src='" + product.imageUrl[i] + "' /> </a></li>");
 						}
-
-						var details = '';
-						for(var i = 0; i < product.attributes.length; i++)
-						{
-							details += "<div class='product-details-row'>";
-							var attrName = product.attributes[i].name.indexOf('-') == -1 
-								? product.attributes[i].name : product.attributes[i].name.split('-')[0];
-							details += "<div class='product-details-row-title'>" + attrName + "</div>";
-							details += "<div class='product-details-row-value'>";
-							var cantValues = product.attributes[i].values.length;
-							for(var j = 0; j < cantValues; j++)
-							{
-								details += product.attributes[i].values[j] + (j < (cantValues - 1) ? " - " : "");
-							}
-							details += "</div><br />"; // celda value
-							details += "</div>"; // row
-						}						
-
-						$("#home").append(details);
-
 						$("#product-name").append(product.name);
 						$("#our_price_display").append("$" + product.price);
 						$("#product-rating").append("<div style='width:" + Math.floor(Math.random() * 101)

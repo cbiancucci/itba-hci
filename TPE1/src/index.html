@@ -121,13 +121,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
         <li><i class="icon-heart"></i> <a href="#">Lista de deseos</a></li>
         <li><i class="icon-circle-arrow-right"></i> <a href="./checkout-step1.html">Confirmar compra</a></li>
          <li>
-          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link">Mi carrito</a>
+          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link" id="shoppingCartTitle">Mi carrito</a>
           <ul class="dropdown-login">
             <li>
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html">Ir al carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
             </li>
           </ul>
         </li>
@@ -139,7 +139,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
     <!-- Header -->
     
     <header id="header"  class="third-bg" >
-      <div id="dl-menu" class="dl-menuwrapper" style="display:none;">
+      <div id="dl-menu" class="dl-menuwrapper invisible">
         <button class="dl-trigger"> <span class="informer-menu first-brd">1</span></button>
         <ul id="menu" class="dl-menu">
         </ul>
@@ -199,14 +199,14 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
 <div class="promo-home">
   <ul>
-    <li ><a href="#"><img src="images/media/promo1.png" alt="Envio gratis" title="Envio gratis" ></a></li>
-    <li ><a href="#"><img src="images/media/promo2.png" alt="Contacto" title="Contacto" ></a></li>
-    <li class="last"><a href="#"><img src="images/media/promo3.png" alt="Regalos" title="Regalos"  ></a></li>
+    <li ><img src="images/media/promo1.png" alt="Envio gratis" title="Envio gratis" ></li>
+    <li ><img src="images/media/promo2.png" alt="Contacto" title="Contacto" ></li>
+    <li class="last"><img src="images/media/promo3.png" alt="Regalos" title="Regalos"  ></li>
   </ul>
 </div>
 <div class="width-carousel brand-carousel">
   <div class="title-box">
-    <h3 class="title-carousel first-brd">Trabajan con nosotros</h3>
+    <h3 class="title-carousel first-brd">TRABAJAN CON NOSOTROS</h3>
   </div>
   
   <!-- bxSlider Javascript file --> 
@@ -221,14 +221,14 @@ $(document).ready(function(){
 });
 </script>
   <ul class=" first odd bxslider2">
-    <li class="item first "> <a href="#"><img src="images/media/5.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/6.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/7.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/8.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/5.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/6.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/7.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
-    <li class="item first "> <a href="#"><img src="images/media/8.jpg" width="193" height="92" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/kevingston.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/akiabara.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/lacoste.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/nike.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/puma.gif" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/rever.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/zara.png" alt="img" title="img" ></a> </li>
+    <li class="item first "> <a href="#"><img class="image-brand" src="images/media/8.jpg" alt="img" title="img" ></a> </li>
   </ul>
  </div>
 
@@ -288,7 +288,7 @@ $(document).ready(function(){
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" class="right" alt="Metodos de pago" title="Metodos de pago" ></p>
         </div></div>
 </body>
 </html>
