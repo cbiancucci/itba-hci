@@ -39,8 +39,8 @@ $(function() {
 			},
 			password: {
 				required: "Requerido",
-				minlength: "El nombre de usuario debe tener 8 o mas caracteres.",
-				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
+				minlength: "La clave debe tener 8 o mas caracteres.",
+				maxlength: "La clave debe tener 15 o menos caracteres."
 			}
 		}
 	});

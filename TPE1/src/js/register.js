@@ -13,15 +13,15 @@ $(function() {
 				"password":$("#passwordReg").val(),
 				"firstName":$("#firstname").val(),
 				"lastName":$("#lastname").val(),
-				"gender":$("#genero").val(),
+				"gender":$("#genero").val()[0],
 				"identityCard":$("#dni").val(),
 				"email":$("#email").val(),
 				"birthDate":date[2] + "-" + date[1] + "-" + date[0]
 			}; 
+
 			$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Account.groovy?method=CreateAccount&account=" + JSON.stringify(account) + "&callback=?", function(result) {
 				if(result.error === undefined)
 				{
-					alert(result.account);
 					$("#page").append("<div id='no_script_msg'>" + 
 			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al inicio en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
 					
@@ -57,7 +57,7 @@ $(function() {
 				required: true,
 				maxlength: 80
 			},
-			username: {
+			usernameReg: {
 				required: true,
 				minlength: 6,
 				maxlength: 15
@@ -94,40 +94,39 @@ $(function() {
 		messages: {
 			firstname: {
 				required: "Requerido",
-				maxlength: "El nombre de usuario debe tener 80 o menos caracteres."
+				maxlength: "El nombre debe tener 80 o menos caracteres."
 			},
 			lastname: {
 				required: "Requerido",
-				maxlength: "El nombre de usuario debe tener 80 o menos caracteres."
+				maxlength: "El apellido debe tener 80 o menos caracteres."
 			},
-			username: {
+			usernameReg: {
 				required: "Requerido",
 				minlength: "El nombre de usuario debe tener 6 o mas caracteres.",
 				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
 			},
 			password: {
 				required: "Requerido",
-				minlength: "El nombre de usuario debe tener 8 o mas caracteres.",
-				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
+				minlength: "La clave debe tener 8 o mas caracteres.",
+				maxlength: "La clave debe tener 15 o menos caracteres."
 			},
 			confirm_password: {
 				required: "Requerido",
-				minlength: "El nombre de usuario debe tener 8 o mas caracteres.",
-				maxlength: "El nombre de usuario debe tener 15 o menos caracteres.",
-				equalTo: "Las contraseñas no coinciden."
+				minlength: "La clave debe tener 8 o mas caracteres.",
+				maxlength: "La clave debe tener 15 o menos caracteres.",
+				equalTo: "Las claves no coinciden."
 			},
 			email: {
 				required: "Requerido",
-				maxlength: "El nombre de usuario debe tener 128 o menos caracteres.",
-				email: "No es un mail valido."
+				maxlength: "El email debe tener 128 o menos caracteres.",
+				email: "No es un email valido."
 			},
 			genero: {
-				required: "Requerido",
-				anyGenero: "El nombre de usuario debe tener 10 o menos caracteres."
+				required: "Requerido"
 			},
 			dni: {
 				required: "Requerido",
-				maxlength: "El nombre de usuario debe tener 10 o menos caracteres."
+				maxlength: "El DNI debe tener 10 o menos caracteres."
 			},
 			date: {
 				required: "Requerido",
