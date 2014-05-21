@@ -13,7 +13,7 @@ function getHTMLProduct(product, type, first, last)
     switch(typeHTML)
     {
         case 1: // PRECIO FIJO
-            return "<li class='item " + (first ? "first" : "") + "'>" +
+            return "<li class='item " + ((first ? "first" : "") || (last ? "last" : "")) + "'>" +
                 "<div class='top-grid-content-left'>$" + product.price + "</div>" +
                 "<div class='grid-box '>" +
                 "    <h2 class='product-name'> <a title='" + product.name + "' href='" + productURL + "'>" + product.name + "</a> </h2>" +
