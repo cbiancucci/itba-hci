@@ -740,7 +740,7 @@ p.required {
 /*.data-table tr.odd:hover,
 .data-table tr.even:hover { background:#ebf1f6; }*/
 .data-table td.last, .data-table th.last {
-	border-right: 0;
+	border-right: 0px;
 }
 .data-table tr.last th, .data-table tr.last td {
 }
