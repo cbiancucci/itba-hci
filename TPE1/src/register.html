@@ -83,6 +83,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/menu.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/register.js"></script>
+<script src="js/login.js"></script>
 </head>
 <body class="noIE">
 
@@ -101,18 +102,18 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <ul class="dropdown-login">
             <li>
               <div class="wrap-login-header">
-                  <form method="post" action="index.html/customer/account/loginPost/" id="login-form-header">
+                  <form id="login-form-header">
                       <ul class="form-list">
                         <li>
-                          <label class="required" for="login-email"><em>*</em>Nombre de usuario</label>
+                          <label class="required" for="username"><em>*</em>Nombre de usuario</label>
                           <div class="input-box">
-                            <input type="text" value="" name="login[username]" id="login-email" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
+                            <input type="text" value="" name="username" id="username" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
                           </div>
                         </li>
                         <li>
-                          <label class="required" for="login-password"><em>*</em>Clave</label>
+                          <label class="required" for="password"><em>*</em>Clave</label>
                           <div class="input-box">
-                            <input type="password" name="login[password]" id="login-password" class="input-text required-entry" placeholder="Clave...">
+                            <input type="password" name="password" id="password" class="input-text required-entry" placeholder="Clave...">
                           </div>
                         </li>
                       </ul>
@@ -120,7 +121,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                   <div class="buttons-set-header">
                     <p class="required">* Campos requeridos</p>
                     <a class="f-left" href="index.html/customer/account/forgotpassword/">Olvide mi clave</a>
-                    <button onclick="onepageLogin(this)" class="button" type="submit"><span><span>Ingresar</span></span></button>
+                    <button id="btnLogin" class="button" type="submit"><span><span>Ingresar</span></span></button>
                   </div>
                 </div>
             </li>
@@ -207,15 +208,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                         <li class="fields">
                           <div class="customer-name">
                             <div class="field">
-                              <label class="required" for="username"><em>*</em>Nombre de usuario</label>
+                              <label class="required" for="usernameReg"><em>*</em>Nombre de usuario</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre de usuario" value="" name="username" id="username">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre de usuario" value="" name="usernameReg" id="usernameReg">
                               </div>
                             </div>
                           <div class="field">
-                            <label class="required" for="password"><em>*</em>Contraseña</label>
+                            <label class="required" for="passwordReg"><em>*</em>Contraseña</label>
                             <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="password" name="password">
+                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="passwordReg" name="passwordReg">
                             </div>
                           </div>
                           <div class="field">
@@ -240,7 +241,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           <div class="field">
                             <label class="required" for="dni"><em>*</em>DNI</label>
                             <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="DNI" id="dni" name="dni">
+                              <input class="input-text required-entry validate-password" title="DNI" id="dni" name="dni">
                             </div>
                           </div>
                           <div class="field">

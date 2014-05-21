@@ -2,15 +2,15 @@
 $(function() {
 	$("#date").mask("99/99/9999");
 	$("#email").blur(function(){
-		$("#username").val($("#email").val());
+		$("#usernameReg").val($("#email").val());
 	});
 	
 	$("#btnRegister").click(function(){
 		if($("#register-form").valid()){
 			var date = $("#date").val().split('/');
 			var account = {	
-				"username":$("#username").val(),
-				"password":$("#password").val(),
+				"username":$("#usernameReg").val(),
+				"password":$("#passwordReg").val(),
 				"firstName":$("#firstname").val(),
 				"lastName":$("#lastname").val(),
 				"gender":$("#genero").val(),
@@ -21,6 +21,7 @@ $(function() {
 			$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Account.groovy?method=CreateAccount&account=" + JSON.stringify(account) + "&callback=?", function(result) {
 				if(result.error === undefined)
 				{
+					alert(result.account);
 					$("#page").append("<div id='no_script_msg'>" + 
 			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al inicio en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
 					
@@ -70,7 +71,7 @@ $(function() {
 				required: true,
 				minlength: 8,
 				maxlength: 15,
-				equalTo: "#password"
+				equalTo: "#passwordReg"
 			},
 			email: {
 				required: true,

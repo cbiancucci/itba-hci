@@ -28,7 +28,7 @@
 }
 
 .wrap-login-header {
-	min-height: 180px;
+	min-height: 210px;
 	width: 205px;
 	padding: 10px;
 	border-top: 0;
@@ -354,7 +354,7 @@ width: 550px;
     font-weight: bold;
 }
 
-.input-box .error, .error
+.input-box .error, .error, #login-form-header .form-list label.error
 {
     color: red;
 }
