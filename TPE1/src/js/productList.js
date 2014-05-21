@@ -1,3 +1,4 @@
+var page_size = 4;
 $(function() {
 
 $.when(
@@ -23,6 +24,11 @@ $.when(
 
 	function loadProducts(grid)
 	{
+		$("#cantPagina").change(function(){
+  			page_size = $(this).val();
+  			loadProducts(grid);
+
+  		});
 		var html = "<p class='bold big error textCenter center'>No hay productos en la API para la categoria seleccionada</p>";
 		$("#toolbar-list").hide();
 	    $("#pagination-list").hide();
@@ -108,11 +114,13 @@ $.when(
 	            	if(grid)
 	            	{
 		            	$("#products-list").hide();
+		            	$("#products-list").empty();
 		            	$("#products-grid-list").append(html);	
 		            	$("#products-grid-list").show();
 	            	}
 	            	else
 	            	{
+	            		$("#products-list").empty();
 	            		$("#products-list").append("<ol class='products-list' >" + html + "</ol>");
 	            		$("#products-list").show();
 	            		$("#products-grid-list").hide();
