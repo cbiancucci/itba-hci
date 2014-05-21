@@ -2,6 +2,7 @@ $(function() {
 
 $.when(
 	loadMenu(),
+    loadCountriesAndCities(),
 	loadShoppingCart())
 	.done(
 		function(result1, result2)
@@ -45,4 +46,23 @@ $.when(
 		$('#subtotalPrice').append(parseInt(total).toFixed(2));	
     }
 	
+    function loadCountriesAndCities()
+    {
+
+        $.getJSON("http://eiffel.itba.edu.ar/hci/service3/Common.groovy?method=GetAllStates&callback=?",
+            function(result) {
+                var states = result.states;
+                
+                var texto = "<option value=''>-- Selecciona tu provincia --</option>";
+
+                for(var i = 0; i < states.length; i++)
+                {
+                    texto += "<option value=" + states[i].name +">" + states[i].name + "</option>";
+                }
+                
+                $("#region_id").append(texto);
+
+            }
+        );
+    }
 });
