@@ -1,63 +1,137 @@
+
 $(function() {
 	$("#date").mask("99/99/9999");
 	$("#email").blur(function(){
 		$("#username").val($("#email").val());
 	});
-$("#btnRegister").click(function(){
-	$("#register-form").submit();
-});
-$("#register-form").validate({
+	
+	$("#btnRegister").click(function(){
+		if($("#register-form").valid()){
+			var date = $("#date").val().split('/');
+			var account = {	
+				"username":$("#username").val(),
+				"password":$("#password").val(),
+				"firstName":$("#firstname").val(),
+				"lastName":$("#lastname").val(),
+				"gender":$("#genero").val(),
+				"identityCard":$("#dni").val(),
+				"email":$("#email").val(),
+				"birthDate":date[2] + "-" + date[1] + "-" + date[0]
+			}; 
+			$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Account.groovy?method=CreateAccount&account=" + JSON.stringify(account) + "&callback=?", function(result) {
+				if(result.error === undefined)
+				{
+					$("#page").append("<div id='no_script_msg'>" + 
+			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al inicio en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
+					
+					window.setTimeout(function(){
+			        	window.location.href = "./index.html";
+			    	}, 5000);
+				}
+			});
+		}
+	});
+
+  	$.validator.addMethod("anyDate",
+    	function(value, element) {
+        	return value.match(/^(0?[1-9]|[12][0-9]|3[0-2])[\/](0?[1-9]|1[0-2])[\/](19|20)?\d{2}$/);
+    	},
+    	""
+	);
+
+  	$.validator.addMethod("anyGenero",
+    	function(value, element) {
+        	return value != '0'
+    	},
+    	""
+	);
+
+	$("#register-form").validate({
 		rules: {
-			firstname: "required",
-			lastname: "required",
+			firstname: {
+				required: true,
+				maxlength: 80
+			},
+			lastname: {
+				required: true,
+				maxlength: 80
+			},
 			username: {
 				required: true,
-				minlength: 2
+				minlength: 6,
+				maxlength: 15
 			},
 			password: {
 				required: true,
-				minlength: 5
+				minlength: 8,
+				maxlength: 15
 			},
 			confirm_password: {
 				required: true,
-				minlength: 5,
+				minlength: 8,
+				maxlength: 15,
 				equalTo: "#password"
 			},
 			email: {
 				required: true,
-				email: true
-			}
+				email: true,
+				maxlength: 128
+			},
+			genero: {
+				required: true,
+				anyGenero: true
+			},
+			dni: {
+				required: true,
+				maxlength: 10
+			},
+			date: {
+				required: true,
+				anyDate: true
+			},
 		},
 		messages: {
-			firstname: "Please enter your firstname",
-			lastname: "Please enter your lastname",
+			firstname: {
+				required: "Requerido",
+				maxlength: "El nombre de usuario debe tener 80 o menos caracteres."
+			},
+			lastname: {
+				required: "Requerido",
+				maxlength: "El nombre de usuario debe tener 80 o menos caracteres."
+			},
 			username: {
-				required: "Please enter a username",
-				minlength: "Your username must consist of at least 2 characters"
+				required: "Requerido",
+				minlength: "El nombre de usuario debe tener 6 o mas caracteres.",
+				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
 			},
 			password: {
-				required: "Please provide a password",
-				minlength: "Your password must be at least 5 characters long"
+				required: "Requerido",
+				minlength: "El nombre de usuario debe tener 8 o mas caracteres.",
+				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
 			},
 			confirm_password: {
-				required: "Please provide a password",
-				minlength: "Your password must be at least 5 characters long",
-				equalTo: "Please enter the same password as above"
+				required: "Requerido",
+				minlength: "El nombre de usuario debe tener 8 o mas caracteres.",
+				maxlength: "El nombre de usuario debe tener 15 o menos caracteres.",
+				equalTo: "Las contraseñas no coinciden."
 			},
-			email: "Please enter a valid email address"
+			email: {
+				required: "Requerido",
+				maxlength: "El nombre de usuario debe tener 128 o menos caracteres.",
+				email: "No es un mail valido."
+			},
+			genero: {
+				required: "Requerido",
+				anyGenero: "El nombre de usuario debe tener 10 o menos caracteres."
+			},
+			dni: {
+				required: "Requerido",
+				maxlength: "El nombre de usuario debe tener 10 o menos caracteres."
+			},
+			date: {
+				required: "Requerido",
+				anyDate: "El formato de fecha no es correcto."
+			}
 		}
 	});
-
-/*	$("#btnRegister").click(function(){
-		var firstname = $("#firstname").val();
-		var lastname = $("#lastname").val();
-		var email = $("#email").val();
-		var username = $("#username").val();
-		var password = $("#password").val();
-		var confirmPassword = $("#confirm_password").val();
-		var gen = $("#genero").val();
-		var dni = $("#dni").val();
-		var birth = $("#date").val();
-		alert("Te queres registrar.");
-	});*/
 });
