@@ -94,31 +94,31 @@ $(function() {
 		messages: {
 			firstname: {
 				required: "Requerido",
-				maxlength: "El nombre debe tener 80 o menos caracteres."
+				maxlength: "El nombre debe tener menos de 80 caracteres."
 			},
 			lastname: {
 				required: "Requerido",
-				maxlength: "El apellido debe tener 80 o menos caracteres."
+				maxlength: "El apellido debe tener menos de 80 caracteres."
 			},
 			usernameReg: {
 				required: "Requerido",
-				minlength: "El nombre de usuario debe tener 6 o mas caracteres.",
-				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
+				minlength: "El nombre de usuario debe tener al menos 6 caracteres.",
+				maxlength: "El nombre de usuario debe tener menos de 15 caracteres."
 			},
 			password: {
 				required: "Requerido",
-				minlength: "La clave debe tener 8 o mas caracteres.",
-				maxlength: "La clave debe tener 15 o menos caracteres."
+				minlength: "La clave debe tener al menos 8 caracteres.",
+				maxlength: "La clave debe tener menos de 15 caracteres."
 			},
 			confirm_password: {
 				required: "Requerido",
-				minlength: "La clave debe tener 8 o mas caracteres.",
-				maxlength: "La clave debe tener 15 o menos caracteres.",
+				minlength: "La clave debe tener al menos 8 caracteres.",
+				maxlength: "La clave debe tener menos de 15 caracteres.",
 				equalTo: "Las claves no coinciden."
 			},
 			email: {
 				required: "Requerido",
-				maxlength: "El email debe tener 128 o menos caracteres.",
+				maxlength: "El email debe tener menos de 128 caracteres.",
 				email: "No es un email valido."
 			},
 			genero: {
@@ -126,11 +126,11 @@ $(function() {
 			},
 			dni: {
 				required: "Requerido",
-				maxlength: "El DNI debe tener 10 o menos caracteres."
+				maxlength: "El DNI debe tener menos de 10 caracteres."
 			},
 			date: {
 				required: "Requerido",
-				anyDate: "El formato de fecha no es correcto."
+				anyDate: "El formato de fecha no es correcto. DD/MM/AAAA"
 			}
 		}
 	});
