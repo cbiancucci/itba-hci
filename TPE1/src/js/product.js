@@ -88,8 +88,10 @@ function loadRelatedProducts(id)
 							details += "</div>"; // row
 
 							if(product.attributes[i].name == 'Color'){
+
 								var cantColors = product.attributes[i].values.length;
-								colors = "<select class='selectBox'>";
+								colors = "<label>Color: </label>";
+								colors += "<select class='selectBox'>";
 								for(var j = 0; j < cantColors; j++)
 								{
 									colors += "<option>" + product.attributes[i].values[j] + "</option>";
@@ -100,7 +102,8 @@ function loadRelatedProducts(id)
 							if(product.attributes[i].name.indexOf("Talle") != -1 ){
 								var cantSizes = product.attributes[i].values.length;
 								if(cantSizes > 1 ) {
-									sizes = "<select class='selectBox'>";
+									sizes = "<label>Talle: </label>";
+									sizes += "<select class='selectBox'>";
 									for(var j = 0; j < cantSizes; j++)
 									{
 										sizes += "<option>" + product.attributes[i].values[j] + "</option>";
