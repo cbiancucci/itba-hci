@@ -54,6 +54,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <link rel="stylesheet" href="css/ie.css" />
 <link rel="stylesheet" href="css/hci.css" />
 
+<noscript>
+  <div id="no_script_msg">
+    <p> Habilite javascript y actualice la pagina.<br/>Si no sabe como:</p>
+    <a target="_blank" href="http://www.enable-javascript.com/es/">Click Aqui</a>
+  </div>
+</noscript>
+
 <!-- Javascripts
     ============================================================================== -->
 <!--[if IE 8]><script src="js/respond.min.js"></script><![endif]-->
@@ -235,10 +242,10 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
         </div>
         <div class="sort-select">
           <label>Mostrar</label>
-          <select class="selectBox">
-            <option>4 por pagina</option>
-            <option>10 por pagina</option>
-            <option>50 por pagina</option>
+          <select class="selectBox" id = "cantPagina">
+            <option value = 4>4 por pagina</option>
+            <option value = 10>10 por pagina</option>
+            <option value = 50>50 por pagina</option>
           </select>
         </div>
         <div class="lg-panel htabs">
