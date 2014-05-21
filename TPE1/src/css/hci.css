@@ -168,7 +168,7 @@ width: 550px;
     font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
     border: 0;
     background: #eee;
-    border-radius: 3px 0 0 3px;      
+    border-radius: 3px 0 0 3px;
 }
  
 #menu-search .form-wrapper input:focus {
@@ -181,6 +181,8 @@ width: 550px;
    color: #999;
    font-weight: normal;
    font-style: italic;
+   font-size: 17px;
+   text-align: center;
 }
  
 #menu-search .form-wrapper input:-moz-placeholder {

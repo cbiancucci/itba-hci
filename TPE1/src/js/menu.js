@@ -38,7 +38,7 @@ function loadMenu()
 		});
 	});
 	$("#menu").append("<li id='menu-search'><form class='form-wrapper'><input type='text' id='txtSearch' onkeypress='javascript: return keyPressSearch(event);' placeholder='Calzado, Accesorios, Hombre, Mujer, ...' required=''><button id='btnSearch' onclick='javascript:openSearch();' type='submit'>Buscar</button></form></li>");
-	$("#menu-sf").append("<li id='menu-search'><form class='form-wrapper'><input type='text' id='txtSearch' onkeypress='javascript: return keyPressSearch(event);' placeholder='Calzado, Indumentaria, Accesorios, Hombre, Mujer, ...' required=''><button onclick='javascript:openSearch();' type='submit'>Buscar</button></form></li>");
+	$("#menu-sf").append("<li id='menu-search'><form class='form-wrapper'><input type='text' id='txtSearch' onkeypress='javascript: return keyPressSearch(event);' placeholder='Calzado, Indumentaria, Accesorios, Hombre, Mujer ...' required=''><button onclick='javascript:openSearch();' type='submit'>Buscar</button></form></li>");
 
 	// Agregamos esto en el menu porque menu está siempre en todas las páginas. 
 	// Para no tener que manejar siempre las promises
