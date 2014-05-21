@@ -82,13 +82,13 @@ $(function() {
 		messages: {
 			username: {
 				required: "Requerido",
-				minlength: "El nombre de usuario debe tener 6 o mas caracteres.",
-				maxlength: "El nombre de usuario debe tener 15 o menos caracteres."
+				minlength: "El nombre de usuario debe tener al menos 6 caracteres.",
+				maxlength: "El nombre de usuario debe tener menos de 15 caracteres."
 			},
 			password: {
 				required: "Requerido",
-				minlength: "La clave debe tener 8 o mas caracteres.",
-				maxlength: "La clave debe tener 15 o menos caracteres."
+				minlength: "La clave debe tener al menos 8 caracteres.",
+				maxlength: "La clave debe tener menos de 15 caracteres."
 			}
 		}
 	});
