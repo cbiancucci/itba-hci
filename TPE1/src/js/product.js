@@ -64,6 +64,11 @@ function loadRelatedProducts(id)
 								product.name + "' src='" + product.imageUrl[i] + "' /> </a></li>");
 						}
 
+						// Cargo breadcrumb --> Inicio, Categoria, Subcategoria, nombre producto
+						$("#breadcrumbs-two").append("<li><a href='./product-list.html?categoryId=" + $.base64('encode', product.category.id) + "'>" + product.category.name + "</a></li>");
+						$("#breadcrumbs-two").append("<li><a href='./product-list.html?subCategoryId=" + $.base64('encode', product.subcategory.id) + "'>" + product.subcategory.name + "</a></li>");
+						$("#breadcrumbs-two").append("<li><a href='./product.html?productId=" + $.base64('encode', product.id) + "'>" + product.name + "</a></li>");
+
 						var details = '';
 						for(var i = 0; i < product.attributes.length; i++)
 						{

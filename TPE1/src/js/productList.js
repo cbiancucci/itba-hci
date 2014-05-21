@@ -32,17 +32,29 @@ $.when(
 		queryParams.each(
 		function(key, value, pos)
 		{
+			var id = $.base64('decode', value);
 			var url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetProductsBy";
 			if(key.indexOf('sub') != -1)
 			{
 				url += "Subc";
+				$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetSubcategoryById&id=" + id + "&callback=?", 
+			        function(result) {
+			        	$("#breadcrumbs-two").append("<li><a href='./product-list.html?categoryId=" + $.base64('encode', result.subcategory.category.id) + "'>" + result.subcategory.category.name + "</a></li>");
+			        	$("#breadcrumbs-two").append("<li><a href='./product-list.html?subCategoryId=" + $.base64('encode', result.subcategory.id) + "'>" + result.subcategory.name + "</a></li>");
+			        }
+			    );
 			}
 			else
 			{
 				url += "C";
+				$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetCategoryById&id=" + id + "&callback=?", 
+			        function(result) {
+			        	$("#breadcrumbs-two").append("<li><a href='./product-list.html?categoryId=" + $.base64('encode', id) + "'>" + result.category.name + "</a></li>");
+			        }
+			    );
 			}
 
-			url += "ategoryId&id=" + $.base64('decode', value);
+			url += "ategoryId&id=" + id;
 
 			$.getJSON(url + "&sort_order=desc&callback=?", 
 		        function(result) {
