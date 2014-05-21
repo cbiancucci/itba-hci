@@ -70,6 +70,8 @@ function loadRelatedProducts(id)
 						$("#breadcrumbs-two").append("<li><a href='./product.html?productId=" + $.base64('encode', product.id) + "'>" + product.name + "</a></li>");
 
 						var details = '';
+						var colors = '';
+						var sizes = '';
 						for(var i = 0; i < product.attributes.length; i++)
 						{
 							details += "<div class='product-details-row'>";
@@ -84,9 +86,33 @@ function loadRelatedProducts(id)
 							}
 							details += "</div><br />"; // celda value
 							details += "</div>"; // row
+
+							if(product.attributes[i].name == 'Color'){
+								var cantColors = product.attributes[i].values.length;
+								colors = "<select class='selectBox'>";
+								for(var j = 0; j < cantColors; j++)
+								{
+									colors += "<option>" + product.attributes[i].values[j] + "</option>";
+								}
+								colors += "</select>";
+							}
+
+							if(product.attributes[i].name.indexOf("Talle") != -1 ){
+								var cantSizes = product.attributes[i].values.length;
+								if(cantSizes > 1 ) {
+									sizes = "<select class='selectBox'>";
+									for(var j = 0; j < cantSizes; j++)
+									{
+										sizes += "<option>" + product.attributes[i].values[j] + "</option>";
+									}
+									sizes += "</select>";
+								}
+							}
 						}						
 
 						$("#home").append(details);
+						$("#color-option-select").append(colors);
+						$("#size-option-select").append(sizes);
 
 						$("#product-name").append(product.name);
 						$("#our_price_display").append("$" + product.price);

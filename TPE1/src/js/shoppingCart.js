@@ -37,7 +37,7 @@ $.when(
                         $("#qty-box-" + product["id"]).append("</div>");
                       $("#td" + product["id"]).append("</div></td>");
                     $("#tr" + product["id"]).append("<td class='a-center'><span class='cart-price'> <span class='price'>$" + currentTotal + "</span> </span></td>");
-                    $("#tr" + product["id"]).append("<td class='a-center last'><a href='#' title='Remove item' class='btn-remove btn-remove2'><i class='icon-trash'></i></a></td>");
+                    $("#tr" + product["id"]).append("<td class='a-center'><a href='#' title='Remove item' class='btn-remove btn-remove2'><i class='icon-trash'></i></a></td>");
                 $('#shoppingCart-details').append("</tr>");
 			}
 		}   
