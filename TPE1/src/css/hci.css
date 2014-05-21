@@ -354,7 +354,7 @@ width: 550px;
     font-weight: bold;
 }
 
-.error
+.input-box .error, .error
 {
     color: red;
 }

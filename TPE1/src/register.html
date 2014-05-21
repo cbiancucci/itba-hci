@@ -79,6 +79,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/jquery.maskedinput.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/checkout.js"></script>
 <script src="js/register.js"></script>
@@ -175,18 +176,21 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <div class="step-title allow active"> <span class="number">B&G</span>
             <h2>Formulario de registro</h2> </div>
           <div  class="step a-item" id="checkout-step-billing" >
-            <form  id="co-billing-form">
+            <form  id="register-form">
               <fieldset>
                 <ul class="form-list">
                   <li >
                     <fieldset>
                       <ul>
+                      <li class="fields">
+                      <div class="errorFrom invisible" id="error">
+                      </li>
                         <li class="fields">
                           <div class="customer-name">
                             <div class="field">
                               <label class="required" for="firstname"><em>*</em>Nombre</label>
                               <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="firstname" id="billing:firstname">
+                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="firstname" id="firstname">
                               </div>
                             </div>
                             <div class="field">
@@ -212,9 +216,9 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                               </div>
                             </div>
                           <div class="field">
-                            <label class="required" for="customer_password"><em>*</em>Contraseña</label>
+                            <label class="required" for="password"><em>*</em>Contraseña</label>
                             <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="customer_password" name="customer_password">
+                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="password" name="password">
                             </div>
                           </div>
                           <div class="field">
@@ -254,7 +258,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                 </ul>
                 <div id="billing-buttons-container" class="buttons-set">
                   <p class="required">* Campos obligatorios</p>
-                  <button onclick="toCheckout(3);" class="button" title="Continuar" type="button"><span><span>Registrarme</span></span></button>
+                  <button class="button" title="Registrarme" id="btnRegister" type="button"><span><span>Registrarme</span></span></button>
                   <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
               </fieldset>
             </form>
