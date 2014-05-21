@@ -2,7 +2,7 @@
 $(function() {
 	$("#date").mask("99/99/9999");
 	$("#email").blur(function(){
-		$("#usernameReg").val($("#email").val());
+		$("#usernameReg").val($("#email").val().split("@")[0]);
 	});
 	
 	$("#btnRegister").click(function(){

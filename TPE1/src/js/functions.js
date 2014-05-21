@@ -59,9 +59,6 @@
 	    });
 	    return map;
 	}
-function openSearch() {
-	window.location.href = "./product-list.html?subCategoryId=" + $.base64('encode', "3");
-}
 
 function toIndex() {
 	window.location.href = "./index.html";
@@ -87,8 +84,8 @@ function toCheckout(step) {
 	}
 }
 
-function keyPressSearch(e) {
-    if (e.keyCode == 13) {
- 		window.location.href = "./product-list.html?subCategoryId=" + $.base64('encode', "3");
-    }
+
+function search(id)
+{
+	window.location.href = "./product-list.html?txtSearch=" + $(id).val();
 }
