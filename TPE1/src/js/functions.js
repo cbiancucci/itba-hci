@@ -68,7 +68,14 @@ function toIndex() {
 }
 
 function toCheckout(step) {
-	if(step == 7)
+
+	if(step == 2){
+		if(document.getElementById('login:usuario').checked){
+			window.location.href = "./register.html";
+		}
+	}
+
+	else if(step == 7)
 	{
 		alert("Felicitaciones, realizaste la compra correctamente.");
 		$.session.remove("shoppingCart");
