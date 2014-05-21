@@ -59,8 +59,8 @@ jQuery(function ($) {
             qty++;
         else
             qty--;
-        if (qty < 0)
-            qty = 0;
+        if (qty < 1)
+            qty = 1;
         inputEl.val(qty);
     })
     /*
