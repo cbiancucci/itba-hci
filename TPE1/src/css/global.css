@@ -6498,4 +6498,28 @@ em:before {
 	
 }
 
+#no_script_msg{
 
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity:0.8;
+  	text-align:center;
+  	z-index: 11000;
+  	overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+#no_script_msg p {
+	margin-top: 200px;
+	font-size: 20px;
+	color: #fff;
+}
+
+#no_script_msg a {
+	font-size: 14px;
+	color: lightblue;
+}
