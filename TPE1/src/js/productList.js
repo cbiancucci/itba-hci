@@ -86,7 +86,7 @@ $.when(
 							" </div> " + " </div> " +
 							" <div class='btn-set'> " +
 							" <div class='actions'><a class='btn-circle first-bg btn-active' href='./product.html?productId=" + $.base64('encode', products[i].id) + "'> " +
-							"Agregar al carrito <i class='icon-shopping-cart'></i> </a> <a class='btn-circle first-bg-hover'> " +
+							"Comprar <i class='icon-shopping-cart'></i> </a> <a class='btn-circle first-bg-hover'> " +
 							" <i class='icon-heart'></i> </a>  " +
 							" </div>" + " </div> " + " <br><hr> " +
 							"<div class='desc std'> Los productos no tienen comentarios en la API. </div> " +
