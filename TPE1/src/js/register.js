@@ -4,6 +4,8 @@ $(function() {
 	$("#email").blur(function(){
 		$("#usernameReg").val($("#email").val().split("@")[0]);
 	});
+
+	var checkout = parseQueryString().get("checkout");
 	
 	$("#btnRegister").click(function(){
 		if($("#register-form").valid()){
@@ -23,10 +25,10 @@ $(function() {
 				if(result.error === undefined)
 				{
 					$("#page").append("<div id='no_script_msg'>" + 
-			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al inicio en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
+			    		"<p> El registro se ha completado satisfactoriamente. <br />Será redireccionado al " + (checkout === undefined ? "inicio" : " paso siguiente") + " en 5 segundos. <br />Cuando lo desee, podrá iniciar sesión.</p> </div>");
 					
 					window.setTimeout(function(){
-			        	window.location.href = "./index.html";
+			        	window.location.href = (checkout === undefined ? "./index.html" : "./checkout-step2.html");
 			    	}, 5000);
 				}
 			});
