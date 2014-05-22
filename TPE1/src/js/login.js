@@ -1,3 +1,8 @@
+function userLogged()
+{
+	return $.session.get("user") != undefined;
+}
+
 $(function() {
 
 	function logIn(result)
@@ -21,11 +26,6 @@ $(function() {
 					changeHeader();
 				}
 		});
-	}
-
-	function userLogued()
-	{
-		return $.session.get("user") != undefined;
 	}
 
 	function changeHeader()
