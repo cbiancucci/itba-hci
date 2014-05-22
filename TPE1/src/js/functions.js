@@ -68,7 +68,7 @@ function toCheckout(step) {
 
 	if(step == 2){
 		if(document.getElementById('login:usuario').checked){
-			window.location.href = "./register.html";
+			window.location.href = "./register.html?checkout=true";
 		}
 	}
 

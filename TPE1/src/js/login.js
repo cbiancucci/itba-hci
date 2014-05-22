@@ -3,6 +3,15 @@ function userLogged()
 	return $.session.get("user") != undefined;
 }
 
+function getUser()
+{
+	if(userLogged())
+	{
+		return JSON.parse($.session.get("user"));		
+	}
+	return undefined;
+}
+
 $(function() {
 
 	function logIn(result)
