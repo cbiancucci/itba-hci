@@ -23,7 +23,7 @@ function getHTMLProduct(product, type, first, last)
                 "<div class='actions'>" +
                 "   <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "   Comprar <i class='icon-shopping-cart'></i> </a> " +
-                "   <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "   <a id='btnWish" + product.id + "' productId='" + product.id + "' class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
@@ -42,7 +42,7 @@ function getHTMLProduct(product, type, first, last)
                 "<div class='actions'>" +
                 "    <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "        Comprar<i class='icon-shopping-cart'></i> </a> " +
-                "    <a class='btn-circle first-bg-hover'> " +
+                "    <a id='btnWish" + product.id + "' productId='" + product.id + "' class='btn-circle first-bg-hover'> " +
                 "        <i class='icon-heart'></i> </a> " +
                 "</div>" +
                 "</li>";
@@ -59,7 +59,7 @@ function getHTMLProduct(product, type, first, last)
                 "<div class='actions'>" +
                 "    <a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "    Comprar<i class='icon-shopping-cart'></i> </a> " +
-                "    <a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "    <a id='btnWish" + product.id + "' productId='" + product.id + "' class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
                 "</div>" +
                 "</li>";
             break;
@@ -81,7 +81,7 @@ function getHTMLProduct(product, type, first, last)
                 "<div class='actions'>" +
                 "<a class='btn-circle first-bg btn-active' href='" + productURL + "'>" +
                 "Comprar<i class='icon-shopping-cart'></i> </a> " +
-                "<a class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
+                "<a id='btnWish" + product.id + "' productId='" + product.id + "' class='btn-circle first-bg-hover'> <i class='icon-heart'></i> </a> " +
                 "</li>";
             break;
     }
@@ -97,10 +97,12 @@ function loadProductsByCategoryId(categoryId, limit, typeHTML, htmlID)
             var html = '';
             for(var i = 0; i < products.length; i++)
             {
-                html += getHTMLProduct(products[i], typeHTML, false);
+                var p = products[i];
+                $("#" + htmlID).append(getHTMLProduct(products[i], typeHTML, false));
+                $("#btnWish" + p.id).click(function(p){
+                    addProductToWishlist($(this).attr("productId"));
+                });
             }
-            $("#" + htmlID).append(html);
-
             deferred.resolve();
         },
         function(error){

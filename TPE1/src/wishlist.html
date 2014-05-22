@@ -73,21 +73,24 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/jquery.bxslider.min.js"></script>
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.dlmenu.js"></script>
-<script src="js/jquery.session.js"></script>
 <script src="js/jquery.base64.js"></script>
+<script src="js/jquery.session.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="js/respond.src.js"></script>  
 <script src="js/wishlist.js"></script>
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
-<script src="js/jquery.maskedinput.js"></script>
-<script src="js/jquery.validate.js"></script>
 <script src="js/menu.js"></script>
-<script src="js/checkout.js"></script>
-<script src="js/register.js"></script>
+<script src="js/shoppingCart.js"></script>
 <script src="js/login.js"></script>
 </head>
 <body class="noIE">
 
+<script type="text/javascript">
+$( document ).ready(function() {
+  getWishList();
+});
+</script>
 
 <div id="page" class="clearfix">
 
@@ -165,108 +168,51 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
 
   <section class="container_9 clearfix col1" id="columns">
-  <div id="crumbs">
+
+      <div id="crumbs">
         <ul id="breadcrumbs-two">
           <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#">Registro</a></li>
+          <li><a href="#2">Lista de deseos</a></li>
         </ul>
       </div>
       <br />
-    <article class=" grid_5" id="center_column">
-      <ol id="checkoutSteps" class="opc">
-       <li class="section" id="opc-billing">
-          <div class="step-title allow active"> <span class="number">B&G</span>
-            <h2>Formulario de registro</h2> </div>
-          <div  class="step a-item" id="checkout-step-billing" >
-            <form  id="register-form">
-              <fieldset>
-                <ul class="form-list">
-                  <li >
-                    <fieldset>
-                      <ul>
-                        <li class="fields">
-                          <div class="customer-name">
-                            <div class="field">
-                              <label class="required" for="firstname"><em>*</em>Nombre</label>
-                              <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre" value="" name="firstname" id="firstname">
-                              </div>
-                            </div>
-                            <div class="field">
-                              <label class="required" for="lastname"><em>*</em>Apellido</label>
-                              <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Apellido" value="" name="lastname" id="lastname">
-                              </div>
-                            </div>
-                            <div class="field">
-                            <label class="required" for="email"><em>*</em>Correo electronico</label>
-                            <div class="input-box">
-                              <input type="text" class="input-text validate-email required-entry" title="Correo electronico" value="" id="email" name="email">
-                            </div>
-                          </div>
-                          </div>
-                        </li>
-                        <li class="fields">
-                          <div class="customer-name">
-                            <div class="field">
-                              <label class="required" for="usernameReg"><em>*</em>Nombre de usuario</label>
-                              <div class="input-box">
-                                <input type="text" class="input-text required-entry" maxlength="255" title="Nombre de usuario" value="" name="usernameReg" id="usernameReg">
-                              </div>
-                            </div>
-                          <div class="field">
-                            <label class="required" for="passwordReg"><em>*</em>Contraseña</label>
-                            <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-password" title="Contraseña" id="passwordReg" name="passwordReg">
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label class="required" for="confirm_password"><em>*</em>Confirmar contraseña</label>
-                            <div class="input-box">
-                              <input type="password" class="input-text required-entry validate-cpassword" id="confirm_password" title="Confirmar contraseña" name="confirm_password">
-                            </div>
-                          </div>
-                          </div>
-                        </li>
-                        <li class="fields">
-                          <div class="customer-name">
-                            <div class="field">
-                              <label class="required" for="genero"><em>*</em>Género</label>
-                              <div class="input-box">
-                                <select id="genero" name="genero" >
-                                  <option value"F">Femenino</option>
-                                  <option value"M">Masculino</option>
-                                </select>
-                              </div>
-                            </div>
-                          <div class="field">
-                            <label class="required" for="dni"><em>*</em>DNI</label>
-                            <div class="input-box">
-                              <input class="input-text required-entry validate-password" title="DNI" id="dni" name="dni">
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label class="required" for="date"><em>*</em>Fecha de nacimiento</label>
-                            <div class="input-box">
-                              <input class="input-text required-entry" id="date" title="Fecha de nacimiento" name="date">
-                            </div>
-                          </div>
-                          </div>
-                        </li>
-                </ul>
-                <div id="billing-buttons-container" class="buttons-set">
-                  <p class="required">* Campos obligatorios</p>
-                  <button class="button" title="Registrarme" id="btnRegister" type="button"><span><span>Registrarme</span></span></button>
-                  <span style="display:none;" id="billing-please-wait" class="please-wait"> <img class="v-middle" title="Cargando el siguiente paso..." alt="Cargando el siguiente paso..." src="images/opc-ajax-loader.gif"> Cargando el siguiente paso... </span> </div>
-              </fieldset>
-            </form>
-          </div>
-        </li>
-      </ol>
-    </article>
-   
-  </section>
-  <br /><br />
+      <!-- Center -->
+      <article class=" grid_5" id="center_column">
+        <div class="cart">
+          <form action="" method="post">
+            <fieldset>
+              <table id="shopping-cart-table" class="data-table cart-table">
+                <colgroup>
+                <col width="1">
+                <col>
+                <col width="1">
+                <col width="1">
+                </colgroup>
+                <thead>
+                  <tr class="first last">
+                    <th rowspan="1" class="product-image-unit" ><span>Imagen</span></th>
+                    <th class="product-name-unit" rowspan="1"><span class="nobr">Producto</span> </th>
+                    <th class="a-center" colspan="1"><span class="nobr">Precio unitario</span></th>
+                    <th rowspan="1" class="a-center"><span>Accion</span></th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr class="first last">
+                    <td colspan="50" class="a-center"><button class="button btn-continue" title="Continuar comprando" type="button" onclick="javascript: toIndex();"><span><span><i class="icon-shopping-cart"></i>Continuar comprando</span></span></button>
+                      <button class="button btn-update" title="Enviar al carrito" type="button" onclick="javascript: wishListToCart();"><span><span><i ></i>Enviar al carrito</span></span></button>
+                      </td>
+                  </tr>
+                </tfoot>
+                <tbody id="wishList-details">
+                  
+                </tbody>
+              </table>
+            </fieldset>
+          </form>
+        </div>
+      </article>
+    </section>
+  
   <!-- Footer -->
   <footer id="footer" >
     <div class="footer-wrap container_9 "> <a href="#" class="backtotop"><img src="images/backtotop.png"  alt="Subir" title="Subir" ></a>
@@ -299,7 +245,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
           <h4>Informacion</h4>
           <div class="block_content">
             <ul>
-              <li class="item"><a title="Envio" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
+              <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
               <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
               <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
               <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>

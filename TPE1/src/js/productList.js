@@ -185,7 +185,7 @@ $("#cantPagina").change(function(){
 					" </div> " + " </div> " +
 					" <div class='btn-set'> " +
 					" <div class='actions'><a class='btn-circle first-bg btn-active' href='./product.html?productId=" + $.base64('encode', products[i].id) + "'> " +
-					"Comprar <i class='icon-shopping-cart'></i> </a> <a class='btn-circle first-bg-hover'> " +
+					"Comprar <i class='icon-shopping-cart'></i> </a> <a id='btnWish" + products[i].id + "' productId='" + products[i].id + "' class='btn-circle first-bg-hover'> " +
 					" <i class='icon-heart'></i> </a>  " +
 					" </div>" + " </div> " + " <br><hr> " +
 					"<div class='desc std'> Los productos no tienen comentarios en la API. </div> " +
@@ -206,6 +206,12 @@ $("#cantPagina").change(function(){
     		$("#products-grid-list").hide();
     		$("#products-list").append("<ol class='products-list' >" + html + "</ol>");
     		$("#products-list").show();
+    	}
+    	for(var j = 0; j < products.length; j++) {
+    		var p = products[j];
+			$("#btnWish" + p.id).click(function(p){
+				addProductToWishlist($(this).attr("productId"));
+		    });
     	}
 	}
 

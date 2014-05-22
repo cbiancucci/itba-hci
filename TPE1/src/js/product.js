@@ -121,6 +121,10 @@ function loadRelatedProducts(id)
 						$("#our_price_display").append("$" + product.price);
 						$("#product-rating").append("<div style='width:" + Math.floor(Math.random() * 101)
 							 + "%' class='rating'></div>");
+						$("#btnWish").attr("productId", product.id);
+						$("#btnWish").click(function(product){
+					        addProductToWishlist($(this).attr("productId"));
+					    });
 						$("#btnShoppingCart").click(
 							function ()
 							{
