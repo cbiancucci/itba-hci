@@ -118,7 +118,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                   </form>
                   <div class="buttons-set-header">
                     <p class="required">* Campos requeridos</p>
-                    <a class="f-left" href="index.html/customer/account/forgotpassword/">Olvide mi clave</a>
+                    <a class="f-left" href="./forgotpassword.html">Olvide mi clave</a>
                     <button id="btnLogin" class="button" type="submit"><span><span>Ingresar</span></span></button>
                   </div>
                 </div>
@@ -177,53 +177,23 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
         <div class="block_content">
           <form action="#" id="layered_form">
             <div>
-              <div> <span class="layered_subtitle">Categorias</span>
+              <div>
                 <div class="clear"></div>
                 <ul id="ul_layered_category_0" class="Hide">
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_1">
-                    <label for="layered_category_1"> Calzado <span> (1)</span> </label>
+                    <div id="Color"></div>
                   </li>
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_2">
-                    <label for="layered_category_2"> Indumentaria <span> (10)</span> </label>
+                    <div id="Marca"></div>
                   </li>
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_3">
-                    <label for="layered_category_3"> Accesorios <span> (1)</span> </label>
+                    <div id="Genero"></div>
+                  </li>
+                  <li>
+                    <div id="Edad"></div>
                   </li>
                 </ul>
-              </div>
-              <div> <span class="layered_subtitle">Genero</span>
-                <div class="clear"></div>
-                <ul id="ul_layered_condition_0" class="Hide">
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_1">
-                    <label for="layered_Condition_1"> Masculino<span> (1)</span></label>
-                  </li>
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_2">
-                    <label for="layered_Condition_2">Femenino<span> (1)</span></label>
-                  </li>
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_3">
-                    <label for="layered_Condition_3">Niños<span> (1)</span></label>
-                  </li>
-                </ul>
-              </div>
-                    <!-- Javascripts --> 
-              <script src="js/jquery.nouislider.min.js"></script>
-       
-              <div class="layered_price"> <span class="layered_subtitle">Precio</span>
-                <div class="clear"></div>
-                <ul id="ul_layered_price_0" class="Hide">
-                 <li> <div class="section-body">
-                    <div class="range-slider-container">
-                      <div class="range-slider"></div>
-                      <div class="range-slider-value clearfix"> <span class="min"></span> <span class="max"></span> </div>
-                    </div>
-                  </div></li>
-                </ul>
+                <button class="btn btn-primary">Aplicar filtros</button>
               </div>
             </div>
           </form>
@@ -239,8 +209,17 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       <div class="toolbar" id="toolbar-list">
         <div class="sort-select">
           <label>Ordenar por</label>
+          
           <select class="selectBox">
             <option>Precio</option>
+            <option>Mayor precio</option>
+            <option>Menor precio</option>
+          </select>
+          
+          <select class="selectBox">
+            <option>Nombre</option>
+            <option>Ascendente</option>
+            <option>Descendente</option>
           </select>
         </div>
         <div class="sort-select">
@@ -301,12 +280,11 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       </form>
       <p>Suscribite para recibir ofertas y descuentos en tu correo electronico</p>
         </div>    <div class="block">
-          <h4>Mi cuenta</h4>
+          <h4>Empresa</h4>
           <div class="block_content">
             <ul>
-              <li><a href="index.html?controller=history">Mis compras</a></li>
-              <li><a href="index.html?controller=addresses">Mis direcciones de envio</a></li>
-              <li><a href="index.html?controller=identity">Mi informacion personal</a></li>
+              <li><a href="index.html?controller=history">Nosotros</a></li>
+              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block">
@@ -315,8 +293,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
             <ul>
               <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
               <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              
             </ul>
           </div>
         </div>    <div class="block last">
@@ -332,7 +309,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
-          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" style="float: right;" alt="Metodos de pago" title="Metodos de pago" ></p>
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" class="right" alt="Metodos de pago" title="Metodos de pago" ></p>
         </div></div>
 </body>
 </html>

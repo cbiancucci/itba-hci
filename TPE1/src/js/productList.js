@@ -8,7 +8,8 @@ $(function() {
 	
 $.when(
 	loadMenu(),
-	loadProducts(false, txtSearch, categoryId, subCategoryId))
+	loadProducts(false, txtSearch, categoryId, subCategoryId),
+	loadFilters())
 	.done(
 		function(result1, result2, result3)
     	{
@@ -213,6 +214,51 @@ $("#cantPagina").change(function(){
 				addProductToWishlist($(this).attr("productId"));
 		    });
     	}
+	}
+
+	function loadFilters(){
+		$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Common.groovy?method=GetAllAttributes&callback=?", 
+			function(result){
+				
+				var attributes = result.attributes;
+
+				for(var i = 0; i < attributes.length; i++){
+
+					loadAttribute(attributes[i].id, attributes[i].name);/*
+					if(attributes[i].name == "Color"){
+						loadColors(attributes[i].id);
+					}
+
+					if(attributes[i].name == "Marca"){
+						loadBrands(attributes[i].id);
+					}
+
+					if(attributes[i].name == "Genero"){
+						loadGender(attributes[i].id);
+					}*/
+				}
+
+			}
+			);
+	}
+
+	function loadAttribute(id, name){
+		$.getJSON("http://eiffel.itba.edu.ar/hci/service3/Common.groovy?method=GetAttributeById&id="+ id +"&callback=?", 
+			function(result){
+				
+				var values = result.attribute.values;
+				var text = "<label>" + name + ": </label><br/>";
+				text += "<select class='required-entry validate-select' id='"+ name +"' name='"+ name +"' title='"+ name +"'>";
+				text += "<option value=" + name +">Seleccionar " + name + "</option>";
+				
+				for(var j = 0; j < values.length; j++){
+					text += "<option value=" + values[j] +">" + values[j] + "</option>";
+				}
+
+				text += "</select>";
+				$("#"+name).append(text);
+			}
+		);
 	}
 
 });
