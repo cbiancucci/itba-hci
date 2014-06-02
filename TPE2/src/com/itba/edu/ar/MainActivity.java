@@ -254,22 +254,22 @@ public class MainActivity extends Activity implements
 				break;
 			case 1:
 				getActivity().setTitle(R.string.categories);
-				Intent intent = new Intent(getActivity().getApplicationContext(), TabsViewPagerFragmentActivity.class);
+				Intent intent = new Intent(getActivity().getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
 			case 2:
 				getActivity().setTitle(R.string.orders);
-				rootView = inflater.inflate(R.layout.fragment_planet,
+				rootView = inflater.inflate(R.layout.not_implemented_layout,
 						container, false);
 				break;
 			case 3:
 				getActivity().setTitle(R.string.sales);
-				rootView = inflater.inflate(R.layout.fragment_planet,
+				rootView = inflater.inflate(R.layout.not_implemented_layout,
 						container, false);
 				break;
 			case 4:
 				getActivity().setTitle(R.string.settings);
-				rootView = inflater.inflate(R.layout.fragment_planet,
+				rootView = inflater.inflate(R.layout.not_implemented_layout,
 						container, false);
 				break;
 			}

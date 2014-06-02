@@ -1,0 +1,25 @@
+package com.itba.edu.ar;
+
+import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.itba.edu.ar.adapter.ListViewAdapter;
+
+public class TabFragment extends ListFragment {
+	
+	String[] listItems = { "alpha", "beta", "gamma", "delta", "epsilon" };
+	boolean[] listImages = { true, false, true, false, true };
+	
+	@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+		super.onCreate(savedInstanceState);
+		View rootView = inflater.inflate(R.layout.category_fragment_layout, container, false);
+		setListAdapter(new ListViewAdapter(getActivity(), R.layout.category_fragment_layout, R.id.text1,
+				R.id.image1, listItems, listImages));
+        return rootView;
+    }
+}

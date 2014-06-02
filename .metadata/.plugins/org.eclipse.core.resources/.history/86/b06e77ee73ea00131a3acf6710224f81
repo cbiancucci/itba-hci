@@ -1,0 +1,29 @@
+package com.itba.edu.ar;
+
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.ActionBar.Tab;
+
+public class MyTabsListener implements ActionBar.TabListener{
+    private Fragment fragment;
+
+    public MyTabsListener(Fragment fragment){
+        this.fragment = fragment;
+    }
+    
+    @Override
+	public void onTabReselected(Tab arg0,
+			android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
+		mViewPager.setCurrentItem(tab.getPosition());	
+	}
+	@Override
+	public void onTabUnselected(Tab arg0,
+			android.app.FragmentTransaction ft) {
+		//ft.remove(fragment);
+	}
+}

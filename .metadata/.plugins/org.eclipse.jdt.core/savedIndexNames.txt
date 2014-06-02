@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/Users/mgualino/development/hci-2014-01/.metadata/.plugins/org.eclipse.jdt.core
+3904443213.index
+1128362101.index

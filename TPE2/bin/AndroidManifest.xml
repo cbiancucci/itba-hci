@@ -35,7 +35,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".TabsViewPagerFragmentActivity"
+            android:name=".CategoriesActivity"
             android:label="@string/categories"
             android:parentActivityName=".MainActivity" >
             <meta-data

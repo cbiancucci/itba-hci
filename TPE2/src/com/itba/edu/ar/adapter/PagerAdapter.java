@@ -1,6 +1,9 @@
 package com.itba.edu.ar.adapter;
 import java.util.List;
- 
+
+import com.itba.edu.ar.R;
+
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -12,6 +15,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class PagerAdapter extends FragmentPagerAdapter {
  
     private List<Fragment> fragments;
+    
     /**
      * @param fm
      * @param fragments

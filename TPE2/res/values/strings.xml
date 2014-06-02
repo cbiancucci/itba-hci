@@ -22,4 +22,6 @@
     <string name="prompt_password">Clave</string>
     <string name="action_sign_in_register">Ingresar</string>
     <string name="action_sign_in_short">Ingresar</string>
+    <string name="not_implemented">Accion no implementada aun</string>
+    <string name="category_key">CATEGORY_NAME</string>
 </resources>
