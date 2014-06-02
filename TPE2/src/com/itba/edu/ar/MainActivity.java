@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -82,7 +81,7 @@ public class MainActivity extends Activity implements
 			selectItem(0);
 		}
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
@@ -118,8 +117,9 @@ public class MainActivity extends Activity implements
 	protected void onNewIntent(Intent intent) {
 		if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(SearchManager.QUERY);
-			Toast.makeText(getApplicationContext(), "Buscaste: " + query, Toast.LENGTH_LONG).show();
-			//doSearch(query);
+			Toast.makeText(getApplicationContext(), "Buscaste: " + query,
+					Toast.LENGTH_LONG).show();
+			// doSearch(query);
 		}
 	}
 
@@ -234,25 +234,27 @@ public class MainActivity extends Activity implements
 				getActivity().setTitle(R.string.app_name);
 				rootView = inflater.inflate(R.layout.fragment_main, container,
 						false);
-				Button btnSearch = (Button) rootView.findViewById(R.id.btnSearch);
-				btnSearch.setOnClickListener( new View.OnClickListener() {
+				Button btnSearch = (Button) rootView
+						.findViewById(R.id.btnSearch);
+				btnSearch.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						getActivity().onSearchRequested();
 					}
 				});
 				Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
-				btnLogin.setOnClickListener( new View.OnClickListener() {
+				btnLogin.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
-						Intent i = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+						Intent i = new Intent(getActivity()
+								.getApplicationContext(), LoginActivity.class);
 						startActivity(i);
 					}
 				});
 				break;
 			case 1:
 				getActivity().setTitle(R.string.categories);
-				Intent intent = new Intent(getActivity().getApplicationContext(), TabsFragmentActivity.class);
+				Intent intent = new Intent(getActivity().getApplicationContext(), TabsViewPagerFragmentActivity.class);
 				startActivity(intent);
 				break;
 			case 2:
@@ -275,4 +277,5 @@ public class MainActivity extends Activity implements
 			return rootView;
 		}
 	}
+
 }
