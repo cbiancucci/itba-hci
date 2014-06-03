@@ -1,7 +1,0 @@
-package com.itba.edu.ar;
-
-import android.support.v4.app.FragmentActivity;
-
-public class CategoriesActivity extends FragmentActivity implements
-    ActionBar.TabListener {
-}

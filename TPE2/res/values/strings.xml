@@ -24,4 +24,8 @@
     <string name="action_sign_in_short">Ingresar</string>
     <string name="not_implemented">Accion no implementada aun</string>
     <string name="category_key">CATEGORY_NAME</string>
+    <string name="products">Productos</string>
+    <string name="load_products">Cargando Productos...</string>
+    <string name="no_network">No tienes acceso a internet</string>
+    <string name="forgot_password">Olvidé mi clave</string>
 </resources>

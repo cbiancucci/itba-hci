@@ -2,16 +2,20 @@ package com.itba.edu.ar;
 
 import java.util.HashMap;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
-import android.util.Log;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.itba.edu.ar.adapter.ListViewAdapter;
 
-public class TabFragment extends ListFragment {
+public class TabFragment extends Fragment {
 
 	HashMap<String, String[]> subcategories; 
 	
@@ -42,12 +46,6 @@ public class TabFragment extends ListFragment {
 		View rootView = inflater.inflate(R.layout.category_fragment_layout,
 				container, false);
 
-		if(getArguments() == null) {
-			Log.e("", "Arguments NULL");
-		}
-		if(savedInstanceState == null) {
-			Log.e("", "Bundle NULL");
-		}
 		String[] listItems = subcategories.get(getArguments().get(getActivity().getString(R.string.category_key)));
 		// Para que se vean todas las imagenes
 		boolean[] listImages = new boolean[listItems.length];
@@ -55,9 +53,26 @@ public class TabFragment extends ListFragment {
 			listImages[i] = true;
 		}
 
-		setListAdapter(new ListViewAdapter(getActivity(),
+		ListView listView = (ListView) rootView.findViewById(R.id.list);
+		listView.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
+		listView.setSelector(R.drawable.listitem_background);
+		listView.setOnItemClickListener(new OnItemClickListener()
+		   {
+		      @Override
+		      public void onItemClick(AdapterView<?> adapter, View v, int position,
+		            long arg3) 
+		      {
+		            /*String value = (String)adapter.getItemAtPosition(position); 
+		            Toast.makeText(getActivity().getApplicationContext(), value, Toast.LENGTH_SHORT).show();*/
+		    	  Intent intent = new Intent(getActivity().getApplicationContext(), ProductListActivity.class);
+		    	  startActivity(intent);
+		      }
+		   });
+		
+		listView.setAdapter(new ListViewAdapter(getActivity(),
 				R.layout.category_fragment_layout, R.id.text1, R.id.image1,
 				listItems, listImages));
+		
 		return rootView;
 	}
 }

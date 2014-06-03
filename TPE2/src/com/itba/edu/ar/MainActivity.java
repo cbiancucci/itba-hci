@@ -42,7 +42,7 @@ public class MainActivity extends Activity implements
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
 
-		mTitle = mDrawerTitle = getTitle();
+		//mTitle = mDrawerTitle = getTitle();
 		mOptionsTitles = getResources().getStringArray(R.array.menu_options);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -53,6 +53,8 @@ public class MainActivity extends Activity implements
 				R.layout.drawer_list_item, mOptionsTitles));
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
+		mDrawerList.setSelector(R.drawable.listitem_background);
+		
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 

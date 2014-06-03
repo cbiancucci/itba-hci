@@ -39,7 +39,7 @@ public class ListViewAdapter extends ArrayAdapter {
 
 		if (arrows[pos]) {
 			ImageView icon = (ImageView) row.findViewById(imageId);
-			icon.setImageResource(R.drawable.arrow);
+			icon.setImageResource(R.drawable.ic_action_next_item);
 		}
 
 		return (row);

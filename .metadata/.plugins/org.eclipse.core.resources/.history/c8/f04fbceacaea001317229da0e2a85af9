@@ -1,0 +1,8 @@
+package com.itba.edu.ar.model;
+
+public class Category {
+
+	Integer id;
+	String name;
+	
+}

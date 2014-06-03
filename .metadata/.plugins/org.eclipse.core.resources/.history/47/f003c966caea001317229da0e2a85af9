@@ -1,0 +1,55 @@
+package com.itba.edu.ar.parser;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import com.itba.edu.ar.model.Product;
+
+public class ProductParser {
+
+	Product objItem;
+	List<Product> listArray;
+
+	public List<Product> getData(String url) {
+
+		listArray = new ArrayList<Product>();
+
+		try {
+			DefaultHttpClient defaultClient = new DefaultHttpClient();
+			HttpGet httpGetRequest = new HttpGet(url);
+			HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					httpResponse.getEntity().getContent(), "UTF-8"));
+
+			String json = reader.readLine();
+			JSONObject jsonObject = new JSONObject(json);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return listArray;
+	}
+
+	private static String getTagValue(String sTag, Element eElement) {
+		NodeList nlList = eElement.getElementsByTagName(sTag).item(0)
+				.getChildNodes();
+
+		Node nValue = (Node) nlList.item(0);
+
+		return nValue.getNodeValue();
+
+	}
+}
