@@ -11,7 +11,10 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TabHost;
 import android.widget.TabHost.TabContentFactory;
 
@@ -73,6 +76,14 @@ public class CategoriesActivity extends FragmentActivity implements TabHost.OnTa
         }
  
     }
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+    
     /** (non-Javadoc)
      * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
      */
@@ -80,6 +91,7 @@ public class CategoriesActivity extends FragmentActivity implements TabHost.OnTa
         super.onCreate(savedInstanceState);
         // Inflate the layout
         setContentView(R.layout.categories_layout);
+        
         // Initialise the TabHost
         this.initialiseTabHost(savedInstanceState);
         if (savedInstanceState != null) {
@@ -120,6 +132,7 @@ public class CategoriesActivity extends FragmentActivity implements TabHost.OnTa
         this.mViewPager = (ViewPager)super.findViewById(R.id.viewpager);
         this.mViewPager.setAdapter(this.mPagerAdapter);
         this.mViewPager.setOnPageChangeListener(this);
+        mViewPager.setBackgroundResource(R.drawable.tab_selector);
     }
  
     /**
@@ -137,6 +150,10 @@ public class CategoriesActivity extends FragmentActivity implements TabHost.OnTa
             this.mapTabInfo.put(tabInfo.tag, tabInfo);
         }
         
+        for(int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+        	mTabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.tab_selector);
+        }
+        
         mTabHost.setOnTabChangedListener(this);
     }
  
@@ -151,18 +168,12 @@ public class CategoriesActivity extends FragmentActivity implements TabHost.OnTa
     private static void AddTab(CategoriesActivity activity, TabHost tabHost, TabHost.TabSpec tabSpec, TabInfo tabInfo) {
 
         tabSpec.setContent(activity.new TabFactory(activity));
-        String tag = tabSpec.getTag();
-
-        Log.e("", "ES NULL? " + (tabInfo.fragment == null));
-        
         if (tabInfo.fragment != null && !tabInfo.fragment.isDetached()) {
-        	Log.e("", "ESTOY ACA EEEE");
         	tabInfo.fragment.setArguments(tabInfo.args);
             FragmentTransaction ft = activity.getSupportFragmentManager().beginTransaction();
             ft.detach(tabInfo.fragment);
             ft.commit();
         }
-
         tabHost.addTab(tabSpec);
     }
  

@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/view_mode"
+        android:title="@string/search_items_menu_mode"
+        android:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/view_mode_list"
+                android:icon="@drawable/list_mode"
+                android:title="@string/search_items_view_mode_list"/>
+            <item
+                android:id="@+id/view_mode_mosaic"
+                android:icon="@drawable/mosaic_mode"
+                android:title="@string/search_items_view_mode_mosaic"/>
+            <item
+                android:id="@+id/view_mode_gallery"
+                android:icon="@drawable/gallery_mode"
+                android:title="@string/search_items_view_mode_gallery"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_action_bar_filter"
+        android:title="@string/search_filters_title"
+        android:showAsAction="always"/>
+    
+    <item android:id="@+id/action_settings"
+          android:title="@string/settings"
+          android:showAsAction="always" />
+</menu>

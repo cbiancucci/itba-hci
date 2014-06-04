@@ -6,12 +6,15 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.LayerDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.itba.edu.ar.R;
@@ -70,6 +73,10 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 		holder.imgView = (ImageView) view.findViewById(R.id.image);
 		holder.pbar = (ProgressBar) view.findViewById(R.id.pbar);
 
+		holder.ratingBar = (RatingBar) view.findViewById(R.id.ratingBar1);
+		LayerDrawable stars = (LayerDrawable) holder.ratingBar.getProgressDrawable();
+		stars.getDrawable(2).setColorFilter(Color.YELLOW, Mode.SRC_ATOP);
+		
 		if (holder.tvTitle != null && null != objBean.getName()
 				&& objBean.getName().trim().length() > 0) {
 			holder.tvTitle.setText(objBean.getName());
@@ -122,6 +129,7 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 		public TextView tvTitle, tvDesc, tvDate;
 		private ImageView imgView;
 		private ProgressBar pbar;
+		private RatingBar ratingBar;
 
 	}
 

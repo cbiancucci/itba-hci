@@ -34,6 +34,13 @@
                 android:resource="@xml/searchable" />
 
         </activity>
+        
+        <activity
+            android:name=".ProductViewActivity"
+            android:label="@string/title_activity_view_product"
+            android:parentActivityName=".ProductListActivity" >
+        </activity>
+        
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
@@ -42,6 +49,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        
+        <activity
+            android:name=".UserSettingActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        
         <activity
             android:name=".CategoriesActivity"
             android:label="@string/categories"

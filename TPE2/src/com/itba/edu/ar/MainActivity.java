@@ -1,14 +1,23 @@
 package com.itba.edu.ar;
 
+import java.util.ArrayList;
+
+import com.itba.edu.ar.adapter.NavDrawerListAdapter;
+import com.itba.edu.ar.model.NavDrawerItem;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -34,23 +43,50 @@ public class MainActivity extends Activity implements
 	private static SearchView mSearchView;
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
-	private String[] mOptionsTitles;
+	private String[] navMenuTitles;
+    private TypedArray navMenuIcons;
+ 
+    private ArrayList<NavDrawerItem> navDrawerItems;
+    private NavDrawerListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
-
+		
 		//mTitle = mDrawerTitle = getTitle();
-		mOptionsTitles = getResources().getStringArray(R.array.menu_options);
+		navMenuTitles = getResources().getStringArray(R.array.menu_options);
+		
+		navMenuIcons = getResources()
+                .obtainTypedArray(R.array.nav_drawer_icons);
+		
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
-
+        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+ 
+        navDrawerItems = new ArrayList<NavDrawerItem>();
+		
+        for(int i = 0; i < navMenuTitles.length; i++)
+        {
+        	if(navMenuTitles[i].equals("Notificaciones")) {
+        		navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1), true, "1"));	
+        	}
+        	else {
+        		navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));	
+        	}
+        }
+        
+        // Recycle the typed array
+        navMenuIcons.recycle();
+ 
+        // setting the nav drawer list adapter
+        adapter = new NavDrawerListAdapter(getApplicationContext(),
+                navDrawerItems);
+        mDrawerList.setAdapter(adapter);
+        
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
-		mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-				R.layout.drawer_list_item, mOptionsTitles));
+		
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 		mDrawerList.setSelector(R.drawable.listitem_background);
@@ -60,7 +96,7 @@ public class MainActivity extends Activity implements
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
 		mDrawerLayout, /* DrawerLayout object */
-		R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
+		R.drawable.drawer_icon, /* nav drawer image to replace 'Up' caret */
 		R.string.drawer_open, /* "open drawer" description for accessibility */
 		R.string.drawer_close /* "close drawer" description for accessibility */
 		) {
@@ -182,11 +218,11 @@ public class MainActivity extends Activity implements
 
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
-				.replace(R.id.content_frame, fragment).commit();
+				.replace(R.id.frame_container, fragment).commit();
 
 		// update selected item and title, then close the drawer
 		mDrawerList.setItemChecked(position, true);
-		setTitle(mOptionsTitles[position]);
+		setTitle(navMenuTitles[position]);
 		mDrawerLayout.closeDrawer(mDrawerList);
 	}
 
@@ -259,20 +295,29 @@ public class MainActivity extends Activity implements
 				Intent intent = new Intent(getActivity().getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
-			case 2:
-				getActivity().setTitle(R.string.orders);
-				rootView = inflater.inflate(R.layout.not_implemented_layout,
-						container, false);
+			case 7:
+				Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
+				PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent, 0);
+				
+				NotificationCompat.Builder mBuilder =
+					    new NotificationCompat.Builder(getActivity())
+					    .setSmallIcon(R.drawable.ic_launcher)
+					    .setContentTitle("Estado de tu pedido")
+					    .setContentText("Te informamos que tu pedido 123456 ya esta en proceso de entrega.")
+					    .setContentIntent(pIntent);
+				
+				NotificationManager notificationManager = 
+				  (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
+
+				notificationManager.notify(0, mBuilder.build()); 
 				break;
-			case 3:
-				getActivity().setTitle(R.string.sales);
-				rootView = inflater.inflate(R.layout.not_implemented_layout,
-						container, false);
-				break;
-			case 4:
-				getActivity().setTitle(R.string.settings);
-				rootView = inflater.inflate(R.layout.not_implemented_layout,
-						container, false);
+			case 9:
+				Intent settings = new Intent(getActivity(), UserSettingActivity.class);
+	            startActivity(settings);
+	            break;
+	        default:
+	        	Intent intentView = new Intent(getActivity(), ProductViewActivity.class);
+				startActivity(intentView);
 				break;
 			}
 

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">B&amp;G</string>
+    
+    
+    
+    
+    <string name="login">Ingresar</string>
+    <string name="search">Buscar</string>
+	<string name="categories">Categorias</string>
+	<string name="orders">Pedidos</string>
+	<string name="sales">Ofertas</string>
+	<string name="settings">Ajustes</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_login">Ingresar</string>
+    <string name="prompt_email">Nombre de usuario</string>
+    <string name="prompt_password">Clave</string>
+    <string name="action_sign_in_register">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="not_implemented">Accion no implementada aun</string>
+    <string name="category_key">CATEGORY_NAME</string>
+    <string name="products">Productos</string>
+    <string name="load_products">Cargando Productos...</string>
+    <string name="no_network">No tienes acceso a internet</string>
+    <string name="forgot_password">Olvidé mi clave</string>
+    
+    <string name="title_activity_view_product">Descripción del producto</string>
+    
+    <string name="pref_send_report">Reportar errores</string>
+    <string name="pref_send_report_summary">Envia reportes de errores de la aplicacion</string>
+    <string name="pref_notif_frequency">Verificar Notificaciones</string>
+    <string name="pref_notif_frequency_summary">Selecciona la frecuencia de busqueda de notificaciones</string>
+    <string name="pref_user_name">Newsletter</string>
+    <string name="pref_user_name_summary">Introduce un mail para recibir novedades</string>
+     
+    
+    <string name="pref_country">País</string>
+    <string name="pref_country_summary">Selecciona tu país para actualizar lenguaje, marcas y precios en la app.</string>
+    
+    <string name="pref_about_us">Sobre B&amp;G</string>
+    <string name="pref_about_us_summary">Conoce más sobre nosotros, calificanos.</string>
+    
+    <string name="pref_user_profile">Ajustes personales</string>
+    <string name="pref_update_setting">Ajustes de la aplicacion</string>
+    
+    <string name="cityhallcontent">
+        
+The Town Hall of Maastricht is the town of Maastricht . From the 1662 revival-styled building, designed by Pieter Post is an important example of the Dutch Classicism . With Namur stone clad, detached building is located in the middle of the market and has a westward-looking monumental staircase.
+nnThe contract to build the town hall in 1655 by the city council passed to Pieter Post. In 1659 came Mail from The Hague to Maastricht to the best place to find the new town hall to post. He chose the middle of the market, but in order to do the Cloth Hall , the Belfry , part of the city wall with the Lie Gate, the Prison and some houses on the market districts. The names of two adjoining streets "Small Canal" and "Grand Canal" still refer to the course of the first walls of Maastricht. By this demolition was a market square, where in the middle the new town would come. The stones were from the Prison are used in the foundations of the new city hall.
+nnThe design of the town hall takes into account the two men, the Duke of Brabant and the prince-bishop of Liège to Maastricht until the end of the 17th century ruled. The left side of the building is the Brabant side, while the right side contains the Liège rooms. These are the main side because the prince-bishop higher in rank than the Duke.       
+        
+ 
+        </string>
+        
+    <string name="search_filters_title">Refinar</string>
+    <string name="search_filters_apply_button_text">Aplicar</string>
+    <string name="search_filters_category_text">Categoría</string>
+    <string name="search_filters_location_title">Ubicación</string>
+    <string name="search_filters_sorting_header">Ordenamiento</string>
+    <string name="search_filters_applied_header">Filtrado por</string>
+    <string name="search_filters_unapplied_header">Filtros disponibles</string>
+    
+        <string name="menu_item_more_options_default">Más opciones</string>
+    <string name="refresh_only_menu_refresh">Actualizar</string>
+    <string name="reply_a_question_menu_remove">Eliminar</string>
+    <string name="reply_a_question_menu_call">Llamar</string>
+    <string name="reply_a_question_menu_email">Email</string>
+    <string name="search_items_menu_mode">Modo de vista</string>
+    <string name="search_items_menu_search">Buscar</string>
+    <string name="view_item_menu_bookmark">Favorito</string>
+
+    <!-- Search view modes -->
+	<string name="search_items_view_mode_list">Listado</string>
+	<string name="search_items_view_mode_mosaic">Mosaico</string>
+	<string name="search_items_view_mode_gallery">Galería</string>
+</resources>

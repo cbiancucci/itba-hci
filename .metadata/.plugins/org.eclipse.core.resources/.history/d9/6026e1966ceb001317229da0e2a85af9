@@ -1,0 +1,71 @@
+package com.itba.edu.ar;
+
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.ViewSwitcher.ViewFactory;
+
+public class ProductViewActivity extends Activity {
+
+	ImageSwitcher imageSwitcher;
+	ImageView images;
+	float initialX, finalX;
+	private Cursor cursor;
+	private int columnIndex, position = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.carousel_main);
+		imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+
+		imageSwitcher.setImageResource(imageList[position]);
+		imageSwitcher.setOnTouchListener(new OnTouchListener() {
+
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					initialX = event.getX();
+					break;
+				case MotionEvent.ACTION_UP:
+					float finalX = event.getX();
+					if (initialX > finalX) {
+						if (position < imageList.length - 1) {
+							position++;
+						} else {
+							position = 0;
+						}
+					} else {
+						if (position > 0) {
+							position--;
+						} else {
+							position = imageList.length - 1;
+						}
+					}
+					break;
+				}
+				cursor.moveToPosition(position);
+				images.setImageResource(imageList[position]);
+				return false;
+			}
+		});
+	}
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+}

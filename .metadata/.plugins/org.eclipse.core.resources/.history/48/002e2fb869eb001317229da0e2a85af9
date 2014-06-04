@@ -1,0 +1,63 @@
+package com.itba.edu.ar;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.MotionEvent;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class ProductViewActivity extends Activity {
+
+	ImageSwitcher Switch;
+	ImageView images;
+	float initialX;
+	private Cursor cursor;
+	private int columnIndex, position = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.carousel_main);
+		Switch = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		images = (ImageView) findViewById(R.id.imageView1);
+		String[] projection = { MediaStore.Images.Thumbnails._ID };
+		cursor = managedQuery(
+				MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, projection,
+				null, null, MediaStore.Images.Thumbnails._ID + "");
+		columnIndex = cursor
+				.getColumnIndexOrThrow(MediaStore.Images.Thumbnails._ID);
+	}
+
+	private int[] musicCover = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			initialX = event.getX();
+			break;
+		case MotionEvent.ACTION_UP:
+			float finalX = event.getX();
+			if (initialX > finalX) {
+				position--;
+			} else {
+				if (position > 0) {
+					//Switch.showPrevious();
+					position--;
+				} else {
+					position = musicCover.length - 1;
+				}
+			}
+			break;
+		}
+		cursor.moveToPosition(position);
+		images.setImageResource(musicCover[position]);
+		return false;
+	}
+
+}

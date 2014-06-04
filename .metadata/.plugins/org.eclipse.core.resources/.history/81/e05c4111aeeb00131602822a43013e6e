@@ -1,0 +1,66 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+<LinearLayout 
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:orientation="vertical">
+ 
+    <TextView
+        android:id="@+id/tv_title_cityhall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Alpargata Negra Coca-Cola Shoes Late Paete"
+        android:textColor="@color/bgcolor"  
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+ <View style="@style/Divider"/>
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:padding="10dp">
+    </ImageSwitcher>
+
+    <TextView
+        android:id="@+id/tvheaderhist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Datos del producto"
+        android:textColor="@color/bgcolor"  
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+ <View style="@style/Divider"/>
+    <TextView
+        android:id="@+id/tvcityhall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@sasnajsjan" />
+    
+    
+     <TextView
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Calificacion del producto"
+        android:textColor="@color/bgcolor"  
+        android:typeface="sans"
+        android:textAppearance="?android:attr/textAppearanceLarge" /> />
+ <View style="@style/Divider"/>
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:numStars="5"
+        android:stepSize="1.0"
+        android:rating="2.5"/>
+    
+</LinearLayout>
+</ScrollView>
