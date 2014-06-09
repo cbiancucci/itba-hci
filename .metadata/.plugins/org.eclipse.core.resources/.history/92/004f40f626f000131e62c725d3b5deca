@@ -308,10 +308,6 @@ public class MainActivity extends Activity implements
 				Intent settings = new Intent(getActivity(), UserSettingActivity.class);
 	            startActivity(settings);
 	            break;
-			case 10:
-				Intent login = new Intent(getActivity(), LoginActivity.class);
-	            startActivity(login);
-	            break;
 	        default:
 	        	Intent intentView = new Intent(getActivity(), ProductViewActivity.class);
 				startActivity(intentView);

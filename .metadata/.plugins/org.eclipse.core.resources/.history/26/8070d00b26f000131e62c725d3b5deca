@@ -272,7 +272,14 @@ public class MainActivity extends Activity implements
 				getActivity().setTitle(R.string.app_name);
 				rootView = inflater.inflate(R.layout.fragment_main, container,
 						false);
-				
+				Button btnSearch = (Button) rootView
+						.findViewById(R.id.btnSearch);
+				btnSearch.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						getActivity().onSearchRequested();
+					}
+				});
 				Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
 				btnLogin.setOnClickListener(new View.OnClickListener() {
 					@Override
@@ -307,10 +314,6 @@ public class MainActivity extends Activity implements
 			case 9:
 				Intent settings = new Intent(getActivity(), UserSettingActivity.class);
 	            startActivity(settings);
-	            break;
-			case 10:
-				Intent login = new Intent(getActivity(), LoginActivity.class);
-	            startActivity(login);
 	            break;
 	        default:
 	        	Intent intentView = new Intent(getActivity(), ProductViewActivity.class);

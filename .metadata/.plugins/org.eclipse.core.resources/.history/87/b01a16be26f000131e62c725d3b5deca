@@ -30,8 +30,6 @@ public class ProductViewActivity extends Activity implements ViewFactory {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.carousel_main);
 		
-		// SETEAR NOMBRE DEL PRODUCTO EN EL TITULO
-		
 		RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar1);
 		LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
 		stars.getDrawable(2).setColorFilter(Color.YELLOW, Mode.SRC_ATOP);

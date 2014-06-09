@@ -37,7 +37,6 @@
         <item>@drawable/ic_notification</item>
         <item>@drawable/ic_qr</item>
         <item>@drawable/ic_action_settings</item>
-        <item>@drawable/ic_user</item>
     </array>
      
      <string-array name="menu_options">
@@ -51,6 +50,5 @@
         <item>Notificaciones</item>
         <item>Escanear Codigo QR</item>
         <item>Ajustes</item>
-        <item>Ingresar</item>
     </string-array>
 </resources>

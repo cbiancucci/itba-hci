@@ -18,7 +18,7 @@ public class ListViewAdapter extends ArrayAdapter {
 	int textId;
 	int imageId;
 
-	public ListViewAdapter(Activity context, int layoutId, int textId, 
+	public ListViewAdapter(Activity context, int layoutId, int textId, int imageId,
 			String[] items, boolean[] arrows) {
 		super(context, layoutId, items);
 

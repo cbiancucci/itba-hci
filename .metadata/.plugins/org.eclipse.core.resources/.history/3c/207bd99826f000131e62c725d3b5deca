@@ -70,7 +70,8 @@ public class TabFragment extends Fragment {
 		   });
 		
 		listView.setAdapter(new ListViewAdapter(getActivity(),
-				R.layout.category_fragment_layout, R.id.text1, listItems, listImages));
+				R.layout.category_fragment_layout, R.id.text1, R.id.image1,
+				listItems, listImages));
 		
 		return rootView;
 	}

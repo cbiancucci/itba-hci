@@ -18,7 +18,7 @@ public class ListViewAdapter extends ArrayAdapter {
 	int textId;
 	int imageId;
 
-	public ListViewAdapter(Activity context, int layoutId, int textId, 
+	public ListViewAdapter(Activity context, int layoutId, int textId, int imageId,
 			String[] items, boolean[] arrows) {
 		super(context, layoutId, items);
 
@@ -36,6 +36,11 @@ public class ListViewAdapter extends ArrayAdapter {
 		TextView label = (TextView) row.findViewById(textId);
 
 		label.setText(items[pos]);
+
+		if (arrows[pos]) {
+			ImageView icon = (ImageView) row.findViewById(imageId);
+			icon.setImageResource(R.drawable.ic_action_next_item);
+		}
 
 		return (row);
 	}
