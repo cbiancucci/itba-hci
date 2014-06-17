@@ -253,13 +253,16 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                           </div>
                         </div>
                       </li>
-                      <li>
-                        <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
-                        <div class="input-box">
-                          <div class="v-fix">
-                            <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Codigo de seguridad" disabled="" >
+                      <li id= "security-container">
+                         <label class="required" for="ccsave_cc_cid"><em>*</em>Codigo de seguridad</label>
+                         <div id= "container-whatIsThis"
+                          <div class="input-box">
+                            <div class="v-fix">
+                              <input type="text" value="" name="payment[cc_cid]" id="ccsave_cc_cid" class="input-text cvv required-entry validate-cc-cvn" title="Codigo de seguridad" disabled="" >
+                            </div>
+                            <a onclick="whatIsThis();" class="cvv-what-is-this" id:"what-is-this" type="button">¿Que es esto?</a>
                           </div>
-                          <a class="cvv-what-is-this" href="#">¿Que es esto?</a> </div>
+                      </div>
                       </li>
                     </ul>
                   </dd>
@@ -331,7 +334,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
+<<<<<<< HEAD
           <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" class="right" alt="Metodos de pago" title="Metodos de pago" ></p>
+=======
+          <p>HCI 2014. Todos los derechos reservados
+            <img class ="Payment-image" src="images/Payment-visa.png"  alt="Metodos de pago" title="Visa" >
+            <img class ="Payment-image" src="images/Payment-maestro.png"  alt="Metodos de pago" title="Maestro">
+            <img class ="Payment-image" src="images/Payment-paypal.png" alt="Metodos de pago" title="PayPal" >
+            <img class ="Payment-image" src="images/Payment-s.png"  alt="Metodos de pago" title="S" ></p>
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
         </div></div>
 </body>
 </html>

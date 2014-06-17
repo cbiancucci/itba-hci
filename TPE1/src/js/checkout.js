@@ -40,3 +40,21 @@ $.when(
 	}
 
 });
+
+function whatIsThis(){
+	if($("#help-img").length == 0){
+		$("#container-whatIsThis").append("<img id = 'help-img' src= 'images/cc_security_code.jpg'></img>");
+	}
+	return true;
+}
+/*
+var myEl = document.getElementById('what-is-this');
+myEl.addEventListener('click', function() {
+    alert("Hello world");
+}, false);
+*/
+$('#what-is-this').addEventListener('click',function(){
+alert( "click" );
+});
+
+

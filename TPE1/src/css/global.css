@@ -6498,6 +6498,7 @@ em:before {
 	
 }
 
+<<<<<<< HEAD
 #no_script_msg{
 
 	position: fixed;
@@ -6518,6 +6519,46 @@ em:before {
 	font-size: 20px;
 	color: #fff;
 }
+=======
+.Payment-image{
+	float: right;
+	margin-right: 1%;
+	margin-left: 1%;
+	overflow: hidden;
+}
+
+.Payment-image:hover{
+	-moz-box-shadow: 0 0 10px #ccc;
+	-webkit-box-shadow: 0 0 10px #ccc;
+	box-shadow: 0 0 10px #ccc;
+
+
+}
+
+#no_script_msg{
+  position:absolute;
+  width:600px;
+  height:120px;
+  background:#fff;
+  left:50%;
+  top:50%;
+  border-radius:5px;
+  padding:60px 0;
+  margin-left:-320px; /* width/2 + padding-left */
+  margin-top:-150px; /* height/2 + padding-top */
+  text-align:center;
+  box-shadow:0 0 10px 0 #000;
+  z-index: 888;
+}
+
+#no_script_msg p {
+	font-size: 20px;
+}
+#no_script_msg a {
+	color: blue;
+}
+
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 
 #no_script_msg a {
 	font-size: 14px;

@@ -1,5 +1,8 @@
 var page_size = 4;
+<<<<<<< HEAD
 var gridType = false;
+=======
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 $(function() {
 	var paramsMap = parseQueryString();
 	var txtSearch = paramsMap.get("txtSearch");
@@ -33,6 +36,7 @@ $("#cantPagina").change(function(){
 
 	function loadProducts(grid, txtSearch, categoryId, subCategoryId)
 	{
+<<<<<<< HEAD
 		$("#breadcrumbs-two").empty();
 		if(txtSearch != undefined)
 		{
@@ -101,6 +105,24 @@ $("#cantPagina").change(function(){
 	function loadProductsSubCat(categoryId, subCategoryId, grid)
 	{
 		$("#breadcrumbs-two").append("<li><a href='./index.html'>Inicio</a></li>");
+=======
+  		$("#cantPagina").change(function(){
+  			page_size = $(this).val();
+  			loadProducts(grid);
+
+  		});
+
+		var html = "<p class='bold big error textCenter center'>No hay productos en la API para la categoria seleccionada</p>";
+		$("#toolbar-list").hide();
+	    $("#pagination-list").hide();
+		$("#products-list").empty();
+		$("#products-list").empty();
+		var queryParams = parseQueryString();
+		queryParams.each(
+		function(key, value, pos)
+		{
+			
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 			var url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetProductsBy";
 			var id = 0;
 			if(subCategoryId != undefined)
@@ -133,7 +155,11 @@ $("#cantPagina").change(function(){
 
 			url += "ategoryId&id=" + id;
 
+<<<<<<< HEAD
 			$.getJSON(url + "&page_size=" + page_size + "&sort_order=desc&callback=?", 
+=======
+			$.getJSON(url +"&page=1" +"&page_size="+page_size+"&sort_order=desc&callback=?",  //Cambiar la cantidad por pagina y la pagina que estoy
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 		        function(result) {
 		            pushProducts(result.products, grid);
 		        }
@@ -164,11 +190,25 @@ $("#cantPagina").change(function(){
 	            	}
 	            	if((i%3) == 2)
 	            	{
+<<<<<<< HEAD
 						html += getHTMLProduct(products[i], 1, false, true);
 	            	}
 	            	else
 	            	{
 						html += getHTMLProduct(products[i], 1, false, false);
+=======
+		            	$("#products-list").hide();
+		            	$("#products-list").empty();	
+		            	$("#products-grid-list").append(html);	
+		            	$("#products-grid-list").show();
+	            	}
+	            	else
+	            	{
+	            		$("#products-list").empty();	
+	            		$("#products-list").append("<ol class='products-list' >" + html + "</ol>");
+	            		$("#products-list").show();
+	            		$("#products-grid-list").hide();
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 	            	}
             	}
             	else
