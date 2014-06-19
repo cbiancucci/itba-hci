@@ -2,30 +2,21 @@ package com.itba.edu.ar;
 
 import java.util.List;
 
-import com.itba.edu.ar.ProductListActivity.MyTask;
 import com.itba.edu.ar.adapter.OrderAdapter;
-import com.itba.edu.ar.adapter.ProductsAdapter;
 import com.itba.edu.ar.model.Order;
-import com.itba.edu.ar.model.Product;
 import com.itba.edu.ar.parser.OrderParser;
-import com.itba.edu.ar.parser.ProductParser;
 import com.itba.edu.ar.utils.Utils;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class OrderActivity extends Activity{
 	
