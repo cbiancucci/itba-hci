@@ -288,6 +288,10 @@ public class MainActivity extends Activity implements
 				Intent intent = new Intent(getActivity().getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
+			case 5:
+				Intent settings = new Intent(getActivity(), OrderActivity.class);
+	            startActivity(settings);
+	            break;
 			case 7:
 				Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
 				PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent, 0);
@@ -305,8 +309,8 @@ public class MainActivity extends Activity implements
 				notificationManager.notify(0, mBuilder.build()); 
 				break;
 			case 9:
-				Intent settings = new Intent(getActivity(), UserSettingActivity.class);
-	            startActivity(settings);
+				Intent order = new Intent(getActivity(), UserSettingActivity.class);
+	            startActivity(order);
 	            break;
 			case 10:
 				Intent login = new Intent(getActivity(), LoginActivity.class);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.InputFilter.LengthFilter;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -48,15 +49,15 @@ public class LoginActivity extends Activity {
 						String msg = "";
         				if (exception != null) {
         					msg = exception.getMessage();
+        					Toast.makeText(getApplicationContext(), R.string.error_login, Toast.LENGTH_LONG).show();
         				} else {
-        					SharedPreferences saveData = getPreferences(MODE_PRIVATE);
+        					SharedPreferences saveData = getSharedPreferences("login",MODE_PRIVATE);
         					SharedPreferences.Editor editor = saveData.edit();
         					editor.putString("token", result.getToken());
         					editor.putString("user", result.getAccount().getUsername());
         					editor.commit();
         					
-        					msg += "token: " + result.getToken();
-        					msg += " username: " + result.getAccount().getUsername();
+        					
         					
         					Intent intent = new Intent( LoginActivity.this, CategoriesActivity.class);
             				startActivity(intent);
