@@ -1,6 +1,7 @@
 package com.itba.edu.ar;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -41,6 +42,11 @@ public class LoginActivity extends Activity {
 			public void onClick(View view) {
 				EditText editUsr = (EditText) findViewById(R.id.editUsr);
 				EditText editPass = (EditText) findViewById(R.id.editPass);
+				ProgressDialog pDialog;
+				pDialog = new ProgressDialog(LoginActivity.this);
+				pDialog.setMessage(getString(R.string.loginin));
+				
+				pDialog.show();
 				Api.get().signIn(editUsr.getText().toString(), editPass.getText().toString()
 						, new ApiCallback<SignInResult>() {
 

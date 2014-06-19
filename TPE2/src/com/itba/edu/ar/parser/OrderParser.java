@@ -11,11 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.widget.Toast;
 
-import com.itba.edu.ar.OrderActivity;
-import com.itba.edu.ar.model.Category;
 import com.itba.edu.ar.model.Order;
 
 public class OrderParser {
@@ -28,26 +24,7 @@ public class OrderParser {
 
 		try {
 			
-			Order od = new Order();
-			od.setAddres("BLABLA");
-			od.setLatitude(1);
-			od.setLongitude(3);
-			od.setDeliveredDate("Entregado");
-			od.setReceivedDate("BLA");
-			od.setProcessedDate("ProccessedDate");
-			od.setShippedDate("ShippedDate");
-			od.setStatus(1);
-			Order oda = new Order();
-			oda.setAddres("BLEBLE");
-			oda.setLatitude(5);
-			oda.setLongitude(300);
-			oda.setDeliveredDate("Entregado");
-			oda.setReceivedDate("BLA");
-			oda.setProcessedDate("ProccessedDate");
-			oda.setShippedDate("ShippedDate");
-			oda.setStatus(1);
-			listArray.add(oda);
-			listArray.add(od);
+
 			
 			DefaultHttpClient defaultClient = new DefaultHttpClient();
 			HttpGet httpGetRequest = new HttpGet(url);
@@ -62,15 +39,21 @@ public class OrderParser {
 			for (int i = 0; i < arr.length(); i++) {
 			    JSONObject order = (JSONObject) arr.get(i);
 			    ord = new Order();
-			    ord.setId( (Integer)order.get("id"));
-			    ord.setStatus( (Integer)order.get("status"));
-			    JSONObject address = (JSONObject) order.get("addess");
-			    ord.setAddres((String) address.get("name"));
-			    ord.setDeliveredDate((String) order.get("deliveredDate"));
-			    ord.setProcessedDate((String) order.get("processedDate"));
-			    ord.setShippedDate((String) order.get("shippedDate"));
-			    ord.setReceivedDate((String) order.get("receivedDate"));
 			    
+			    ord.setId( (Integer)order.get("id"));
+			   
+			    ord.setStatus( (String)order.get("status"));
+			    
+//			    JSONObject address = (JSONObject) order.getJSONObject("address");
+//			    if(address.equals(null))
+//			    	ord.setAddres("No hay direccion");
+//			    else
+//			    	ord.setAddres((String) address.get("name"));
+			   
+//			    ord.setDeliveredDate((String) order.get("deliveredDate"));
+//			    ord.setProcessedDate((String) order.get("processedDate"));
+//			    ord.setShippedDate((String) order.get("shippedDate"));
+			    ord.setReceivedDate((String) order.get("receivedDate"));
 			    ord.setLatitude((Integer) order.get("latitude"));
 			    ord.setLongitude((Integer)order.get("longitude"));
 			    

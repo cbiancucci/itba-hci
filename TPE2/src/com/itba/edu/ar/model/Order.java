@@ -3,7 +3,7 @@ package com.itba.edu.ar.model;
 public class Order {
 	private Integer id ;
 	String addres;
-	Integer status;
+	String status;
 	String receivedDate;
 	String processedDate;
 	String shippedDate;
@@ -24,11 +24,11 @@ public class Order {
 	public void setAddres(String addres) {
 		this.addres = addres;
 	}
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setStatus(String string) {
+		this.status = string;
 	}
 	public String getReceivedDate() {
 		return receivedDate;

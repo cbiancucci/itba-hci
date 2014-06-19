@@ -27,6 +27,7 @@
     <string name="no_network">No tienes acceso a internet</string>
     <string name="error_login">Hubo un problema, vuelva a intentarlo</string>
     <string name="must_login">Debe ingresar para consultar pedidos</string>
+    <string name="loginin">Ingresando ...</string>
     <string name="forgot_password">Olvidé mi clave</string>
      <string name="dialog_button_login">Ingresar</string>
     
