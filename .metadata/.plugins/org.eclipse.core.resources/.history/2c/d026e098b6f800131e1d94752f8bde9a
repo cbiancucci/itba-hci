@@ -1,0 +1,99 @@
+package com.itba.edu.ar;
+
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.PorterDuff.Mode;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.ViewSwitcher.ViewFactory;
+
+import com.itba.edu.ar.model.Product;
+import com.itba.edu.ar.parser.ProductParser;
+
+public class ProductViewActivity extends Activity implements ViewFactory {
+
+	ImageSwitcher imageSwitcher;
+	float initialX, finalX;
+	private int position = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.carousel_main);
+		
+		if(getIntent().hasExtra("productURL")) {
+			Product product = new ProductParser().getProduct(getIntent().getStringExtra("productURL"));
+			getActionBar().setTitle(product.getName());
+		}
+		
+		
+		
+		// SETEAR NOMBRE DEL PRODUCTO EN EL TITULO
+		/*
+		RatingBar ratingBar = (RatingBar) findViewById(R.id.ratingBar1);
+		LayerDrawable stars = (LayerDrawable) ratingBar.getProgressDrawable();
+		stars.getDrawable(2).setColorFilter(Color.YELLOW, Mode.SRC_ATOP);
+		*/
+		imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+
+		imageSwitcher.setFactory(this);
+
+		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+
+		imageSwitcher.setImageResource(imageList[position]);
+		
+		imageSwitcher.setOnTouchListener(new OnTouchListener() {
+
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					initialX = (int) event.getX();
+					return true;
+				} else if (event.getAction() == MotionEvent.ACTION_UP) {
+					finalX = (int) event.getX();
+					if (finalX - initialX > 100) {
+						position--;
+						if (position < 0) {
+							position = imageList.length - 1;
+						}
+						imageSwitcher.setImageResource(imageList[position]);
+					} else if (initialX - finalX > 100) {
+						position++;
+						if (position >= imageList.length) {
+							position = 0;
+						}
+						imageSwitcher.setImageResource(imageList[position]);
+					}
+					return true;
+				}
+				return false;
+			}
+		});
+
+	}
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+	@Override
+	public View makeView() {
+		ImageView imageView = new ImageView(this);
+		imageView.setBackgroundColor(0xFF000000);
+		imageView.setScaleType(ImageView.ScaleType.CENTER);
+		imageView.setLayoutParams(new ImageSwitcher.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		return imageView;
+	}
+
+}

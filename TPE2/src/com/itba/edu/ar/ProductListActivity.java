@@ -65,7 +65,7 @@ public class ProductListActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			arrayOfList = new ProductParser().getData(params[0]);
+			arrayOfList = new ProductParser().getProductList(params[0]);
 			return null;
 		}
 

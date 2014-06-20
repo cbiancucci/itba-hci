@@ -4,4 +4,8 @@
           android:title="@string/action_websearch"
           android:showAsAction="ifRoom|withText" 
           android:actionViewClass="android.widget.SearchView" />
+     <item android:id="@+id/action_settings"
+          android:title="@string/settings"
+          android:icon="@drawable/ic_action_overflow"
+          android:showAsAction="always" />
 </menu>

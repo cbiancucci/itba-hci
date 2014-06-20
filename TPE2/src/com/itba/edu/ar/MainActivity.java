@@ -2,6 +2,8 @@ package com.itba.edu.ar;
 
 import java.util.ArrayList;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.itba.edu.ar.adapter.NavDrawerListAdapter;
 import com.itba.edu.ar.model.NavDrawerItem;
 
@@ -44,53 +46,53 @@ public class MainActivity extends Activity implements
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
 	private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
- 
-    private ArrayList<NavDrawerItem> navDrawerItems;
-    private NavDrawerListAdapter adapter;
+	private TypedArray navMenuIcons;
+
+	private ArrayList<NavDrawerItem> navDrawerItems;
+	private NavDrawerListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
-		
-		//mTitle = mDrawerTitle = getTitle();
+
+		// mTitle = mDrawerTitle = getTitle();
 		navMenuTitles = getResources().getStringArray(R.array.menu_options);
-		
+
 		navMenuIcons = getResources()
-                .obtainTypedArray(R.array.nav_drawer_icons);
-		
+				.obtainTypedArray(R.array.nav_drawer_icons);
+
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
- 
-        navDrawerItems = new ArrayList<NavDrawerItem>();
-		
-        for(int i = 0; i < navMenuTitles.length; i++)
-        {
-        	if(navMenuTitles[i].equals("Notificaciones")) {
-        		navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1), true, "1"));	
-        	}
-        	else {
-        		navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));	
-        	}
-        }
-        
-        // Recycle the typed array
-        navMenuIcons.recycle();
- 
-        // setting the nav drawer list adapter
-        adapter = new NavDrawerListAdapter(getApplicationContext(),
-                navDrawerItems);
-        mDrawerList.setAdapter(adapter);
-        
+		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+
+		navDrawerItems = new ArrayList<NavDrawerItem>();
+
+		for (int i = 0; i < navMenuTitles.length; i++) {
+			if (navMenuTitles[i].equals("Notificaciones")) {
+				navDrawerItems.add(new NavDrawerItem(navMenuTitles[i],
+						navMenuIcons.getResourceId(i, -1), true, "1"));
+			} else {
+				navDrawerItems.add(new NavDrawerItem(navMenuTitles[i],
+						navMenuIcons.getResourceId(i, -1)));
+			}
+		}
+
+		// Recycle the typed array
+		navMenuIcons.recycle();
+
+		// setting the nav drawer list adapter
+		adapter = new NavDrawerListAdapter(getApplicationContext(),
+				navDrawerItems);
+		mDrawerList.setAdapter(adapter);
+
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
-		
+
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
 		mDrawerList.setSelector(R.drawable.listitem_background);
-		
+
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 
@@ -267,53 +269,65 @@ public class MainActivity extends Activity implements
 			setHasOptionsMenu(true);
 			View rootView = null;
 			int i = getArguments().getInt(ITEM_NUMBER);
+			getActivity().setTitle(R.string.app_name);
+			rootView = inflater.inflate(R.layout.fragment_main, container,
+					false);
+
+			Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
+			btnLogin.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(getActivity()
+							.getApplicationContext(), LoginActivity.class);
+					startActivity(i);
+				}
+			});
 			switch (i) {
 			case 0:
-				getActivity().setTitle(R.string.app_name);
-				rootView = inflater.inflate(R.layout.fragment_main, container,
-						false);
-				
-				Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
-				btnLogin.setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						Intent i = new Intent(getActivity()
-								.getApplicationContext(), LoginActivity.class);
-						startActivity(i);
-					}
-				});
+				// Vacio, ya lo cargue por defecto al principio
 				break;
 			case 1:
 				getActivity().setTitle(R.string.categories);
-				Intent intent = new Intent(getActivity().getApplicationContext(), CategoriesActivity.class);
+				Intent intent = new Intent(getActivity()
+						.getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
 			case 7:
-				Intent notificationIntent = new Intent(getActivity(), MainActivity.class);
-				PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0, notificationIntent, 0);
-				
-				NotificationCompat.Builder mBuilder =
-					    new NotificationCompat.Builder(getActivity())
-					    .setSmallIcon(R.drawable.ic_launcher)
-					    .setContentTitle("Estado de tu pedido")
-					    .setContentText("Te informamos que tu pedido 123456 ya esta en proceso de entrega.")
-					    .setContentIntent(pIntent);
-				
-				NotificationManager notificationManager = 
-				  (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
+				Intent notificationIntent = new Intent(getActivity(),
+						MainActivity.class);
+				PendingIntent pIntent = PendingIntent.getActivity(
+						getActivity(), 0, notificationIntent, 0);
 
-				notificationManager.notify(0, mBuilder.build()); 
+				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
+						getActivity())
+						.setSmallIcon(R.drawable.ic_launcher)
+						.setContentTitle("Estado de tu pedido")
+						.setContentText(
+								"Te informamos que tu pedido 123456 ya esta en proceso de entrega.")
+						.setContentIntent(pIntent);
+
+				NotificationManager notificationManager = (NotificationManager) getActivity()
+						.getSystemService(NOTIFICATION_SERVICE);
+
+				notificationManager.notify(0, mBuilder.build());
+				break;
+			case 8:
+				IntentIntegrator scanIntegrator = new IntentIntegrator(
+						getActivity());
+				scanIntegrator.initiateScan();
 				break;
 			case 9:
-				Intent settings = new Intent(getActivity(), UserSettingActivity.class);
-	            startActivity(settings);
-	            break;
+				Intent settings = new Intent(getActivity(),
+						UserSettingActivity.class);
+				startActivity(settings);
+				break;
 			case 10:
 				Intent login = new Intent(getActivity(), LoginActivity.class);
-	            startActivity(login);
-	            break;
-	        default:
-	        	Intent intentView = new Intent(getActivity(), ProductViewActivity.class);
+				startActivity(login);
+				break;
+			default:
+				Intent intentView = new Intent(getActivity(),
+						ProductViewActivity.class);
 				startActivity(intentView);
 				break;
 			}
@@ -322,4 +336,22 @@ public class MainActivity extends Activity implements
 		}
 	}
 
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		IntentResult scanningResult = IntentIntegrator.parseActivityResult(
+				requestCode, resultCode, intent);
+		
+		if (scanningResult != null) {
+			Intent productIntent = new Intent(getApplicationContext(), ProductViewActivity.class);
+			productIntent.putExtra("productURL", scanningResult.getContents());
+			startActivity(productIntent);
+		}
+		else {
+			Toast toast = Toast.makeText(getApplicationContext(),
+					getString(R.string.no_qr), Toast.LENGTH_SHORT);
+			toast.show();	
+			Intent intentView = new Intent(getApplicationContext(),
+					MainActivity.class);
+			startActivity(intentView);
+		}
+	}
 }

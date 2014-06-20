@@ -1,0 +1,10 @@
+package com.itba.edu.ar.model;
+
+public class Attribute {
+
+	Integer id;
+	String name;
+	//Deberia ser un array
+	String values;
+	
+}

@@ -25,12 +25,23 @@
     <string name="load_products">Cargando Productos...</string>
     <string name="no_network">No tienes acceso a internet</string>
     <string name="forgot_password">Olvidé mi clave</string>
+    <string name="no_qr">Hubo un error en la lectura del codigo QR</string>
+    <string name="product_info">Datos del producto</string>
+    <string name="size">Talles</string>
+    <string name="occasion">Ocasion</string>
+    <string name="material">Material</string>
+    <string name="brand">Marca</string>
+    <string name="gender">Genero</string>
+    <string name="age">Edad</string>
+    <string name="color">Color</string>
+    <string name="splashLoading">Iniciando servicios...</string>
     
-    <string name="title_activity_view_product">Datos del producto</string>
+    
+    
     
     <string name="pref_send_report">Reportar errores</string>
     <string name="pref_send_report_summary">Envia reportes de errores de la aplicacion</string>
-    <string name="pref_notif_frequency">Verificar Notificaciones</string>
+    <string name="pref_notif_frequency">Intervalo de actualizacion</string>
     <string name="pref_notif_frequency_summary">Selecciona la frecuencia de busqueda de notificaciones</string>
     <string name="pref_user_name">Newsletter</string>
     <string name="pref_user_name_summary">Introduce un mail para recibir novedades</string>

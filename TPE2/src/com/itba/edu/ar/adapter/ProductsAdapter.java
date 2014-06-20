@@ -91,12 +91,12 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 		}
 		if (holder.imgView != null) {
 			if (null != objBean.getImageUrl()
-					&& objBean.getImageUrl().trim().length() > 0) {
+					&& objBean.getImageUrl().get(0).trim().length() > 0) {
 				final ProgressBar pbar = holder.pbar;
 
 				imageLoader.init(ImageLoaderConfiguration
 						.createDefault(activity));
-				imageLoader.displayImage(objBean.getImageUrl(), holder.imgView,
+				imageLoader.displayImage(objBean.getImageUrl().get(0), holder.imgView,
 						options, new ImageLoadingListener() {
 							@Override
 							public void onLoadingComplete() {

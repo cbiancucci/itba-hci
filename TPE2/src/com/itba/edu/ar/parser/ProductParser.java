@@ -11,16 +11,20 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.os.StrictMode;
+import android.util.Log;
+
+import com.itba.edu.ar.model.Attribute;
 import com.itba.edu.ar.model.Category;
 import com.itba.edu.ar.model.Product;
 import com.itba.edu.ar.model.Subcategory;
 
 public class ProductParser {
 
-	Product prod;
-	List<Product> listArray;
+	public List<Product> getProductList(String url) {
 
-	public List<Product> getData(String url) {
+		Product prod;
+		List<Product> listArray;
 
 		listArray = new ArrayList<Product>();
 
@@ -33,30 +37,31 @@ public class ProductParser {
 
 			String json = reader.readLine();
 			JSONObject jsonObject = new JSONObject(json);
-			
+
 			JSONArray arr = (JSONArray) jsonObject.get("products");
 			for (int i = 0; i < arr.length(); i++) {
-			    JSONObject product = (JSONObject) arr.get(i);
-			    prod = new Product();
-			    prod.setId((Integer) product.get("id"));
-			    prod.setName((String) product.get("name"));
-			    prod.setPrice((Integer) product.get("price"));
-			    JSONArray imageUrl = (JSONArray) product.get("imageUrl");
-			    prod.setImageUrl((String) imageUrl.get(0));
-			    
-			    JSONObject category = (JSONObject) product.get("category");
-			    Category c = new Category();
-			    c.setId((Integer) category.get("id"));
-			    c.setName((String) category.get("name"));
-			    prod.setCategory(c);
-			    
-			    JSONObject subcategory = (JSONObject) product.get("subcategory");
-			    Subcategory s = new Subcategory();
-			    s.setId((Integer) subcategory.get("id"));
-			    s.setName((String) subcategory.get("name"));
-			    prod.setSubcategory(s);
-			    
-			    listArray.add(prod);
+				JSONObject product = (JSONObject) arr.get(i);
+				prod = new Product();
+				prod.setId((Integer) product.get("id"));
+				prod.setName((String) product.get("name"));
+				prod.setPrice((Integer) product.get("price"));
+				JSONArray imageUrl = (JSONArray) product.get("imageUrl");
+				prod.addImageUrl((String) imageUrl.get(0));
+
+				JSONObject category = (JSONObject) product.get("category");
+				Category c = new Category();
+				c.setId((Integer) category.get("id"));
+				c.setName((String) category.get("name"));
+				prod.setCategory(c);
+
+				JSONObject subcategory = (JSONObject) product
+						.get("subcategory");
+				Subcategory s = new Subcategory();
+				s.setId((Integer) subcategory.get("id"));
+				s.setName((String) subcategory.get("name"));
+				prod.setSubcategory(s);
+
+				listArray.add(prod);
 			}
 
 		} catch (Exception e) {
@@ -64,6 +69,66 @@ public class ProductParser {
 		}
 
 		return listArray;
+	}
+
+	public Product getProduct(String url) {
+
+		Product prod = null;
+
+		try {
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy); 
+			DefaultHttpClient defaultClient = new DefaultHttpClient();
+			HttpGet httpGetRequest = new HttpGet(url);
+			HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					httpResponse.getEntity().getContent(), "UTF-8"));
+Log.d("HIJO DE REMIL PUTA", "HIJO DE REMIL PUTA");
+			String json = reader.readLine();
+			JSONObject jsonObject = new JSONObject(json);
+			Log.d("HIJO DE REMIL PUTA", "HIJO DE REMIL PUTA");
+			JSONObject product = (JSONObject) jsonObject.get("product");
+			prod = new Product();
+			Log.d("HIJO DE REMIL PUTA", "HIJO DE REMIL PUTA");
+			prod.setId((Integer) product.get("id"));
+			Log.d("INFO", prod.getId().toString());
+			prod.setName((String) product.get("name"));
+			Log.d("INFO", prod.getName());
+			prod.setPrice((Integer) product.get("price"));
+			Log.d("INFO", prod.getPrice().toString());
+			JSONArray imageUrl = (JSONArray) product.get("imageUrl");
+			for(int i = 0; i < imageUrl.length(); i++) {
+				prod.addImageUrl((String) imageUrl.get(i));	
+			}
+			Log.d("Imagenes", "Tiene " + prod.getImageUrl().size() + " imagenes");
+			JSONObject category = (JSONObject) product.get("category");
+			Category c = new Category();
+			c.setId((Integer) category.get("id"));
+			c.setName((String) category.get("name"));
+			prod.setCategory(c);
+
+			JSONObject subcategory = (JSONObject) product.get("subcategory");
+			Subcategory s = new Subcategory();
+			s.setId((Integer) subcategory.get("id"));
+			s.setName((String) subcategory.get("name"));
+			prod.setSubcategory(s);
+
+			JSONArray attributes = (JSONArray) product.get("attributes");
+			for(int i = 0; i < attributes.length(); i++) {
+				JSONObject attr = (JSONObject) attributes.get(i);
+				String valuesString = "";
+				JSONArray values = (JSONArray) attr.get("values");
+				for(int j = 0; j < values.length(); j++) {
+					valuesString += (j > 0 ? ", " : "") + (String) values.get(j);
+				}
+				prod.addAttribute(new Attribute((String) attr.get("name"), valuesString));	
+			}
+			
+		} catch (Exception e) {
+			Log.d("HIJO DE PUTA", e.toString());
+		}
+
+		return prod;
 	}
 
 }
