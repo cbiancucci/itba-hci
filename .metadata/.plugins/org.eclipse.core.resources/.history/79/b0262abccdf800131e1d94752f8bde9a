@@ -27,6 +27,17 @@
         android:textColor="@android:color/black"
         android:textSize="13dip" />
     
+    <RatingBar
+        android:id="@+id/ratingBar1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvdesc"
+        android:layout_toRightOf="@+id/image"
+        android:numStars="5"
+        android:rating="2.5"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+        android:stepSize="1.0" />
 
     <TextView
         android:id="@+id/tvdate"

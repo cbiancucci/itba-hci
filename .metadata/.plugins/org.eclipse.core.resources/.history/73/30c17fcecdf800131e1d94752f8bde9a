@@ -73,6 +73,10 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 		holder.imgView = (ImageView) view.findViewById(R.id.image);
 		holder.pbar = (ProgressBar) view.findViewById(R.id.pbar);
 
+		holder.ratingBar = (RatingBar) view.findViewById(R.id.ratingBar1);
+		LayerDrawable stars = (LayerDrawable) holder.ratingBar.getProgressDrawable();
+		stars.getDrawable(2).setColorFilter(Color.YELLOW, Mode.SRC_ATOP);
+		
 		if (holder.tvTitle != null && null != objBean.getName()
 				&& objBean.getName().trim().length() > 0) {
 			holder.tvTitle.setText(objBean.getName());

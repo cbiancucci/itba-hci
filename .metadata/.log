@@ -10358,3 +10358,30 @@ com.android.ddmlib.ShellCommandUnresponsiveException
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-06-20 19:39:34.601
 !MESSAGE splash_activity.xml: Unexpected error in rendering, no details given
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-06-20 19:53:45.486
+!MESSAGE product_view.xml: Unexpected error in rendering, no details given
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.760
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.760
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.761
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.761
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.761
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.761
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.761
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
+
+!ENTRY com.android.ide.eclipse.adt 1 0 2014-06-20 20:01:04.762
+!MESSAGE NewXmlFile wizard: no data for target Android 4.4.2, project TPE2
