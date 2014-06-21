@@ -38,24 +38,30 @@ public class OrderParser {
 			JSONArray arr = (JSONArray) jsonObject.get("orders");
 			for (int i = 0; i < arr.length(); i++) {
 			    JSONObject order = (JSONObject) arr.get(i);
+			    JSONObject address;
 			    ord = new Order();
+			    if(!order.isNull("id"))
+			    	ord.setId( (Integer)order.get("id"));
+			    if(!order.isNull("status"))
+			    	ord.setStatus( (String)order.get("status"));
+			    if(!order.isNull("address")){
+			    	address = (JSONObject) order.getJSONObject("address");
+			    	if(!address.isNull("name"))
+			    		ord.setAddres((String) address.get("name"));
+			    }
 			    
-			    ord.setId( (Integer)order.get("id"));
-			   
-			    ord.setStatus( (String)order.get("status"));
-			    
-//			    JSONObject address = (JSONObject) order.getJSONObject("address");
-//			    if(address.equals(null))
-//			    	ord.setAddres("No hay direccion");
-//			    else
-//			    	ord.setAddres((String) address.get("name"));
-			   
-//			    ord.setDeliveredDate((String) order.get("deliveredDate"));
-//			    ord.setProcessedDate((String) order.get("processedDate"));
-//			    ord.setShippedDate((String) order.get("shippedDate"));
-			    ord.setReceivedDate((String) order.get("receivedDate"));
-			    ord.setLatitude((Integer) order.get("latitude"));
-			    ord.setLongitude((Integer)order.get("longitude"));
+			    if(!order.isNull("deliveredDate"))
+			    	ord.setDeliveredDate((String) order.get("deliveredDate"));
+			    if(!order.isNull("processedDate"))
+			    	ord.setProcessedDate((String) order.get("processedDate"));
+			    if(!order.isNull("shippedDate"))
+			    	ord.setShippedDate((String) order.get("shippedDate"));
+			    if(!order.isNull("receivedDate"))
+			    	ord.setReceivedDate((String) order.get("receivedDate"));
+			    if(!order.isNull("latitude"))
+			    	ord.setLatitude((Integer) order.get("latitude"));
+			    if(!order.isNull("longitude"))
+			    	ord.setLongitude((Integer)order.get("longitude"));
 			    
 			    listArray.add(ord);
 			}

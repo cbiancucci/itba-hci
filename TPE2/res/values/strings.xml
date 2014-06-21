@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">B&amp;G</string>
     
+   
     
+    <string name="id">Id</string>
+    <string name="status">Estado</string>
+    <string name="addres">Direccion</string>
+    <string name="receivedDate">Fecha recibido</string>
+    <string name="processedDate">Fecha procesado</string>
+    <string name="shippedDate">Fecha embarcado</string>
+    <string name="deliveredDate">Fecha enviado</string>
+    <string name="latitude">Latitud</string>
+    <string name="longitude">Longitud</string>
     
     
     <string name="login">Ingresar</string>

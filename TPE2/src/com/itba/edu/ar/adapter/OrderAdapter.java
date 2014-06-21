@@ -13,6 +13,8 @@ import com.itba.edu.ar.model.Order;
 
 
 
+
+
 public class OrderAdapter extends ArrayAdapter<Order> {
 
 	private Activity activity;
@@ -59,41 +61,64 @@ public class OrderAdapter extends ArrayAdapter<Order> {
 		holder.tvProccesed = (TextView) view.findViewById(R.id.proccesedDate);
 		holder.tvReceived = (TextView) view.findViewById(R.id.receivedDate);
 		holder.tvShipped = (TextView) view.findViewById(R.id.shippedDate);
+		holder.tvId = (TextView) view.findViewById(R.id.id_order);
 		
-	
 		
+		if (holder.tvId != null && null != objBean.getId()
+				&& objBean.getStatus().toString().trim().length() > 0) {
+			holder.tvId.setText( getContext().getString(R.string.id) + ":" + objBean.getId().toString());
+		}
+		else
+			holder.tvId.setText( getContext().getString(R.string.id) + ":");
 		if (holder.tvStatus != null && null != objBean.getStatus()
 				&& objBean.getStatus().toString().trim().length() > 0) {
-			holder.tvStatus.setText(objBean.getStatus().toString());
+			holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + objBean.getStatus().toString());
 		}
+		else
+			holder.tvStatus.setText( getContext().getString(R.string.status) + ":");
 		if (holder.tvShipped != null && null != objBean.getShippedDate()
 				&& objBean.getShippedDate().toString().trim().length() > 0) {
-			holder.tvShipped.setText(objBean.getShippedDate());
+			holder.tvShipped.setText(getContext().getString(R.string.shippedDate) + ":" + objBean.getShippedDate());
 		}
+		else
+			holder.tvShipped.setText(getContext().getString(R.string.shippedDate) + ":");
 		if (holder.tvReceived != null && null != objBean.getReceivedDate()
 				&& objBean.getReceivedDate().toString().trim().length() > 0) {
-			holder.tvReceived.setText(objBean.getReceivedDate());
+			holder.tvReceived.setText(getContext().getString(R.string.receivedDate) + ":" + objBean.getReceivedDate());
 		}
+		else
+			holder.tvReceived.setText(getContext().getString(R.string.receivedDate) + ":" );
+
 		if (holder.tvProccesed != null && null != objBean.getProcessedDate()
 				&& objBean.getProcessedDate().toString().trim().length() > 0) {
-			holder.tvProccesed.setText(objBean.getProcessedDate());
+			holder.tvProccesed.setText(getContext().getString(R.string.processedDate) + ":" + objBean.getProcessedDate());
 		}
+		else
+			holder.tvProccesed.setText(getContext().getString(R.string.processedDate) + ":");
 		if (holder.tvLongitude != null && null != objBean.getLongitude()
 				&& objBean.getLongitude().toString().trim().length() > 0) {
-			holder.tvLongitude.setText(objBean.getLongitude().toString());
+			holder.tvLongitude.setText(getContext().getString(R.string.longitude) + ":" + objBean.getLongitude().toString());
 		}
+		else
+			holder.tvProccesed.setText(getContext().getString(R.string.processedDate) + ":");
 		if (holder.tvLatitude != null && null != objBean.getLatitude()
 				&& objBean.getLatitude().toString().trim().length() > 0) {
-			holder.tvLatitude.setText(objBean.getLatitude().toString());
+			holder.tvLatitude.setText(getContext().getString(R.string.latitude) + ":" + objBean.getLatitude().toString());
 		}
+		else
+			holder.tvLatitude.setText(getContext().getString(R.string.latitude) + ":");
 		if (holder.tvDelivered != null && null != objBean.getDeliveredDate()
 				&& objBean.getDeliveredDate().toString().trim().length() > 0) {
-			holder.tvDelivered.setText(objBean.getDeliveredDate());
+			holder.tvDelivered.setText(getContext().getString(R.string.deliveredDate) + ":" + objBean.getDeliveredDate());
 		}
+		else
+			holder.tvDelivered.setText(getContext().getString(R.string.deliveredDate) + ":");
 		if (holder.tvAddres != null && null != objBean.getAddres()
 				&& objBean.getAddres().toString().trim().length() > 0) {
-			holder.tvAddres.setText(objBean.getAddres());
+			holder.tvAddres.setText(getContext().getString( R.string.addres) + ":" + objBean.getAddres());
 		}
+		else
+			holder.tvAddres.setText(getContext().getString( R.string.addres) + ":");
 	
 
 		return view;
@@ -102,7 +127,7 @@ public class OrderAdapter extends ArrayAdapter<Order> {
 	public class ViewHolder {
 
 		public TextView tvStatus, tvAddres, tvProccesed,tvLatitude,tvLongitude,tvReceived,
-						tvDelivered,tvShipped;
+						tvDelivered,tvShipped, tvId;
 
 
 	}
