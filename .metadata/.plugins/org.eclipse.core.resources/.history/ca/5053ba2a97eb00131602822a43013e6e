@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">B&amp;G</string>
+    
+    
+    
+    
+    <string name="login">Ingresar</string>
+    <string name="search">Buscar</string>
+	<string name="categories">Categorias</string>
+	<string name="orders">Pedidos</string>
+	<string name="sales">Ofertas</string>
+	<string name="settings">Ajustes</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_login">Ingresar</string>
+    <string name="prompt_email">Nombre de usuario</string>
+    <string name="prompt_password">Clave</string>
+    <string name="action_sign_in_register">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="not_implemented">Accion no implementada aun</string>
+    <string name="category_key">CATEGORY_NAME</string>
+    <string name="products">Productos</string>
+    <string name="load_products">Cargando Productos...</string>
+    <string name="no_network">No tienes acceso a internet</string>
+    <string name="forgot_password">Olvidé mi clave</string>
+    
+    
+    <string name="pref_send_report">Send crash reports</string>
+    <string name="pref_send_report_summary">Helps to fix bugs</string>
+    <string name="pref_sync_frequency">Sync frequency</string>
+    <string name="pref_sync_frequency_summary">Set the sync frequency</string>
+    <string name="pref_user_name">Set username</string>
+    <string name="pref_user_name_summary">Set your username</string>
+     
+    <string name="pref_user_profile">User Profile</string>
+    <string name="pref_update_setting">Update Settings</string>
+</resources>

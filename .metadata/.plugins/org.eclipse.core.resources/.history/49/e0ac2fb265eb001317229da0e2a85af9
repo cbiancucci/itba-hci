@@ -1,0 +1,10 @@
+<relativelayout android:layout_height="match_parent" android:layout_width="match_parent" tools:context=".ProductViewActivity" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+ 
+    <imageswitcher android:id="@+id/imageSwitcher1" android:layout_alignparentleft="true" android:layout_alignparenttop="true" android:layout_height="match_parent" android:layout_marginbottom="35dp" android:layout_margintop="35dp" android:layout_width="match_parent">
+ 
+        <imageview android:id="@+id/imageView1" android:layout_gravity="center" android:layout_height="match_parent" android:layout_width="match_parent" android:scaletype="centerCrop" android:src="@drawable/ic_launcher">
+       </imageview>
+         
+    </imageswitcher>
+ 
+</relativelayout>

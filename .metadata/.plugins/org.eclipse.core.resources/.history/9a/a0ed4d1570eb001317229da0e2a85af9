@@ -1,0 +1,86 @@
+package com.itba.edu.ar;
+
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.ViewSwitcher.ViewFactory;
+
+public class ProductViewActivity extends Activity implements ViewFactory {
+
+	ImageSwitcher imageSwitcher;
+	float initialX, finalX;
+	private Cursor cursor;
+	private int position = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.carousel_main);
+		imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		
+		imageSwitcher.setFactory(this);
+		
+		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+
+		imageSwitcher.setOnTouchListener(new OnTouchListener() {
+
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()) { 
+				case MotionEvent.ACTION_DOWN: 
+					initialX = event.getX(); 
+					break; 
+					case MotionEvent.ACTION_UP: 
+						float finalX = event.getX(); 
+						if (initialX > finalX) { 
+							if(position < imageList.length - 1) { 
+								position++; 
+							} else { 
+								position = 0; 
+							} 
+						} else { 
+							if (position > 0) {
+								position--; 
+							} else { 
+								position = imageList.length - 1; 
+							} 
+						} 
+					break; 
+				}
+				 cursor.moveToPosition(position);
+				 imageSwitcher.setImageResource(imageList[position]); 
+				 return false;
+			}
+		});
+		
+		imageSwitcher.setImageResource(imageList[position]);
+	}
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+	@Override
+	public View makeView() {
+	    ImageView imageView = new ImageView(this);
+	    imageView.setBackgroundColor(0xFF000000);
+	    imageView.setScaleType(ImageView.ScaleType.CENTER);
+	    imageView.setLayoutParams(
+	        new ImageSwitcher.LayoutParams(
+	            LayoutParams.MATCH_PARENT,
+	            LayoutParams.WRAP_CONTENT));
+	    return imageView;
+	}
+	
+}

@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductViewActivity" >
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignparentleft="true"
+        android:layout_alignparenttop="true"
+        android:layout_marginbottom="35dp"
+        android:layout_margintop="35dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:scaletype="centerCrop"
+            android:src="@drawable/ic_launcher" >
+        </ImageView>
+    </ImageSwitcher>
+
+</RelativeLayout>

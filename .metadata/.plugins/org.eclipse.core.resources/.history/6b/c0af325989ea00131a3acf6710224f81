@@ -1,0 +1,21 @@
+package com.itba.edu.ar;
+
+import com.itba.edu.ar.adapter.ListViewAdapter;
+
+import android.app.Activity;
+import android.app.ListActivity;
+import android.os.Bundle;
+
+public class ListViewActivity extends ListActivity {
+	String[] listItems = { "alpha", "beta", "gamma", "delta", "epsilon" };
+	boolean[] listImages = { true, false, true, false, true };
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.category_fragment_layout);
+		setListAdapter(new ListViewAdapter(this, R.layout.category_fragment_layout, R.id.text1,
+				R.id.image1, listItems, listImages));
+
+	}
+}

@@ -1,0 +1,11 @@
+package com.itba.edu.ar.model;
+
+public class Product {
+	private Integer id;
+	String name;
+	Integer price;
+	String[] imageUrl;
+	Category category;
+	Subcategory subcategory;
+	
+}

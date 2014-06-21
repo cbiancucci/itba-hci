@@ -81,7 +81,7 @@ border-left: 1px solid #424242;
 }
 .sf-menu ul {
 	border-top: 1px solid #424242;
-	padding-top: 10px;
+	padding-top: 1px;
 	position: absolute;
 	top: -999em;
 	width: 10em;
@@ -116,7 +116,6 @@ border-left: 1px solid #424242;
 	line-height: 1.333;
 	padding: 10px 22px 10px 20px;
 	text-decoration: none;
-	text-transform: uppercase;
 }
 .sf-menu li:hover ul, .sf-menu li.sfHover ul {
 	left:			0;
@@ -126,7 +125,8 @@ border-left: 1px solid #424242;
 }
 .sf-menu li ul li:hover{
 
-	background-color:black;
+	top: 0px;
+	background-color: #95857E;
 }
 ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
 	top:			-999em;
@@ -151,20 +151,19 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
 
 
 .sf-menu a {
-	-moz-transition: all 0.2s;
-	-webkit-transition: all 0.2s;
-	-o-transition: all 0.2s;
+	-moz-transition: all 0s;
+	-webkit-transition: all 0s;
+	-o-transition: all 0s;
 	border-right: 1px solid #424242;
 	color: #FFFFFF;
 	display: block;
 	font-family: 'Times New Roman';
-	font-size: 17px;
+	font-size: 19px;
 	line-height: 1.333;
 	padding: 21px 15px;
 	position: relative;
 	text-decoration: none;
-	text-transform: uppercase;
-	transition: all 0.2s ease 0s;
+	transition: all 0s ease 0s;
 }
 .sf-menu a:hover {
 	text-decoration:none;

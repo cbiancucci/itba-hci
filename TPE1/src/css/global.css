@@ -242,7 +242,7 @@ input.input-text:focus, select:focus, textarea:focus {
 }
 .form-list .field {
 	float: left;
-	width: 275px;
+	width: 350px;
 }
 .form-list input.input-text {
 	width: 235px;
@@ -740,7 +740,7 @@ p.required {
 /*.data-table tr.odd:hover,
 .data-table tr.even:hover { background:#ebf1f6; }*/
 .data-table td.last, .data-table th.last {
-	border-right: 0;
+	border-right: 0px;
 }
 .data-table tr.last th, .data-table tr.last td {
 }
@@ -6498,6 +6498,7 @@ em:before {
 	
 }
 
+<<<<<<< HEAD
 .Payment-image{
 	float: right;
 	margin-right: 1%;
@@ -6536,4 +6537,30 @@ em:before {
 	color: blue;
 }
 
+=======
+#no_script_msg{
 
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity:0.8;
+  	text-align:center;
+  	z-index: 11000;
+  	overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+#no_script_msg p {
+	margin-top: 200px;
+	font-size: 20px;
+	color: #fff;
+}
+>>>>>>> 87eb0360d9f8de4a106d584c18d8e2f6fce89da7
+
+#no_script_msg a {
+	font-size: 14px;
+	color: lightblue;
+}

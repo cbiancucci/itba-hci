@@ -63,10 +63,68 @@ function loadRelatedProducts(id)
 							$("#product-images").append("<li><a href='" + product.imageUrl[i] + "' class='productPretty' > <img alt='" + 
 								product.name + "' src='" + product.imageUrl[i] + "' /> </a></li>");
 						}
+
+						// Cargo breadcrumb --> Inicio, Categoria, Subcategoria, nombre producto
+						$("#breadcrumbs-two").append("<li><a href='./product-list.html?categoryId=" + $.base64('encode', product.category.id) + "'>" + product.category.name + "</a></li>");
+						$("#breadcrumbs-two").append("<li><a href='./product-list.html?subCategoryId=" + $.base64('encode', product.subcategory.id) + "'>" + product.subcategory.name + "</a></li>");
+						$("#breadcrumbs-two").append("<li><a href='./product.html?productId=" + $.base64('encode', product.id) + "'>" + product.name + "</a></li>");
+
+						var details = '';
+						var colors = '';
+						var sizes = '';
+						for(var i = 0; i < product.attributes.length; i++)
+						{
+							details += "<div class='product-details-row'>";
+							var attrName = product.attributes[i].name.indexOf('-') == -1 
+								? product.attributes[i].name : product.attributes[i].name.split('-')[0];
+							details += "<div class='product-details-row-title'>" + attrName + "</div>";
+							details += "<div class='product-details-row-value'>";
+							var cantValues = product.attributes[i].values.length;
+							for(var j = 0; j < cantValues; j++)
+							{
+								details += product.attributes[i].values[j] + (j < (cantValues - 1) ? " - " : "");
+							}
+							details += "</div><br />"; // celda value
+							details += "</div>"; // row
+
+							if(product.attributes[i].name == 'Color'){
+
+								var cantColors = product.attributes[i].values.length;
+								colors = "<label>Color: </label>";
+								colors += "<select class='selectBox'>";
+								for(var j = 0; j < cantColors; j++)
+								{
+									colors += "<option>" + product.attributes[i].values[j] + "</option>";
+								}
+								colors += "</select>";
+							}
+
+							if(product.attributes[i].name.indexOf("Talle") != -1 ){
+								var cantSizes = product.attributes[i].values.length;
+								if(cantSizes > 1 ) {
+									sizes = "<label>Talle: </label>";
+									sizes += "<select class='selectBox'>";
+									for(var j = 0; j < cantSizes; j++)
+									{
+										sizes += "<option>" + product.attributes[i].values[j] + "</option>";
+									}
+									sizes += "</select>";
+								}
+							}
+						}						
+
+						$("#home").append(details);
+						$("#color-option-select").append(colors);
+						$("#size-option-select").append(sizes);
+
 						$("#product-name").append(product.name);
 						$("#our_price_display").append("$" + product.price);
 						$("#product-rating").append("<div style='width:" + Math.floor(Math.random() * 101)
 							 + "%' class='rating'></div>");
+						$("#btnWish").attr("productId", product.id);
+						$("#btnWish").click(function(product){
+					        addProductToWishlist($(this).attr("productId"));
+					    });
 						$("#btnShoppingCart").click(
 							function ()
 							{

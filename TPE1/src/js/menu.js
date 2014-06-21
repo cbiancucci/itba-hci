@@ -37,8 +37,23 @@ function loadMenu()
 			$("#menu-sf").append("</li>");
 		});
 	});
-	$("#menu").append("<li id='menu-search'><form class='form-wrapper'><input type='text' id='txtSearch' onkeypress='javascript: return keyPressSearch(event);' placeholder='Calzado, Accesorios, Hombre, Mujer, ...' required=''><button id='btnSearch' onclick='javascript:openSearch();' type='submit'>Buscar</button></form></li>");
-	$("#menu-sf").append("<li id='menu-search'><form class='form-wrapper'><input type='text' id='txtSearch' onkeypress='javascript: return keyPressSearch(event);' placeholder='Calzado, Indumentaria, Accesorios, Hombre, Mujer, ...' required=''><button onclick='javascript:openSearch();' type='submit'>Buscar</button></form></li>");
+	$("#menu").append("<li id='menu-search'><form id='form-search' class='form-wrapper'><input type='text' id='txtSearch' placeholder='Calzado, Accesorios, Hombre, Mujer, ...' required=''><button id='btnSearch' >Buscar</button></form></li>");
+	$("#menu-sf").append("<li id='menu-search'><form id='form-search-min' class='form-wrapper'><input type='text' id='txtSearchMin' placeholder='Calzado, Indumentaria, Accesorios, Hombre, Mujer ...' required=''><button id='btnSearchMin' >Buscar</button></form></li>");
+
+	$("#form-search").submit(function (event)
+	{
+		event.preventDefault(); // Porque sino submitea al index (action)
+		search("#txtSearch");
+	});
+
+	$("#form-search-min").submit(function (event)
+	{
+		event.preventDefault(); // Porque sino submitea al index (action)
+		search("#txtSearchMin");
+	});
+
+	// Agregamos esto en el menu porque menu está siempre en todas las páginas. 
+	// Para no tener que manejar siempre las promises
 
 	var shoppingCart = $.session.get('shoppingCart');
 	var total = 0;
@@ -55,4 +70,5 @@ function loadMenu()
 		}
 	}
 	$("#header-info-cart").append(qty + " item" + (qty > 1 ? "s " : " ") + " - $" + total);
+	$("#shoppingCartTitle").append(" (" + qty + ")");
 }

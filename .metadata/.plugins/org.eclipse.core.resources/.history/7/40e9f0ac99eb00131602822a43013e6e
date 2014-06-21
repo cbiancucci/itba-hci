@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">B&amp;G</string>
+    
+    
+    
+    
+    <string name="login">Ingresar</string>
+    <string name="search">Buscar</string>
+	<string name="categories">Categorias</string>
+	<string name="orders">Pedidos</string>
+	<string name="sales">Ofertas</string>
+	<string name="settings">Ajustes</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_login">Ingresar</string>
+    <string name="prompt_email">Nombre de usuario</string>
+    <string name="prompt_password">Clave</string>
+    <string name="action_sign_in_register">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="not_implemented">Accion no implementada aun</string>
+    <string name="category_key">CATEGORY_NAME</string>
+    <string name="products">Productos</string>
+    <string name="load_products">Cargando Productos...</string>
+    <string name="no_network">No tienes acceso a internet</string>
+    <string name="forgot_password">Olvidé mi clave</string>
+    
+    
+    <string name="pref_send_report">Reportar errores</string>
+    <string name="pref_send_report_summary">Envia reportes de errores de la aplicacion</string>
+    <string name="pref_notif_frequency">Verificar Notificaciones</string>
+    <string name="pref_notif_frequency_summary">Selecciona la frecuencia de busqueda de notificaciones</string>
+    <string name="pref_user_name">Newsletter</string>
+    <string name="pref_user_name_summary">Introduce un mail para recibir novedades</string>
+     
+    
+    <string name="pref_country">País</string>
+    <string name="pref_country_summary">Selecciona tu país para actualizar lenguaje, marcas y precios en la app.</string>
+    
+    <string name="pref_about_us">Sobre B&G</string>
+    <string name="pref_about_us_summary">Conoce más sobre nosotros, calificanos.</string>
+    
+    <string name="pref_user_profile">Ajustes personales</string>
+    <string name="pref_update_setting">Ajustes de la aplicacion</string>
+</resources>

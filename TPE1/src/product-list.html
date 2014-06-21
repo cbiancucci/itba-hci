@@ -18,7 +18,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <meta charset="utf-8">
 <meta name="description" content="B&G. Tienda de ropa online.">
 <meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,6 +54,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <link rel="stylesheet" href="css/ie.css" />
 <link rel="stylesheet" href="css/hci.css" />
 
+<noscript>
+  <div id="no_script_msg">
+    <p> Habilite javascript y actualice la pagina.<br/>Si no sabe como:</p>
+    <a target="_blank" href="http://www.enable-javascript.com/es/">Click Aqui</a>
+  </div>
+</noscript>
+
 <!-- Javascripts
     ============================================================================== -->
 <!--[if IE 8]><script src="js/respond.min.js"></script><![endif]-->
@@ -68,12 +75,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/jquery.dlmenu.js"></script>
 <script src="js/jquery.base64.js"></script>
 <script src="js/jquery.session.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/wishlist.js"></script>
 <script src="js/respond.src.js"></script>  
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/products.js"></script>
 <script src="js/productList.js"></script>
+<script src="js/login.js"></script>
 </head>
 <body class="noIE">
 
@@ -83,53 +93,53 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
     <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
-      
-
       <ul id="header_nav" class="nav pull-right">
-        <li><i class=""></i> <a href="">Registrarme</a></li>
-        <li>
+        <li id="li-registro"><i class=""></i> <a href="register.html">Registrarme</a></li>
+        <li id="li-login">
         <i class="icon-user dropdown-link dropdown-toggle"></i><a class="dropdown-link">Ingresar</a>
           <ul class="dropdown-login">
             <li>
               <div class="wrap-login-header">
-                  <form method="post" action="index.html/customer/account/loginPost/" id="login-form-header">
+                  <form id="login-form-header">
                       <ul class="form-list">
                         <li>
-                          <label class="required" for="login-email"><em>*</em>Nombre de usuario</label>
+                          <label class="required" for="username"><em>*</em>Nombre de usuario</label>
                           <div class="input-box">
-                            <input type="text" value="" name="login[username]" id="login-email" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
+                            <input type="text" value="" name="username" id="username" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
                           </div>
                         </li>
                         <li>
-                          <label class="required" for="login-password"><em>*</em>Clave</label>
+                          <label class="required" for="password"><em>*</em>Clave</label>
                           <div class="input-box">
-                            <input type="password" name="login[password]" id="login-password" class="input-text required-entry" placeholder="Clave...">
+                            <input type="password" name="password" id="password" class="input-text required-entry" placeholder="Clave...">
                           </div>
                         </li>
                       </ul>
                   </form>
                   <div class="buttons-set-header">
                     <p class="required">* Campos requeridos</p>
-                    <a class="f-left" href="index.html/customer/account/forgotpassword/">Olvide mi clave</a>
-                    <button onclick="onepageLogin(this)" class="button" type="submit"><span><span>Ingresar</span></span></button>
+                    <a class="f-left" href="./forgotpassword.html">Olvide mi clave</a>
+                    <button id="btnLogin" class="button" type="submit"><span><span>Ingresar</span></span></button>
                   </div>
                 </div>
             </li>
           </ul>
         </li>
-        <li><i class="icon-heart"></i> <a href="#">Lista de deseos</a></li>
+        <li><i class="icon-heart"></i> <a href="./wishlist.html">Lista de deseos</a></li>
         <li><i class="icon-circle-arrow-right"></i> <a href="./checkout-step1.html">Confirmar compra</a></li>
          <li>
-          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link">Mi carrito</a>
+          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link" id="shoppingCartTitle">Mi carrito</a>
           <ul class="dropdown-login">
             <li>
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html">Ir al carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
             </li>
           </ul>
         </li>
+        <li id='li-user' class="invisible" ><i class='icon-user'></i><a href='./userAccount.html' id='usernameDesc'></a></li>
+        <li id="li-logout" class="invisible" ><i class=''></i><a>Salir</a></li>
       </ul>
     </div>
     <script src="js/classie.js"></script> 
@@ -156,10 +166,6 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
   <div id="crumbs">
         <ul id="breadcrumbs-two">
           <li><a href="./index.html">Inicio</a></li>
-          <li><a href="#2">Productos</a></li>
-          <li><a href="#4">Busqueda</a></li>
-          <li><a href="#3">Categoria</a></li>
-          <li><a href="#4">Subcategoria</a></li>
         </ul>
       </div>
       <br />
@@ -171,53 +177,23 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
         <div class="block_content">
           <form action="#" id="layered_form">
             <div>
-              <div> <span class="layered_subtitle">Categorias</span>
+              <div>
                 <div class="clear"></div>
                 <ul id="ul_layered_category_0" class="Hide">
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_1">
-                    <label for="layered_category_1"> Calzado <span> (1)</span> </label>
+                    <div id="Color"></div>
                   </li>
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_2">
-                    <label for="layered_category_2"> Indumentaria <span> (10)</span> </label>
+                    <div id="Marca"></div>
                   </li>
                   <li>
-                    <input type="checkbox" class="checkbox" id="layered_category_3">
-                    <label for="layered_category_3"> Accesorios <span> (1)</span> </label>
+                    <div id="Genero"></div>
+                  </li>
+                  <li>
+                    <div id="Edad"></div>
                   </li>
                 </ul>
-              </div>
-              <div> <span class="layered_subtitle">Genero</span>
-                <div class="clear"></div>
-                <ul id="ul_layered_condition_0" class="Hide">
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_1">
-                    <label for="layered_Condition_1"> Masculino<span> (1)</span></label>
-                  </li>
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_2">
-                    <label for="layered_Condition_2">Femenino<span> (1)</span></label>
-                  </li>
-                  <li>
-                    <input type="checkbox" class="checkbox" id="layered_Condition_3">
-                    <label for="layered_Condition_3">Niños<span> (1)</span></label>
-                  </li>
-                </ul>
-              </div>
-                    <!-- Javascripts --> 
-              <script src="js/jquery.nouislider.min.js"></script>
-       
-              <div class="layered_price"> <span class="layered_subtitle">Precio</span>
-                <div class="clear"></div>
-                <ul id="ul_layered_price_0" class="Hide">
-                 <li> <div class="section-body">
-                    <div class="range-slider-container">
-                      <div class="range-slider"></div>
-                      <div class="range-slider-value clearfix"> <span class="min"></span> <span class="max"></span> </div>
-                    </div>
-                  </div></li>
-                </ul>
+                <button class="btn btn-primary">Aplicar filtros</button>
               </div>
             </div>
           </form>
@@ -233,16 +209,32 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       <div class="toolbar" id="toolbar-list">
         <div class="sort-select">
           <label>Ordenar por</label>
+          
           <select class="selectBox">
             <option>Precio</option>
+            <option>Mayor precio</option>
+            <option>Menor precio</option>
+          </select>
+          
+          <select class="selectBox">
+            <option>Nombre</option>
+            <option>Ascendente</option>
+            <option>Descendente</option>
           </select>
         </div>
         <div class="sort-select">
           <label>Mostrar</label>
+<<<<<<< HEAD
           <select class="selectBox" id = "cantPagina">
             <option value="4">4 por pagina</option>
             <option value = "10">10 por pagina</option>
             <option value = "50">50 por pagina</option>
+=======
+          <select class="selectBox" id ="cantPagina">
+            <option value="4">4 por pagina</option>
+            <option value="10">10 por pagina</option>
+            <option value="50">50 por pagina</option>
+>>>>>>> 87eb0360d9f8de4a106d584c18d8e2f6fce89da7
           </select>
         </div>
         <div class="lg-panel htabs">
@@ -259,7 +251,6 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
      </div> 
  
       <div class="pagination" id="pagination-list">
-        <div class="item-total"> Productos 1 al 4 de 12 en total </div>
         <ul>
           <li><a href="#">«</a></li>
           <li class="active first-bg-hover"><a href="#">1</a></li>
@@ -296,12 +287,11 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       </form>
       <p>Suscribite para recibir ofertas y descuentos en tu correo electronico</p>
         </div>    <div class="block">
-          <h4>Mi cuenta</h4>
+          <h4>Empresa</h4>
           <div class="block_content">
             <ul>
-              <li><a href="index.html?controller=history">Mis compras</a></li>
-              <li><a href="index.html?controller=addresses">Mis direcciones de envio</a></li>
-              <li><a href="index.html?controller=identity">Mi informacion personal</a></li>
+              <li><a href="index.html?controller=history">Nosotros</a></li>
+              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block">
@@ -310,8 +300,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
             <ul>
               <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
               <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              
             </ul>
           </div>
         </div>    <div class="block last">
@@ -327,11 +316,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
+<<<<<<< HEAD
           <p>HCI 2014. Todos los derechos reservados
             <img class ="Payment-image" src="images/Payment-visa.png"  alt="Metodos de pago" title="Visa" >
             <img class ="Payment-image" src="images/Payment-maestro.png"  alt="Metodos de pago" title="Maestro">
             <img class ="Payment-image" src="images/Payment-paypal.png" alt="Metodos de pago" title="PayPal" >
             <img class ="Payment-image" src="images/Payment-s.png"  alt="Metodos de pago" title="S" ></p>
+=======
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" class="right" alt="Metodos de pago" title="Metodos de pago" ></p>
+>>>>>>> 87eb0360d9f8de4a106d584c18d8e2f6fce89da7
         </div></div>
 </body>
 </html>

@@ -1,0 +1,115 @@
+package com.itba.edu.ar;
+
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.ViewSwitcher.ViewFactory;
+
+public class ProductViewActivity extends Activity implements ViewFactory {
+
+	ImageSwitcher imageSwitcher;
+	ImageView images;
+	float initialX, finalX;
+	private Cursor cursor;
+	private int columnIndex, curIndex = 0;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.carousel_main);
+		imageSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		imageSwitcher.setFactory(this);
+		imageSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imageSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+
+		imageSwitcher.setImageResource(imageList[curIndex]);
+		imageSwitcher.setOnTouchListener(new OnTouchListener() {
+
+			public boolean onTouch(View v, MotionEvent event) {
+
+				if (event.getAction() == MotionEvent.ACTION_DOWN) {
+					initialX = (int) event.getX();
+					return true;
+				}
+
+				else if (event.getAction() == MotionEvent.ACTION_UP) {
+					finalX = (int) event.getX();
+					if (finalX - initialX > 100) {
+
+						// curIndex current image index in array viewed by user
+						curIndex--;
+						if (curIndex < 0) {
+							curIndex = imageList.length - 1;
+						}
+
+						imageSwitcher.setInAnimation(AnimationUtils
+								.loadAnimation(ProductViewActivity.this,
+										R.anim.slide_in_left));
+						imageSwitcher.setOutAnimation(AnimationUtils
+								.loadAnimation(ProductViewActivity.this,
+										R.anim.slide_out_right));
+
+						imageSwitcher.setImageResource(imageList[curIndex]);
+						// GalleryActivity.this.setTitle(curIndex);
+					}
+
+					else if (initialX - finalX > -100) {
+
+						curIndex++;
+						if (curIndex > 4) {
+							curIndex = 0;
+						}
+
+						imageSwitcher.setInAnimation(AnimationUtils
+								.loadAnimation(ProductViewActivity.this,
+										R.anim.slide_in_right));
+						imageSwitcher.setOutAnimation(AnimationUtils
+								.loadAnimation(ProductViewActivity.this,
+										R.anim.slide_out_left));
+
+						imageSwitcher.setImageResource(imageList[curIndex]);
+						// GalleryActivity.this.setTitle(curIndex);
+					}
+					return true;
+				}
+				return false;
+			}
+		});
+	}
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+	/*
+	 * @Override public boolean onTouchEvent(MotionEvent event) { switch
+	 * (event.getAction()) { case MotionEvent.ACTION_DOWN: initialX =
+	 * event.getX(); break; case MotionEvent.ACTION_UP: float finalX =
+	 * event.getX(); if (initialX > finalX) { if(position < musicCover.length -
+	 * 1) { position++; } else { position = 0; } } else { if (position > 0) {
+	 * position--; } else { position = musicCover.length - 1; } } break; }
+	 * Switch.sh cursor.moveToPosition(position);
+	 * images.setImageResource(musicCover[position]); return false; }
+	 */
+
+	@Override
+	public View makeView() {  
+        ImageView iView = new ImageView(this);
+        iView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        iView.setLayoutParams(new
+                    ImageSwitcher.LayoutParams(
+                                LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
+        iView.setBackgroundColor(R.color.white);
+        return iView;
+    }
+}

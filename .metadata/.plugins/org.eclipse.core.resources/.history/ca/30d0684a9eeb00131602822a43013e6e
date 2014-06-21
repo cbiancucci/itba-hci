@@ -1,0 +1,7 @@
+<item android:top="-6dp" android:left="-6dp" android:right="-6dp">
+    <shape>
+        <size android:height="50dp"/>
+        <solid android:color="@android:color/transparent"/>
+        <stroke android:color="@color/myColor" android:width="6dp"/>
+    </shape>
+</item>

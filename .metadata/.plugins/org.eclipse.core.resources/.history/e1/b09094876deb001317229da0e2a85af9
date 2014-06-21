@@ -1,0 +1,65 @@
+package com.itba.edu.ar;
+
+import com.itba.edu.ar.adapter.ImageAdapter;
+
+import android.app.ActionBar.LayoutParams;
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Gallery;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+import android.widget.ViewSwitcher.ViewFactory;
+
+public class ProductViewActivity extends Activity implements ViewFactory {
+
+	ImageSwitcher imgSwitcher;
+	ImageView images;
+	float initialX, finalX;
+	private Cursor cursor;
+	private int position = 0;
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+ 
+		imgSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		imgSwitcher.setFactory(this);
+		imgSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imgSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+ 
+		Gallery gallery = (Gallery) findViewById(R.id.gallery1);
+		gallery.setAdapter(new ImageAdapter(this));
+		
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+ 
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				imgSwitcher.setImageResource(imageList[arg2]);
+			}
+		});
+	}
+
+	public View makeView() {
+		ImageView iView = new ImageView(this);
+		iView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+		iView.setLayoutParams(new ImageSwitcher.LayoutParams
+			(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));
+		iView.setBackgroundColor(0xFF000000);
+		return iView;
+	}
+	
+}

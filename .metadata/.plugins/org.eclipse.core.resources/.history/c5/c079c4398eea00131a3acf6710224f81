@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">B&amp;G</string>
+    <string-array name="menu_options">
+        <item>Buscar</item>
+        <item>Categorias</item>
+        <item>Pedidos</item>
+        <item>Ofertas</item>
+        <item>Ajustes</item>
+    </string-array>
+    <string name="login">Ingresar</string>
+    <string name="search">Buscar</string>
+	<string name="categories">Categorias</string>
+	<string name="orders">Pedidos</string>
+	<string name="sales">Ofertas</string>
+	<string name="settings">Ajustes</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="title_activity_login">Ingresar</string>
+    <string name="prompt_email">Nombre de usuario</string>
+    <string name="prompt_password">Clave</string>
+    <string name="action_sign_in_register">Ingresar</string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="not_implemented">Accion no implementada aun</string>
+</resources>

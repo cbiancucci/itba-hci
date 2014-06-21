@@ -1,0 +1,6 @@
+package com.itba.edu.ar.model;
+
+public class Subcategory {
+	private Integer id;
+	private String name;
+}

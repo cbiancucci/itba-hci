@@ -1,15 +1,13 @@
-$(function() {
-	result = getJSON("http://hci.apiary-mock.com/hci/service3/Common.groovy=?method=GetAllStates&callback=?");
-	alert(result);
+function mock()
+{
 
-	$.getJSON("http://hci.apiary-mock.com/hci/service3/Common.groovy=?method=GetAllStates&callback=?", function(result) {
-		alert("asadsadsadasda");
+	$(function() {
+		
+		$.getJSON("http://hci.apiary-mock.com/hci/service3/Common.groovy?method=GetAllStates", function(result) {
+				alert(result["states"][2].name);
+			}
+			);
+		
 	});
 
-	/*
-		$.getJSON("http://matias2.apiary.io/notes", function(result) {
-			alert(result["states"][2].name);
-		}
-		);
-	*/
-});
+}

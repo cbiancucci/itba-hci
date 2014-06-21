@@ -18,7 +18,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <meta charset="utf-8">
 <meta name="description" content="B&G. Tienda de ropa online.">
 <meta name="author" content="HCI">
-<link rel="shortcut icon" href="images/favicon.png">
+<link rel="shortcut icon" href="images/favicon.ico">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -54,6 +54,13 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <link rel="stylesheet" href="css/ie.css" />
 <link rel="stylesheet" href="css/hci.css" />
 
+<noscript>
+  <div id="no_script_msg">
+    <p> Habilite javascript y actualice la pagina.<br/>Si no sabe como:</p>
+    <a target="_blank" href="http://www.enable-javascript.com/es/">Click Aqui</a>
+  </div>
+</noscript>
+
 <!-- Javascripts
     ============================================================================== -->
 <!--[if IE 8]><script src="js/respond.min.js"></script><![endif]-->
@@ -68,11 +75,14 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <script src="js/jquery.dlmenu.js"></script>
 <script src="js/jquery.base64.js"></script>
 <script src="js/jquery.session.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="js/respond.src.js"></script>  
 <script src="js/scripts.js"></script>
 <script src="js/functions.js"></script>
 <script src="js/menu.js"></script>
 <script src="js/shoppingCart.js"></script>
+<script src="js/login.js"></script>
 </head>
 <body class="noIE">
 
@@ -82,53 +92,53 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 <div class="navbar navbar-static  cbp-af-header" >
   <div class="cbp-af-inner ">
     <div class="navbar-inner container_9 "> <span  class="nav pull-left"> <a title="B&G" href="./index.html" class="logo "><img alt="B&G" src="images/media/logo.png"></a> </span>
-      
-
       <ul id="header_nav" class="nav pull-right">
-        <li><i class=""></i> <a href="">Registrarme</a></li>
-        <li>
+        <li id="li-registro"><i class=""></i> <a href="register.html">Registrarme</a></li>
+        <li id="li-login">
         <i class="icon-user dropdown-link dropdown-toggle"></i><a class="dropdown-link">Ingresar</a>
           <ul class="dropdown-login">
             <li>
               <div class="wrap-login-header">
-                  <form method="post" action="index.html/customer/account/loginPost/" id="login-form-header">
+                  <form id="login-form-header">
                       <ul class="form-list">
                         <li>
-                          <label class="required" for="login-email"><em>*</em>Nombre de usuario</label>
+                          <label class="required" for="username"><em>*</em>Nombre de usuario</label>
                           <div class="input-box">
-                            <input type="text" value="" name="login[username]" id="login-email" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
+                            <input type="text" value="" name="username" id="username" class="input-text required-entry validate-email" placeholder="Nombre de usuario...">
                           </div>
                         </li>
                         <li>
-                          <label class="required" for="login-password"><em>*</em>Clave</label>
+                          <label class="required" for="password"><em>*</em>Clave</label>
                           <div class="input-box">
-                            <input type="password" name="login[password]" id="login-password" class="input-text required-entry" placeholder="Clave...">
+                            <input type="password" name="password" id="password" class="input-text required-entry" placeholder="Clave...">
                           </div>
                         </li>
                       </ul>
                   </form>
                   <div class="buttons-set-header">
                     <p class="required">* Campos requeridos</p>
-                    <a class="f-left" href="index.html/customer/account/forgotpassword/">Olvide mi clave</a>
-                    <button onclick="onepageLogin(this)" class="button" type="submit"><span><span>Ingresar</span></span></button>
+                    <a class="f-left" href="./forgotpassword.html">Olvide mi clave</a>
+                    <button id="btnLogin" class="button" type="submit"><span><span>Ingresar</span></span></button>
                   </div>
                 </div>
             </li>
           </ul>
         </li>
-        <li><i class="icon-heart"></i> <a href="#">Lista de deseos</a></li>
+        <li><i class="icon-heart"></i> <a href="./wishlist.html">Lista de deseos</a></li>
         <li><i class="icon-circle-arrow-right"></i> <a href="./checkout-step1.html">Confirmar compra</a></li>
          <li>
-          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link">Mi carrito</a>
+          <i class="icon-shopping-cart dropdown-link dropdown-toggle"></i><a class="dropdown-link" id="shoppingCartTitle">Mi carrito</a>
           <ul class="dropdown-login">
             <li>
               <div  class="shop-cart-info" id="header-info-cart">  </div>
             </li>
             <li>
-              <a href="shopping-cart.html">Ir al carrito</a>
+              <a href="shopping-cart.html" class="center textCenter big  bold see-shop-cart">Ver mi carrito</a>
             </li>
           </ul>
         </li>
+        <li id='li-user' class="invisible" ><i class='icon-user'></i><a href='./userAccount.html' id='usernameDesc'></a></li>
+        <li id="li-logout" class="invisible" ><i class=''></i><a>Salir</a></li>
       </ul>
     </div>
     <script src="js/classie.js"></script> 
@@ -188,8 +198,8 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                 </thead>
                 <tfoot>
                   <tr class="first last">
-                    <td colspan="50" class="a-center last"><button class="button btn-continue" title="Continuar comprando" type="button" onclick="javascript: toIndex();"><span><span><i class="icon-shopping-cart"></i>Continuar comprando</span></span></button>
-                      <button type="submit" name="update_cart_action" value="update_qty" title="Actualizar el carrito" class="button btn-update"><span><span><i class="icon-refresh"></i>Actualizar el carrito</span></span></button></td>
+                    <td colspan="50" class="a-center"><button class="button btn-continue" title="Continuar comprando" type="button" onclick="javascript: toIndex();"><span><span><i class="icon-shopping-cart"></i>Continuar comprando</span></span></button>
+                      </td>
                   </tr>
                 </tfoot>
                 <tbody id="shoppingCart-details">
@@ -209,57 +219,20 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
                         <li>
                           <div class="input-box">
                             <select name="country_id" id="country" class="validate-select" title="Pais">
-                              <option value="">-- Selecciona tu pais --</option>
                               <option value="AR">Argentina</option>
-                              <option value="BR">Brasil</option>
-                              <option value="BO">Bolivia</option>
-                              <option value="CH">Chile</option>
-                              <option value="CO">Colombia</option>
-                              <option value="EC">Ecuador</option>
-                              <option value="USA">Estados Unidos</option>
-                              <option value="MX">Mexico</option>
-                              <option value="PY">Paraguay</option>
-                              <option value="PE">Peru</option>
-                              <option value="UY">Uruguay</option>
-                              <option value="VE">Vanezuela</option>
                             </select>
                           </div>
                         </li>
                         <li>
                           <div class="input-box">
                             <select class="required-entry validate-select" defaultvalue="" id="region_id" name="region_id" title="Provincia" style="">
-                              <option value="">-- Selecciona tu provincia --</option>
-                                <option value="Buenos Aires">Buenos Aires</option>
-                                <option value="Capital Federal">Capital Federal</option>
-                                <option value="Catamarca">Catamarca</option>
-                                <option value="Chaco">Chaco</option>
-                                <option value="Chubut">Chubut</option>
-                                <option value="Cordoba">Cordoba</option>
-                                <option value="Corrientes">Corrientes</option>
-                                <option value="Entre Rios">Entre Rios</option>
-                                <option value="Formosa">Formosa</option>
-                                <option value="Jujuy">Jujuy</option>
-                                <option value="La Pampa">La Pampa</option>
-                                <option value="La Rioja">La Rioja</option>
-                                <option value="Mendoza">Mendoza</option>
-                                <option value="Misiones">Misiones</option>
-                                <option value="Neuquen">Neuquen</option>
-                                <option value="Rio Negro">Rio Negro</option>
-                                <option value="Salta">Salta</option>
-                                <option value="San Juan">San Juan</option>
-                                <option value="San Luis">San Luis</option>
-                                <option value="Santa Cruz">Santa Cruz</option>
-                                <option value="Santa Fe">Santa Fe</option>
-                                <option value="Santiago del Estero">Santiago del Estero</option>
-                                <option value="Tierra del Fuego">Tierra del Fuego</option>
-                                <option value="Tucuman">Tucuman</option>
-                              </select>
+                            </select>
                             <input type="text" id="region" name="region" value="" title="Provincia" class="input-text required-entry" style="display:none;">
                           </div>
                         </li>
                         <li>
                           <div class="input-box">
-                            <input type="text" class="input-text validate-postcode" id="postcode" name="estimate_postcode" value="">
+                            <input placeholder="Ingresa tu codigo postal." type="text" class="input-text validate-postcode" id="postcode" name="estimate_postcode" value="">
                           </div>
                         </li>
                       </ul>
@@ -334,12 +307,11 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
       </form>
       <p>Suscribite para recibir ofertas y descuentos en tu correo electronico</p>
         </div>    <div class="block">
-          <h4>Mi cuenta</h4>
+          <h4>Empresa</h4>
           <div class="block_content">
             <ul>
-              <li><a href="index.html?controller=history">Mis compras</a></li>
-              <li><a href="index.html?controller=addresses">Mis direcciones de envio</a></li>
-              <li><a href="index.html?controller=identity">Mi informacion personal</a></li>
+              <li><a href="index.html?controller=history">Nosotros</a></li>
+              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
             </ul>
           </div>
         </div>    <div class="block">
@@ -348,8 +320,7 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
             <ul>
               <li class="item"><a title="Envios" href="index.html?id_cms=1&amp;controller=cms&amp;id_lang=1">Envios</a></li>
               <li class="item"><a title="Legal" href="index.html?id_cms=2&amp;controller=cms&amp;id_lang=1">Legal</a></li>
-              <li class="item"><a title="Nosotros" href="index.html?id_cms=4&amp;controller=cms&amp;id_lang=1">Nosotros</a></li>
-              <li><a title="Mapa del sitio" href="index.html?controller=sitemap">Mapa del sitio</a></li>
+              
             </ul>
           </div>
         </div>    <div class="block last">
@@ -365,11 +336,15 @@ location.replace("http://windows.microsoft.com/en-US/internet-explorer/products/
 </div>
   </footer>
    <div class="footer-wrap container_9">
+<<<<<<< HEAD
           <p>HCI 2014. Todos los derechos reservados
             <img class ="Payment-image" src="images/Payment-visa.png"  alt="Metodos de pago" title="Visa" >
             <img class ="Payment-image" src="images/Payment-maestro.png"  alt="Metodos de pago" title="Maestro">
             <img class ="Payment-image" src="images/Payment-paypal.png" alt="Metodos de pago" title="PayPal" >
             <img class ="Payment-image" src="images/Payment-s.png"  alt="Metodos de pago" title="S" ></p>
+=======
+          <p>HCI 2014. Todos los derechos reservados<img src="images/Payments.png" class="right" alt="Metodos de pago" title="Metodos de pago" ></p>
+>>>>>>> 87eb0360d9f8de4a106d584c18d8e2f6fce89da7
         </div></div>
 </body>
 </html>

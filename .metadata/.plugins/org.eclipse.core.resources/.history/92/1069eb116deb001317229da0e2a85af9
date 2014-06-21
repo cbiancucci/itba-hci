@@ -1,0 +1,48 @@
+package com.itba.edu.ar;
+
+import android.app.Activity;
+import android.database.Cursor;
+import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageSwitcher;
+import android.widget.ImageView;
+
+public class ProductViewActivity extends Activity {
+
+	ImageSwitcher imageSwitcher;
+	ImageView images;
+	float initialX, finalX;
+	private Cursor cursor;
+	private int position = 0;
+
+	private int[] imageList = { R.drawable.cocacola1, R.drawable.cocacola,
+			R.drawable.cocacola2 };
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+ 
+		imgSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcher1);
+		imgSwitcher.setFactory(this);
+		imgSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_in));
+		imgSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
+				android.R.anim.fade_out));
+ 
+		Gallery gallery = (Gallery) findViewById(R.id.gallery1);
+		gallery.setAdapter(new ImageAdapter(this));
+		
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+ 
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				imgSwitcher.setImageResource(imgs[arg2]);
+			}
+		});
+	}
+	
+}
