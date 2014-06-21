@@ -6499,6 +6499,27 @@ em:before {
 }
 
 <<<<<<< HEAD
+#no_script_msg{
+
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity:0.8;
+  	text-align:center;
+  	z-index: 11000;
+  	overflow-x: hidden; 
+    overflow-y: hidden;
+}
+
+#no_script_msg p {
+	margin-top: 200px;
+	font-size: 20px;
+	color: #fff;
+}
+=======
 .Payment-image{
 	float: right;
 	margin-right: 1%;
@@ -6537,28 +6558,7 @@ em:before {
 	color: blue;
 }
 
-=======
-#no_script_msg{
-
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	background: #000;
-	opacity:0.8;
-  	text-align:center;
-  	z-index: 11000;
-  	overflow-x: hidden; 
-    overflow-y: hidden;
-}
-
-#no_script_msg p {
-	margin-top: 200px;
-	font-size: 20px;
-	color: #fff;
-}
->>>>>>> 87eb0360d9f8de4a106d584c18d8e2f6fce89da7
+>>>>>>> 869e8affd50d25b95a6e32b3a3b1fe69ea129526
 
 #no_script_msg a {
 	font-size: 14px;

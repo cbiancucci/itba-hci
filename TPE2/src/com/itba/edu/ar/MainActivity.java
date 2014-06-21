@@ -292,6 +292,10 @@ public class MainActivity extends Activity implements
 						.getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
+			case 5:
+				Intent settings = new Intent(getActivity(), OrderActivity.class);
+	            startActivity(settings);
+	            break;
 			case 7:
 				Intent notificationIntent = new Intent(getActivity(),
 						MainActivity.class);
@@ -317,10 +321,9 @@ public class MainActivity extends Activity implements
 				scanIntegrator.initiateScan();
 				break;
 			case 9:
-				Intent settings = new Intent(getActivity(),
-						UserSettingActivity.class);
-				startActivity(settings);
-				break;
+				Intent order = new Intent(getActivity(), UserSettingActivity.class);
+	            startActivity(order);
+	            break;
 			case 10:
 				Intent login = new Intent(getActivity(), LoginActivity.class);
 				startActivity(login);

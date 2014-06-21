@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">B&amp;G</string>
     
+   
     
+    <string name="id">Id</string>
+    <string name="status">Estado</string>
+    <string name="addres">Direccion</string>
+    <string name="receivedDate">Fecha recibido</string>
+    <string name="processedDate">Fecha procesado</string>
+    <string name="shippedDate">Fecha embarcado</string>
+    <string name="deliveredDate">Fecha enviado</string>
+    <string name="latitude">Latitud</string>
+    <string name="longitude">Longitud</string>
     
     
     <string name="login">Ingresar</string>
@@ -23,7 +33,11 @@
     <string name="category_key">CATEGORY_NAME</string>
     <string name="products">Productos</string>
     <string name="load_products">Cargando Productos...</string>
+    <string name="load_orders">Cargando Ordenes...</string>
     <string name="no_network">No tienes acceso a internet</string>
+    <string name="error_login">Hubo un problema, vuelva a intentarlo</string>
+    <string name="must_login">Debe ingresar para consultar pedidos</string>
+    <string name="loginin">Ingresando ...</string>
     <string name="forgot_password">Olvidé mi clave</string>
     <string name="no_qr">Hubo un error en la lectura del codigo QR</string>
     <string name="product_info">Datos del producto</string>
@@ -35,6 +49,7 @@
     <string name="age">Edad</string>
     <string name="color">Color</string>
     <string name="splashLoading">Iniciando servicios...</string>
+     <string name="dialog_button_login">Ingresar</string>
     
     
     
