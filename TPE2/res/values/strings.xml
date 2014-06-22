@@ -17,6 +17,7 @@
     <string name="orders">Pedidos</string>
     <string name="sales">Ofertas</string>
     <string name="settings">Ajustes</string>
+    <string name="search_hint">Producto&#133;</string>
     <string name="drawer_open">Abrir panel de navegación</string>
     <string name="drawer_close">Cerrar panel de navegación</string>
     <string name="action_websearch">Buscar en la web</string>
@@ -36,6 +37,7 @@
     <string name="error_login">Hubo un problema, vuelve a intentarlo</string>
     <string name="must_login">Debe ingresar para poder consultar pedidos</string>
     <string name="loginin">Ingresando&#133;</string>
+    <string name="data_not_found">No se encontraron articulos</string>
     <string name="forgot_password">Olvidé mi clave</string>
     <string name="no_qr">Hubo un error en la lectura del código QR</string>
     <string name="product_info">Datos del producto</string>

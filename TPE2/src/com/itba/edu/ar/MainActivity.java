@@ -142,6 +142,7 @@ public class MainActivity extends Activity implements
 					| MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		}
 
+		mSearchView.setSubmitButtonEnabled(true);
 		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 		if (searchManager != null) {
 			mSearchView.setSearchableInfo(searchManager
