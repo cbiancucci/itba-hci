@@ -54,8 +54,8 @@
     <string name="pref_notif_frequency_summary">Selecciona la frecuencia de busqueda de notificaciones</string>
     <string name="pref_user_name">Newsletter</string>
     <string name="pref_user_name_summary">Introduce un mail para recibir novedades</string>
-    <string name="pref_country">Idioma</string>
-    <string name="pref_country_summary">Selecciona tu idioma para comprender mejor los textos.</string>
+    <string name="pref_language">Idioma</string>
+    <string name="pref_language_summary">Selecciona tu idioma para comprender mejor los textos.</string>
     <string name="pref_about_us">Sobre B&amp;G</string>
     <string name="pref_about_us_summary">Conoce más sobre nosotros, calificanos.</string>
     <string name="pref_user_profile">Ajustes personales</string>
@@ -75,10 +75,5 @@
     <string name="search_items_menu_mode">Modo de vista</string>
     <string name="search_items_menu_search">Buscar</string>
     <string name="view_item_menu_bookmark">Favorito</string>
-
-    <!-- Search view modes -->
-    <string name="search_items_view_mode_list">Listado</string>
-    <string name="search_items_view_mode_mosaic">Mosaico</string>
-    <string name="search_items_view_mode_gallery">Galería</string>
-
+    <string name="restart_app">Reiniciando aplicacion por cambios de lenguaje</string>
 </resources>

@@ -1,0 +1,28 @@
+package com.itba.edu.ar;
+
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
+ 
+public class UserSettingActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
+ 
+    @SuppressWarnings("deprecation")
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
+        addPreferencesFromResource(R.xml.settings);
+        
+    }
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+            String key) {
+    	Toast.makeText(this, key, Toast.LENGTH_LONG).show();
+    	if(key.equals("Language")) {
+    		Toast.makeText(this, sharedPreferences.getString(key, ""), Toast.LENGTH_LONG).show();
+    	}
+    }
+}

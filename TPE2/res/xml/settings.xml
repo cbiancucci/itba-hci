@@ -7,11 +7,11 @@
                 android:summary="@string/pref_user_name_summary"
                 android:key="prefUsername"/>
         <ListPreference
-            android:key="prefCountry"
-            android:entries="@array/country"
-            android:summary="@string/pref_country_summary"
-            android:entryValues="@array/countryValues"
-            android:title="@string/pref_country" />
+            android:key="Language"
+            android:entries="@array/Language"
+            android:summary="@string/pref_language_summary"
+            android:entryValues="@array/LanguageValues"
+            android:title="@string/pref_language" />
     </PreferenceCategory>
      
     <PreferenceCategory android:title="@string/pref_update_setting" >
