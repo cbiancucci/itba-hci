@@ -45,7 +45,7 @@
         <item>Orders</item>
         <item>Sales</item>
         <item>Notifications</item>
-        <item>Scanner QR</item>
+        <item>QR scanner</item>
         <item>Settings</item>
         <item>Login</item>
     </string-array>

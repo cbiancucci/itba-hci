@@ -38,14 +38,14 @@
      
      <string-array name="menu_options">
         <item>Buscar</item>
-        <item>Categorias</item>
+        <item>Categorías</item>
         <item>Masculino</item>
         <item>Femenino</item>
         <item>Infantil</item>
         <item>Pedidos</item>
         <item>Ofertas</item>
         <item>Notificaciones</item>
-        <item>Escanear Codigo QR</item>
+        <item>Escanear código QR</item>
         <item>Ajustes</item>
         <item>Ingresar</item>
     </string-array>
