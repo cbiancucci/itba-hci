@@ -1,0 +1,46 @@
+package com.itba.edu.ar.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Category {
+
+	Integer id;
+	String name;
+	Map<String, String> attributes;
+
+	public Map<String, String> getAttributes() {
+		return attributes;
+	}
+
+	public String getAttribute(String attr) {
+		if (attributes.containsKey(attr)) {
+			return attributes.get(attr);
+		}
+		return "";
+	}
+
+	public void addAttribute(Attribute attr) {
+		if (this.attributes == null) {
+			attributes = new HashMap<String, String>();
+		}
+		attributes.put(attr.getName(), attr.getValues());
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}

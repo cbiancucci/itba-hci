@@ -6,6 +6,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.itba.edu.ar.adapter.NavDrawerListAdapter;
 import com.itba.edu.ar.model.NavDrawerItem;
+import com.itba.edu.ar.parser.ProductParser;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -184,6 +185,10 @@ public class MainActivity extends Activity implements
 		switch (item.getItemId()) {
 		case R.id.action_search:
 			return true;
+		case R.id.action_settings:
+			Intent order = new Intent(this, UserSettingActivity.class);
+            startActivity(order);
+            return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -345,7 +350,7 @@ public class MainActivity extends Activity implements
 		
 		if (scanningResult != null) {
 			Intent productIntent = new Intent(getApplicationContext(), ProductViewActivity.class);
-			productIntent.putExtra("productURL", scanningResult.getContents());
+			productIntent.putExtra("product", new ProductParser().getProduct(scanningResult.getContents()));
 			startActivity(productIntent);
 		}
 		else {

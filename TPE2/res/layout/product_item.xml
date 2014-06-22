@@ -5,6 +5,7 @@
     android:background="@drawable/list_bg" >
 
     <ImageView
+        android:contentDescription="@string/image"
         android:id="@+id/image"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -18,26 +19,11 @@
         android:id="@+id/tvdesc"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvtitle"
-        android:layout_toLeftOf="@+id/imageView1"
         android:layout_toRightOf="@+id/image"
         android:ellipsize="end"
         android:maxLines="3"
-        android:text="desc"
         android:textColor="@android:color/black"
-        android:textSize="13dip" />
-    
-
-    <TextView
-        android:id="@+id/tvdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dip"
-        android:text="date"
-        android:textColor="@android:color/black"
-        android:textSize="12dip" />
+        android:textSize="13sp" />
 
     <ProgressBar
         android:id="@+id/pbar"
@@ -47,5 +33,24 @@
         android:layout_alignRight="@+id/image"
         android:layout_centerVertical="true"
         android:layout_marginRight="30dp" />
+
+    <TextView
+        android:id="@+id/tvdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvbrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image"
+        android:layout_marginTop="30dp"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
 
 </RelativeLayout>

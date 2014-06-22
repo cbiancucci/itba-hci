@@ -2,3 +2,8 @@
 1403295643678	Delete element
 1403303969311	Copy file
 1403380278999	Delete element
+1403381092658	Move compilation unit
+1403382005929	Rename type 'CategoriesParser'
+1403382197141	Rename local variable 'cat'
+1403382214564	Rename local variable 'categories'
+1403411238268	Rename type 'TabFragment'

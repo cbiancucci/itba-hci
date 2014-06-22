@@ -1,0 +1,15 @@
+package com.itba.edu.ar.parser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.itba.edu.ar.model.Category;
+
+public class CategoriesParser {
+
+	public List<Category> getCategories() {
+		List<Category> categories = new ArrayList<Category>();
+		return categories;
+	}
+	
+}

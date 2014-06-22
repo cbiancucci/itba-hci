@@ -11,6 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.os.StrictMode;
 
 import com.itba.edu.ar.model.Order;
 
@@ -24,7 +25,8 @@ public class OrderParser {
 
 		try {
 			
-
+			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+			StrictMode.setThreadPolicy(policy);
 			
 			DefaultHttpClient defaultClient = new DefaultHttpClient();
 			HttpGet httpGetRequest = new HttpGet(url);

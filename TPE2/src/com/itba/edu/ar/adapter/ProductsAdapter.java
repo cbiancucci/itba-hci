@@ -6,8 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.PorterDuff.Mode;
-import android.graphics.drawable.LayerDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,19 +65,25 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 
 		objBean = items.get(position);
 
-		holder.tvTitle = (TextView) view.findViewById(R.id.tvtitle);
 		holder.tvDesc = (TextView) view.findViewById(R.id.tvdesc);
 		holder.tvDate = (TextView) view.findViewById(R.id.tvdate);
+		holder.tvBrand = (TextView) view.findViewById(R.id.tvbrand);
 		holder.imgView = (ImageView) view.findViewById(R.id.image);
 		holder.pbar = (ProgressBar) view.findViewById(R.id.pbar);
 
-		if (holder.tvTitle != null && null != objBean.getName()
+		if (holder.tvDesc != null && null != objBean.getName()
 				&& objBean.getName().trim().length() > 0) {
-			holder.tvTitle.setText(objBean.getName());
+			holder.tvDesc.setText(objBean.getName());
+			
 		}
-		if (holder.tvDesc != null && null != objBean.getCategory() && null != objBean.getSubcategory()) {
-			holder.tvDesc.setText(objBean.getCategory().getName() + " - " + objBean.getSubcategory().getName());
+		
+		if (holder.tvBrand != null && null != objBean.getAttribute("Marca")
+				&& objBean.getAttribute("Marca").trim().length() > 0) {
+			holder.tvBrand.setText(objBean.getAttribute("Marca"));
+			
 		}
+		
+		
 		if (holder.tvDate != null && null != objBean.getPrice()) {
 			holder.tvDate.setText("$" + objBean.getPrice().toString());
 			holder.tvDate.setTextColor(Color.parseColor(getContext().getString(R.color.red)));
@@ -122,7 +126,7 @@ public class ProductsAdapter extends ArrayAdapter<Product> {
 
 	public class ViewHolder {
 
-		public TextView tvTitle, tvDesc, tvDate;
+		public TextView tvBrand, tvDesc, tvDate;
 		private ImageView imgView;
 		private ProgressBar pbar;
 		private RatingBar ratingBar;

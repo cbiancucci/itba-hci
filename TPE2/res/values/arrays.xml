@@ -2,16 +2,12 @@
 <resources>
     
     <string-array name="country">
-        <item name="ARG">Argentina</item>
-        <item name="BRA">Brasil</item>
-        <item name="URU">Uruguay</item>
-        <item name="EEUU">Estados Unidos</item>
+        <item name="SPA">Español</item>
+        <item name="ENG">Ingles</item>
     </string-array>
     <string-array name="countryValues">
-        <item name="ARG">Argentina</item>
-        <item name="BRA">Brasil</item>
-        <item name="URU">Uruguay</item>
-        <item name="EEUU">Estados Unidos</item>
+        <item name="SPA">Español</item>
+        <item name="ENG">Ingles</item>
     </string-array>
     
     <string-array name="notifFrequency">

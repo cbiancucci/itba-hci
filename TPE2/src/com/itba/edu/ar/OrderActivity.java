@@ -10,11 +10,13 @@ import com.itba.edu.ar.utils.Utils;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -47,13 +49,6 @@ public class OrderActivity extends Activity{
 		} else {
 			Toast.makeText(getApplicationContext(),R.string.no_network, Toast.LENGTH_LONG).show();
 		}
-	}
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		return super.onCreateOptionsMenu(menu);
 	}
 	
 	class OrderTask extends AsyncTask<String, Void, Void>{
@@ -105,5 +100,24 @@ public class OrderActivity extends Activity{
 	}
 	public void showToast(String msg) {
 		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.only_settings, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_settings:
+			Intent order = new Intent(this, UserSettingActivity.class);
+			startActivity(order);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }

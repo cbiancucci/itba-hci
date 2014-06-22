@@ -1,33 +1,30 @@
 package com.itba.edu.ar.adapter;
 
-import com.itba.edu.ar.R;
+import java.util.List;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.itba.edu.ar.model.Subcategory;
 
 public class ListViewAdapter extends ArrayAdapter {
 	Activity context;
-	String[] items;
-	boolean[] arrows;
+	List<Subcategory> items;
 	int layoutId;
 	int textId;
-	int imageId;
 
 	public ListViewAdapter(Activity context, int layoutId, int textId, 
-			String[] items, boolean[] arrows) {
+			List<Subcategory> items) {
 		super(context, layoutId, items);
 
 		this.context = context;
 		this.items = items;
-		this.arrows = arrows;
 		this.layoutId = layoutId;
 		this.textId = textId;
-		this.imageId = imageId;
 	}
 
 	public View getView(int pos, View convertView, ViewGroup parent) {
@@ -35,7 +32,7 @@ public class ListViewAdapter extends ArrayAdapter {
 		View row = inflater.inflate(layoutId, null);
 		TextView label = (TextView) row.findViewById(textId);
 
-		label.setText(items[pos]);
+		label.setText(items.get(pos).getName());
 
 		return (row);
 	}
