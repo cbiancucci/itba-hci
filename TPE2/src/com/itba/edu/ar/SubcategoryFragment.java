@@ -1,21 +1,17 @@
 package com.itba.edu.ar;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
@@ -27,6 +23,7 @@ import com.itba.edu.ar.parser.SubcategoryParser;
 public class SubcategoryFragment extends Fragment {
 
 	private TextToSpeech mTts;
+	private List<Subcategory> subcategories;
 	private void initMap() {
 
 	}
@@ -50,7 +47,8 @@ public class SubcategoryFragment extends Fragment {
 		Category cat = getArguments().getParcelable(
 				getActivity().getString(R.string.category_key));
 
-		List<Subcategory> subcategories = new SubcategoryParser()
+		//List<Subcategory> subcategories = new SubcategoryParser()
+		subcategories = new SubcategoryParser()
 				.getSubcategoriesFromCategory(cat);
 
 		ListView listView = (ListView) rootView.findViewById(R.id.list);
@@ -85,6 +83,8 @@ public class SubcategoryFragment extends Fragment {
 	
 	private static final int SPEAK = 20141;
 
-	
+	public List<Subcategory> getSubCategories(){
+		return subcategories;
+	}
 	
 }

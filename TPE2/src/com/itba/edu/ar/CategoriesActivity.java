@@ -3,33 +3,24 @@ package com.itba.edu.ar;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Vector;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.speech.tts.TextToSpeech;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnLongClickListener;
-import android.widget.AdapterView;
 import android.widget.TabHost;
-import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.TabHost.TabContentFactory;
 
 import com.itba.edu.ar.adapter.PagerAdapter;
 import com.itba.edu.ar.model.Category;
-import com.itba.edu.ar.model.Product;
-import com.itba.edu.ar.model.Subcategory;
 import com.itba.edu.ar.parser.CategoryParser;
 
 /**
@@ -133,6 +124,7 @@ public class CategoriesActivity extends FragmentActivity implements
 		if (savedInstanceState != null) {
 			mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
 		}
+		
 		// Intialise ViewPager
 		this.intialiseViewPager();
 	}
@@ -161,6 +153,7 @@ public class CategoriesActivity extends FragmentActivity implements
 			args.putParcelable(getString(R.string.category_key), cat);
 			Fragment frag = Fragment.instantiate(this,
 					SubcategoryFragment.class.getName());
+			
 			frag.setArguments(args);
 			fragments.add(frag);
 		}
@@ -174,6 +167,7 @@ public class CategoriesActivity extends FragmentActivity implements
 		this.mViewPager.setAdapter(this.mPagerAdapter);
 		this.mViewPager.setOnPageChangeListener(this);
 		mViewPager.setBackgroundResource(R.drawable.tab_selector);
+		this.mTabHost.setOnTabChangedListener(this);
 	}
 
 	/**
@@ -183,7 +177,7 @@ public class CategoriesActivity extends FragmentActivity implements
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup();
 		TabInfo tabInfo = null;
-
+		
 		// Traer categorias de la api y generar los tabs
 
 		for (Category cat : categories) {
@@ -229,10 +223,11 @@ public class CategoriesActivity extends FragmentActivity implements
 	 * @see android.widget.TabHost.OnTabChangeListener#onTabChanged(java.lang.String)
 	 */
 	public void onTabChanged(String tabId) {
+		
 		TabInfo newTab = mapTabInfo.get(tabId);
+		
 		if (lastTab != newTab) {
-			FragmentTransaction ft = getSupportFragmentManager()
-					.beginTransaction();
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 			if (lastTab != null) {
 				if (lastTab.fragment != null) {
 					ft.detach(lastTab.fragment);
