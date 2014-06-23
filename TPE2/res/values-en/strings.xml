@@ -50,7 +50,7 @@
     <string name="dialog_button_login">Login</string>
     <string name="pref_send_report">Report errors</string>
     <string name="pref_send_report_summary">Allow sending anonymous information to correct errors</string>
-    <string name="pref_notif_frequency">Range upgrade</string>
+    <string name="pref_notif_frequency">Notification frequency</string>
     <string name="pref_notif_frequency_summary">Select search frequency for notifications</string>
     <string name="pref_user_name">Newsletter</string>
     <string name="pref_user_name_summary">Enter your email address to receive our latest news</string>

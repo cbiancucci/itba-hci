@@ -52,7 +52,7 @@
     <string name="dialog_button_login">Ingresar</string>
     <string name="pref_send_report">Reportar errores</string>
     <string name="pref_send_report_summary">Permitir el envío de información anónima para corregir errores</string>
-    <string name="pref_notif_frequency">Intervalo de actualización</string>
+    <string name="pref_notif_frequency">Frecuencia de actualización</string>
     <string name="pref_notif_frequency_summary">Selecciona la frecuencia de búsqueda de notificaciones</string>
     <string name="pref_user_name">Newsletter</string>
     <string name="pref_user_name_summary">Introduce tu correo electrónico para recibir las últimas novedades</string>

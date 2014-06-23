@@ -167,6 +167,7 @@ public class CategoriesActivity extends FragmentActivity implements
 		this.mViewPager.setAdapter(this.mPagerAdapter);
 		this.mViewPager.setOnPageChangeListener(this);
 		mViewPager.setBackgroundResource(R.drawable.tab_selector);
+		
 		this.mTabHost.setOnTabChangedListener(this);
 	}
 
