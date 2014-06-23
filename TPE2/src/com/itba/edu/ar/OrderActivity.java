@@ -43,7 +43,7 @@ public class OrderActivity extends Activity{
 				String jsonUrl = "http://eiffel.itba.edu.ar/hci/service3/Order.groovy?method=GetAllOrders";
 				jsonUrl = jsonUrl + "&username=" + mypref.getString("user", "usuario");
 				jsonUrl = jsonUrl + "&authentication_token=" + mypref.getString("token", "none");
-				Toast.makeText(getApplicationContext(), jsonUrl, Toast.LENGTH_LONG).show();
+				//Toast.makeText(getApplicationContext(), jsonUrl, Toast.LENGTH_LONG).show();
 				new OrderTask().execute(jsonUrl);
 			}
 		} else {
