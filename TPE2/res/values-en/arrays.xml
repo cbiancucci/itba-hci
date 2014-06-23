@@ -25,9 +25,9 @@
      <array name="nav_drawer_icons">
         <item>@drawable/ic_search</item>
         <item>@drawable/ic_categories</item>
-        <item></item>
-        <item></item>
-        <item></item>
+        <item>@drawable/ic_male</item>
+        <item>@drawable/ic_female</item>
+        <item>@drawable/ic_kids</item>
         <item>@drawable/ic_orders</item>
         <item>@drawable/ic_sales</item>
         <item>@drawable/ic_notification</item>
