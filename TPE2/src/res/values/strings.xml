@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">B&amp;G</string>
     <string name="id">Id</string>
     <string name="status">Estado</string>
@@ -95,12 +94,13 @@
     <string name="mocasines">Mocasines</string>
     <string name="ojotas">Ojotas</string>
     <string name="sandalias">Sandalias</string>
-    <string name="Zapatillas">zapatillas</string>
+    <string name="zapatillas">zapatillas</string>
     <string name="zapatos">Zapatos</string>
     <string name="zuecos">Zuecos</string>
     <string name="blazers">Blazers</string>
     <string name="buzos">Buzos</string>
     <string name="calzas">Calzas</string>
+    <string name="campera">Campera</string>
     <string name="camisas">Camisas</string>
     <string name="cardigans">Cardigans</string>
     <string name="chalecos">Chalecos</string>
@@ -153,9 +153,4 @@
     <string name="talle-pantalones">Talle-Pantalones</string>
     <string name="talle-pilotos">Talle-Pilotos</string>
     <string name="talle-polleras">Talle-Polleras</string>
-    <string name="ocasion">Ocasion</string>
-    <string name="ocasion">Ocasion</string>
-
-
-
 </resources>

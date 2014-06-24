@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">B&amp;G</string>
     <string name="id">Id</string>
     <string name="status">State</string>
@@ -93,12 +92,13 @@
     <string name="mocasines">Mocasines</string>
     <string name="ojotas">Flip-Flops</string>
     <string name="sandalias">Sandals</string>
-    <string name="Zapatillas">Slippers</string>
+    <string name="zapatillas">Slippers</string>
     <string name="zapatos">Shoes</string>
     <string name="zuecos">Clogs</string>
     <string name="blazers">Blazers</string>
     <string name="buzos">Jogging Suit</string>
     <string name="calzas">Leggings</string>
+    <string name="campera">Jacket</string>
     <string name="camisas">Shirts</string>
     <string name="cardigans">Cardigans</string>
     <string name="chalecos">Vests</string>
@@ -106,7 +106,7 @@
     <string name="pantalones">Pants</string>
     <string name="pilotos">Pilots</string>
     <string name="polleras">Skirts</string>
-    <string name="sacos">Jackets</string>
+    <string name="sacos">Coats</string>
     <string name="sweaters">Sweaters</string>
     <string name="vestidos">Dresses</string>
     <string name="anteojos">Glasses</string>
@@ -120,5 +120,35 @@
     <string name="mochilas">Backpacks</string>
     <string name="pulseras">Bracelet</string>
     <string name="relojes">Watches</string>
-
+    <string name="estilo-jeans">Jeans-Style</string>
+    <string name="estilo-pantalones">Pants-Style</string>
+    <string name="marca">Brand</string>
+    <string name="material-accesorios">Accesories-Material</string>
+    <string name="material-blazers">Blazers-Material</string>
+    <string name="material-buzos">Jogging Suit-Material</string>
+    <string name="material-calzado">Material-Calzado</string>
+    <string name="material-calzas">Leggings-Material</string>
+    <string name="material-camisas">Shirts-Material</string>
+    <string name="material-camperas">Jackets-Material</string>
+    <string name="material-cardigans">Cardigans-Material</string>
+    <string name="material-chalecos">Vests-Material</string>
+    <string name="material-jeans">Jeans-Material</string>
+    <string name="material-pantalones">Pants-Material</string>
+    <string name="material-pilotos">Pilots-Material</string>
+    <string name="material-polleras">Skirts-Material</string>
+    <string name="nuevo">New</string>
+    <string name="oferta">Offer</string>
+    <string name="ocasion">Ocasion</string>
+    <string name="talle-blazer">Blazer-Size</string>
+    <string name="talle-buzos">Jogging Suits-Size</string>
+    <string name="talle-calzado">Footwear-Size</string>
+    <string name="talle-calzas">Leggings-Size</string>
+    <string name="talle-camisas">Shirts-Size</string>
+    <string name="talle-camperas">Jackets-Size</string>
+    <string name="talle-cardigans">Cardigans-Size</string>
+    <string name="talle-chalecos">Vests-Size</string>
+    <string name="talle-jeans">Jeans-Size</string>
+    <string name="talle-pantalones">Pants-Size</string>
+    <string name="talle-pilotos">Pilots-Size</string>
+    <string name="talle-polleras">Skirts-Size</string>
 </resources>
