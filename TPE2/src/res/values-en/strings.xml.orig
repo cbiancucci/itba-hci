@@ -75,7 +75,10 @@
     <string name="search_items_menu_search">Search</string>
     <string name="view_item_menu_bookmark">Bookmark</string>
     <string name="restart_app">Restarting app due to language changes</string>
-<string name="calzado">Footwear</string>
+<<<<<<< HEAD
+    <string name="no_data_api">No data from API.</string>
+=======
+    <string name="calzado">Footwear</string>
     <string name="adulto">Adult</string>
     <string name="edad">Age</string>
     <string name="bebe">Baby</string>
@@ -194,4 +197,5 @@
     <string name="polyester">Polyester</string>
     <string name="gabardina">Raincoat</string>
     <string name="polar">Polar</string>
+>>>>>>> 3bb7c2f7244f81a33f4d2cc82f58bbe26ae8ebd5
 </resources>

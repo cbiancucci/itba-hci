@@ -45,29 +45,29 @@ public class OrderDetailParser {
 			    JSONObject items = (JSONObject) arr.get(i);
 			    JSONObject address;
 			    ord = new Order();
-			    if(!items.isNull("id"))
-			    	ord.setId( (Integer)order.get("id"));
-			    if(!order.isNull("status"))
-			    	ord.setStatus( (String)order.get("status"));
-			    if(!order.isNull("address")){
-			    	address = (JSONObject) order.getJSONObject("address");
-			    	if(!address.isNull("name"))
-			    		ord.setAddres((String) address.get("name"));
-			    }
-			    
-			    if(!order.isNull("deliveredDate"))
-			    	ord.setDeliveredDate((String) order.get("deliveredDate"));
-			    if(!order.isNull("processedDate"))
-			    	ord.setProcessedDate((String) order.get("processedDate"));
-			    if(!order.isNull("shippedDate"))
-			    	ord.setShippedDate((String) order.get("shippedDate"));
-			    if(!order.isNull("receivedDate"))
-			    	ord.setReceivedDate((String) order.get("receivedDate"));
-			    if(!order.isNull("latitude"))
-			    	ord.setLatitude((Integer) order.get("latitude"));
-			    if(!order.isNull("longitude"))
-			    	ord.setLongitude((Integer)order.get("longitude"));
-			    
+//			    if(!items.isNull("id"))
+//			    	ord.setId( (Integer)order.get("id"));
+//			    if(!order.isNull("status"))
+//			    	ord.setStatus( (String)order.get("status"));
+//			    if(!order.isNull("address")){
+//			    	address = (JSONObject) order.getJSONObject("address");
+//			    	if(!address.isNull("name"))
+//			    		ord.setAddres((String) address.get("name"));
+//			    }
+//			    
+//			    if(!order.isNull("deliveredDate"))
+//			    	ord.setDeliveredDate((String) order.get("deliveredDate"));
+//			    if(!order.isNull("processedDate"))
+//			    	ord.setProcessedDate((String) order.get("processedDate"));
+//			    if(!order.isNull("shippedDate"))
+//			    	ord.setShippedDate((String) order.get("shippedDate"));
+//			    if(!order.isNull("receivedDate"))
+//			    	ord.setReceivedDate((String) order.get("receivedDate"));
+//			    if(!order.isNull("latitude"))
+//			    	ord.setLatitude((Integer) order.get("latitude"));
+//			    if(!order.isNull("longitude"))
+//			    	ord.setLongitude((Integer)order.get("longitude"));
+//			    
 			    listArray.add(ord);
 			}
 	

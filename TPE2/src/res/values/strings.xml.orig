@@ -77,7 +77,10 @@
     <string name="search_items_menu_search">Buscar</string>
     <string name="view_item_menu_bookmark">Favorito</string>
     <string name="restart_app">Reiniciando aplicación por cambios de lenguaje</string>
-<string name="calzado">Calzado</string>
+<<<<<<< HEAD
+    <string name="no_data_api">No hay información disponible en la API.</string>
+=======
+    <string name="calzado">Calzado</string>
     <string name="adulto">Adulto</string>
     <string name="edad">Edad</string>
     <string name="bebe">Bebe</string>
@@ -196,4 +199,5 @@
     <string name="polyester">Polyester</string>
     <string name="gabardina">Gabardina</string>
     <string name="polar">Polar</string>
+>>>>>>> 3bb7c2f7244f81a33f4d2cc82f58bbe26ae8ebd5
 </resources>
