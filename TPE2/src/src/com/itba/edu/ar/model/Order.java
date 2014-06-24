@@ -16,7 +16,9 @@ public class Order {
 	Integer latitude;
 	Integer longitude;
 	
-
+	public void setItems(Item items){
+		this.items.add(items);
+	}
 	public List<Item> getItems(){
 		return items;
 	}

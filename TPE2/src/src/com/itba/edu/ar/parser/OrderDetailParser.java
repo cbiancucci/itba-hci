@@ -2,8 +2,7 @@ package com.itba.edu.ar.parser;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -15,15 +14,13 @@ import android.os.StrictMode;
 
 import com.itba.edu.ar.model.Item;
 import com.itba.edu.ar.model.Order;
+import com.itba.edu.ar.model.Product;
 
 public class OrderDetailParser {
-	Order ord;
-	List<Order> listArray;
-	public OrderDetailParser(Order orden){
-		ord = orden;
-		listArray = new ArrayList<Order>();
-	}
-	public List<Order> getData(String url) {
+	
+	
+	public Order getData(String url) {
+		Order order = new Order();
 
 		try {
 			
@@ -38,47 +35,51 @@ public class OrderDetailParser {
 
 			String json = reader.readLine();
 			JSONObject jsonObject = new JSONObject(json);
-			
-			JSONArray arr = (JSONArray) jsonObject.get("items");
+			JSONObject orden = jsonObject.getJSONObject("order");
+			if(!orden.isNull("receivedDate"))
+				order.setReceivedDate(orden.getString("receivedDate"));
+			if(!orden.isNull("processedDate"))
+				order.setShippedDate(orden.getString("processedDate"));
+			if(!orden.isNull("shippedDate"))
+				order.setShippedDate(orden.getString("shippedDate"));
+			if(!orden.isNull("deliveredDate"))
+				order.setDeliveredDate(orden.getString("deliveredDate"));
+			if(!orden.isNull("latitude"))
+				order.setLatitude(orden.getInt("latitude"));
+			if(!orden.isNull("longitude"))
+				order.setLongitude(orden.getInt("longitude"));
+			if(!orden.isNull("id"))
+				order.setId(orden.getInt("id"));
+			JSONArray arr = (JSONArray) orden.get("items");
 			for (int i = 0; i < arr.length(); i++) {
-				Item item;
+				Item item = new Item();
 			    JSONObject items = (JSONObject) arr.get(i);
-			    JSONObject address;
-			    ord = new Order();
-//			    if(!items.isNull("id"))
-//			    	ord.setId( (Integer)order.get("id"));
-//			    if(!order.isNull("status"))
-//			    	ord.setStatus( (String)order.get("status"));
-//			    if(!order.isNull("address")){
-//			    	address = (JSONObject) order.getJSONObject("address");
-//			    	if(!address.isNull("name"))
-//			    		ord.setAddres((String) address.get("name"));
-//			    }
-//			    
-//			    if(!order.isNull("deliveredDate"))
-//			    	ord.setDeliveredDate((String) order.get("deliveredDate"));
-//			    if(!order.isNull("processedDate"))
-//			    	ord.setProcessedDate((String) order.get("processedDate"));
-//			    if(!order.isNull("shippedDate"))
-//			    	ord.setShippedDate((String) order.get("shippedDate"));
-//			    if(!order.isNull("receivedDate"))
-//			    	ord.setReceivedDate((String) order.get("receivedDate"));
-//			    if(!order.isNull("latitude"))
-//			    	ord.setLatitude((Integer) order.get("latitude"));
-//			    if(!order.isNull("longitude"))
-//			    	ord.setLongitude((Integer)order.get("longitude"));
-//			    
-			    listArray.add(ord);
+			    if(!items.isNull("product")){
+			    	JSONObject prod = (JSONObject) items.get("product");
+			    	Product product = new Product();
+			    	if(!prod.isNull("name"))
+			    		product.setName(prod.getString("name"));
+			    	if(!prod.isNull("imageUrl"))
+			    		product.addImageUrl(prod.getString("imageUrl"));
+			    	item.setProduct(product);
+			    }
+			    if(!items.isNull("quantity"))
+			    	item.setQuantity(items.getInt("quantity"));
+			    if(!items.isNull("price"))
+			    	item.setPrice(items.getInt("price"));
+			    
+			    order.setItems(item);
 			}
 	
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			Order ob = new Order();
-			ob.setAddres(e.toString());
-			listArray.add(ob);
+			ob.setShippedDate(e.toString());
+			return ob;
+			
 		}
 
-		return listArray;
+		return order;
 	}
 }

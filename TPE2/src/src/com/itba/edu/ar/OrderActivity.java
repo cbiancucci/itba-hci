@@ -109,7 +109,8 @@ public class OrderActivity extends Activity{
 					int position, long arg3) {
 				Intent intent = new Intent(OrderActivity.this, OrderViewActivity.class);
 				//cambiar despues de terminar el parser
-				intent.putExtra("order", new ProductParser().getProductById(((Product) adapter.getAdapter().getItem(position)).getId()));
+				intent.putExtra("order", ((Order) adapter.getAdapter().getItem(position)).getId());
+				//Toast.makeText(getApplicationContext(), ((Order)adapter.getAdapter().getItem(position)).getId().toString(), Toast.LENGTH_LONG).show();;
 				startActivity(intent);
 			}
 		});
