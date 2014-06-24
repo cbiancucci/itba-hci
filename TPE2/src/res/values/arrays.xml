@@ -23,7 +23,7 @@
         <item name="60">60</item>
     </string-array>
      <array name="nav_drawer_icons">
-        <item>@drawable/ic_search</item>
+        <item>@drawable/ic_home</item>
         <item>@drawable/ic_categories</item>
         <item>@drawable/ic_male</item>
         <item>@drawable/ic_female</item>
@@ -37,7 +37,7 @@
     </array>
      
      <string-array name="menu_options">
-        <item>Buscar</item>
+        <item>Inicio</item>
         <item>Categorías</item>
         <item>Masculino</item>
         <item>Femenino</item>

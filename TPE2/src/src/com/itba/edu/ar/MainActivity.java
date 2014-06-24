@@ -2,12 +2,6 @@ package com.itba.edu.ar;
 
 import java.util.ArrayList;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-import com.itba.edu.ar.adapter.NavDrawerListAdapter;
-import com.itba.edu.ar.model.NavDrawerItem;
-import com.itba.edu.ar.parser.ProductParser;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -31,11 +25,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
+
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.itba.edu.ar.adapter.NavDrawerListAdapter;
+import com.itba.edu.ar.model.NavDrawerItem;
+import com.itba.edu.ar.parser.ProductParser;
 
 public class MainActivity extends Activity implements
 		SearchView.OnQueryTextListener {

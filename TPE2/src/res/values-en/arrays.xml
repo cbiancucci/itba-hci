@@ -37,7 +37,7 @@
     </array>
      
      <string-array name="menu_options">
-        <item>Search</item>
+        <item>Home</item>
         <item>Categories</item>
         <item>Male</item>
         <item>Female</item>

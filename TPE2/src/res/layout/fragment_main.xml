@@ -24,7 +24,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/button_style"
         android:drawable="@drawable/ic_user"
-        android:drawableLeft="@drawable/ic_user"
+        android:drawableLeft="@drawable/ic_login"
         android:text="@string/login"
         android:textColor="@color/white" />
 
