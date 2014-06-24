@@ -88,6 +88,13 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".SubcategoriesActivity"
+            android:parentActivityName=".CategoriesActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CategoriesActivity" />
+        </activity>
+        <activity
             android:name=".ProductListActivity"
             android:label="@string/products"
             android:parentActivityName=".CategoriesActivity" >

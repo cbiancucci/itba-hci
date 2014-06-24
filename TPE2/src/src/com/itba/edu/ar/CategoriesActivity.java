@@ -1,294 +1,123 @@
 package com.itba.edu.ar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Vector;
+import java.util.Locale;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
-import android.widget.TabHost;
-import android.widget.TabHost.TabContentFactory;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-import com.itba.edu.ar.adapter.PagerAdapter;
+import com.itba.edu.ar.adapter.CategoryAdapter;
 import com.itba.edu.ar.model.Category;
 import com.itba.edu.ar.parser.CategoryParser;
+import com.itba.edu.ar.utils.Utils;
 
-/**
- * The <code>TabsViewPagerFragmentActivity</code> class implements the Fragment
- * activity that maintains a TabHost using a ViewPager.
- * 
- * @author mwho
- */
-public class CategoriesActivity extends FragmentActivity implements
-		TabHost.OnTabChangeListener, ViewPager.OnPageChangeListener {
+public class CategoriesActivity extends Activity {
 
-	private TabHost mTabHost;
-	private TabInfo lastTab;
-	private ViewPager mViewPager;
-	private HashMap<String, TabInfo> mapTabInfo = new HashMap<String, CategoriesActivity.TabInfo>();
-	private PagerAdapter mPagerAdapter;
-	private List<Category> categories = new ArrayList<Category>();
-
-	/**
-	 * 
-	 * @author mwho Maintains extrinsic info of a tab's construct
-	 */
-	private class TabInfo {
-		private String tag;
-		private Class<?> clss;
-		private Bundle args;
-		private Fragment fragment;
-
-		TabInfo(String tag, Class<?> clazz, Bundle args) {
-			this.tag = tag;
-			this.clss = clazz;
-			this.args = args;
-		}
-
-	}
-
-	/**
-	 * A simple factory that returns dummy views to the Tabhost
-	 * 
-	 * @author mwho
-	 */
-	class TabFactory implements TabContentFactory {
-
-		private final Context mContext;
-
-		/**
-		 * @param context
-		 */
-		public TabFactory(Context context) {
-			mContext = context;
-		}
-
-		/**
-		 * (non-Javadoc)
-		 * 
-		 * @see android.widget.TabHost.TabContentFactory#createTabContent(java.lang.String)
-		 */
-		public View createTabContent(String tag) {
-			View v = new View(mContext);
-			v.setMinimumWidth(0);
-			v.setMinimumHeight(0);
-			return v;
-		}
-
-	}
+	private TextToSpeech mTts;
+	private List<Category> categories;
+	ProgressBar pBar;
+	ListView listView;
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.menu, menu);
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.action_settings:
-			Intent order = new Intent(this, UserSettingActivity.class);
-			startActivity(order);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
-
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
-	 */
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Inflate the layout
 		setContentView(R.layout.categories_layout);
+		listView = (ListView) findViewById(R.id.categories);
+		pBar = (ProgressBar) findViewById(R.id.category_bar);
 
-		// Load categories for tabs
-		categories = new CategoryParser().getCategories();
-
-		// Initialise the TabHost
-		this.initialiseTabHost(savedInstanceState);
-		if (savedInstanceState != null) {
-			mTabHost.setCurrentTabByTag(savedInstanceState.getString("tab"));
-		}
-		
-		// Intialise ViewPager
-		this.intialiseViewPager();
-	}
-
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see android.support.v4.app.FragmentActivity#onSaveInstanceState(android.os.Bundle)
-	 */
-	protected void onSaveInstanceState(Bundle outState) {
-		outState.putString("tab", mTabHost.getCurrentTabTag()); // save the tab
-																// selected
-		super.onSaveInstanceState(outState);
-	}
-
-	/**
-	 * Initialise ViewPager
-	 */
-	private void intialiseViewPager() {
-
-		List<Fragment> fragments = new Vector<Fragment>();
-
-		for (Category cat : categories) {
-			// Aca seteamos los filtros
-			Bundle args = new Bundle();
-			args.putParcelable(getString(R.string.category_key), cat);
-			Fragment frag = Fragment.instantiate(this,
-					SubcategoryFragment.class.getName());
-			
-			frag.setArguments(args);
-			fragments.add(frag);
-		}
-
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-
-		this.mPagerAdapter = new PagerAdapter(
-				super.getSupportFragmentManager(), fragments);
-		//
-		this.mViewPager = (ViewPager) super.findViewById(R.id.viewpager);
-		this.mViewPager.setAdapter(this.mPagerAdapter);
-		this.mViewPager.setOnPageChangeListener(this);
-		mViewPager.setBackgroundResource(R.drawable.tab_selector);
-		
-		this.mTabHost.setOnTabChangedListener(this);
-	}
-
-	/**
-	 * Initialise the Tab Host
-	 */
-	private void initialiseTabHost(Bundle args) {
-		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
-		mTabHost.setup();
-		TabInfo tabInfo = null;
-		
-		// Traer categorias de la api y generar los tabs
-
-		for (Category cat : categories) {
-			CategoriesActivity.AddTab(this, this.mTabHost, this.mTabHost
-					.newTabSpec(cat.getName()).setIndicator(cat.getName()),
-					(tabInfo = new TabInfo("TabFragment",
-							SubcategoryFragment.class, args)));
-			this.mapTabInfo.put(tabInfo.tag, tabInfo);
-		}
-
-		for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
-			mTabHost.getTabWidget().getChildAt(i)
-					.setBackgroundResource(R.drawable.tab_selector);
-		}
-	}
-
-	/**
-	 * Add Tab content to the Tabhost
-	 * 
-	 * @param activity
-	 * @param tabHost
-	 * @param tabSpec
-	 * @param clss
-	 * @param args
-	 */
-	private static void AddTab(CategoriesActivity activity, TabHost tabHost,
-			TabHost.TabSpec tabSpec, TabInfo tabInfo) {
-
-		tabSpec.setContent(activity.new TabFactory(activity));
-		if (tabInfo.fragment != null && !tabInfo.fragment.isDetached()) {
-			tabInfo.fragment.setArguments(tabInfo.args);
-			FragmentTransaction ft = activity.getSupportFragmentManager()
-					.beginTransaction();
-			ft.detach(tabInfo.fragment);
-			ft.commit();
-		}
-		tabHost.addTab(tabSpec);
-	}
-
-	/**
-	 * (non-Javadoc)
-	 * 
-	 * @see android.widget.TabHost.OnTabChangeListener#onTabChanged(java.lang.String)
-	 */
-	public void onTabChanged(String tabId) {
-		
-		TabInfo newTab = mapTabInfo.get(tabId);
-		
-		if (lastTab != newTab) {
-			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-			if (lastTab != null) {
-				if (lastTab.fragment != null) {
-					ft.detach(lastTab.fragment);
-				}
+		mTts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+			@Override
+			public void onInit(int status) {
+				mTts.setLanguage(new Locale("spa", "ESP"));
 			}
-			if (newTab != null) {
-				if (newTab.fragment == null) {
-					newTab.fragment = Fragment.instantiate(this,
-							newTab.clss.getName(), newTab.args);
-					ft.add(newTab.fragment, newTab.tag);
-				} else {
-					ft.attach(newTab.fragment);
-				}
+		});
+
+		if (Utils.isNetworkAvailable(CategoriesActivity.this)) {
+			new MyTask().execute();
+		} else {
+			showToast(getString(R.string.no_network));
+		}
+
+	}
+	
+	class MyTask extends AsyncTask<String, Void, Void> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			pBar.setVisibility(View.VISIBLE);
+		}
+
+		@Override
+		protected Void doInBackground(String... params) {
+			categories = new CategoryParser().getCategories();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+
+			if (null != pBar && pBar.getVisibility() == View.VISIBLE) {
+				pBar.setVisibility(View.GONE);
+				listView.setVisibility(View.VISIBLE);
 			}
 
-			lastTab = newTab;
-			ft.commit();
-			getSupportFragmentManager().executePendingTransactions();
+			if (null == categories || categories.size() == 0) {
+				showToast(getString(R.string.no_data_api));
+				CategoriesActivity.this.finish();
+			} else {
+				setAdapterToListview();
+			}
+
 		}
-		// TabInfo newTab = this.mapTabInfo.get(tag);
-		int pos = this.mTabHost.getCurrentTab();
-		this.mViewPager.setCurrentItem(pos);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * android.support.v4.view.ViewPager.OnPageChangeListener#onPageScrolled
-	 * (int, float, int)
-	 */
-	@Override
-	public void onPageScrolled(int position, float positionOffset,
-			int positionOffsetPixels) {
-		// TODO Auto-generated method stub
+	public void setAdapterToListview() {
+		listView.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
+		listView.setSelector(R.drawable.listitem_background);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View v,
+					int position, long arg3) {
+				Intent intent = new Intent(getApplicationContext(),
+						SubcategoriesActivity.class);
+				Category cat = (Category) adapter.getAdapter()
+						.getItem(position);
+				intent.putExtra("category", cat);
+				startActivity(intent);
+			}
+		});
 
+		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			public boolean onItemLongClick(AdapterView<?> adapter, View arg1,
+					int pos, long id) {
+				mTts.speak(((Category) adapter.getAdapter().getItem(pos))
+						.getName(), TextToSpeech.QUEUE_FLUSH, null);
+				return true;
+			}
+		});
+		listView.setAdapter(new CategoryAdapter(this,
+				R.layout.list_item_layout, R.id.name, categories));
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * android.support.v4.view.ViewPager.OnPageChangeListener#onPageSelected
-	 * (int)
-	 */
-	@Override
-	public void onPageSelected(int position) {
-		// TODO Auto-generated method stub
-		this.mTabHost.setCurrentTab(position);
+	
+	public List<Category> getCategories() {
+		return categories;
 	}
+	
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see android.support.v4.view.ViewPager.OnPageChangeListener#
-	 * onPageScrollStateChanged(int)
-	 */
-	@Override
-	public void onPageScrollStateChanged(int state) {
-		// TODO Auto-generated method stub
-
+	public void showToast(String msg) {
+		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 	}
 }
