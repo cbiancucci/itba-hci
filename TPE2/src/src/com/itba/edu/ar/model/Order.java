@@ -1,5 +1,8 @@
 package com.itba.edu.ar.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order {
 	private Integer id ;
 	String addres;
@@ -8,10 +11,15 @@ public class Order {
 	String processedDate;
 	String shippedDate;
 	String deliveredDate;
+	List<Item> items = new ArrayList<Item>();
 
 	Integer latitude;
 	Integer longitude;
 	
+
+	public List<Item> getItems(){
+		return items;
+	}
 	public Integer getId() {
 		return id;
 	}

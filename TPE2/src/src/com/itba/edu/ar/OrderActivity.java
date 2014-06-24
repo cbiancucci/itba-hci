@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.itba.edu.ar.adapter.OrderAdapter;
 import com.itba.edu.ar.model.Order;
+import com.itba.edu.ar.model.Product;
 import com.itba.edu.ar.parser.OrderParser;
+import com.itba.edu.ar.parser.ProductParser;
 import com.itba.edu.ar.utils.Utils;
 
 import android.app.Activity;
@@ -17,8 +19,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class OrderActivity extends Activity{
 	
@@ -97,6 +102,17 @@ public class OrderActivity extends Activity{
 		listView.setSelector(R.drawable.listitem_background);
 	
 		listView.setAdapter(objAdapter);
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View v,
+					int position, long arg3) {
+				Intent intent = new Intent(OrderActivity.this, OrderViewActivity.class);
+				//cambiar despues de terminar el parser
+				intent.putExtra("order", new ProductParser().getProductById(((Product) adapter.getAdapter().getItem(position)).getId()));
+				startActivity(intent);
+			}
+		});
 	}
 	public void showToast(String msg) {
 		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
