@@ -10,6 +10,7 @@ import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -47,6 +49,8 @@ public class MainActivity extends Activity implements
 	private CharSequence mTitle;
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
+	SharedPreferences saveData;
+	
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
@@ -56,6 +60,8 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
+		saveData = getSharedPreferences(
+				"login", MODE_PRIVATE);
 
 		// mTitle = mDrawerTitle = getTitle();
 		navMenuTitles = getResources().getStringArray(R.array.menu_options);
@@ -221,6 +227,7 @@ public class MainActivity extends Activity implements
 		Fragment fragment = new BGFragment();
 		Bundle args = new Bundle();
 		args.putInt(BGFragment.ITEM_NUMBER, position);
+		args.putString("user", getSharedPreferences("login",MODE_PRIVATE ).getString("user", "none user"));
 		fragment.setArguments(args);
 
 		FragmentManager fragmentManager = getFragmentManager();
@@ -263,10 +270,11 @@ public class MainActivity extends Activity implements
 	 */
 	public static class BGFragment extends Fragment {
 		public static final String ITEM_NUMBER = "item_number";
-
+		SharedPreferences saveData;
 		public BGFragment() {
 			// Empty constructor required for fragment subclasses
 		}
+		
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -274,11 +282,19 @@ public class MainActivity extends Activity implements
 			setHasOptionsMenu(true);
 			View rootView = null;
 			int i = getArguments().getInt(ITEM_NUMBER);
+			String user = getArguments().getString("user");
 			getActivity().setTitle(R.string.app_name);
 			rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
 
 			Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
+			TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
+			if(user != null){
+				String change_user = (String) getText(R.string.change_user);
+				btnLogin.setText(change_user);
+				welcome.setText(getText(R.string.welcome) +" : " + user);
+			}
+			//ACA HACER LA PREGUNTA
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {

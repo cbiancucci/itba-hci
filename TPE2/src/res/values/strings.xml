@@ -27,10 +27,13 @@
     <string name="app_not_available">Lo sentimos, no hay un navegador web disponible</string>
     <string name="title_activity_login">Ingresar</string>
     <string name="prompt_email">Nombre de usuario</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="change_user">Cambiar de usuario</string>
     <string name="prompt_password">Clave</string>
     <string name="action_sign_in_register">Ingresar</string>
     <string name="action_sign_in_short">Ingresar</string>
     <string name="not_implemented">Esta acción aún se encuentra implementada</string>
+    <string name="order_info">Información de pedido</string>
     <string name="category_key">CATEGORY_NAME</string>
     <string name="products">Productos</string>
     <string name="load_products">Cargando productos&#133;</string>

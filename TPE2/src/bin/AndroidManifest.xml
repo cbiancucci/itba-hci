@@ -51,7 +51,7 @@
         
         <activity
             android:name=".OrderViewActivity"
-            android:parentActivityName=".ProductListActivity" >
+            android:parentActivityName=".OrderActivity" >
         </activity>
         
         <activity

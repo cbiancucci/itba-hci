@@ -15,6 +15,15 @@
         android:background="@drawable/logo"
         android:contentDescription="@string/app_name" />
 
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor= "@color/bgcolor"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"

@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="@string/product_info"
+            android:text="@string/order_info"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/bgcolor"
             android:typeface="sans" />
