@@ -3,6 +3,22 @@ package com.itba.edu.ar;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ProgressDialog;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.itba.edu.ar.adapter.ProductsAdapter;
 import com.itba.edu.ar.model.Item;
 import com.itba.edu.ar.model.Order;
@@ -10,16 +26,7 @@ import com.itba.edu.ar.model.Product;
 import com.itba.edu.ar.parser.OrderDetailParser;
 import com.itba.edu.ar.utils.Utils;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.SharedPreferences;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-public class OrderViewActivity extends Activity{
+public class OrderViewActivity extends FragmentActivity {
 	public  String url = "http://eiffel.itba.edu.ar/hci/service3/Order.groovy?method=GetOrderById";
 	Order orden;
 	protected void onCreate(Bundle savedInstanceState){
@@ -32,7 +39,7 @@ public class OrderViewActivity extends Activity{
 				Bundle extras = getIntent().getExtras();
 				final Integer id = extras.getInt("order");
 				if(id != null){
-					getActionBar().setTitle(getText(R.string.order)+ " Numero :" + id.toString());
+					getActionBar().setTitle(getText(R.string.order)+ " Numero " + id.toString());
 					SharedPreferences pref = getSharedPreferences("login", MODE_PRIVATE);
 					String user = pref.getString("user", "none");
 					if(!user.equals("none"))
@@ -90,6 +97,27 @@ public class OrderViewActivity extends Activity{
 		TextView proccesed = (TextView) findViewById(R.id.proccesedVal);
 		TextView send = (TextView) findViewById(R.id.deliveredVal);
 		TextView received = (TextView) findViewById(R.id.receivedVal);
+		ScrollView scrollview = (ScrollView) findViewById(R.id.scroll);
+		
+		LatLng pos = new LatLng(
+				Double.valueOf(orden.getLatitude()),
+				Double.valueOf(orden.getLongitude()));
+
+		GoogleMap map = ((SupportMapFragment) getSupportFragmentManager()
+				.findFragmentById(R.id.map)).getMap();
+		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 15));
+		map.setMyLocationEnabled(true);
+		map.setTrafficEnabled(true);
+		map.getUiSettings().setZoomControlsEnabled(true);
+		map.getUiSettings().setCompassEnabled(false);
+		map.addMarker(new MarkerOptions()
+				.position(pos)
+				.title(getString(R.string.order) + " "
+						+ orden.getId() + ".")
+				.snippet(orden.getLatitude() + ", " + orden.getLongitude())
+				.anchor(0.5f, 0.5f));
+		
 		Integer acumPrice = 0;
 		Integer acumQuantity = 0;
 		for(Item item : orden.getItems()){
@@ -99,14 +127,15 @@ public class OrderViewActivity extends Activity{
 		}
 		price.setText(acumPrice.toString());
 		quantity.setText(acumQuantity.toString());
-		if(orden.getShippedDate()!= null)
-			shipped.setText(orden.getShippedDate());
+		
+		if(orden.getShippedDate()!= null) 
+			shipped.setText(getStringDate(orden.getShippedDate()));
 		if(orden.getProcessedDate() != null)
-			proccesed.setText(orden.getProcessedDate());
+			proccesed.setText(getStringDate(orden.getProcessedDate()));
 		if(orden.getDeliveredDate() != null)
-			send.setText(orden.getDeliveredDate());
+			send.setText(getStringDate(orden.getDeliveredDate()));
 		if(orden.getReceivedDate() != null)
-			received.setText(orden.getReceivedDate());
+			received.setText(getStringDate(orden.getReceivedDate()));
 		ListView listView = (ListView) findViewById(R.id.orderlist);
 		ProductsAdapter objAdapter = new ProductsAdapter(OrderViewActivity.this,
 				R.layout.product_item, productos);
@@ -115,6 +144,15 @@ public class OrderViewActivity extends Activity{
 		listView.setSelector(R.drawable.listitem_background);
 		
 		listView.setAdapter(objAdapter);
+		
+		scrollview.pageScroll(View.FOCUS_UP);
+		scrollview.scrollTo(0, 0);
+	}
+	
+	private String getStringDate(String date) {
+		String[] hourDate = date.split(" ");
+		String[] dates = hourDate[0].split("-");
+		return dates[2] + "/" + dates[1] + "/" + dates[0];
 	}
 	
 }

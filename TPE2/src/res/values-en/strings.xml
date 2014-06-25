@@ -38,6 +38,7 @@
     <string name="forgot_password">Forgot my password</string>
     <string name="no_qr">Error while reading QR code</string>
     <string name="product_info">Product info</string>
+    <string name="order_info">Order info</string>
     <string name="intro_subcategory">Subcategory</string>
     <string name="size">Size</string>
     <string name="occasion">Occasion</string>
@@ -76,4 +77,18 @@
     <string name="view_item_menu_bookmark">Bookmark</string>
     <string name="restart_app">Restarting app due to language changes</string>
     <string name="no_data_api">No data from API.</string>
+    <string name="notification_onupdate">Updates found.</string>
+    <string name="notification_onupdate_nonew">Up to date.</string>
+    <string name="notification_error">Update error.</string>
+    <string name="notification_error_notloggedin">User not logged in.</string>
+    <string name="notification_order">Order</string>
+    <string name="notification_order_new">created</string>
+    <string name="notification_order_updatedlocation">location updated</string>
+    <string name="notification_order_updatedstatus">status updated</string>
+    <string name="notification_status_created">created</string>
+    <string name="notification_status_confirmed">confirmed</string>
+    <string name="notification_status_transport">shipped</string>
+    <string name="notification_status_delivered">delivered</string>
+    <string name="elements_info">Order Items</string>
+    <string name="ubication_info">Order Ubication</string>
 </resources>

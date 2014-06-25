@@ -24,6 +24,8 @@ import com.itba.edu.ar.model.Category;
 import com.itba.edu.ar.parser.CategoryParser;
 import com.itba.edu.ar.utils.Utils;
 
+
+
 public class CategoriesActivity extends Activity {
 
 	private TextToSpeech mTts;

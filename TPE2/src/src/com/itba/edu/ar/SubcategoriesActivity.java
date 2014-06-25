@@ -3,10 +3,6 @@ package com.itba.edu.ar;
 import java.util.List;
 import java.util.Locale;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -152,7 +148,7 @@ public class SubcategoriesActivity extends FragmentActivity {
 			Intent order = new Intent(this, UserSettingActivity.class);
 			startActivity(order);
 			return true;
-		case R.id.filter:
+		case R.id.filter_bg:
 			android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
 	        CustomDialog editNameDialog = new CustomDialog();
 	        editNameDialog.show(fm, "fragment_edit_name");

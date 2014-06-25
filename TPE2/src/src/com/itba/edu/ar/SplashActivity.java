@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.Window;
-import android.widget.Toast;
 
 public class SplashActivity extends Activity {
 

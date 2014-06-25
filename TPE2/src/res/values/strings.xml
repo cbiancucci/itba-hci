@@ -45,6 +45,9 @@
     <string name="forgot_password">Olvidé mi clave</string>
     <string name="no_qr">Hubo un error en la lectura del código QR</string>
     <string name="product_info">Datos del producto</string>
+    <string name="order_info">Datos del pedido</string>
+    <string name="elements_info">Ítems del pedido</string>
+    <string name="ubication_info">Ubicación del pedido</string>
     <string name="intro_subcategory">Subcategoría</string>
     <string name="size">Talles</string>
     <string name="occasion">Ocasión</string>
@@ -83,4 +86,16 @@
     <string name="view_item_menu_bookmark">Favorito</string>
     <string name="restart_app">Reiniciando aplicación por cambios de lenguaje</string>
     <string name="no_data_api">No hay información disponible en la API.</string>
+    <string name="notification_onupdate">Se encontraron actualizaciones.</string>
+    <string name="notification_onupdate_nonew">No se encontraron actualizaciones.</string>
+    <string name="notification_error">Error en las actualizaciones.</string>
+    <string name="notification_error_notloggedin">No se encuentra ningún usuario logueado.</string>
+    <string name="notification_order">Pedido</string>
+    <string name="notification_order_new">realizado</string>
+    <string name="notification_order_updatedlocation">localización actualizada</string>
+    <string name="notification_order_updatedstatus">estado actualizado</string>
+    <string name="notification_status_created">creado</string>
+    <string name="notification_status_confirmed">confirmado</string>
+    <string name="notification_status_transport">enviado</string>
+    <string name="notification_status_delivered">entregado</string>
 </resources>

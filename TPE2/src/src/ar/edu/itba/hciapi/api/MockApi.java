@@ -47,7 +47,6 @@ class MockApi implements HciApi {
 	 * @param args The arguments to include in the list.
 	 * @return the list with args
 	 */
-	@SafeVarargs
 	private static <T> List<T> makeList(T... args) {
 		List<T> list = new ArrayList<T>();
 		for (T arg : args) {

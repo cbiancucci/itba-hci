@@ -301,25 +301,6 @@ public class MainActivity extends Activity implements
 				Intent settings = new Intent(getActivity(), OrderActivity.class);
 	            startActivity(settings);
 	            break;
-			case 7:
-				Intent notificationIntent = new Intent(getActivity(),
-						MainActivity.class);
-				PendingIntent pIntent = PendingIntent.getActivity(
-						getActivity(), 0, notificationIntent, 0);
-
-				NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
-						getActivity())
-						.setSmallIcon(R.drawable.ic_launcher)
-						.setContentTitle("Estado de tu pedido")
-						.setContentText(
-								"Te informamos que tu pedido 123456 ya esta en proceso de entrega.")
-						.setContentIntent(pIntent);
-
-				NotificationManager notificationManager = (NotificationManager) getActivity()
-						.getSystemService(NOTIFICATION_SERVICE);
-
-				notificationManager.notify(0, mBuilder.build());
-				break;
 			case 8:
 				IntentIntegrator scanIntegrator = new IntentIntegrator(
 						getActivity());
