@@ -120,7 +120,7 @@ public class ProductListActivity extends Activity {
 			public void onItemClick(AdapterView<?> adapter, View v,
 					int position, long arg3) {
 				Intent intent = new Intent(ProductListActivity.this, ProductViewActivity.class);
-				intent.putExtra("product", new ProductParser().getProductById(((Product) adapter.getAdapter().getItem(position)).getId()));
+				intent.putExtra("productId", ((Product) adapter.getAdapter().getItem(position)).getId());
 				startActivity(intent);
 			}
 		});

@@ -39,6 +39,7 @@ public class UserSettingActivity extends PreferenceActivity implements
 				Locale.setDefault(myLocale);
 				Toast.makeText(this, getString(R.string.restart_app), Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(this, SplashActivity.class);
+				intent.putExtra("language", true);
 				startActivity(intent);
 			}
 		}

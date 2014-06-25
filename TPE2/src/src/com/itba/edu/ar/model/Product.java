@@ -8,7 +8,6 @@ import java.util.Map;
 import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 @SuppressLint("ParcelCreator")
 public class Product implements Parcelable {
@@ -119,7 +118,7 @@ public class Product implements Parcelable {
 		if (attributes != null && attributes.containsKey(attr)) {
 			return attributes.get(attr);
 		}
-		return "";
+		return null;
 	}
 
 	public List<String> getImageUrl() {

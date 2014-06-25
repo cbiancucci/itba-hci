@@ -350,7 +350,12 @@ public class MainActivity extends Activity implements
 		
 		if (scanningResult != null) {
 			Intent productIntent = new Intent(getApplicationContext(), ProductViewActivity.class);
-			productIntent.putExtra("product", new ProductParser().getProduct(scanningResult.getContents()));
+			String productId = getProductId(scanningResult.getContents());
+			if(productId == null) {
+				Toast.makeText(this.getApplicationContext(), getString(R.string.no_data_api), Toast.LENGTH_SHORT);
+				return;
+			}
+			productIntent.putExtra("productId", productId);
 			startActivity(productIntent);
 		}
 		else {
@@ -361,5 +366,12 @@ public class MainActivity extends Activity implements
 					MainActivity.class);
 			startActivity(intentView);
 		}
+	}
+	
+	private String getProductId(String content) {
+		if(content.contains("product/id/")) {
+			return content.split("product/id/")[1];
+		}
+		return null;
 	}
 }
