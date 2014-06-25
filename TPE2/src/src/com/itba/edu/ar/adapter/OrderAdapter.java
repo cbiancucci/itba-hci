@@ -72,7 +72,20 @@ public class OrderAdapter extends ArrayAdapter<Order> {
 			holder.tvId.setText( getContext().getString(R.string.id) + ":");
 		if (holder.tvStatus != null && null != objBean.getStatus()
 				&& objBean.getStatus().toString().trim().length() > 0) {
-			holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + objBean.getStatus().toString());
+			if(objBean.getStatus().equals("1"))
+				holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + "Creada");
+			else if (objBean.getStatus().equals("2")){
+				holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + "Confirmada");
+			}
+			else if (objBean.getStatus().equals("3")){
+				holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + "Transportada");
+			}
+			else if (objBean.getStatus().equals("4")){
+				holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + "Entregada");
+			}
+			else{
+				holder.tvStatus.setText( getContext().getString(R.string.status) + ":" + "Error en el estado");
+			}
 		}
 		else
 			holder.tvStatus.setText( getContext().getString(R.string.status) + ":");

@@ -11,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="22dp"
-        android:text="status" />
+        android:layout_marginTop="22dp"/>
 
     <TextView
         android:id="@+id/shippedDate"
@@ -20,64 +19,58 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/deliveredDate"
         android:layout_alignBottom="@+id/deliveredDate"
-        android:layout_toLeftOf="@+id/addres"
-        android:text="shipped" />
+        android:layout_toLeftOf="@+id/addres"/>
 
     <TextView
         android:id="@+id/addres"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/status"
-        android:text="address" />
+        android:layout_below="@+id/status"/>
 
     <TextView
         android:id="@+id/proccesedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/addres"
-        android:text="proccesed" />
+        android:layout_below="@+id/addres"/>
 
     <TextView
         android:id="@+id/deliveredDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/receivedDate"
-        android:layout_alignParentLeft="true"
-        android:text="delivered" />
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:id="@+id/receivedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/longitude"
-        android:text="received" />
+        android:layout_below="@+id/longitude"/>
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/status"
+        android:layout_marginRight="58dp"/>
 
     <TextView
         android:id="@+id/longitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/latitude"
-        android:layout_below="@+id/proccesedDate"
-        android:text="longitude" />
-
-    <TextView
-        android:id="@+id/latitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/proccesedDate"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="92dp"
-        android:text="latitude" />
+        android:layout_below="@+id/proccesedDate"/>
 
     <TextView
         android:id="@+id/id_order"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="id" />
+        android:layout_marginLeft="140dp"
+        android:textColor="@color/bgcolor"
+        android:textSize="18sp" />
 
 </RelativeLayout>
