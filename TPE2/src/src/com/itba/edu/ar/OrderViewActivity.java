@@ -11,21 +11,23 @@ import com.itba.edu.ar.parser.OrderDetailParser;
 import com.itba.edu.ar.utils.Utils;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class OrderViewActivity extends Activity{
 	public  String url = "http://eiffel.itba.edu.ar/hci/service3/Order.groovy?method=GetOrderById";
 	Order orden;
+	ProgressBar pDialog;
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.order_view);
-		
+		pDialog = (ProgressBar) findViewById(R.id.progress);
 		if (Utils.isNetworkAvailable(OrderViewActivity.this)){
 			
 			if(getIntent().hasExtra("order")){
@@ -54,13 +56,11 @@ public class OrderViewActivity extends Activity{
 		}
 	}
 	class OrderDetailTask extends AsyncTask<String, Void, Void>{
-		ProgressDialog pDialog;
+		
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			pDialog = new ProgressDialog(OrderViewActivity.this);
-			pDialog.setMessage(getString(R.string.load_order));
-			pDialog.show();
+			pDialog.setVisibility(View.VISIBLE);
 		}
 		@Override
 		protected Void doInBackground(String... params) {
@@ -71,8 +71,8 @@ public class OrderViewActivity extends Activity{
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			if (null != pDialog && pDialog.isShowing()) {
-				pDialog.dismiss();
+			if (null != pDialog && pDialog.getVisibility() == View.VISIBLE) {
+				pDialog.setVisibility(View.GONE);
 			}
 			
 			if(orden == null){

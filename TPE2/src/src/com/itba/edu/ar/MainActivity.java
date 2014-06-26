@@ -227,6 +227,9 @@ public class MainActivity extends Activity implements
 		Fragment fragment = new BGFragment();
 		Bundle args = new Bundle();
 		args.putInt(BGFragment.ITEM_NUMBER, position);
+		
+		
+		
 		args.putString("user", getSharedPreferences("login",MODE_PRIVATE ).getString("user", "none user"));
 		fragment.setArguments(args);
 
@@ -289,10 +292,13 @@ public class MainActivity extends Activity implements
 
 			Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
 			TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
-			if(user != null){
+			if(!user.equals("none user")){
 				String change_user = (String) getText(R.string.change_user);
 				btnLogin.setText(change_user);
 				welcome.setText(getText(R.string.welcome) +" : " + user);
+			}
+			else {
+				btnLogin.setText(R.string.login);
 			}
 			//ACA HACER LA PREGUNTA
 			btnLogin.setOnClickListener(new View.OnClickListener() {
