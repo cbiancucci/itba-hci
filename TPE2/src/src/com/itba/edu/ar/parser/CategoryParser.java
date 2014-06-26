@@ -24,8 +24,15 @@ public class CategoryParser {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			DefaultHttpClient defaultClient = new DefaultHttpClient();
-			HttpGet httpGetRequest = new HttpGet("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllCategories"
-					+ (filters != null ? "&filters=" + filters : ""));
+			String url = "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllCategories"
+					+ (filters != null ? "&filters=" + filters : "");
+			url = url.replace("\"", "%22");
+			url = url.replace("[", "%5B");
+			url = url.replace("]", "%5D");
+			url = url.replace("{", "%7B");
+			url = url.replace("}", "%7D");
+			url = url.replace(" ", "%20");
+			HttpGet httpGetRequest = new HttpGet(url);
 			HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					httpResponse.getEntity().getContent(), "UTF-8"));

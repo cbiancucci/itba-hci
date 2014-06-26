@@ -225,12 +225,15 @@ public class MainActivity extends Activity implements
 		Fragment fragment = new BGFragment();
 		Bundle args = new Bundle();
 		args.putInt(BGFragment.ITEM_NUMBER, position);
-
+<<<<<<< HEAD
 		args.putString("user", getSharedPreferences("login", MODE_PRIVATE)
 				.getString("user", "none user"));
-		args.putString("user", getSharedPreferences("login", MODE_PRIVATE)
-				.getString("user", "none user"));
-
+=======
+		
+		
+		
+		args.putString("user", getSharedPreferences("login",MODE_PRIVATE ).getString("user", "none user"));
+>>>>>>> c47c89e9d5147e12a8c7019efb9e44b66cf2458e
 		fragment.setArguments(args);
 
 		FragmentManager fragmentManager = getFragmentManager();
@@ -292,17 +295,23 @@ public class MainActivity extends Activity implements
 
 			Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
 			TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
-
+<<<<<<< HEAD
 			if (user != null) {
-				if (!user.equals("none user")) {
-
-					String change_user = (String) getText(R.string.change_user);
-					btnLogin.setText(change_user);
-					welcome.setText(getText(R.string.welcome) + " : " + user);
-				} else {
-					btnLogin.setText(R.string.login);
-				}
+=======
+			if(!user.equals("none user")){
+>>>>>>> c47c89e9d5147e12a8c7019efb9e44b66cf2458e
+				String change_user = (String) getText(R.string.change_user);
+				btnLogin.setText(change_user);
+				welcome.setText(getText(R.string.welcome) + " : " + user);
 			}
+<<<<<<< HEAD
+			// ACA HACER LA PREGUNTA
+=======
+			else {
+				btnLogin.setText(R.string.login);
+			}
+			//ACA HACER LA PREGUNTA
+>>>>>>> c47c89e9d5147e12a8c7019efb9e44b66cf2458e
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -312,7 +321,6 @@ public class MainActivity extends Activity implements
 					startActivity(i);
 				}
 			});
-
 			switch (i) {
 			case 0:
 				// Vacio, ya lo cargue por defecto al principio
@@ -327,24 +335,21 @@ public class MainActivity extends Activity implements
 				getActivity().setTitle(R.string.masculino);
 				Intent intentMale = new Intent(getActivity()
 						.getApplicationContext(), CategoriesActivity.class);
-				intentMale.putExtra("filters",
-						"[{\"id\":1,\"value\":\"Masculino\"}]");
+				intentMale.putExtra("filters", "[{\"id\":2,\"value\":\"Masculino\"}]");
 				startActivity(intentMale);
 				break;
 			case 3:
 				getActivity().setTitle(R.string.femenino);
 				Intent intentFemale = new Intent(getActivity()
 						.getApplicationContext(), CategoriesActivity.class);
-				intentFemale.putExtra("filters",
-						"[{\"id\":1,\"value\":\"Femenino\"}]");
+				intentFemale.putExtra("filters", "[{\"id\":1,\"value\":\"Femenino\"}]");
 				startActivity(intentFemale);
 				break;
 			case 4:
 				getActivity().setTitle(R.string.infantil);
 				Intent intentChild = new Intent(getActivity()
 						.getApplicationContext(), CategoriesActivity.class);
-				intentChild.putExtra("filters",
-						"[{\"id\":2,\"value\":\"Infantil\"}]");
+				intentChild.putExtra("filters", "[{\"id\":2,\"value\":\"Infantil\"}]");
 				startActivity(intentChild);
 				break;
 			case 5:
@@ -355,10 +360,7 @@ public class MainActivity extends Activity implements
 				getActivity().setTitle(R.string.sales);
 				Intent intentSale = new Intent(getActivity()
 						.getApplicationContext(), ProductListActivity.class);
-				intentSale
-						.putExtra(
-								"url",
-								"http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllProducts&filters=[{\"id\":5,\"value\":\"Oferta\"}]&pageSize=100");
+				intentSale.putExtra("url", "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllProducts&filters=[{\"id\":5,\"value\":\"Oferta\"}]&pageSize=100");
 				startActivity(intentSale);
 				break;
 			case 7:
@@ -381,42 +383,47 @@ public class MainActivity extends Activity implements
 				startActivity(intentView);
 				break;
 			}
+
 			return rootView;
 		}
+	}
 
-		public void onActivityResult(int requestCode, int resultCode,
-				Intent intent) {
-			IntentResult scanningResult = IntentIntegrator.parseActivityResult(
-					requestCode, resultCode, intent);
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+		IntentResult scanningResult = IntentIntegrator.parseActivityResult(
+				requestCode, resultCode, intent);
 
-			if (scanningResult != null) {
-				Intent productIntent = new Intent(getActivity(),
-						ProductViewActivity.class);
-				String productId = getProductId(scanningResult.getContents());
-				if (productId == null) {
-					return;
-				} else {
-					productIntent.putExtra("productId",
-							Integer.parseInt(productId));
-					startActivity(productIntent);
-				}
+		if (scanningResult != null) {
+			Intent productIntent = new Intent(getApplicationContext(),
+					ProductViewActivity.class);
+			String productId = getProductId(scanningResult.getContents());
+			if (productId == null) {
+				Toast.makeText(this.getApplicationContext(),
+						getString(R.string.no_data_api), Toast.LENGTH_SHORT);
+				return;
 			} else {
-				Toast toast = Toast.makeText(getActivity(),
-						getString(R.string.no_qr), Toast.LENGTH_SHORT);
-				toast.show();
-				Intent intentView = new Intent(getActivity(),
-						MainActivity.class);
-				startActivity(intentView);
+				productIntent.putExtra("productId", Integer.parseInt(productId));
+				startActivity(productIntent);
 			}
+		} else {
+			Toast toast = Toast.makeText(getApplicationContext(),
+					getString(R.string.no_qr), Toast.LENGTH_SHORT);
+			toast.show();
+			Intent intentView = new Intent(getApplicationContext(),
+					MainActivity.class);
+			startActivity(intentView);
 		}
+	}
 
-		private String getProductId(String content) {
-			if (content.contains("product/id/")) {
-				String[] params = content.split("product/id/");
-				String id = params[1];
-				return id;
-			}
-			return null;
+	private String getProductId(String content) {
+		if (content.contains("product/id/")) {
+			Toast.makeText(this.getApplicationContext(),
+					content, Toast.LENGTH_SHORT);
+			String[] params = content.split("product/id/");
+			String id = params[1];
+			Toast.makeText(this.getApplicationContext(),
+					id, Toast.LENGTH_SHORT);
+			return id;
 		}
+		return null;
 	}
 }

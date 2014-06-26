@@ -33,6 +33,14 @@ public class ProductParser {
 					.permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			DefaultHttpClient defaultClient = new DefaultHttpClient();
+			
+			url = url.replace("\"", "%22");
+			url = url.replace("[", "%5B");
+			url = url.replace("]", "%5D");
+			url = url.replace("{", "%7B");
+			url = url.replace("}", "%7D");
+			url = url.replace(" ", "%20");
+			
 			HttpGet httpGetRequest = new HttpGet(url);
 			HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(

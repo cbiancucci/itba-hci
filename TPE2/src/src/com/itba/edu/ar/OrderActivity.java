@@ -4,14 +4,11 @@ import java.util.List;
 
 import com.itba.edu.ar.adapter.OrderAdapter;
 import com.itba.edu.ar.model.Order;
-import com.itba.edu.ar.model.Product;
 import com.itba.edu.ar.parser.OrderParser;
-import com.itba.edu.ar.parser.ProductParser;
 import com.itba.edu.ar.utils.Utils;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -22,18 +19,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class OrderActivity extends Activity{
 	
-	
+	ProgressBar pDialog;
 	List<Order> arrayOfList;
 	ListView listView;
 	
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.order_list);
+		pDialog = (ProgressBar) findViewById(R.id.progress);
 		getActionBar().setHomeButtonEnabled(true);
 		listView = (ListView) findViewById(R.id.orderlist);
 		
@@ -58,15 +57,14 @@ public class OrderActivity extends Activity{
 	
 	class OrderTask extends AsyncTask<String, Void, Void>{
 
-		ProgressDialog pDialog;
+		
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
 
-			pDialog = new ProgressDialog(OrderActivity.this);
-			pDialog.setMessage(getString(R.string.load_orders));
-			pDialog.show();
+			//pDialog.setMessage(getString(R.string.load_order));
+			pDialog.setVisibility(View.VISIBLE);
 
 		}
 
@@ -80,12 +78,12 @@ public class OrderActivity extends Activity{
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			if (null != pDialog && pDialog.isShowing()) {
-				pDialog.dismiss();
+			if (null != pDialog && pDialog.getVisibility() == View.VISIBLE) {
+				pDialog.setVisibility(View.GONE);
 			}
-
+			
 			if (null == arrayOfList || arrayOfList.size() == 0) {
-				showToast("No data found from web!!!");
+				showToast(getText(R.string.no_data_api));
 				OrderActivity.this.finish();
 			} else {
 				setAdapterToListview();
@@ -115,8 +113,8 @@ public class OrderActivity extends Activity{
 			}
 		});
 	}
-	public void showToast(String msg) {
-		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+	public void showToast(CharSequence charSequence) {
+		Toast.makeText(getApplicationContext(), charSequence, Toast.LENGTH_LONG).show();
 	}
 	
 	@Override

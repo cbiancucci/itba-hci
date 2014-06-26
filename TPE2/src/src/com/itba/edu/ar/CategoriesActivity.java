@@ -43,6 +43,15 @@ public class CategoriesActivity extends Activity {
 		Intent intent = getIntent();
 		if(intent.hasExtra("filters")) {
 			filters = intent.getStringExtra("filters");
+			if(filters.contains("Masculino")) {
+				setTitle(R.string.masculino);
+			}
+			else if(filters.contains("Femenino")) {
+				setTitle(R.string.femenino);
+			}
+			else if(filters.contains("Infantil")) {
+				setTitle(R.string.infantil);
+			}
 		}
 		
 		mTts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -71,6 +80,7 @@ public class CategoriesActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(String... params) {
+			
 			categories = new CategoryParser().getCategories(filters);
 			return null;
 		}

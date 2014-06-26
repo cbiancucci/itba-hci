@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import ar.edu.itba.hciapi.api.Api;
 import ar.edu.itba.hciapi.api.ApiCallback;
@@ -21,13 +22,15 @@ import ar.edu.itba.hciapi.model.SignInResult;
  * well.
  */
 public class LoginActivity extends Activity {
-
+	ProgressBar pDialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// SharedPreferences data = getPreferences(MODE_PRIVATE);
 		// if(data.getString("token", defValue))
 		setContentView(R.layout.activity_login);
+		pDialog = (ProgressBar) findViewById(R.id.progress);
+		pDialog.setVisibility(View.GONE);
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		setupButton();
@@ -42,11 +45,9 @@ public class LoginActivity extends Activity {
 			public void onClick(View view) {
 				EditText editUsr = (EditText) findViewById(R.id.editUsr);
 				EditText editPass = (EditText) findViewById(R.id.editPass);
-				ProgressDialog pDialog;
-				pDialog = new ProgressDialog(LoginActivity.this);
-				pDialog.setMessage(getString(R.string.loginin));
+				
 
-				pDialog.show();
+				pDialog.setVisibility(View.VISIBLE);;
 				Api.get().signIn(editUsr.getText().toString(),
 						editPass.getText().toString(),
 						new ApiCallback<SignInResult>() {

@@ -3,14 +3,31 @@ package com.itba.edu.ar;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
+=======
+import com.itba.edu.ar.adapter.ProductsAdapter;
+import com.itba.edu.ar.model.Item;
+import com.itba.edu.ar.model.Order;
+import com.itba.edu.ar.model.Product;
+import com.itba.edu.ar.parser.OrderDetailParser;
+import com.itba.edu.ar.utils.Utils;
+
+import android.app.Activity;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+>>>>>>> c47c89e9d5147e12a8c7019efb9e44b66cf2458e
 import android.widget.TextView;
 import android.widget.Toast;
 
