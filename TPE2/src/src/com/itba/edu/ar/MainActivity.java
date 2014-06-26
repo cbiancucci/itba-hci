@@ -10,6 +10,7 @@ import android.app.PendingIntent;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -47,6 +49,7 @@ public class MainActivity extends Activity implements
 	private CharSequence mTitle;
 	private String[] navMenuTitles;
 	private TypedArray navMenuIcons;
+	SharedPreferences saveData;
 
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
@@ -56,6 +59,7 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
 		setContentView(R.layout.activity_main);
+		saveData = getSharedPreferences("login", MODE_PRIVATE);
 
 		// mTitle = mDrawerTitle = getTitle();
 		navMenuTitles = getResources().getStringArray(R.array.menu_options);
@@ -187,8 +191,8 @@ public class MainActivity extends Activity implements
 			return true;
 		case R.id.action_settings:
 			Intent order = new Intent(this, UserSettingActivity.class);
-            startActivity(order);
-            return true;
+			startActivity(order);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -221,6 +225,8 @@ public class MainActivity extends Activity implements
 		Fragment fragment = new BGFragment();
 		Bundle args = new Bundle();
 		args.putInt(BGFragment.ITEM_NUMBER, position);
+		args.putString("user", getSharedPreferences("login", MODE_PRIVATE)
+				.getString("user", "none user"));
 		fragment.setArguments(args);
 
 		FragmentManager fragmentManager = getFragmentManager();
@@ -263,6 +269,7 @@ public class MainActivity extends Activity implements
 	 */
 	public static class BGFragment extends Fragment {
 		public static final String ITEM_NUMBER = "item_number";
+		SharedPreferences saveData;
 
 		public BGFragment() {
 			// Empty constructor required for fragment subclasses
@@ -274,16 +281,25 @@ public class MainActivity extends Activity implements
 			setHasOptionsMenu(true);
 			View rootView = null;
 			int i = getArguments().getInt(ITEM_NUMBER);
+			String user = getArguments().getString("user");
 			getActivity().setTitle(R.string.app_name);
 			rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
 
 			Button btnLogin = (Button) rootView.findViewById(R.id.btnLogin);
+			TextView welcome = (TextView) rootView.findViewById(R.id.welcome);
+			if (user != null) {
+				String change_user = (String) getText(R.string.change_user);
+				btnLogin.setText(change_user);
+				welcome.setText(getText(R.string.welcome) + " : " + user);
+			}
+			// ACA HACER LA PREGUNTA
 			btnLogin.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent i = new Intent(getActivity()
-							.getApplicationContext(), LoginActivity.class);
+					Intent i = new Intent(
+							getActivity().getApplicationContext(),
+							LoginActivity.class);
 					startActivity(i);
 				}
 			});
@@ -297,20 +313,49 @@ public class MainActivity extends Activity implements
 						.getApplicationContext(), CategoriesActivity.class);
 				startActivity(intent);
 				break;
+			case 2:
+				getActivity().setTitle(R.string.masculino);
+				Intent intentMale = new Intent(getActivity()
+						.getApplicationContext(), CategoriesActivity.class);
+				intentMale.putExtra("filters", "[{\"id\":2,\"value\":\"Masculino\"}]");
+				startActivity(intentMale);
+				break;
+			case 3:
+				getActivity().setTitle(R.string.femenino);
+				Intent intentFemale = new Intent(getActivity()
+						.getApplicationContext(), CategoriesActivity.class);
+				intentFemale.putExtra("filters", "[{\"id\":1,\"value\":\"Femenino\"}]");
+				startActivity(intentFemale);
+				break;
+			case 4:
+				getActivity().setTitle(R.string.infantil);
+				Intent intentChild = new Intent(getActivity()
+						.getApplicationContext(), CategoriesActivity.class);
+				intentChild.putExtra("filters", "[{\"id\":2,\"value\":\"Infantil\"}]");
+				startActivity(intentChild);
+				break;
 			case 5:
 				Intent settings = new Intent(getActivity(), OrderActivity.class);
-	            startActivity(settings);
-	            break;
-			case 8:
+				startActivity(settings);
+				break;
+			case 6:
+				getActivity().setTitle(R.string.sales);
+				Intent intentSale = new Intent(getActivity()
+						.getApplicationContext(), ProductListActivity.class);
+				intentSale.putExtra("url", "http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllProducts&filters=[{\"id\":5,\"value\":\"Oferta\"}]&pageSize=100");
+				startActivity(intentSale);
+				break;
+			case 7:
 				IntentIntegrator scanIntegrator = new IntentIntegrator(
 						getActivity());
 				scanIntegrator.initiateScan();
 				break;
+			case 8:
+				Intent order = new Intent(getActivity(),
+						UserSettingActivity.class);
+				startActivity(order);
+				break;
 			case 9:
-				Intent order = new Intent(getActivity(), UserSettingActivity.class);
-	            startActivity(order);
-	            break;
-			case 10:
 				Intent login = new Intent(getActivity(), LoginActivity.class);
 				startActivity(login);
 				break;
@@ -328,30 +373,38 @@ public class MainActivity extends Activity implements
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		IntentResult scanningResult = IntentIntegrator.parseActivityResult(
 				requestCode, resultCode, intent);
-		
+
 		if (scanningResult != null) {
-			Intent productIntent = new Intent(getApplicationContext(), ProductViewActivity.class);
+			Intent productIntent = new Intent(getApplicationContext(),
+					ProductViewActivity.class);
 			String productId = getProductId(scanningResult.getContents());
-			if(productId == null) {
-				Toast.makeText(this.getApplicationContext(), getString(R.string.no_data_api), Toast.LENGTH_SHORT);
+			if (productId == null) {
+				Toast.makeText(this.getApplicationContext(),
+						getString(R.string.no_data_api), Toast.LENGTH_SHORT);
 				return;
+			} else {
+				productIntent.putExtra("productId", Integer.parseInt(productId));
+				startActivity(productIntent);
 			}
-			productIntent.putExtra("productId", productId);
-			startActivity(productIntent);
-		}
-		else {
+		} else {
 			Toast toast = Toast.makeText(getApplicationContext(),
 					getString(R.string.no_qr), Toast.LENGTH_SHORT);
-			toast.show();	
+			toast.show();
 			Intent intentView = new Intent(getApplicationContext(),
 					MainActivity.class);
 			startActivity(intentView);
 		}
 	}
-	
+
 	private String getProductId(String content) {
-		if(content.contains("product/id/")) {
-			return content.split("product/id/")[1];
+		if (content.contains("product/id/")) {
+			Toast.makeText(this.getApplicationContext(),
+					content, Toast.LENGTH_SHORT);
+			String[] params = content.split("product/id/");
+			String id = params[1];
+			Toast.makeText(this.getApplicationContext(),
+					id, Toast.LENGTH_SHORT);
+			return id;
 		}
 		return null;
 	}

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 public class Utils {
 	public static boolean isNetworkAvailable(Activity activity) {
@@ -22,6 +23,13 @@ public class Utils {
 			}
 		}
 		return false;
+	}
+	
+	public static String getString(Context context, String string) {
+		String s = string.trim().toLowerCase().replace("-", "_").replace(" ", "_");
+		int resourceId = context.getResources().getIdentifier(s, "string", context.getPackageName());
+		Log.d("STRING", "ME PEDISTE " + string);
+		return context.getString(resourceId);
 	}
 
 }

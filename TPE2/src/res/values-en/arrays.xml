@@ -30,7 +30,6 @@
         <item>@drawable/ic_kids</item>
         <item>@drawable/ic_orders</item>
         <item>@drawable/ic_sales</item>
-        <item>@drawable/ic_notification</item>
         <item>@drawable/ic_qr</item>
         <item>@drawable/ic_action_settings</item>
         <item>@drawable/ic_user</item>
@@ -44,7 +43,6 @@
         <item>Child</item>
         <item>Orders</item>
         <item>Sales</item>
-        <item>Notifications</item>
         <item>QR scanner</item>
         <item>Settings</item>
         <item>Login</item>

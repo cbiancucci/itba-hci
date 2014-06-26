@@ -191,10 +191,15 @@ public class ProductViewActivity extends Activity implements ViewFactory {
 		        lp.setMargins(0, 15, 0, 15);
 		        row.setLayoutParams(lp);
 		        key = new TextView(this);
-		        key.setText(attributes[i].contains("-") ? attributes[i].split("-")[0] : attributes[i]);
+		        //key.setText(attributes[i].contains("-") ? attributes[i].split("-")[0] : attributes[i]);
+		        key.setText(Utils.getString(this, attributes[i]));
 		        key.setTypeface(null, Typeface.BOLD);
 		        value = new TextView(this);
-		        value.setText(attVal);
+		        if(attributes[i].equals("Marca") || attributes[i].contains("-")) {
+		        	value.setText(attVal);	
+		        } else {
+		        	value.setText(Utils.getString(this, attVal));	
+		        }
 		        row.addView(key);
 		        row.addView(value);
 		        ll.addView(row,cantRows);

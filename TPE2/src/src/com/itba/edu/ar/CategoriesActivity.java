@@ -1,7 +1,6 @@
 package com.itba.edu.ar;
 
 import java.util.List;
-import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -32,6 +31,7 @@ public class CategoriesActivity extends Activity {
 	private List<Category> categories;
 	ProgressBar pBar;
 	ListView listView;
+	String filters = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,10 +40,16 @@ public class CategoriesActivity extends Activity {
 		listView = (ListView) findViewById(R.id.categories);
 		pBar = (ProgressBar) findViewById(R.id.category_bar);
 
+		Intent intent = getIntent();
+		if(intent.hasExtra("filters")) {
+			filters = intent.getStringExtra("filters");
+		}
+		
 		mTts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
-				mTts.setLanguage(new Locale("spa", "ESP"));
+				android.content.res.Configuration conf = getResources().getConfiguration();
+				mTts.setLanguage(conf.locale);
 			}
 		});
 
@@ -65,7 +71,7 @@ public class CategoriesActivity extends Activity {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			categories = new CategoryParser().getCategories();
+			categories = new CategoryParser().getCategories(filters);
 			return null;
 		}
 

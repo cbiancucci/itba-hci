@@ -32,6 +32,9 @@ public class ProductListActivity extends Activity {
 	ListView listView;
 	ProgressBar pBar;
 	private TextToSpeech mTts;
+	
+	String url = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,17 +43,32 @@ public class ProductListActivity extends Activity {
 		listView = (ListView) findViewById(R.id.listview);
 		pBar = (ProgressBar) findViewById(R.id.progress);
 		
+		Intent intent = getIntent();
+		if(intent.hasExtra("url")){
+			url = intent.getStringExtra("url");
+		}
+		
 		mTts = new TextToSpeech(this,
 				new TextToSpeech.OnInitListener() {
 					@Override
 					public void onInit(int status) {
-						mTts.setLanguage(new Locale("spa", "ESP"));
+						android.content.res.Configuration conf = getResources().getConfiguration();
+						mTts.setLanguage(conf.locale);
 					}
 				});
 		
-		if (Utils.isNetworkAvailable(ProductListActivity.this) && getIntent().hasExtra("subcategory")) {
-			Subcategory subcat = getIntent().getParcelableExtra("subcategory");
-			new MyTask().execute(jsonURL.replace("{subcatId}", subcat.getId().toString()));
+		if (Utils.isNetworkAvailable(ProductListActivity.this)) {
+			if(url != null) {
+				if(url.contains("Oferta")) {
+					setTitle(R.string.sales);
+				}
+				new MyTask().execute(url);
+			} else if(getIntent().hasExtra("subcategory")){
+				Subcategory subcat = getIntent().getParcelableExtra("subcategory");
+				new MyTask().execute(jsonURL.replace("{subcatId}", subcat.getId().toString()));	
+			} else {
+				new MyTask().execute("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllProducts");
+			}
 		} else {
 			showToast(getString(R.string.no_network));
 		}

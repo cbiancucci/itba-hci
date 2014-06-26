@@ -18,6 +18,23 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical" >
+    
+                <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/ubication_info"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/bgcolor"
+            android:typeface="sans" />
+
+        <View style="@style/Divider" />
+        
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            class="com.google.android.gms.maps.SupportMapFragment" />
         
         <TextView
             android:id="@+id/tvheaderhist"
@@ -198,22 +215,7 @@
                 android:choiceMode="singleChoice" >
             </ListView>
         
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:text="@string/ubication_info"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/bgcolor"
-            android:typeface="sans" />
 
-        <View style="@style/Divider" />
-        
-        <fragment
-            android:id="@+id/map"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            class="com.google.android.gms.maps.SupportMapFragment" />
         
     </LinearLayout>
     

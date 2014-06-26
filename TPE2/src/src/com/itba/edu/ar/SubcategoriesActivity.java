@@ -1,7 +1,6 @@
 package com.itba.edu.ar;
 
 import java.util.List;
-import java.util.Locale;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -42,7 +41,8 @@ public class SubcategoriesActivity extends FragmentActivity {
 		mTts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
-				mTts.setLanguage(new Locale("spa", "ESP"));
+				android.content.res.Configuration conf = getResources().getConfiguration();
+				mTts.setLanguage(conf.locale);
 			}
 		});
 
@@ -50,7 +50,7 @@ public class SubcategoriesActivity extends FragmentActivity {
 
 			if (Utils.isNetworkAvailable(SubcategoriesActivity.this)) {
 				Category category = getIntent().getParcelableExtra("category");
-				setTitle(category.getName());
+				setTitle(Utils.getString(this, category.getName()));
 				new MyTask(category).execute();
 			} else {
 				showToast(getString(R.string.no_network));
@@ -149,9 +149,6 @@ public class SubcategoriesActivity extends FragmentActivity {
 			startActivity(order);
 			return true;
 		case R.id.filter_bg:
-			android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-	        CustomDialog editNameDialog = new CustomDialog();
-	        editNameDialog.show(fm, "fragment_edit_name");
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

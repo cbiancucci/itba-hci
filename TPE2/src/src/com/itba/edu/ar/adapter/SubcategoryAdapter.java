@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.itba.edu.ar.model.Subcategory;
+import com.itba.edu.ar.utils.Utils;
 
 public class SubcategoryAdapter extends ArrayAdapter {
 	Activity context;
@@ -31,9 +32,7 @@ public class SubcategoryAdapter extends ArrayAdapter {
 		LayoutInflater inflater = context.getLayoutInflater();
 		View row = inflater.inflate(layoutId, null);
 		TextView label = (TextView) row.findViewById(textId);
-
-		label.setText(items.get(pos).getName());
-
+		label.setText(Utils.getString(context, items.get(pos).getName()));	
 		return (row);
 	}
 }

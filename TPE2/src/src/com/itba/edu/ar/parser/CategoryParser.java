@@ -18,13 +18,14 @@ import com.itba.edu.ar.model.Category;
 
 public class CategoryParser {
 
-	public List<Category> getCategories() {
+	public List<Category> getCategories(String filters) {
 		List<Category> categories = new ArrayList<Category>();
 		try {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 			StrictMode.setThreadPolicy(policy);
 			DefaultHttpClient defaultClient = new DefaultHttpClient();
-			HttpGet httpGetRequest = new HttpGet("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllCategories");
+			HttpGet httpGetRequest = new HttpGet("http://eiffel.itba.edu.ar/hci/service3/Catalog.groovy?method=GetAllCategories"
+					+ (filters != null ? "&filters=" + filters : ""));
 			HttpResponse httpResponse = defaultClient.execute(httpGetRequest);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					httpResponse.getEntity().getContent(), "UTF-8"));

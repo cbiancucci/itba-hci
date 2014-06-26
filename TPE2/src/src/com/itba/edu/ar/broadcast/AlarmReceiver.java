@@ -29,7 +29,6 @@ import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.itba.edu.ar.MainActivity;
 import com.itba.edu.ar.OrderActivity;
@@ -335,7 +334,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		NotificationManager mNotificationManager = (NotificationManager) context
 				.getSystemService(Context.NOTIFICATION_SERVICE);
 
-		mNotificationManager.notify(UPDATE_NOTIFICATION_ID, notif.build());
+		mNotificationManager.notify(number, notif.build());
 
 	}
 }
